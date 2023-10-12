@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Dossier;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Report extends Model
 {
@@ -35,5 +37,10 @@ class Report extends Model
     public function images(): MorphMany
     {
         return $this->morphMany(Image::class, 'imageable');
+    }
+
+    public function dossiers(): BelongsToMany
+    {
+        return $this->belongsToMany(Dossier::class);
     }
 }

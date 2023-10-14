@@ -2,19 +2,16 @@
 
 namespace Tests\Feature\Auth;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class RegisterTest extends TestCase
 {
-    use RefreshDatabase;
-
     public function test_user_can_register_with_valid_data()
     {
         $response = $this->postJson('/api/v1/auth/register', [
-            'email' => 'test@email.com',
-            'password' => 'testpassword',
-            'password_confirmation' => 'testpassword'
+            'email' => 'user@user.com',
+            'password' => 'password',
+            'password_confirmation' => 'password'
         ]);
 
         $response
@@ -25,8 +22,8 @@ class RegisterTest extends TestCase
     public function test_user_cannot_register_with_invalid_data()
     {
         $response = $this->postJson('/api/v1/auth/register', [
-            'email' => 'test@email.com',
-            'password' => 'testpassword',
+            'email' => 'user@user.com',
+            'password' => 'password',
             'password_confirmation' => 'wrongpassword'
         ]);
 

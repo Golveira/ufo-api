@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\V1\Auth\LoginController;
 use App\Http\Controllers\Api\V1\Auth\RegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,7 +22,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::prefix('v1')->group(function () {
+    // Auth routes
     Route::prefix('auth')->group(function () {
         Route::post('/register', [RegisterController::class, 'store'])->name('register');
+        Route::post('/login', [LoginController::class, 'store'])->name('login');
+
+        Route::middleware('auth:sanctum')->group(function () {
+            Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
+        });
     });
 });

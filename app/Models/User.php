@@ -8,6 +8,8 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -31,14 +33,19 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function reports()
+    public function reports(): HasMany
     {
         return $this->hasMany(Report::class);
     }
 
-    public function dossiers()
+    public function dossiers(): HasMany
     {
         return $this->hasMany(Dossier::class);
+    }
+
+    public function bookmarks(): HasMany
+    {
+        return $this->hasMany(Bookmark::class);
     }
 
     public static function generateUsername()

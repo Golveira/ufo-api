@@ -36,7 +36,6 @@ class UserSeeder extends Seeder
                             ->count(3)
                             ->has(Image::factory()->count(1))
                     )
-                    ->has(Like::factory()->count(10))
             )
             ->create();
     }

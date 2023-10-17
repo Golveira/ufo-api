@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\ReportListRequest;
-use App\Http\Resources\ReportResource;
 use App\Models\Report;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\ReportResource;
+use App\Http\Requests\ReportListRequest;
 
 class ReportController extends Controller
 {
@@ -16,5 +16,10 @@ class ReportController extends Controller
             ->paginate();
 
         return ReportResource::collection($reports);
+    }
+
+    public function show(Report $report)
+    {
+        return new ReportResource($report);
     }
 }

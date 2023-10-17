@@ -122,4 +122,22 @@ class ReportTest extends TestCase
             ->assertJsonPath('data.1.date', "2010-01-01")
             ->assertJsonPath('data.2.date', "2000-01-01");
     }
+
+    public function test_report_is_showed_with_valid_id(): void
+    {
+        $report = Report::factory()->create();
+
+        $this->get("api/v1/reports/$report->id")
+            ->assertOk()
+            ->assertJsonFragment(['id' => $report->id]);
+    }
+
+    public function test_report_is_not_showed_with_invalid_id(): void
+    {
+        Report::factory()->create();
+
+        $this->get("api/v1/reports/123456789")
+            ->assertNotFound()
+            ->assertJson(['message' => 'Resource not found']);
+    }
 }

@@ -43,4 +43,35 @@ class Report extends Model
     {
         return $this->belongsToMany(Dossier::class);
     }
+
+    public function scopeSearch($query, array $filters)
+    {
+        return $query
+            ->when($filters['keywords'] ?? false, function ($query) use ($filters) {
+                return $query->where(function ($query) use ($filters) {
+                    $query->where('summary', 'like', '%' . $filters['keywords'] . '%')
+                        ->orWhere('details', 'like', '%' . $filters['keywords'] . '%');
+                });
+            })
+            ->when($filters['country'] ?? false, function ($query) use ($filters) {
+                return $query->where('country', $filters['country']);
+            })
+            ->when($filters['state'] ?? false, function ($query) use ($filters) {
+                return $query->where('state', $filters['state']);
+            })
+            ->when($filters['city'] ?? false, function ($query) use ($filters) {
+                return $query->where('city', $filters['city']);
+            })
+            ->when($filters['dateFrom'] ?? false, function ($query) use ($filters) {
+                return $query->where('date', '>=', $filters['dateFrom']);
+            })
+            ->when($filters['dateTo'] ?? false, function ($query) use ($filters) {
+                return $query->where('date', '<=', $filters['dateTo']);
+            })
+            ->when($filters['sortBy'] ?? false, function ($query) use ($filters) {
+                return $query->orderBy($filters['sortBy'], $filters['sortOrder'] ?? 'asc');
+            }, function ($query) {
+                return $query->latest();
+            });
+    }
 }

@@ -1,0 +1,41 @@
+<?php
+
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+
+class ReportListRequest extends FormRequest
+{
+    public function authorize(): bool
+    {
+        return true;
+    }
+
+    public function rules(): array
+    {
+        return [
+            'keywords' => ['string', 'min:3'],
+            'country' => ['string'],
+            'state' => ['string'],
+            'city' => ['string'],
+            'dateFrom' => ['date'],
+            'dateTo' => ['date', 'after:dateFrom'],
+            'sortBy' => ['string', Rule::in(['date'])],
+            'sortOrder' => ['string', Rule::in(['asc', 'desc'])]
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'keywords.min' => 'The keywords must be at least 3 characters',
+            'country.string' => 'The country cannot be empty',
+            'state.string' => 'The state cannot be empty',
+            'city.string' => 'The city cannot be empty',
+            'dateFrom.date' => 'The dateFrom must be a valid date',
+            'dateTo.date' => 'The dateTo must be a valid date',
+            'dateTo.after' => 'The dateTo must be after the dateFrom'
+        ];
+    }
+}

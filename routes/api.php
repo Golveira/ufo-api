@@ -25,6 +25,11 @@ Route::prefix('v1')->group(function () {
     // Reports
     Route::apiResource('reports', ReportController::class)->only('index', 'show');
 
+    Route::middleware('auth:sanctum')->group(function () {
+        // Reports
+        Route::apiResource('reports', ReportController::class)->only('store', 'update', 'destroy');
+    });
+
     // Auth routes
     Route::prefix('auth')->group(function () {
         Route::post('/register', [RegisterController::class, 'store'])->name('register');

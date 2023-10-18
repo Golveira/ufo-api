@@ -2,8 +2,10 @@
 
 namespace Tests\Feature;
 
-use App\Models\Report;
 use Tests\TestCase;
+use App\Models\User;
+use App\Models\Report;
+use Laravel\Sanctum\Sanctum;
 
 class ReportTest extends TestCase
 {
@@ -139,5 +141,52 @@ class ReportTest extends TestCase
         $this->get("api/v1/reports/123456789")
             ->assertNotFound()
             ->assertJson(['message' => 'Resource not found']);
+    }
+
+    public function test_unauthenticated_user_cannot_create_report(): void
+    {
+        $this->postJson("api/v1/reports")
+            ->assertUnauthorized();
+    }
+
+    public function test_authenticated_user_can_create_report_with_valid_data(): void
+    {
+        $user = User::factory()->create();
+        $reportData = $this->validData();
+
+        Sanctum::actingAs($user);
+
+        $this->postJson("api/v1/reports", $reportData)
+            ->assertCreated()
+            ->assertJsonFragment($reportData);
+
+        $this->assertDatabaseHas('reports', $reportData);
+    }
+
+    public function test_authenticated_user_cannot_create_report_with_invalid_data(): void
+    {
+        $user = User::factory()->create();
+
+        Sanctum::actingAs($user);
+
+        $this->postJson("api/v1/reports", [])
+            ->assertUnprocessable();
+    }
+
+    private function validData(): array
+    {
+        return [
+            'summary' => 'report summary',
+            'details' => 'report details',
+            'country' => 'test country',
+            'state' => 'test state',
+            'city' => 'test city',
+            'lat' => '15.5',
+            'long' => '25.5',
+            'date' => '2000-01-01',
+            'duration' => 5,
+            'number_of_observers' => 1,
+            'object_shape' => 'round'
+        ];
     }
 }

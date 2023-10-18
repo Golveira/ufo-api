@@ -8,6 +8,7 @@ use App\Http\Resources\ReportResource;
 use App\Http\Requests\ReportListRequest;
 use App\Http\Requests\ReportRequest;
 use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Http\Response;
 
 class ReportController extends Controller
 {
@@ -42,5 +43,14 @@ class ReportController extends Controller
         $report->update($request->validated());
 
         return new ReportResource($report);
+    }
+
+    public function destroy(Report $report): Response
+    {
+        $this->authorize('delete', $report);
+
+        $report->delete();
+
+        return response()->noContent();
     }
 }

@@ -185,11 +185,10 @@ class ReportTest extends TestCase
     {
         $user = User::factory()->create();
         $report = Report::factory()->create();
-        $reportData = $this->validData();
 
         Sanctum::actingAs($user);
 
-        $this->putJson("api/v1/reports/$report->id", $reportData)
+        $this->putJson("api/v1/reports/$report->id", $this->validData())
             ->assertForbidden();
     }
 
@@ -217,6 +216,38 @@ class ReportTest extends TestCase
 
         $this->putJson("api/v1/reports/$report->id", [])
             ->assertUnprocessable();
+    }
+
+    public function test_unauthenticated_user_cannot_delete_report(): void
+    {
+        $report = Report::factory()->create();
+
+        $this->deleteJson("api/v1/reports/$report->id")
+            ->assertUnauthorized();
+    }
+
+    public function test_authenticated_user_cannot_delete_report_from_another_user(): void
+    {
+        $user = User::factory()->create();
+        $report = Report::factory()->create();
+
+        Sanctum::actingAs($user);
+
+        $this->deleteJson("api/v1/reports/$report->id")
+            ->assertForbidden();
+    }
+
+    public function test_authenticated_user_can_delete_report(): void
+    {
+        $user = User::factory()->create();
+        $report = Report::factory()->create(['user_id' => $user->id]);
+
+        Sanctum::actingAs($user);
+
+        $this->deleteJson("api/v1/reports/$report->id")
+            ->assertNoContent();
+
+        $this->assertDatabaseMissing('reports', ['id' => $report->id]);
     }
 
     private function validData(): array

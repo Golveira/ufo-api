@@ -7,11 +7,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\ReportResource;
 use App\Http\Requests\ReportListRequest;
 use App\Http\Requests\ReportRequest;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class ReportController extends Controller
 {
-    public function index(ReportListRequest $request): AnonymousResourceCollection
+    public function index(ReportListRequest $request): ResourceCollection
     {
         $reports = Report::query()
             ->search($request->validated())
@@ -32,6 +32,15 @@ class ReportController extends Controller
 
     public function show(Report $report): ReportResource
     {
+        return new ReportResource($report);
+    }
+
+    public function update(ReportRequest $request, Report $report): ReportResource
+    {
+        $this->authorize('update', $report);
+
+        $report->update($request->validated());
+
         return new ReportResource($report);
     }
 }

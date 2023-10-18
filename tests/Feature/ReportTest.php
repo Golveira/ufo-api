@@ -173,6 +173,52 @@ class ReportTest extends TestCase
             ->assertUnprocessable();
     }
 
+    public function test_unauthenticated_user_cannot_update_report(): void
+    {
+        $report = Report::factory()->create();
+
+        $this->putJson("api/v1/reports/$report->id")
+            ->assertUnauthorized();
+    }
+
+    public function test_authenticated_user_cannot_update_report_from_another_user(): void
+    {
+        $user = User::factory()->create();
+        $report = Report::factory()->create();
+        $reportData = $this->validData();
+
+        Sanctum::actingAs($user);
+
+        $this->putJson("api/v1/reports/$report->id", $reportData)
+            ->assertForbidden();
+    }
+
+    public function test_authenticated_user_can_update_report_with_valid_data(): void
+    {
+        $user = User::factory()->create();
+        $report = Report::factory()->create(['user_id' => $user->id]);
+        $reportData = $this->validData();
+
+        Sanctum::actingAs($user);
+
+        $this->putJson("api/v1/reports/$report->id", $reportData)
+            ->assertOk()
+            ->assertJsonFragment($reportData);
+
+        $this->assertDatabaseHas('reports', $reportData);
+    }
+
+    public function test_authenticated_user_cannot_update_report_with_invalid_data(): void
+    {
+        $user = User::factory()->create();
+        $report = Report::factory()->create(['user_id' => $user->id]);
+
+        Sanctum::actingAs($user);
+
+        $this->putJson("api/v1/reports/$report->id", [])
+            ->assertUnprocessable();
+    }
+
     private function validData(): array
     {
         return [

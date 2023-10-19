@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Dossier;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Report;
@@ -29,6 +30,16 @@ class ReportTest extends TestCase
             ->assertJsonCount(1, 'data')
             ->assertJsonPath('meta.last_page', 1)
             ->assertJsonFragment(['id' => $report->id]);
+    }
+
+    public function test_dossier_reports_are_listed_with_pagination(): void
+    {
+        $dossier = Dossier::factory()->has(Report::factory(3))->create();
+
+        $this->get("api/v1/dossiers/$dossier->id/reports")
+            ->assertOk()
+            ->assertJsonCount(3, 'data')
+            ->assertJsonPath('meta.last_page', 1);
     }
 
     public function test_report_is_showed_with_valid_id(): void

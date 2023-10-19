@@ -15,4 +15,11 @@ class DossierController extends Controller
             Dossier::with('user')->withCount('reports')->latest()->paginate()
         );
     }
+
+    public function show(Dossier $dossier): DossierResource
+    {
+        return new DossierResource(
+            $dossier->load('user')->loadCount('reports')
+        );
+    }
 }

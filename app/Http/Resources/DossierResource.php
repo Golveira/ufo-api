@@ -11,14 +11,13 @@ class DossierResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'user_id' => $this->user_id,
             'title' => $this->title,
             'description' => $this->description,
             'reports_count' => $this->whenCounted('reports'),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
+            'user_id' => $this->user_id,
             'user' => new UserResource($this->whenLoaded('user')),
-            'reports' => ReportResource::collection($this->whenLoaded('reports')),
         ];
     }
 }

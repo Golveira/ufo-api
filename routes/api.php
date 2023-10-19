@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\V1\Auth\RegisterController;
 use App\Http\Controllers\Api\V1\DossierController;
 use App\Http\Controllers\Api\V1\DossierReportController;
 use App\Http\Controllers\Api\V1\ReportController;
+use App\Http\Controllers\Api\V1\UserDossierController;
 use App\Http\Controllers\Api\V1\UserReportController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,7 @@ Route::prefix('v1')->group(function () {
 
     // Dossiers
     Route::apiResource('dossiers', DossierController::class)->only(['index', 'show']);
+    Route::apiResource('users.dossiers', UserDossierController::class)->only('index');
 
     Route::middleware('auth:sanctum')->group(function () {
         // Reports

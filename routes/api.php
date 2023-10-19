@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\V1\Auth\LoginController;
 use App\Http\Controllers\Api\V1\Auth\RegisterController;
+use App\Http\Controllers\Api\V1\DossierController;
 use App\Http\Controllers\Api\V1\ReportController;
 use App\Http\Controllers\Api\V1\UserReportController;
 use Illuminate\Http\Request;
@@ -15,6 +16,9 @@ Route::prefix('v1')->group(function () {
     // Reports
     Route::apiResource('reports', ReportController::class)->only(['index', 'show']);
     Route::apiResource('users.reports', UserReportController::class)->only('index');
+
+    // Dossiers
+    Route::apiResource('dossiers', DossierController::class)->only(['index', 'show']);
 
     Route::middleware('auth:sanctum')->group(function () {
         // Reports

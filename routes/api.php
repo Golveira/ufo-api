@@ -27,6 +27,9 @@ Route::prefix('v1')->group(function () {
     Route::middleware('auth:sanctum')->group(function () {
         // Reports
         Route::apiResource('reports', ReportController::class)->only(['store', 'update', 'destroy']);
+
+        // Dossiers
+        Route::apiResource('dossiers', DossierController::class)->only(['store', 'update', 'destroy']);
     });
 
     // Auth routes

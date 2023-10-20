@@ -58,6 +58,50 @@ class DossierTest extends TestCase
             ->assertUnprocessable();
     }
 
+    public function test_unauthenticated_user_cannot_update_dossier(): void
+    {
+        $dossier = Dossier::factory()->create();
+
+        $this->putJson("api/v1/dossiers/$dossier->id")
+            ->assertUnauthorized();
+    }
+
+    public function test_authenticated_user_can_update_dossier_with_valid_data(): void
+    {
+        $user = User::factory()->create();
+        $dossier = Dossier::factory()->create(['user_id' => $user->id]);
+        $dossierData = $this->validData();
+
+        Sanctum::actingAs($user);
+
+        $this->putJson("api/v1/dossiers/$dossier->id", $dossierData)
+            ->assertOk()
+            ->assertJsonFragment($dossierData);
+    }
+
+    public function test_authenticated_user_cannot_update_dossier_with_invalid_data(): void
+    {
+        $user = User::factory()->create();
+        $dossier = Dossier::factory()->create(['user_id' => $user->id]);
+
+        Sanctum::actingAs($user);
+
+        $this->putJson("api/v1/dossiers/$dossier->id", [])
+            ->assertUnprocessable();
+    }
+
+    public function test_authenticated_user_cannot_update_dossier_from_another_user(): void
+    {
+        $user = User::factory()->create();
+        $dossier = Dossier::factory()->create();
+        $dossierData = $this->validData();
+
+        Sanctum::actingAs($user);
+
+        $this->putJson("api/v1/dossiers/$dossier->id", $dossierData)
+            ->assertForbidden();
+    }
+
     private function validData(): array
     {
         return [

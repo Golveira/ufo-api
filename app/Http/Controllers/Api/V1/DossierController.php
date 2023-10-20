@@ -30,4 +30,13 @@ class DossierController extends Controller
             $dossier->load('user')->loadCount('reports')
         );
     }
+
+    public function update(DossierRequest $request, Dossier $dossier): DossierResource
+    {
+        $this->authorize('update', $dossier);
+
+        $dossier->update($request->validated());
+
+        return new DossierResource($dossier);
+    }
 }

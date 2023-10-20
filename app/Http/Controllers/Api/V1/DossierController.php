@@ -7,6 +7,7 @@ use App\Http\Requests\DossierRequest;
 use App\Http\Resources\DossierResource;
 use App\Models\Dossier;
 use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Http\Response;
 
 class DossierController extends Controller
 {
@@ -38,5 +39,14 @@ class DossierController extends Controller
         $dossier->update($request->validated());
 
         return new DossierResource($dossier);
+    }
+
+    public function destroy(Dossier $dossier): Response
+    {
+        $this->authorize('delete', $dossier);
+
+        $dossier->delete();
+
+        return response()->noContent();
     }
 }

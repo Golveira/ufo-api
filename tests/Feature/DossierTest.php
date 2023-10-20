@@ -102,6 +102,38 @@ class DossierTest extends TestCase
             ->assertForbidden();
     }
 
+    public function test_unauthenticated_user_cannot_delete_dossier(): void
+    {
+        $dossier = Dossier::factory()->create();
+
+        $this->deleteJson("api/v1/dossiers/$dossier->id")
+            ->assertUnauthorized();
+    }
+
+    public function test_authenticated_user_can_delete_dossier(): void
+    {
+        $user = User::factory()->create();
+        $dossier = Dossier::factory()->create(['user_id' => $user->id]);
+
+        Sanctum::actingAs($user);
+
+        $this->deleteJson("api/v1/dossiers/$dossier->id")
+            ->assertNoContent();
+
+        $this->assertDatabaseMissing('dossiers', ['id' => $dossier->id]);
+    }
+
+    public function test_authenticated_user_cannot_delete_dossier_from_another_user(): void
+    {
+        $user = User::factory()->create();
+        $dossier = Dossier::factory()->create();
+
+        Sanctum::actingAs($user);
+
+        $this->deleteJson("api/v1/dossiers/$dossier->id")
+            ->assertForbidden();
+    }
+
     private function validData(): array
     {
         return [

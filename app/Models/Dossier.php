@@ -27,4 +27,21 @@ class Dossier extends Model
     {
         return $this->belongsToMany(Report::class);
     }
+
+    public function addReport(string $reportId): void
+    {
+        if (!$this->hasReport($reportId)) {
+            $this->reports()->attach($reportId);
+        }
+    }
+
+    public function removeReport(string $reportId): void
+    {
+        $this->reports()->detach($reportId);
+    }
+
+    public function hasReport(string $reportId): bool
+    {
+        return $this->reports()->where('report_id', $reportId)->exists();
+    }
 }

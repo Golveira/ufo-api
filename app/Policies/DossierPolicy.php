@@ -16,4 +16,14 @@ class DossierPolicy
     {
         return $dossier->user()->is($user);
     }
+
+    public function addReport(User $user, Dossier $dossier): bool
+    {
+        return $dossier->user()->is($user);
+    }
+
+    public function removeReport(User $user, Dossier $dossier): bool
+    {
+        return $dossier->user()->is($user);
+    }
 }

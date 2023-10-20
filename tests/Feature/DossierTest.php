@@ -134,6 +134,66 @@ class DossierTest extends TestCase
             ->assertForbidden();
     }
 
+    public function test_user_can_add_report_to_dossier(): void
+    {
+        $user = User::factory()->create();
+        $dossier = Dossier::factory()->create(['user_id' => $user->id]);
+        $report = Report::factory()->create();
+
+        Sanctum::actingAs($user);
+
+        $this->postJson("api/v1/dossiers/$dossier->id/reports", [
+            'report_id' => $report->id
+        ])
+            ->assertNoContent();
+
+        $dossier->refresh();
+
+        $this->assertTrue($dossier->reports->contains($report));
+    }
+
+    public function test_user_cannot_add_report_to_dossier_from_another_user(): void
+    {
+        $user = User::factory()->create();
+        $dossier = Dossier::factory()->create();
+        $report = Report::factory()->create();
+
+        Sanctum::actingAs($user);
+
+        $this->postJson("api/v1/dossiers/$dossier->id/reports", [
+            'report_id' => $report->id
+        ])
+            ->assertForbidden();
+    }
+
+    public function test_user_can_remove_report_from_dossier(): void
+    {
+        $user = User::factory()->create();
+        $dossier = Dossier::factory()->has(Report::factory())->create(['user_id' => $user->id]);
+        $report = $dossier->reports->first();
+
+        Sanctum::actingAs($user);
+
+        $this->deleteJson("api/v1/dossiers/$dossier->id/reports/$report->id")
+            ->assertNoContent();
+
+        $dossier->refresh();
+
+        $this->assertTrue($dossier->reports->isEmpty());
+    }
+
+    public function test_user_cannot_remove_report_from_dossier_from_another_user(): void
+    {
+        $user = User::factory()->create();
+        $dossier = Dossier::factory()->has(Report::factory())->create();
+        $report = $dossier->reports->first();
+
+        Sanctum::actingAs($user);
+
+        $this->deleteJson("api/v1/dossiers/$dossier->id/reports/$report->id")
+            ->assertForbidden();
+    }
+
     private function validData(): array
     {
         return [

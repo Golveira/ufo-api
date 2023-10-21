@@ -17,4 +17,9 @@ class UserController extends Controller
                 ->paginate()
         );
     }
+
+    public function show(User $user): UserResource
+    {
+        return new UserResource($user);
+    }
 }

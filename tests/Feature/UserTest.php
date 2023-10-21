@@ -16,4 +16,13 @@ class UserTest extends TestCase
             ->assertJsonCount(15, 'data')
             ->assertJsonPath('meta.last_page', 2);
     }
+
+    public function test_user_is_showed_with_valid_id(): void
+    {
+        $user = User::factory()->create();
+
+        $this->get("api/v1/users/$user->id")
+            ->assertOk()
+            ->assertJsonFragment(['id' => $user->id]);
+    }
 }

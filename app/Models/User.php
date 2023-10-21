@@ -43,11 +43,6 @@ class User extends Authenticatable
         return $this->hasMany(Dossier::class);
     }
 
-    public function bookmarks(): HasMany
-    {
-        return $this->hasMany(Bookmark::class);
-    }
-
     public static function generateUsername()
     {
         do {

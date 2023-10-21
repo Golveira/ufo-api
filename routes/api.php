@@ -35,6 +35,9 @@ Route::prefix('v1')->group(function () {
         // Dossiers
         Route::apiResource('dossiers', DossierController::class)->only(['store', 'update', 'destroy']);
         Route::apiResource('dossiers.reports', DossierReportController::class)->only(['store', 'destroy']);
+
+        // Users
+        Route::apiResource('users', UserController::class)->only(['update', 'delete']);
     });
 
     // Auth routes

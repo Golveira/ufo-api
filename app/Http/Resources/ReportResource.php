@@ -23,6 +23,8 @@ class ReportResource extends JsonResource
             'object_shape' => $this->object_shape,
             'number_of_observers' => $this->number_of_observers,
             'details' => $this->details,
+            'images_count' => $this->whenCounted('images'),
+            'images' => ImageResource::collection($this->whenLoaded('images')),
         ];
     }
 }

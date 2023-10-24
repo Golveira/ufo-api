@@ -2,11 +2,15 @@
 
 namespace Tests\Feature;
 
-use App\Models\Dossier;
 use Tests\TestCase;
 use App\Models\User;
+use App\Models\Image;
 use App\Models\Report;
+use App\Models\Dossier;
 use Laravel\Sanctum\Sanctum;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
+use App\Exceptions\MaxImagesUploadException;
 
 class ReportTest extends TestCase
 {
@@ -68,16 +72,29 @@ class ReportTest extends TestCase
 
     public function test_authenticated_user_can_create_report_with_valid_data(): void
     {
+        Storage::fake('public');
+
         $user = User::factory()->create();
         $reportData = $this->validData();
 
         Sanctum::actingAs($user);
 
-        $this->postJson("api/v1/reports", $reportData)
+        $this->postJson("api/v1/reports", [
+            ...$reportData,
+            'images' => [
+                UploadedFile::fake()->image('ufo1.jpg'),
+                UploadedFile::fake()->image('ufo2.jpg'),
+            ],
+        ])
             ->assertCreated()
             ->assertJsonFragment($reportData);
 
         $this->assertDatabaseHas('reports', $reportData);
+        $this->assertCount(2, Report::first()->images);
+
+        Storage::disk('public')
+            ->assertExists(Report::first()->images->last()->path)
+            ->assertExists(Report::first()->images->first()->path);
     }
 
     public function test_authenticated_user_cannot_create_report_with_invalid_data(): void
@@ -117,11 +134,47 @@ class ReportTest extends TestCase
 
         Sanctum::actingAs($user);
 
-        $this->putJson("api/v1/reports/$report->id", $reportData)
+        $this->putJson("api/v1/reports/$report->id", [
+            ...$reportData,
+            'images' => [
+                UploadedFile::fake()->image('ufo1.jpg'),
+                UploadedFile::fake()->image('ufo2.jpg'),
+            ],
+        ])
             ->assertOk()
             ->assertJsonFragment($reportData);
 
+        $this->assertCount(2, Report::first()->images);
         $this->assertDatabaseHas('reports', $reportData);
+
+        Storage::disk('public')
+            ->assertExists(Report::first()->images->first()->path)
+            ->assertExists(Report::first()->images->last()->path);
+    }
+
+    public function test_user_cannot_exceed_max_images_upload_in_a_report(): void
+    {
+        $this->withoutExceptionHandling();
+
+        $user = User::factory()->create();
+
+        $report = Report::factory()
+            ->has(Image::factory(9))
+            ->create(['user_id' => $user->id]);
+
+        $reportData = $this->validData();
+
+        Sanctum::actingAs($user);
+
+        $this->expectException(MaxImagesUploadException::class);
+
+        $this->putJson("api/v1/reports/$report->id", [
+            ...$reportData,
+            'images' => [
+                UploadedFile::fake()->image('ufo1.jpg'),
+                UploadedFile::fake()->image('ufo2.jpg'),
+            ],
+        ]);
     }
 
     public function test_authenticated_user_cannot_update_report_with_invalid_data(): void
@@ -180,7 +233,7 @@ class ReportTest extends TestCase
             'date' => '2000-01-01',
             'duration' => 5,
             'number_of_observers' => 1,
-            'object_shape' => 'round'
+            'object_shape' => 'round',
         ];
     }
 }

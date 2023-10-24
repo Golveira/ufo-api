@@ -74,4 +74,9 @@ class Report extends Model
                 return $query->latest();
             });
     }
+
+    public function canUploadMoreImages($numberOfImages): bool
+    {
+        return $this->images()->count() + $numberOfImages <= 10;
+    }
 }

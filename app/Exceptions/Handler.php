@@ -33,5 +33,11 @@ class Handler extends ExceptionHandler
                 'message' => 'Resource not found',
             ], 404);
         });
+
+        $this->renderable(function (MaxImagesUploadException $e, $request) {
+            return response()->json([
+                'message' => 'You cannot upload more than 10 images',
+            ], 422);
+        });
     }
 }

@@ -1,0 +1,1148 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "UFO",
+        "_postman_id": "731d4ba3-cb83-4c32-b41a-68781559b33d",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Dossiers",
+            "description": "\nEndpoints for managing dossiers.",
+            "item": [
+                {
+                    "name": "Get a list of reports for a dossier.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/dossiers\/:dossier_id\/reports",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/dossiers\/:dossier_id\/reports",
+                            "variable": [
+                                {
+                                    "id": "dossier_id",
+                                    "key": "dossier_id",
+                                    "value": "9a74645e-499c-4eb6-aa92-f36f25241954",
+                                    "description": "The ID of the dossier."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "This endpoint allows you to get a list of reports for a dossier.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "56"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/dossiers\\\/9a74645e-499c-4eb6-aa92-f36f25241954\\\/reports?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/dossiers\\\/9a74645e-499c-4eb6-aa92-f36f25241954\\\/reports?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":null,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/dossiers\\\/9a74645e-499c-4eb6-aa92-f36f25241954\\\/reports?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/dossiers\\\/9a74645e-499c-4eb6-aa92-f36f25241954\\\/reports\",\"per_page\":15,\"to\":null,\"total\":0}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get a list of dossiers.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/dossiers",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/dossiers"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "This endpoint allows you to get a list of dossiers.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "55"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":\"9a74645e-499c-4eb6-aa92-f36f25241954\",\"title\":\"Eum porro eos tempora.\",\"description\":\"Fugiat quasi similique ut quos iure illo in. Non ut est quam est quod ipsum inventore. Quia perferendis reprehenderit soluta sapiente quidem mollitia.\",\"reports_count\":0,\"created_at\":\"2023-10-25T15:15:07.000000Z\",\"updated_at\":\"2023-10-25T15:15:07.000000Z\",\"user_id\":\"9a74645e-46d2-4b0c-8664-1592dfa60b7f\",\"user\":{\"id\":\"9a74645e-46d2-4b0c-8664-1592dfa60b7f\",\"username\":\"wintheiser.winfield\",\"created_at\":\"2023-10-25T15:15:07.000000Z\"}}],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/dossiers?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/dossiers?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/dossiers?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/dossiers\",\"per_page\":15,\"to\":1,\"total\":1}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get a dossier.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/dossiers\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/dossiers\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "9a74645e-499c-4eb6-aa92-f36f25241954",
+                                    "description": "The ID of the dossier."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "This endpoint allows you to get a dossier.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "54"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"9a74645e-499c-4eb6-aa92-f36f25241954\",\"title\":\"Eum porro eos tempora.\",\"description\":\"Fugiat quasi similique ut quos iure illo in. Non ut est quam est quod ipsum inventore. Quia perferendis reprehenderit soluta sapiente quidem mollitia.\",\"reports_count\":0,\"created_at\":\"2023-10-25T15:15:07.000000Z\",\"updated_at\":\"2023-10-25T15:15:07.000000Z\",\"user_id\":\"9a74645e-46d2-4b0c-8664-1592dfa60b7f\",\"user\":{\"id\":\"9a74645e-46d2-4b0c-8664-1592dfa60b7f\",\"username\":\"wintheiser.winfield\",\"created_at\":\"2023-10-25T15:15:07.000000Z\"}}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create a new dossier.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/dossiers",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/dossiers"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"eyzkxirpxchaqyzpuhtofvbuc\",\"description\":\"Vitae est sit enim blanditiis laudantium.\"}"
+                        },
+                        "description": "This endpoint allows you to create a new dossier."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update a dossier.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/dossiers\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/dossiers\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "9a74645e-499c-4eb6-aa92-f36f25241954",
+                                    "description": "The ID of the dossier."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"gxibhotsgdrebh\",\"description\":\"Praesentium nesciunt labore possimus autem.\"}"
+                        },
+                        "description": "This endpoint allows you to update a dossier."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete a dossier.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/dossiers\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/dossiers\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "9a74645e-499c-4eb6-aa92-f36f25241954",
+                                    "description": "The ID of the dossier."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "This endpoint allows you to delete a dossier."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Add a report to a dossier.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/dossiers\/:dossier_id\/reports",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/dossiers\/:dossier_id\/reports",
+                            "variable": [
+                                {
+                                    "id": "dossier_id",
+                                    "key": "dossier_id",
+                                    "value": "9a74645e-499c-4eb6-aa92-f36f25241954",
+                                    "description": "The ID of the dossier."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"report_id\":\"ad\"}"
+                        },
+                        "description": "This endpoint allows you to add a report to a dossier."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Remove a report from a dossier.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/dossiers\/:dossier_id\/reports\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/dossiers\/:dossier_id\/reports\/:id",
+                            "variable": [
+                                {
+                                    "id": "dossier_id",
+                                    "key": "dossier_id",
+                                    "value": "9a74645e-499c-4eb6-aa92-f36f25241954",
+                                    "description": "The ID of the dossier."
+                                },
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "9a746417-6bbc-41f1-8c9b-28404c87d10e",
+                                    "description": "The ID of the report."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "This endpoint allows you to remove a report from a dossier."
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "GET api\/user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/v1\/auth\/register",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/auth\/register",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/auth\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"ischmeler@example.net\",\"password\":\"01$$\\\"cM0dKW{M3q9\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/v1\/auth\/login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/auth\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/auth\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"simonis.aurelio@example.net\",\"password\":\"GR;<A?#r=\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/v1\/auth\/logout",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/auth\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/auth\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Reports",
+            "description": "\nEndpoints for managing reports.",
+            "item": [
+                {
+                    "name": "Get a list of reports.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/reports",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/reports"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"keywords\":\"wbpevskthra\",\"country\":\"non\",\"state\":\"est\",\"city\":\"unde\",\"dateFrom\":\"2023-10-26T15:23:30\",\"dateTo\":\"2067-07-27\",\"sortBy\":\"date\",\"sortOrder\":\"asc\"}"
+                        },
+                        "description": "This endpoint allows you to get a list of reports.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/reports?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/reports?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":null,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/reports?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/reports\",\"per_page\":15,\"to\":null,\"total\":0}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get a report.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/reports\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/reports\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "9a746417-6bbc-41f1-8c9b-28404c87d10e",
+                                    "description": "The ID of the report."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "This endpoint allows you to get a report.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "58"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"9a746417-6bbc-41f1-8c9b-28404c87d10e\",\"user_id\":\"9a746417-6294-47c7-be09-d382b9dabc26\",\"summary\":\"Quasi quia consectetur hic ad dolorum aperiam molestiae.\",\"country\":\"Jersey\",\"state\":\"Delaware\",\"city\":\"Connertown\",\"lat\":\"-63.65556400\",\"long\":\"-62.09172000\",\"date\":\"1994-04-11 17:57:06\",\"duration\":59,\"object_shape\":\"ex\",\"number_of_observers\":2,\"details\":\"Sit est nisi est. Voluptatem accusamus libero voluptas distinctio soluta. Placeat voluptas assumenda voluptatem quod velit harum quia incidunt. Aut veritatis molestiae quisquam dolore quis a.\",\"images\":[]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create a new report.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/reports",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/reports"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"summary\":\"qzs\",\"details\":\"jhre\",\"country\":\"no\",\"state\":\"xpypkoemufbnowksyztrtmwl\",\"city\":\"pvzfqwn\",\"lat\":42109.245268,\"long\":4.657165976,\"date\":\"2023-10-26T15:23:30\",\"duration\":507.9230897,\"number_of_observers\":280095,\"object_shape\":\"xrvbqkaxfikmlesuydmdns\"}"
+                        },
+                        "description": "This endpoint allows you to create a new report."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update a report.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/reports\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/reports\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "9a746417-6bbc-41f1-8c9b-28404c87d10e",
+                                    "description": "The ID of the report."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"summary\":\"mltr\",\"details\":\"hsbnumvfydbe\",\"country\":\"paovcjbkdqrfesxrqpunaovq\",\"state\":\"subpqbgldwqddggcccppyaq\",\"city\":\"uka\",\"lat\":376.55,\"long\":341.882501,\"date\":\"2023-10-26T15:23:30\",\"duration\":13.578413,\"number_of_observers\":594655594.977871,\"object_shape\":\"rshpzgimqlelzg\"}"
+                        },
+                        "description": "This endpoint allows you to update a report."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete a report.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/reports\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/reports\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "9a746417-6bbc-41f1-8c9b-28404c87d10e",
+                                    "description": "The ID of the report."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "This endpoint allows you to delete a report."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get a list of images for a report.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/reports\/:report_id\/images",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/reports\/:report_id\/images",
+                            "variable": [
+                                {
+                                    "id": "report_id",
+                                    "key": "report_id",
+                                    "value": "9a746417-6bbc-41f1-8c9b-28404c87d10e",
+                                    "description": "The ID of the report."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "This endpoint allows you to get a list of images for a report.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Upload images for a report.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/reports\/:report_id\/images",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/reports\/:report_id\/images",
+                            "variable": [
+                                {
+                                    "id": "report_id",
+                                    "key": "report_id",
+                                    "value": "9a746417-6bbc-41f1-8c9b-28404c87d10e",
+                                    "description": "The ID of the report."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "images[]",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "This endpoint allows you to upload images for a report."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete an image for a report.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/reports\/:report_id\/images\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/reports\/:report_id\/images\/:id",
+                            "variable": [
+                                {
+                                    "id": "report_id",
+                                    "key": "report_id",
+                                    "value": "9a746417-6bbc-41f1-8c9b-28404c87d10e",
+                                    "description": "The ID of the report."
+                                },
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "9",
+                                    "description": "The ID of the image."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "This endpoint allows you to delete an image for a report."
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Users",
+            "description": "\nEndpoints for managing users.",
+            "item": [
+                {
+                    "name": "Get a list of reports for a user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:user_id\/reports",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users\/:user_id\/reports",
+                            "variable": [
+                                {
+                                    "id": "user_id",
+                                    "key": "user_id",
+                                    "value": "9a746417-6294-47c7-be09-d382b9dabc26",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "This endpoint allows you to get a list of reports for a user.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "57"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":\"9a746417-6bbc-41f1-8c9b-28404c87d10e\",\"user_id\":\"9a746417-6294-47c7-be09-d382b9dabc26\",\"summary\":\"Quasi quia consectetur hic ad dolorum aperiam molestiae.\",\"country\":\"Jersey\",\"state\":\"Delaware\",\"city\":\"Connertown\",\"lat\":\"-63.65556400\",\"long\":\"-62.09172000\",\"date\":\"1994-04-11 17:57:06\",\"duration\":59,\"object_shape\":\"ex\",\"number_of_observers\":2,\"details\":\"Sit est nisi est. Voluptatem accusamus libero voluptas distinctio soluta. Placeat voluptas assumenda voluptatem quod velit harum quia incidunt. Aut veritatis molestiae quisquam dolore quis a.\"}],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users\\\/9a746417-6294-47c7-be09-d382b9dabc26\\\/reports?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users\\\/9a746417-6294-47c7-be09-d382b9dabc26\\\/reports?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users\\\/9a746417-6294-47c7-be09-d382b9dabc26\\\/reports?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users\\\/9a746417-6294-47c7-be09-d382b9dabc26\\\/reports\",\"per_page\":15,\"to\":1,\"total\":1}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get a list of dossiers for a user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:user_id\/dossiers",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users\/:user_id\/dossiers",
+                            "variable": [
+                                {
+                                    "id": "user_id",
+                                    "key": "user_id",
+                                    "value": "9a746417-6294-47c7-be09-d382b9dabc26",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "This endpoint allows you to get a list of dossiers for a user."
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "53"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users\\\/9a746417-6294-47c7-be09-d382b9dabc26\\\/dossiers?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users\\\/9a746417-6294-47c7-be09-d382b9dabc26\\\/dossiers?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":null,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users\\\/9a746417-6294-47c7-be09-d382b9dabc26\\\/dossiers?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users\\\/9a746417-6294-47c7-be09-d382b9dabc26\\\/dossiers\",\"per_page\":15,\"to\":null,\"total\":0}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get a list of users.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "This endpoint allows you to get a list of users.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "52"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":\"9a7633e2-81c2-4e74-a439-3d748c0688b7\",\"username\":\"IByuYsNp\",\"created_at\":\"2023-10-26T12:51:13.000000Z\"},{\"id\":\"9a74645e-46d2-4b0c-8664-1592dfa60b7f\",\"username\":\"wintheiser.winfield\",\"created_at\":\"2023-10-25T15:15:07.000000Z\"},{\"id\":\"9a746417-6294-47c7-be09-d382b9dabc26\",\"username\":\"carlotta.borer\",\"created_at\":\"2023-10-25T15:14:21.000000Z\"}],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users\",\"per_page\":15,\"to\":3,\"total\":3}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get a user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "9a746417-6294-47c7-be09-d382b9dabc26",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "This endpoint allows you to get a user.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "51"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"9a746417-6294-47c7-be09-d382b9dabc26\",\"username\":\"carlotta.borer\",\"created_at\":\"2023-10-25T15:14:21.000000Z\"}}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "key",
+                "type": "string"
+            }
+        ]
+    }
+}

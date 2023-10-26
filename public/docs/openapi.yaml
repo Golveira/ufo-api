@@ -1,0 +1,1579 @@
+openapi: 3.0.3
+info:
+  title: UFO
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  '/api/v1/dossiers/{dossier_id}/reports':
+    get:
+      summary: 'Get a list of reports for a dossier.'
+      operationId: getAListOfReportsForADossier
+      description: 'This endpoint allows you to get a list of reports for a dossier.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data: []
+                  links:
+                    first: 'http://localhost/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1'
+                    last: 'http://localhost/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1'
+                    prev: null
+                    next: null
+                  meta:
+                    current_page: 1
+                    from: null
+                    last_page: 1
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    path: 'http://localhost/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports'
+                    per_page: 15
+                    to: null
+                    total: 0
+                properties:
+                  data:
+                    type: array
+                    example: []
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'http://localhost/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1'
+                      last:
+                        type: string
+                        example: 'http://localhost/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: string
+                        example: null
+                      last_page:
+                        type: integer
+                        example: 1
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'http://localhost/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports'
+                      per_page:
+                        type: integer
+                        example: 15
+                      to:
+                        type: string
+                        example: null
+                      total:
+                        type: integer
+                        example: 0
+      tags:
+        - Dossiers
+      security: []
+    post:
+      summary: 'Add a report to a dossier.'
+      operationId: addAReportToADossier
+      description: 'This endpoint allows you to add a report to a dossier.'
+      parameters: []
+      responses: {  }
+      tags:
+        - Dossiers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                report_id:
+                  type: string
+                  description: ''
+                  example: ad
+              required:
+                - report_id
+    parameters:
+      -
+        in: path
+        name: dossier_id
+        description: 'The ID of the dossier.'
+        example: 9a74645e-499c-4eb6-aa92-f36f25241954
+        required: true
+        schema:
+          type: string
+  /api/v1/dossiers:
+    get:
+      summary: 'Get a list of dossiers.'
+      operationId: getAListOfDossiers
+      description: 'This endpoint allows you to get a list of dossiers.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 9a74645e-499c-4eb6-aa92-f36f25241954
+                      title: 'Eum porro eos tempora.'
+                      description: 'Fugiat quasi similique ut quos iure illo in. Non ut est quam est quod ipsum inventore. Quia perferendis reprehenderit soluta sapiente quidem mollitia.'
+                      reports_count: 0
+                      created_at: '2023-10-25T15:15:07.000000Z'
+                      updated_at: '2023-10-25T15:15:07.000000Z'
+                      user_id: 9a74645e-46d2-4b0c-8664-1592dfa60b7f
+                      user:
+                        id: 9a74645e-46d2-4b0c-8664-1592dfa60b7f
+                        username: wintheiser.winfield
+                        created_at: '2023-10-25T15:15:07.000000Z'
+                  links:
+                    first: 'http://localhost/api/v1/dossiers?page=1'
+                    last: 'http://localhost/api/v1/dossiers?page=1'
+                    prev: null
+                    next: null
+                  meta:
+                    current_page: 1
+                    from: 1
+                    last_page: 1
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/dossiers?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    path: 'http://localhost/api/v1/dossiers'
+                    per_page: 15
+                    to: 1
+                    total: 1
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 9a74645e-499c-4eb6-aa92-f36f25241954
+                        title: 'Eum porro eos tempora.'
+                        description: 'Fugiat quasi similique ut quos iure illo in. Non ut est quam est quod ipsum inventore. Quia perferendis reprehenderit soluta sapiente quidem mollitia.'
+                        reports_count: 0
+                        created_at: '2023-10-25T15:15:07.000000Z'
+                        updated_at: '2023-10-25T15:15:07.000000Z'
+                        user_id: 9a74645e-46d2-4b0c-8664-1592dfa60b7f
+                        user:
+                          id: 9a74645e-46d2-4b0c-8664-1592dfa60b7f
+                          username: wintheiser.winfield
+                          created_at: '2023-10-25T15:15:07.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 9a74645e-499c-4eb6-aa92-f36f25241954
+                        title:
+                          type: string
+                          example: 'Eum porro eos tempora.'
+                        description:
+                          type: string
+                          example: 'Fugiat quasi similique ut quos iure illo in. Non ut est quam est quod ipsum inventore. Quia perferendis reprehenderit soluta sapiente quidem mollitia.'
+                        reports_count:
+                          type: integer
+                          example: 0
+                        created_at:
+                          type: string
+                          example: '2023-10-25T15:15:07.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2023-10-25T15:15:07.000000Z'
+                        user_id:
+                          type: string
+                          example: 9a74645e-46d2-4b0c-8664-1592dfa60b7f
+                        user:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 9a74645e-46d2-4b0c-8664-1592dfa60b7f
+                            username:
+                              type: string
+                              example: wintheiser.winfield
+                            created_at:
+                              type: string
+                              example: '2023-10-25T15:15:07.000000Z'
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'http://localhost/api/v1/dossiers?page=1'
+                      last:
+                        type: string
+                        example: 'http://localhost/api/v1/dossiers?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 1
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/dossiers?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'http://localhost/api/v1/dossiers'
+                      per_page:
+                        type: integer
+                        example: 15
+                      to:
+                        type: integer
+                        example: 1
+                      total:
+                        type: integer
+                        example: 1
+      tags:
+        - Dossiers
+      security: []
+    post:
+      summary: 'Create a new dossier.'
+      operationId: createANewDossier
+      description: 'This endpoint allows you to create a new dossier.'
+      parameters: []
+      responses: {  }
+      tags:
+        - Dossiers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must not be greater than 150 characters.'
+                  example: eyzkxirpxchaqyzpuhtofvbuc
+                description:
+                  type: string
+                  description: 'Must not be greater than 500 characters.'
+                  example: 'Vitae est sit enim blanditiis laudantium.'
+              required:
+                - title
+                - description
+  '/api/v1/dossiers/{id}':
+    get:
+      summary: 'Get a dossier.'
+      operationId: getADossier
+      description: 'This endpoint allows you to get a dossier.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 9a74645e-499c-4eb6-aa92-f36f25241954
+                    title: 'Eum porro eos tempora.'
+                    description: 'Fugiat quasi similique ut quos iure illo in. Non ut est quam est quod ipsum inventore. Quia perferendis reprehenderit soluta sapiente quidem mollitia.'
+                    reports_count: 0
+                    created_at: '2023-10-25T15:15:07.000000Z'
+                    updated_at: '2023-10-25T15:15:07.000000Z'
+                    user_id: 9a74645e-46d2-4b0c-8664-1592dfa60b7f
+                    user:
+                      id: 9a74645e-46d2-4b0c-8664-1592dfa60b7f
+                      username: wintheiser.winfield
+                      created_at: '2023-10-25T15:15:07.000000Z'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 9a74645e-499c-4eb6-aa92-f36f25241954
+                      title:
+                        type: string
+                        example: 'Eum porro eos tempora.'
+                      description:
+                        type: string
+                        example: 'Fugiat quasi similique ut quos iure illo in. Non ut est quam est quod ipsum inventore. Quia perferendis reprehenderit soluta sapiente quidem mollitia.'
+                      reports_count:
+                        type: integer
+                        example: 0
+                      created_at:
+                        type: string
+                        example: '2023-10-25T15:15:07.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2023-10-25T15:15:07.000000Z'
+                      user_id:
+                        type: string
+                        example: 9a74645e-46d2-4b0c-8664-1592dfa60b7f
+                      user:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            example: 9a74645e-46d2-4b0c-8664-1592dfa60b7f
+                          username:
+                            type: string
+                            example: wintheiser.winfield
+                          created_at:
+                            type: string
+                            example: '2023-10-25T15:15:07.000000Z'
+      tags:
+        - Dossiers
+      security: []
+    put:
+      summary: 'Update a dossier.'
+      operationId: updateADossier
+      description: 'This endpoint allows you to update a dossier.'
+      parameters: []
+      responses: {  }
+      tags:
+        - Dossiers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must not be greater than 150 characters.'
+                  example: gxibhotsgdrebh
+                description:
+                  type: string
+                  description: 'Must not be greater than 500 characters.'
+                  example: 'Praesentium nesciunt labore possimus autem.'
+              required:
+                - title
+                - description
+    delete:
+      summary: 'Delete a dossier.'
+      operationId: deleteADossier
+      description: 'This endpoint allows you to delete a dossier.'
+      parameters: []
+      responses: {  }
+      tags:
+        - Dossiers
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the dossier.'
+        example: 9a74645e-499c-4eb6-aa92-f36f25241954
+        required: true
+        schema:
+          type: string
+  '/api/v1/dossiers/{dossier_id}/reports/{id}':
+    delete:
+      summary: 'Remove a report from a dossier.'
+      operationId: removeAReportFromADossier
+      description: 'This endpoint allows you to remove a report from a dossier.'
+      parameters: []
+      responses: {  }
+      tags:
+        - Dossiers
+    parameters:
+      -
+        in: path
+        name: dossier_id
+        description: 'The ID of the dossier.'
+        example: 9a74645e-499c-4eb6-aa92-f36f25241954
+        required: true
+        schema:
+          type: string
+      -
+        in: path
+        name: id
+        description: 'The ID of the report.'
+        example: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+        required: true
+        schema:
+          type: string
+  /api/user:
+    get:
+      summary: ''
+      operationId: getApiUser
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/auth/register:
+    post:
+      summary: ''
+      operationId: postApiV1AuthRegister
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: ischmeler@example.net
+                password:
+                  type: string
+                  description: ''
+                  example: '01$$"cM0dKW{M3q9'
+              required:
+                - email
+                - password
+      security: []
+  /api/v1/auth/login:
+    post:
+      summary: ''
+      operationId: postApiV1AuthLogin
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: simonis.aurelio@example.net
+                password:
+                  type: string
+                  description: ''
+                  example: 'GR;<A?#r='
+              required:
+                - email
+                - password
+      security: []
+  /api/v1/auth/logout:
+    post:
+      summary: ''
+      operationId: postApiV1AuthLogout
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/reports:
+    get:
+      summary: 'Get a list of reports.'
+      operationId: getAListOfReports
+      description: 'This endpoint allows you to get a list of reports.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data: []
+                  links:
+                    first: 'http://localhost/api/v1/reports?page=1'
+                    last: 'http://localhost/api/v1/reports?page=1'
+                    prev: null
+                    next: null
+                  meta:
+                    current_page: 1
+                    from: null
+                    last_page: 1
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/reports?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    path: 'http://localhost/api/v1/reports'
+                    per_page: 15
+                    to: null
+                    total: 0
+                properties:
+                  data:
+                    type: array
+                    example: []
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'http://localhost/api/v1/reports?page=1'
+                      last:
+                        type: string
+                        example: 'http://localhost/api/v1/reports?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: string
+                        example: null
+                      last_page:
+                        type: integer
+                        example: 1
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/reports?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'http://localhost/api/v1/reports'
+                      per_page:
+                        type: integer
+                        example: 15
+                      to:
+                        type: string
+                        example: null
+                      total:
+                        type: integer
+                        example: 0
+      tags:
+        - Reports
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                keywords:
+                  type: string
+                  description: 'Must be at least 3 characters.'
+                  example: wbpevskthra
+                country:
+                  type: string
+                  description: ''
+                  example: non
+                state:
+                  type: string
+                  description: ''
+                  example: est
+                city:
+                  type: string
+                  description: ''
+                  example: unde
+                dateFrom:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2023-10-26T15:23:30'
+                dateTo:
+                  type: string
+                  description: 'Must be a valid date. Must be a date after <code>dateFrom</code>.'
+                  example: '2067-07-27'
+                sortBy:
+                  type: string
+                  description: ''
+                  example: date
+                  enum:
+                    - date
+                sortOrder:
+                  type: string
+                  description: ''
+                  example: asc
+                  enum:
+                    - asc
+                    - desc
+      security: []
+    post:
+      summary: 'Create a new report.'
+      operationId: createANewReport
+      description: 'This endpoint allows you to create a new report.'
+      parameters: []
+      responses: {  }
+      tags:
+        - Reports
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                summary:
+                  type: string
+                  description: 'Must not be greater than 150 characters.'
+                  example: qzs
+                details:
+                  type: string
+                  description: 'Must not be greater than 1500 characters.'
+                  example: jhre
+                country:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: 'no'
+                state:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: xpypkoemufbnowksyztrtmwl
+                city:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: pvzfqwn
+                lat:
+                  type: number
+                  description: ''
+                  example: 42109.245268
+                long:
+                  type: number
+                  description: ''
+                  example: 4.657165976
+                date:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2023-10-26T15:23:30'
+                duration:
+                  type: number
+                  description: ''
+                  example: 507.9230897
+                number_of_observers:
+                  type: number
+                  description: ''
+                  example: 280095.0
+                object_shape:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: xrvbqkaxfikmlesuydmdns
+              required:
+                - summary
+                - details
+                - country
+                - state
+                - city
+                - lat
+                - long
+                - date
+                - duration
+                - number_of_observers
+  '/api/v1/reports/{id}':
+    get:
+      summary: 'Get a report.'
+      operationId: getAReport
+      description: 'This endpoint allows you to get a report.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+                    user_id: 9a746417-6294-47c7-be09-d382b9dabc26
+                    summary: 'Quasi quia consectetur hic ad dolorum aperiam molestiae.'
+                    country: Jersey
+                    state: Delaware
+                    city: Connertown
+                    lat: '-63.65556400'
+                    long: '-62.09172000'
+                    date: '1994-04-11 17:57:06'
+                    duration: 59
+                    object_shape: ex
+                    number_of_observers: 2
+                    details: 'Sit est nisi est. Voluptatem accusamus libero voluptas distinctio soluta. Placeat voluptas assumenda voluptatem quod velit harum quia incidunt. Aut veritatis molestiae quisquam dolore quis a.'
+                    images: []
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+                      user_id:
+                        type: string
+                        example: 9a746417-6294-47c7-be09-d382b9dabc26
+                      summary:
+                        type: string
+                        example: 'Quasi quia consectetur hic ad dolorum aperiam molestiae.'
+                      country:
+                        type: string
+                        example: Jersey
+                      state:
+                        type: string
+                        example: Delaware
+                      city:
+                        type: string
+                        example: Connertown
+                      lat:
+                        type: string
+                        example: '-63.65556400'
+                      long:
+                        type: string
+                        example: '-62.09172000'
+                      date:
+                        type: string
+                        example: '1994-04-11 17:57:06'
+                      duration:
+                        type: integer
+                        example: 59
+                      object_shape:
+                        type: string
+                        example: ex
+                      number_of_observers:
+                        type: integer
+                        example: 2
+                      details:
+                        type: string
+                        example: 'Sit est nisi est. Voluptatem accusamus libero voluptas distinctio soluta. Placeat voluptas assumenda voluptatem quod velit harum quia incidunt. Aut veritatis molestiae quisquam dolore quis a.'
+                      images:
+                        type: array
+                        example: []
+      tags:
+        - Reports
+      security: []
+    put:
+      summary: 'Update a report.'
+      operationId: updateAReport
+      description: 'This endpoint allows you to update a report.'
+      parameters: []
+      responses: {  }
+      tags:
+        - Reports
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                summary:
+                  type: string
+                  description: 'Must not be greater than 150 characters.'
+                  example: mltr
+                details:
+                  type: string
+                  description: 'Must not be greater than 1500 characters.'
+                  example: hsbnumvfydbe
+                country:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: paovcjbkdqrfesxrqpunaovq
+                state:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: subpqbgldwqddggcccppyaq
+                city:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: uka
+                lat:
+                  type: number
+                  description: ''
+                  example: 376.55
+                long:
+                  type: number
+                  description: ''
+                  example: 341.882501
+                date:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2023-10-26T15:23:30'
+                duration:
+                  type: number
+                  description: ''
+                  example: 13.578413
+                number_of_observers:
+                  type: number
+                  description: ''
+                  example: 594655594.97787
+                object_shape:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: rshpzgimqlelzg
+              required:
+                - summary
+                - details
+                - country
+                - state
+                - city
+                - lat
+                - long
+                - date
+                - duration
+                - number_of_observers
+    delete:
+      summary: 'Delete a report.'
+      operationId: deleteAReport
+      description: 'This endpoint allows you to delete a report.'
+      parameters: []
+      responses: {  }
+      tags:
+        - Reports
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the report.'
+        example: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+        required: true
+        schema:
+          type: string
+  '/api/v1/reports/{report_id}/images':
+    get:
+      summary: 'Get a list of images for a report.'
+      operationId: getAListOfImagesForAReport
+      description: 'This endpoint allows you to get a list of images for a report.'
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Reports
+      security: []
+    post:
+      summary: 'Upload images for a report.'
+      operationId: uploadImagesForAReport
+      description: 'This endpoint allows you to upload images for a report.'
+      parameters: []
+      responses: {  }
+      tags:
+        - Reports
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                images:
+                  type: array
+                  description: 'Must be an image. Must not be greater than 2048 kilobytes.'
+                  items:
+                    type: string
+                    format: binary
+              required:
+                - images
+    parameters:
+      -
+        in: path
+        name: report_id
+        description: 'The ID of the report.'
+        example: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+        required: true
+        schema:
+          type: string
+  '/api/v1/reports/{report_id}/images/{id}':
+    delete:
+      summary: 'Delete an image for a report.'
+      operationId: deleteAnImageForAReport
+      description: 'This endpoint allows you to delete an image for a report.'
+      parameters: []
+      responses: {  }
+      tags:
+        - Reports
+    parameters:
+      -
+        in: path
+        name: report_id
+        description: 'The ID of the report.'
+        example: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+        required: true
+        schema:
+          type: string
+      -
+        in: path
+        name: id
+        description: 'The ID of the image.'
+        example: 9
+        required: true
+        schema:
+          type: integer
+  '/api/v1/users/{user_id}/reports':
+    get:
+      summary: 'Get a list of reports for a user.'
+      operationId: getAListOfReportsForAUser
+      description: 'This endpoint allows you to get a list of reports for a user.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+                      user_id: 9a746417-6294-47c7-be09-d382b9dabc26
+                      summary: 'Quasi quia consectetur hic ad dolorum aperiam molestiae.'
+                      country: Jersey
+                      state: Delaware
+                      city: Connertown
+                      lat: '-63.65556400'
+                      long: '-62.09172000'
+                      date: '1994-04-11 17:57:06'
+                      duration: 59
+                      object_shape: ex
+                      number_of_observers: 2
+                      details: 'Sit est nisi est. Voluptatem accusamus libero voluptas distinctio soluta. Placeat voluptas assumenda voluptatem quod velit harum quia incidunt. Aut veritatis molestiae quisquam dolore quis a.'
+                  links:
+                    first: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1'
+                    last: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1'
+                    prev: null
+                    next: null
+                  meta:
+                    current_page: 1
+                    from: 1
+                    last_page: 1
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    path: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports'
+                    per_page: 15
+                    to: 1
+                    total: 1
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+                        user_id: 9a746417-6294-47c7-be09-d382b9dabc26
+                        summary: 'Quasi quia consectetur hic ad dolorum aperiam molestiae.'
+                        country: Jersey
+                        state: Delaware
+                        city: Connertown
+                        lat: '-63.65556400'
+                        long: '-62.09172000'
+                        date: '1994-04-11 17:57:06'
+                        duration: 59
+                        object_shape: ex
+                        number_of_observers: 2
+                        details: 'Sit est nisi est. Voluptatem accusamus libero voluptas distinctio soluta. Placeat voluptas assumenda voluptatem quod velit harum quia incidunt. Aut veritatis molestiae quisquam dolore quis a.'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+                        user_id:
+                          type: string
+                          example: 9a746417-6294-47c7-be09-d382b9dabc26
+                        summary:
+                          type: string
+                          example: 'Quasi quia consectetur hic ad dolorum aperiam molestiae.'
+                        country:
+                          type: string
+                          example: Jersey
+                        state:
+                          type: string
+                          example: Delaware
+                        city:
+                          type: string
+                          example: Connertown
+                        lat:
+                          type: string
+                          example: '-63.65556400'
+                        long:
+                          type: string
+                          example: '-62.09172000'
+                        date:
+                          type: string
+                          example: '1994-04-11 17:57:06'
+                        duration:
+                          type: integer
+                          example: 59
+                        object_shape:
+                          type: string
+                          example: ex
+                        number_of_observers:
+                          type: integer
+                          example: 2
+                        details:
+                          type: string
+                          example: 'Sit est nisi est. Voluptatem accusamus libero voluptas distinctio soluta. Placeat voluptas assumenda voluptatem quod velit harum quia incidunt. Aut veritatis molestiae quisquam dolore quis a.'
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1'
+                      last:
+                        type: string
+                        example: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 1
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports'
+                      per_page:
+                        type: integer
+                        example: 15
+                      to:
+                        type: integer
+                        example: 1
+                      total:
+                        type: integer
+                        example: 1
+      tags:
+        - Users
+      security: []
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: 9a746417-6294-47c7-be09-d382b9dabc26
+        required: true
+        schema:
+          type: string
+  '/api/v1/users/{user_id}/dossiers':
+    get:
+      summary: 'Get a list of dossiers for a user.'
+      operationId: getAListOfDossiersForAUser
+      description: 'This endpoint allows you to get a list of dossiers for a user.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data: []
+                  links:
+                    first: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1'
+                    last: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1'
+                    prev: null
+                    next: null
+                  meta:
+                    current_page: 1
+                    from: null
+                    last_page: 1
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    path: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers'
+                    per_page: 15
+                    to: null
+                    total: 0
+                properties:
+                  data:
+                    type: array
+                    example: []
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1'
+                      last:
+                        type: string
+                        example: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: string
+                        example: null
+                      last_page:
+                        type: integer
+                        example: 1
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers'
+                      per_page:
+                        type: integer
+                        example: 15
+                      to:
+                        type: string
+                        example: null
+                      total:
+                        type: integer
+                        example: 0
+      tags:
+        - Users
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: 9a746417-6294-47c7-be09-d382b9dabc26
+        required: true
+        schema:
+          type: string
+  /api/v1/users:
+    get:
+      summary: 'Get a list of users.'
+      operationId: getAListOfUsers
+      description: 'This endpoint allows you to get a list of users.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 9a7633e2-81c2-4e74-a439-3d748c0688b7
+                      username: IByuYsNp
+                      created_at: '2023-10-26T12:51:13.000000Z'
+                    -
+                      id: 9a74645e-46d2-4b0c-8664-1592dfa60b7f
+                      username: wintheiser.winfield
+                      created_at: '2023-10-25T15:15:07.000000Z'
+                    -
+                      id: 9a746417-6294-47c7-be09-d382b9dabc26
+                      username: carlotta.borer
+                      created_at: '2023-10-25T15:14:21.000000Z'
+                  links:
+                    first: 'http://localhost/api/v1/users?page=1'
+                    last: 'http://localhost/api/v1/users?page=1'
+                    prev: null
+                    next: null
+                  meta:
+                    current_page: 1
+                    from: 1
+                    last_page: 1
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/users?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    path: 'http://localhost/api/v1/users'
+                    per_page: 15
+                    to: 3
+                    total: 3
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 9a7633e2-81c2-4e74-a439-3d748c0688b7
+                        username: IByuYsNp
+                        created_at: '2023-10-26T12:51:13.000000Z'
+                      -
+                        id: 9a74645e-46d2-4b0c-8664-1592dfa60b7f
+                        username: wintheiser.winfield
+                        created_at: '2023-10-25T15:15:07.000000Z'
+                      -
+                        id: 9a746417-6294-47c7-be09-d382b9dabc26
+                        username: carlotta.borer
+                        created_at: '2023-10-25T15:14:21.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 9a7633e2-81c2-4e74-a439-3d748c0688b7
+                        username:
+                          type: string
+                          example: IByuYsNp
+                        created_at:
+                          type: string
+                          example: '2023-10-26T12:51:13.000000Z'
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'http://localhost/api/v1/users?page=1'
+                      last:
+                        type: string
+                        example: 'http://localhost/api/v1/users?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 1
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/users?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'http://localhost/api/v1/users'
+                      per_page:
+                        type: integer
+                        example: 15
+                      to:
+                        type: integer
+                        example: 3
+                      total:
+                        type: integer
+                        example: 3
+      tags:
+        - Users
+      security: []
+  '/api/v1/users/{id}':
+    get:
+      summary: 'Get a user.'
+      operationId: getAUser
+      description: 'This endpoint allows you to get a user.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 9a746417-6294-47c7-be09-d382b9dabc26
+                    username: carlotta.borer
+                    created_at: '2023-10-25T15:14:21.000000Z'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 9a746417-6294-47c7-be09-d382b9dabc26
+                      username:
+                        type: string
+                        example: carlotta.borer
+                      created_at:
+                        type: string
+                        example: '2023-10-25T15:14:21.000000Z'
+      tags:
+        - Users
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user.'
+        example: 9a746417-6294-47c7-be09-d382b9dabc26
+        required: true
+        schema:
+          type: string
+tags:
+  -
+    name: Dossiers
+    description: "\nEndpoints for managing dossiers."
+  -
+    name: Endpoints
+    description: ''
+  -
+    name: Reports
+    description: "\nEndpoints for managing reports."
+  -
+    name: Users
+    description: "\nEndpoints for managing users."
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.'
+security:
+  -
+    default: []

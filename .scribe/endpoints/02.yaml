@@ -1,0 +1,208 @@
+name: Users
+description: |-
+
+  Endpoints for managing users.
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/users/{user_id}/reports'
+    metadata:
+      groupName: Users
+      groupDescription: |-
+
+        Endpoints for managing users.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get a list of reports for a user.'
+      description: 'This endpoint allows you to get a list of reports for a user.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      user_id:
+        name: user_id
+        description: 'The ID of the user.'
+        required: true
+        example: 9a746417-6294-47c7-be09-d382b9dabc26
+        type: string
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      user_id: 9a746417-6294-47c7-be09-d382b9dabc26
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":"9a746417-6bbc-41f1-8c9b-28404c87d10e","user_id":"9a746417-6294-47c7-be09-d382b9dabc26","summary":"Quasi quia consectetur hic ad dolorum aperiam molestiae.","country":"Jersey","state":"Delaware","city":"Connertown","lat":"-63.65556400","long":"-62.09172000","date":"1994-04-11 17:57:06","duration":59,"object_shape":"ex","number_of_observers":2,"details":"Sit est nisi est. Voluptatem accusamus libero voluptas distinctio soluta. Placeat voluptas assumenda voluptatem quod velit harum quia incidunt. Aut veritatis molestiae quisquam dolore quis a."}],"links":{"first":"http:\/\/localhost\/api\/v1\/users\/9a746417-6294-47c7-be09-d382b9dabc26\/reports?page=1","last":"http:\/\/localhost\/api\/v1\/users\/9a746417-6294-47c7-be09-d382b9dabc26\/reports?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/users\/9a746417-6294-47c7-be09-d382b9dabc26\/reports?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/localhost\/api\/v1\/users\/9a746417-6294-47c7-be09-d382b9dabc26\/reports","per_page":15,"to":1,"total":1}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '57'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/users/{user_id}/dossiers'
+    metadata:
+      groupName: Users
+      groupDescription: |-
+
+        Endpoints for managing user.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get a list of dossiers for a user.'
+      description: 'This endpoint allows you to get a list of dossiers for a user.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      user_id:
+        name: user_id
+        description: 'The ID of the user.'
+        required: true
+        example: 9a746417-6294-47c7-be09-d382b9dabc26
+        type: string
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      user_id: 9a746417-6294-47c7-be09-d382b9dabc26
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[],"links":{"first":"http:\/\/localhost\/api\/v1\/users\/9a746417-6294-47c7-be09-d382b9dabc26\/dossiers?page=1","last":"http:\/\/localhost\/api\/v1\/users\/9a746417-6294-47c7-be09-d382b9dabc26\/dossiers?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":null,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/users\/9a746417-6294-47c7-be09-d382b9dabc26\/dossiers?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/localhost\/api\/v1\/users\/9a746417-6294-47c7-be09-d382b9dabc26\/dossiers","per_page":15,"to":null,"total":0}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '53'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer bcg43fDZE5eakaPv6h8d61V'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/users
+    metadata:
+      groupName: Users
+      groupDescription: |-
+
+        Endpoints for managing user.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get a list of users.'
+      description: 'This endpoint allows you to get a list of users.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":"9a7633e2-81c2-4e74-a439-3d748c0688b7","username":"IByuYsNp","created_at":"2023-10-26T12:51:13.000000Z"},{"id":"9a74645e-46d2-4b0c-8664-1592dfa60b7f","username":"wintheiser.winfield","created_at":"2023-10-25T15:15:07.000000Z"},{"id":"9a746417-6294-47c7-be09-d382b9dabc26","username":"carlotta.borer","created_at":"2023-10-25T15:14:21.000000Z"}],"links":{"first":"http:\/\/localhost\/api\/v1\/users?page=1","last":"http:\/\/localhost\/api\/v1\/users?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/users?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/localhost\/api\/v1\/users","per_page":15,"to":3,"total":3}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '52'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/users/{id}'
+    metadata:
+      groupName: Users
+      groupDescription: |-
+
+        Endpoints for managing user.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get a user.'
+      description: 'This endpoint allows you to get a user.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 9a746417-6294-47c7-be09-d382b9dabc26
+        type: string
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      id: 9a746417-6294-47c7-be09-d382b9dabc26
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"9a746417-6294-47c7-be09-d382b9dabc26","username":"carlotta.borer","created_at":"2023-10-25T15:14:21.000000Z"}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '51'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\V1\Auth\RegisterController;
 use App\Http\Controllers\Api\V1\DossierController;
 use App\Http\Controllers\Api\V1\DossierReportController;
 use App\Http\Controllers\Api\V1\ReportController;
+use App\Http\Controllers\Api\V1\ReportImageController;
 use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\UserDossierController;
 use App\Http\Controllers\Api\V1\UserReportController;
@@ -31,6 +32,7 @@ Route::prefix('v1')->group(function () {
     Route::middleware('auth:sanctum')->group(function () {
         // Reports
         Route::apiResource('reports', ReportController::class)->only(['store', 'update', 'destroy']);
+        Route::apiResource('reports.images', ReportImageController::class)->only(['index', 'store', 'destroy']);
 
         // Dossiers
         Route::apiResource('dossiers', DossierController::class)->only(['store', 'update', 'destroy']);

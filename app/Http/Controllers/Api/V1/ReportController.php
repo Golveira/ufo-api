@@ -7,26 +7,26 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\ReportResource;
 use App\Http\Requests\ReportListRequest;
 use App\Http\Requests\ReportRequest;
-use App\Services\ReportService;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Http\Response;
 
 class ReportController extends Controller
 {
-    public function __construct(private ReportService $reportService)
-    {
-    }
-
     public function index(ReportListRequest $request): ResourceCollection
     {
-        $reports = $this->reportService->getReports($request->validated());
+        $reports = Report::query()
+            ->withCount('images')
+            ->search($request->validated())
+            ->paginate();
 
         return ReportResource::collection($reports);
     }
 
     public function store(ReportRequest $request): ReportResource
     {
-        $report = $this->reportService->createReport($request->validated());
+        $report = $request->user()
+            ->reports()
+            ->create($request->validated());
 
         return new ReportResource($report);
     }
@@ -40,7 +40,7 @@ class ReportController extends Controller
     {
         $this->authorize('update', $report);
 
-        $report = $this->reportService->updateReport($request->validated(), $report);
+        $report->update($request->validated());
 
         return new ReportResource($report->load('images'));
     }

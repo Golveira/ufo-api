@@ -25,8 +25,6 @@ class ReportRequest extends FormRequest
             'duration' => ['required', 'numeric'],
             'number_of_observers'  => ['required', 'numeric'],
             'object_shape' => ['nullable', 'string', 'max:255'],
-            'images' => ['nullable', 'array', 'max:10'],
-            'images.*' => ['image', 'max:2048'],
         ];
     }
 }

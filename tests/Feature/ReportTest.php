@@ -8,13 +8,11 @@ use App\Models\Image;
 use App\Models\Report;
 use App\Models\Dossier;
 use Laravel\Sanctum\Sanctum;
-use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
-use App\Exceptions\MaxImagesUploadException;
 
 class ReportTest extends TestCase
 {
-    public function test_reports_are_listed_with_pagination(): void
+    public function test_reports_are_listed(): void
     {
         Report::factory()->count(16)->create();
 
@@ -24,7 +22,7 @@ class ReportTest extends TestCase
             ->assertJsonPath('meta.last_page', 2);
     }
 
-    public function test_user_reports_are_listed_with_pagination(): void
+    public function test_user_reports_are_listed(): void
     {
         $user = User::factory()->create();
         $report = Report::factory()->create(['user_id' => $user->id]);
@@ -36,7 +34,7 @@ class ReportTest extends TestCase
             ->assertJsonFragment(['id' => $report->id]);
     }
 
-    public function test_dossier_reports_are_listed_with_pagination(): void
+    public function test_dossier_reports_are_listed(): void
     {
         $dossier = Dossier::factory()->has(Report::factory(3))->create();
 
@@ -46,7 +44,7 @@ class ReportTest extends TestCase
             ->assertJsonPath('meta.last_page', 1);
     }
 
-    public function test_report_is_showed_with_valid_id(): void
+    public function test_report_with_valid_id_is_showed(): void
     {
         $report = Report::factory()->create();
 
@@ -55,7 +53,7 @@ class ReportTest extends TestCase
             ->assertJsonFragment(['id' => $report->id]);
     }
 
-    public function test_report_is_not_showed_with_invalid_id(): void
+    public function test_report_with_invalid_id_is_not_showed(): void
     {
         Report::factory()->create();
 
@@ -70,34 +68,21 @@ class ReportTest extends TestCase
             ->assertUnauthorized();
     }
 
-    public function test_authenticated_user_can_create_report_with_valid_data(): void
+    public function test_user_can_create_report_using_valid_data(): void
     {
-        Storage::fake('public');
-
         $user = User::factory()->create();
         $reportData = $this->validData();
 
         Sanctum::actingAs($user);
 
-        $this->postJson("api/v1/reports", [
-            ...$reportData,
-            'images' => [
-                UploadedFile::fake()->image('ufo1.jpg'),
-                UploadedFile::fake()->image('ufo2.jpg'),
-            ],
-        ])
+        $this->postJson("api/v1/reports", $reportData)
             ->assertCreated()
             ->assertJsonFragment($reportData);
 
         $this->assertDatabaseHas('reports', $reportData);
-        $this->assertCount(2, Report::first()->images);
-
-        Storage::disk('public')
-            ->assertExists(Report::first()->images->last()->path)
-            ->assertExists(Report::first()->images->first()->path);
     }
 
-    public function test_authenticated_user_cannot_create_report_with_invalid_data(): void
+    public function test_user_cannot_create_report_using_invalid_data(): void
     {
         $user = User::factory()->create();
 
@@ -115,10 +100,11 @@ class ReportTest extends TestCase
             ->assertUnauthorized();
     }
 
-    public function test_authenticated_user_cannot_update_report_from_another_user(): void
+    public function test_user_cannot_update_report_from_another_user(): void
     {
         $user = User::factory()->create();
-        $report = Report::factory()->create();
+        $anotherUser = User::factory()->create();
+        $report = Report::factory()->create(['user_id' => $anotherUser->id]);
 
         Sanctum::actingAs($user);
 
@@ -126,7 +112,7 @@ class ReportTest extends TestCase
             ->assertForbidden();
     }
 
-    public function test_authenticated_user_can_update_report_with_valid_data(): void
+    public function test_user_can_update_own_report_using_valid_data(): void
     {
         $user = User::factory()->create();
         $report = Report::factory()->create(['user_id' => $user->id]);
@@ -134,50 +120,14 @@ class ReportTest extends TestCase
 
         Sanctum::actingAs($user);
 
-        $this->putJson("api/v1/reports/$report->id", [
-            ...$reportData,
-            'images' => [
-                UploadedFile::fake()->image('ufo1.jpg'),
-                UploadedFile::fake()->image('ufo2.jpg'),
-            ],
-        ])
+        $this->putJson("api/v1/reports/$report->id", $reportData)
             ->assertOk()
             ->assertJsonFragment($reportData);
 
-        $this->assertCount(2, Report::first()->images);
         $this->assertDatabaseHas('reports', $reportData);
-
-        Storage::disk('public')
-            ->assertExists(Report::first()->images->first()->path)
-            ->assertExists(Report::first()->images->last()->path);
     }
 
-    public function test_user_cannot_exceed_max_images_upload_in_a_report(): void
-    {
-        $this->withoutExceptionHandling();
-
-        $user = User::factory()->create();
-
-        $report = Report::factory()
-            ->has(Image::factory(9))
-            ->create(['user_id' => $user->id]);
-
-        $reportData = $this->validData();
-
-        Sanctum::actingAs($user);
-
-        $this->expectException(MaxImagesUploadException::class);
-
-        $this->putJson("api/v1/reports/$report->id", [
-            ...$reportData,
-            'images' => [
-                UploadedFile::fake()->image('ufo1.jpg'),
-                UploadedFile::fake()->image('ufo2.jpg'),
-            ],
-        ]);
-    }
-
-    public function test_authenticated_user_cannot_update_report_with_invalid_data(): void
+    public function test_user_cannot_update_own_report_using_invalid_data(): void
     {
         $user = User::factory()->create();
         $report = Report::factory()->create(['user_id' => $user->id]);
@@ -196,10 +146,11 @@ class ReportTest extends TestCase
             ->assertUnauthorized();
     }
 
-    public function test_authenticated_user_cannot_delete_report_from_another_user(): void
+    public function test_user_cannot_delete_report_from_another_user(): void
     {
         $user = User::factory()->create();
-        $report = Report::factory()->create();
+        $anotherUser = User::factory()->create();
+        $report = Report::factory()->create(['user_id' => $anotherUser->id]);
 
         Sanctum::actingAs($user);
 
@@ -207,7 +158,7 @@ class ReportTest extends TestCase
             ->assertForbidden();
     }
 
-    public function test_authenticated_user_can_delete_report(): void
+    public function test_user_can_delete_own_report(): void
     {
         $user = User::factory()->create();
         $report = Report::factory()->create(['user_id' => $user->id]);

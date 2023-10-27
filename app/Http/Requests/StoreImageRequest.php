@@ -18,4 +18,15 @@ class StoreImageRequest extends FormRequest
             'images.*' => ['image', 'max:2048'],
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'images.required' => 'You must upload at least one image.',
+            'images.array' => 'The images must be an array.',
+            'images.max' => 'You can upload up to 10 images.',
+            'images.*.image' => 'The file must be an image.',
+            'images.*.max' => 'The image must be at most 2MB.',
+        ];
+    }
 }

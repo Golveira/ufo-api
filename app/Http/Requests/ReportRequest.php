@@ -22,7 +22,7 @@ class ReportRequest extends FormRequest
             'lat' => ['required', 'numeric'],
             'long' => ['required', 'numeric'],
             'date' => ['required', 'date'],
-            'duration' => ['required', 'numeric'],
+            'duration' => ['required', 'integer'],
             'number_of_observers'  => ['required', 'numeric'],
             'object_shape' => ['nullable', 'string', 'max:255'],
         ];

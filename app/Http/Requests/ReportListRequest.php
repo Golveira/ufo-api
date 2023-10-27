@@ -15,7 +15,7 @@ class ReportListRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'keywords' => ['string', 'min:3'],
+            'keywords' => ['string'],
             'country' => ['string'],
             'state' => ['string'],
             'city' => ['string'],
@@ -29,7 +29,7 @@ class ReportListRequest extends FormRequest
     public function messages()
     {
         return [
-            'keywords.min' => 'The keywords must be at least 3 characters',
+            'keywords.string' => 'The keywords cannot be empty',
             'country.string' => 'The country cannot be empty',
             'state.string' => 'The state cannot be empty',
             'city.string' => 'The city cannot be empty',

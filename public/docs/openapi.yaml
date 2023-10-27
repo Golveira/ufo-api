@@ -1,17 +1,82 @@
 openapi: 3.0.3
 info:
-  title: UFO
-  description: ''
+  title: 'UFO API Documentation'
+  description: 'The UFO API is a REST API that allows you to report and investigate UFO sightings.'
   version: 1.0.0
 servers:
   -
-    url: 'http://localhost'
+    url: 'http://ufo.test'
 paths:
+  /api/v1/auth/register:
+    post:
+      summary: Register
+      operationId: register
+      description: 'This endpoint allows you to register a new user.'
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: cassie.oreilly@example.org
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: 'oX<sF8zXv`0\Yb)l*mBi'
+              required:
+                - email
+                - password
+      security: []
+  /api/v1/auth/login:
+    post:
+      summary: Login
+      operationId: login
+      description: 'This endpoint allows you to login a user.'
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: polly.homenick@example.net
+                password:
+                  type: string
+                  description: ''
+                  example: 'cjD6Z?Faw]u'
+              required:
+                - email
+                - password
+      security: []
+  /api/v1/auth/logout:
+    post:
+      summary: Logout
+      operationId: logout
+      description: 'This endpoint allows you to logout a user.'
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
   '/api/v1/dossiers/{dossier_id}/reports':
     get:
-      summary: 'Get a list of reports for a dossier.'
-      operationId: getAListOfReportsForADossier
-      description: 'This endpoint allows you to get a list of reports for a dossier.'
+      summary: 'List dossier reports'
+      operationId: listDossierReports
+      description: 'This endpoint allows you to get a list of reports attached to a dossier.'
       parameters: []
       responses:
         200:
@@ -23,8 +88,8 @@ paths:
                 example:
                   data: []
                   links:
-                    first: 'http://localhost/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1'
-                    last: 'http://localhost/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1'
+                    first: 'http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1'
+                    last: 'http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1'
                     prev: null
                     next: null
                   meta:
@@ -37,14 +102,14 @@ paths:
                         label: '&laquo; Previous'
                         active: false
                       -
-                        url: 'http://localhost/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1'
+                        url: 'http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1'
                         label: '1'
                         active: true
                       -
                         url: null
                         label: 'Next &raquo;'
                         active: false
-                    path: 'http://localhost/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports'
+                    path: 'http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports'
                     per_page: 15
                     to: null
                     total: 0
@@ -57,10 +122,10 @@ paths:
                     properties:
                       first:
                         type: string
-                        example: 'http://localhost/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1'
+                        example: 'http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1'
                       last:
                         type: string
-                        example: 'http://localhost/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1'
+                        example: 'http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1'
                       prev:
                         type: string
                         example: null
@@ -87,7 +152,7 @@ paths:
                             label: '&laquo; Previous'
                             active: false
                           -
-                            url: 'http://localhost/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1'
+                            url: 'http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1'
                             label: '1'
                             active: true
                           -
@@ -108,7 +173,7 @@ paths:
                               example: false
                       path:
                         type: string
-                        example: 'http://localhost/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports'
+                        example: 'http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports'
                       per_page:
                         type: integer
                         example: 15
@@ -122,8 +187,8 @@ paths:
         - Dossiers
       security: []
     post:
-      summary: 'Add a report to a dossier.'
-      operationId: addAReportToADossier
+      summary: 'Add a report'
+      operationId: addAReport
       description: 'This endpoint allows you to add a report to a dossier.'
       parameters: []
       responses: {  }
@@ -139,7 +204,7 @@ paths:
                 report_id:
                   type: string
                   description: ''
-                  example: ad
+                  example: iste
               required:
                 - report_id
     parameters:
@@ -153,8 +218,8 @@ paths:
           type: string
   /api/v1/dossiers:
     get:
-      summary: 'Get a list of dossiers.'
-      operationId: getAListOfDossiers
+      summary: 'List dossiers'
+      operationId: listDossiers
       description: 'This endpoint allows you to get a list of dossiers.'
       parameters: []
       responses:
@@ -179,8 +244,8 @@ paths:
                         username: wintheiser.winfield
                         created_at: '2023-10-25T15:15:07.000000Z'
                   links:
-                    first: 'http://localhost/api/v1/dossiers?page=1'
-                    last: 'http://localhost/api/v1/dossiers?page=1'
+                    first: 'http://ufo.test/api/v1/dossiers?page=1'
+                    last: 'http://ufo.test/api/v1/dossiers?page=1'
                     prev: null
                     next: null
                   meta:
@@ -193,14 +258,14 @@ paths:
                         label: '&laquo; Previous'
                         active: false
                       -
-                        url: 'http://localhost/api/v1/dossiers?page=1'
+                        url: 'http://ufo.test/api/v1/dossiers?page=1'
                         label: '1'
                         active: true
                       -
                         url: null
                         label: 'Next &raquo;'
                         active: false
-                    path: 'http://localhost/api/v1/dossiers'
+                    path: 'http://ufo.test/api/v1/dossiers'
                     per_page: 15
                     to: 1
                     total: 1
@@ -261,10 +326,10 @@ paths:
                     properties:
                       first:
                         type: string
-                        example: 'http://localhost/api/v1/dossiers?page=1'
+                        example: 'http://ufo.test/api/v1/dossiers?page=1'
                       last:
                         type: string
-                        example: 'http://localhost/api/v1/dossiers?page=1'
+                        example: 'http://ufo.test/api/v1/dossiers?page=1'
                       prev:
                         type: string
                         example: null
@@ -291,7 +356,7 @@ paths:
                             label: '&laquo; Previous'
                             active: false
                           -
-                            url: 'http://localhost/api/v1/dossiers?page=1'
+                            url: 'http://ufo.test/api/v1/dossiers?page=1'
                             label: '1'
                             active: true
                           -
@@ -312,7 +377,7 @@ paths:
                               example: false
                       path:
                         type: string
-                        example: 'http://localhost/api/v1/dossiers'
+                        example: 'http://ufo.test/api/v1/dossiers'
                       per_page:
                         type: integer
                         example: 15
@@ -326,7 +391,7 @@ paths:
         - Dossiers
       security: []
     post:
-      summary: 'Create a new dossier.'
+      summary: 'Create a new dossier'
       operationId: createANewDossier
       description: 'This endpoint allows you to create a new dossier.'
       parameters: []
@@ -343,17 +408,17 @@ paths:
                 title:
                   type: string
                   description: 'Must not be greater than 150 characters.'
-                  example: eyzkxirpxchaqyzpuhtofvbuc
+                  example: uvwdlcszhgqlcf
                 description:
                   type: string
                   description: 'Must not be greater than 500 characters.'
-                  example: 'Vitae est sit enim blanditiis laudantium.'
+                  example: 'Ex cumque veritatis id vero qui nostrum esse.'
               required:
                 - title
                 - description
   '/api/v1/dossiers/{id}':
     get:
-      summary: 'Get a dossier.'
+      summary: 'Get a dossier'
       operationId: getADossier
       description: 'This endpoint allows you to get a dossier.'
       parameters: []
@@ -418,7 +483,7 @@ paths:
         - Dossiers
       security: []
     put:
-      summary: 'Update a dossier.'
+      summary: 'Update a dossier'
       operationId: updateADossier
       description: 'This endpoint allows you to update a dossier.'
       parameters: []
@@ -435,16 +500,16 @@ paths:
                 title:
                   type: string
                   description: 'Must not be greater than 150 characters.'
-                  example: gxibhotsgdrebh
+                  example: wmyvd
                 description:
                   type: string
                   description: 'Must not be greater than 500 characters.'
-                  example: 'Praesentium nesciunt labore possimus autem.'
+                  example: 'Vel neque sunt officia magni.'
               required:
                 - title
                 - description
     delete:
-      summary: 'Delete a dossier.'
+      summary: 'Delete a dossier'
       operationId: deleteADossier
       description: 'This endpoint allows you to delete a dossier.'
       parameters: []
@@ -462,8 +527,8 @@ paths:
           type: string
   '/api/v1/dossiers/{dossier_id}/reports/{id}':
     delete:
-      summary: 'Remove a report from a dossier.'
-      operationId: removeAReportFromADossier
+      summary: 'Remove a report'
+      operationId: removeAReport
       description: 'This endpoint allows you to remove a report from a dossier.'
       parameters: []
       responses: {  }
@@ -486,98 +551,10 @@ paths:
         required: true
         schema:
           type: string
-  /api/user:
-    get:
-      summary: ''
-      operationId: getApiUser
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      security: []
-  /api/v1/auth/register:
-    post:
-      summary: ''
-      operationId: postApiV1AuthRegister
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                email:
-                  type: string
-                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: ischmeler@example.net
-                password:
-                  type: string
-                  description: ''
-                  example: '01$$"cM0dKW{M3q9'
-              required:
-                - email
-                - password
-      security: []
-  /api/v1/auth/login:
-    post:
-      summary: ''
-      operationId: postApiV1AuthLogin
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                email:
-                  type: string
-                  description: 'Must be a valid email address.'
-                  example: simonis.aurelio@example.net
-                password:
-                  type: string
-                  description: ''
-                  example: 'GR;<A?#r='
-              required:
-                - email
-                - password
-      security: []
-  /api/v1/auth/logout:
-    post:
-      summary: ''
-      operationId: postApiV1AuthLogout
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
-      security: []
   /api/v1/reports:
     get:
-      summary: 'Get a list of reports.'
-      operationId: getAListOfReports
+      summary: 'List reports'
+      operationId: listReports
       description: 'This endpoint allows you to get a list of reports.'
       parameters: []
       responses:
@@ -590,8 +567,8 @@ paths:
                 example:
                   data: []
                   links:
-                    first: 'http://localhost/api/v1/reports?page=1'
-                    last: 'http://localhost/api/v1/reports?page=1'
+                    first: 'http://ufo.test/api/v1/reports?page=1'
+                    last: 'http://ufo.test/api/v1/reports?page=1'
                     prev: null
                     next: null
                   meta:
@@ -604,14 +581,14 @@ paths:
                         label: '&laquo; Previous'
                         active: false
                       -
-                        url: 'http://localhost/api/v1/reports?page=1'
+                        url: 'http://ufo.test/api/v1/reports?page=1'
                         label: '1'
                         active: true
                       -
                         url: null
                         label: 'Next &raquo;'
                         active: false
-                    path: 'http://localhost/api/v1/reports'
+                    path: 'http://ufo.test/api/v1/reports'
                     per_page: 15
                     to: null
                     total: 0
@@ -624,10 +601,10 @@ paths:
                     properties:
                       first:
                         type: string
-                        example: 'http://localhost/api/v1/reports?page=1'
+                        example: 'http://ufo.test/api/v1/reports?page=1'
                       last:
                         type: string
-                        example: 'http://localhost/api/v1/reports?page=1'
+                        example: 'http://ufo.test/api/v1/reports?page=1'
                       prev:
                         type: string
                         example: null
@@ -654,7 +631,7 @@ paths:
                             label: '&laquo; Previous'
                             active: false
                           -
-                            url: 'http://localhost/api/v1/reports?page=1'
+                            url: 'http://ufo.test/api/v1/reports?page=1'
                             label: '1'
                             active: true
                           -
@@ -675,7 +652,7 @@ paths:
                               example: false
                       path:
                         type: string
-                        example: 'http://localhost/api/v1/reports'
+                        example: 'http://ufo.test/api/v1/reports'
                       per_page:
                         type: integer
                         example: 15
@@ -697,27 +674,27 @@ paths:
                 keywords:
                   type: string
                   description: 'Must be at least 3 characters.'
-                  example: wbpevskthra
+                  example: wozmzpcynrnyybrzg
                 country:
                   type: string
                   description: ''
-                  example: non
+                  example: recusandae
                 state:
                   type: string
                   description: ''
-                  example: est
+                  example: at
                 city:
                   type: string
                   description: ''
-                  example: unde
+                  example: quia
                 dateFrom:
                   type: string
                   description: 'Must be a valid date.'
-                  example: '2023-10-26T15:23:30'
+                  example: '2023-10-27T14:54:57'
                 dateTo:
                   type: string
                   description: 'Must be a valid date. Must be a date after <code>dateFrom</code>.'
-                  example: '2067-07-27'
+                  example: '2108-09-20'
                 sortBy:
                   type: string
                   description: ''
@@ -733,7 +710,7 @@ paths:
                     - desc
       security: []
     post:
-      summary: 'Create a new report.'
+      summary: 'Create a new report'
       operationId: createANewReport
       description: 'This endpoint allows you to create a new report.'
       parameters: []
@@ -750,47 +727,47 @@ paths:
                 summary:
                   type: string
                   description: 'Must not be greater than 150 characters.'
-                  example: qzs
+                  example: xponvjxkwc
                 details:
                   type: string
                   description: 'Must not be greater than 1500 characters.'
-                  example: jhre
+                  example: pxqznrqakulxeq
                 country:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: 'no'
+                  example: jadbabldns
                 state:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: xpypkoemufbnowksyztrtmwl
+                  example: axidkowftwqsnbehhb
                 city:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: pvzfqwn
+                  example: eodilhmhxibygj
                 lat:
                   type: number
                   description: ''
-                  example: 42109.245268
+                  example: 602171.44589
                 long:
                   type: number
                   description: ''
-                  example: 4.657165976
+                  example: 117765075.2
                 date:
                   type: string
                   description: 'Must be a valid date.'
-                  example: '2023-10-26T15:23:30'
+                  example: '2023-10-27T14:54:57'
                 duration:
                   type: number
                   description: ''
-                  example: 507.9230897
+                  example: 1927.5562212
                 number_of_observers:
                   type: number
                   description: ''
-                  example: 280095.0
+                  example: 134199.5408
                 object_shape:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: xrvbqkaxfikmlesuydmdns
+                  example: gislgr
               required:
                 - summary
                 - details
@@ -804,7 +781,7 @@ paths:
                 - number_of_observers
   '/api/v1/reports/{id}':
     get:
-      summary: 'Get a report.'
+      summary: 'Get a report'
       operationId: getAReport
       description: 'This endpoint allows you to get a report.'
       parameters: []
@@ -881,7 +858,7 @@ paths:
         - Reports
       security: []
     put:
-      summary: 'Update a report.'
+      summary: 'Update a report'
       operationId: updateAReport
       description: 'This endpoint allows you to update a report.'
       parameters: []
@@ -898,47 +875,47 @@ paths:
                 summary:
                   type: string
                   description: 'Must not be greater than 150 characters.'
-                  example: mltr
+                  example: udgzzpzfjokdurznfzr
                 details:
                   type: string
                   description: 'Must not be greater than 1500 characters.'
-                  example: hsbnumvfydbe
+                  example: oqhbpkhjjto
                 country:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: paovcjbkdqrfesxrqpunaovq
+                  example: wmxjeaonuhprilxyi
                 state:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: subpqbgldwqddggcccppyaq
+                  example: oofhtab
                 city:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: uka
+                  example: pfdmjiouxiwxbpyehyczgko
                 lat:
                   type: number
                   description: ''
-                  example: 376.55
+                  example: 24.45
                 long:
                   type: number
                   description: ''
-                  example: 341.882501
+                  example: 4377.12
                 date:
                   type: string
                   description: 'Must be a valid date.'
-                  example: '2023-10-26T15:23:30'
+                  example: '2023-10-27T14:54:57'
                 duration:
                   type: number
                   description: ''
-                  example: 13.578413
+                  example: 2.0
                 number_of_observers:
                   type: number
                   description: ''
-                  example: 594655594.97787
+                  example: 10975.2217376
                 object_shape:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: rshpzgimqlelzg
+                  example: z
               required:
                 - summary
                 - details
@@ -951,7 +928,7 @@ paths:
                 - duration
                 - number_of_observers
     delete:
-      summary: 'Delete a report.'
+      summary: 'Delete a report'
       operationId: deleteAReport
       description: 'This endpoint allows you to delete a report.'
       parameters: []
@@ -969,9 +946,9 @@ paths:
           type: string
   '/api/v1/reports/{report_id}/images':
     get:
-      summary: 'Get a list of images for a report.'
-      operationId: getAListOfImagesForAReport
-      description: 'This endpoint allows you to get a list of images for a report.'
+      summary: 'List report images'
+      operationId: listReportImages
+      description: 'This endpoint allows you to get the images of a report.'
       parameters: []
       responses:
         401:
@@ -990,9 +967,9 @@ paths:
         - Reports
       security: []
     post:
-      summary: 'Upload images for a report.'
-      operationId: uploadImagesForAReport
-      description: 'This endpoint allows you to upload images for a report.'
+      summary: 'Upload images'
+      operationId: uploadImages
+      description: 'This endpoint allows you to upload images'
       parameters: []
       responses: {  }
       tags:
@@ -1023,9 +1000,9 @@ paths:
           type: string
   '/api/v1/reports/{report_id}/images/{id}':
     delete:
-      summary: 'Delete an image for a report.'
-      operationId: deleteAnImageForAReport
-      description: 'This endpoint allows you to delete an image for a report.'
+      summary: 'Delete an image'
+      operationId: deleteAnImage
+      description: 'This endpoint allows you to delete an image of a report.'
       parameters: []
       responses: {  }
       tags:
@@ -1049,9 +1026,9 @@ paths:
           type: integer
   '/api/v1/users/{user_id}/reports':
     get:
-      summary: 'Get a list of reports for a user.'
-      operationId: getAListOfReportsForAUser
-      description: 'This endpoint allows you to get a list of reports for a user.'
+      summary: 'List user reports'
+      operationId: listUserReports
+      description: 'This endpoint allows you to get a list of reports of a user.'
       parameters: []
       responses:
         200:
@@ -1077,8 +1054,8 @@ paths:
                       number_of_observers: 2
                       details: 'Sit est nisi est. Voluptatem accusamus libero voluptas distinctio soluta. Placeat voluptas assumenda voluptatem quod velit harum quia incidunt. Aut veritatis molestiae quisquam dolore quis a.'
                   links:
-                    first: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1'
-                    last: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1'
+                    first: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1'
+                    last: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1'
                     prev: null
                     next: null
                   meta:
@@ -1091,14 +1068,14 @@ paths:
                         label: '&laquo; Previous'
                         active: false
                       -
-                        url: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1'
+                        url: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1'
                         label: '1'
                         active: true
                       -
                         url: null
                         label: 'Next &raquo;'
                         active: false
-                    path: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports'
+                    path: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports'
                     per_page: 15
                     to: 1
                     total: 1
@@ -1167,10 +1144,10 @@ paths:
                     properties:
                       first:
                         type: string
-                        example: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1'
+                        example: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1'
                       last:
                         type: string
-                        example: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1'
+                        example: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1'
                       prev:
                         type: string
                         example: null
@@ -1197,7 +1174,7 @@ paths:
                             label: '&laquo; Previous'
                             active: false
                           -
-                            url: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1'
+                            url: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1'
                             label: '1'
                             active: true
                           -
@@ -1218,7 +1195,7 @@ paths:
                               example: false
                       path:
                         type: string
-                        example: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports'
+                        example: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports'
                       per_page:
                         type: integer
                         example: 15
@@ -1242,9 +1219,9 @@ paths:
           type: string
   '/api/v1/users/{user_id}/dossiers':
     get:
-      summary: 'Get a list of dossiers for a user.'
-      operationId: getAListOfDossiersForAUser
-      description: 'This endpoint allows you to get a list of dossiers for a user.'
+      summary: 'List user dossiers'
+      operationId: listUserDossiers
+      description: 'This endpoint allows you to get a list of dossiers of a user.'
       parameters: []
       responses:
         200:
@@ -1256,8 +1233,8 @@ paths:
                 example:
                   data: []
                   links:
-                    first: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1'
-                    last: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1'
+                    first: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1'
+                    last: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1'
                     prev: null
                     next: null
                   meta:
@@ -1270,14 +1247,14 @@ paths:
                         label: '&laquo; Previous'
                         active: false
                       -
-                        url: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1'
+                        url: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1'
                         label: '1'
                         active: true
                       -
                         url: null
                         label: 'Next &raquo;'
                         active: false
-                    path: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers'
+                    path: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers'
                     per_page: 15
                     to: null
                     total: 0
@@ -1290,10 +1267,10 @@ paths:
                     properties:
                       first:
                         type: string
-                        example: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1'
+                        example: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1'
                       last:
                         type: string
-                        example: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1'
+                        example: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1'
                       prev:
                         type: string
                         example: null
@@ -1320,7 +1297,7 @@ paths:
                             label: '&laquo; Previous'
                             active: false
                           -
-                            url: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1'
+                            url: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1'
                             label: '1'
                             active: true
                           -
@@ -1341,7 +1318,7 @@ paths:
                               example: false
                       path:
                         type: string
-                        example: 'http://localhost/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers'
+                        example: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers'
                       per_page:
                         type: integer
                         example: 15
@@ -1353,6 +1330,7 @@ paths:
                         example: 0
       tags:
         - Users
+      security: []
     parameters:
       -
         in: path
@@ -1364,8 +1342,8 @@ paths:
           type: string
   /api/v1/users:
     get:
-      summary: 'Get a list of users.'
-      operationId: getAListOfUsers
+      summary: 'List users'
+      operationId: listUsers
       description: 'This endpoint allows you to get a list of users.'
       parameters: []
       responses:
@@ -1377,6 +1355,18 @@ paths:
                 type: object
                 example:
                   data:
+                    -
+                      id: 9a78426c-af7a-4c3e-810f-2c1dd9f34c01
+                      username: oTdBHu8k
+                      created_at: '2023-10-27T13:23:31.000000Z'
+                    -
+                      id: 9a783dac-d98f-40fb-b6d4-2e40d32b81f1
+                      username: jnjh3HGj
+                      created_at: '2023-10-27T13:10:14.000000Z'
+                    -
+                      id: 9a783c5a-71a2-4a4b-80c1-132838450f45
+                      username: IPwLPhud
+                      created_at: '2023-10-27T13:06:33.000000Z'
                     -
                       id: 9a7633e2-81c2-4e74-a439-3d748c0688b7
                       username: IByuYsNp
@@ -1390,8 +1380,8 @@ paths:
                       username: carlotta.borer
                       created_at: '2023-10-25T15:14:21.000000Z'
                   links:
-                    first: 'http://localhost/api/v1/users?page=1'
-                    last: 'http://localhost/api/v1/users?page=1'
+                    first: 'http://ufo.test/api/v1/users?page=1'
+                    last: 'http://ufo.test/api/v1/users?page=1'
                     prev: null
                     next: null
                   meta:
@@ -1404,21 +1394,33 @@ paths:
                         label: '&laquo; Previous'
                         active: false
                       -
-                        url: 'http://localhost/api/v1/users?page=1'
+                        url: 'http://ufo.test/api/v1/users?page=1'
                         label: '1'
                         active: true
                       -
                         url: null
                         label: 'Next &raquo;'
                         active: false
-                    path: 'http://localhost/api/v1/users'
+                    path: 'http://ufo.test/api/v1/users'
                     per_page: 15
-                    to: 3
-                    total: 3
+                    to: 6
+                    total: 6
                 properties:
                   data:
                     type: array
                     example:
+                      -
+                        id: 9a78426c-af7a-4c3e-810f-2c1dd9f34c01
+                        username: oTdBHu8k
+                        created_at: '2023-10-27T13:23:31.000000Z'
+                      -
+                        id: 9a783dac-d98f-40fb-b6d4-2e40d32b81f1
+                        username: jnjh3HGj
+                        created_at: '2023-10-27T13:10:14.000000Z'
+                      -
+                        id: 9a783c5a-71a2-4a4b-80c1-132838450f45
+                        username: IPwLPhud
+                        created_at: '2023-10-27T13:06:33.000000Z'
                       -
                         id: 9a7633e2-81c2-4e74-a439-3d748c0688b7
                         username: IByuYsNp
@@ -1436,22 +1438,22 @@ paths:
                       properties:
                         id:
                           type: string
-                          example: 9a7633e2-81c2-4e74-a439-3d748c0688b7
+                          example: 9a78426c-af7a-4c3e-810f-2c1dd9f34c01
                         username:
                           type: string
-                          example: IByuYsNp
+                          example: oTdBHu8k
                         created_at:
                           type: string
-                          example: '2023-10-26T12:51:13.000000Z'
+                          example: '2023-10-27T13:23:31.000000Z'
                   links:
                     type: object
                     properties:
                       first:
                         type: string
-                        example: 'http://localhost/api/v1/users?page=1'
+                        example: 'http://ufo.test/api/v1/users?page=1'
                       last:
                         type: string
-                        example: 'http://localhost/api/v1/users?page=1'
+                        example: 'http://ufo.test/api/v1/users?page=1'
                       prev:
                         type: string
                         example: null
@@ -1478,7 +1480,7 @@ paths:
                             label: '&laquo; Previous'
                             active: false
                           -
-                            url: 'http://localhost/api/v1/users?page=1'
+                            url: 'http://ufo.test/api/v1/users?page=1'
                             label: '1'
                             active: true
                           -
@@ -1499,22 +1501,22 @@ paths:
                               example: false
                       path:
                         type: string
-                        example: 'http://localhost/api/v1/users'
+                        example: 'http://ufo.test/api/v1/users'
                       per_page:
                         type: integer
                         example: 15
                       to:
                         type: integer
-                        example: 3
+                        example: 6
                       total:
                         type: integer
-                        example: 3
+                        example: 6
       tags:
         - Users
       security: []
   '/api/v1/users/{id}':
     get:
-      summary: 'Get a user.'
+      summary: 'Get a user'
       operationId: getAUser
       description: 'This endpoint allows you to get a user.'
       parameters: []
@@ -1546,6 +1548,31 @@ paths:
       tags:
         - Users
       security: []
+    put:
+      summary: 'Update a user'
+      operationId: updateAUser
+      description: 'This endpoint allows you to update a user.'
+      parameters: []
+      responses: {  }
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: makenna.mann@example.net
+                password:
+                  type: string
+                  description: ''
+                  example: null
+              required:
+                - email
     parameters:
       -
         in: path
@@ -1557,11 +1584,11 @@ paths:
           type: string
 tags:
   -
+    name: Auth
+    description: "\nEndpoints for managing authentication."
+  -
     name: Dossiers
     description: "\nEndpoints for managing dossiers."
-  -
-    name: Endpoints
-    description: ''
   -
     name: Reports
     description: "\nEndpoints for managing reports."
@@ -1573,7 +1600,7 @@ components:
     default:
       type: http
       scheme: bearer
-      description: 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.'
+      description: ''
 security:
   -
     default: []

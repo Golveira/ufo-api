@@ -11,12 +11,22 @@ use App\Http\Requests\StoreImageRequest;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Http\Response;
 
+/**
+ * @group Reports
+ *
+ * Endpoints for managing reports.
+ */
 class ReportImageController extends Controller
 {
     public function __construct(private ReportService $reportService)
     {
     }
 
+    /**
+     * List report images
+     *
+     * This endpoint allows you to get the images of a report.
+     */
     public function index(Report $report): ResourceCollection
     {
         $images = $report->images()->latest()->get();
@@ -24,6 +34,13 @@ class ReportImageController extends Controller
         return ImageResource::collection($images);
     }
 
+    /**
+     * Upload images
+     *
+     * This endpoint allows you to upload images
+     *
+     * @authenticated
+     */
     public function store(StoreImageRequest $request, Report $report): ResourceCollection
     {
         $this->authorize('update', $report);
@@ -33,6 +50,13 @@ class ReportImageController extends Controller
         return ImageResource::collection($images);
     }
 
+    /**
+     * Delete an image
+     *
+     * This endpoint allows you to delete an image of a report.
+     *
+     * @authenticated
+     */
     public function destroy(Report $report, Image $image): Response
     {
         $this->authorize('update', $report);

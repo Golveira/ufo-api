@@ -10,8 +10,18 @@ use App\Http\Requests\ReportRequest;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Http\Response;
 
+/**
+ * @group Reports
+ *
+ * Endpoints for managing reports.
+ */
 class ReportController extends Controller
 {
+    /**
+     * List reports
+     *
+     * This endpoint allows you to get a list of reports.
+     */
     public function index(ReportListRequest $request): ResourceCollection
     {
         $reports = Report::query()
@@ -22,6 +32,13 @@ class ReportController extends Controller
         return ReportResource::collection($reports);
     }
 
+    /**
+     * Create a new report
+     *
+     * This endpoint allows you to create a new report.
+     *
+     * @authenticated
+     */
     public function store(ReportRequest $request): ReportResource
     {
         $report = $request->user()
@@ -31,11 +48,23 @@ class ReportController extends Controller
         return new ReportResource($report);
     }
 
+    /**
+     * Get a report
+     *
+     * This endpoint allows you to get a report.
+     */
     public function show(Report $report): ReportResource
     {
         return new ReportResource($report->load('images'));
     }
 
+    /**
+     * Update a report
+     *
+     * This endpoint allows you to update a report.
+     *
+     * @authenticated
+     */
     public function update(ReportRequest $request, Report $report): ReportResource
     {
         $this->authorize('update', $report);
@@ -45,6 +74,13 @@ class ReportController extends Controller
         return new ReportResource($report->load('images'));
     }
 
+    /**
+     * Delete a report
+     *
+     * This endpoint allows you to delete a report.
+     *
+     *  @authenticated
+     */
     public function destroy(Report $report): Response
     {
         $this->authorize('delete', $report);

@@ -5,22 +5,115 @@
             "key": "baseUrl",
             "type": "string",
             "name": "string",
-            "value": "http:\/\/localhost"
+            "value": "http:\/\/ufo.test"
         }
     ],
     "info": {
-        "name": "UFO",
-        "_postman_id": "731d4ba3-cb83-4c32-b41a-68781559b33d",
-        "description": "",
+        "name": "UFO API Documentation",
+        "_postman_id": "911eb327-7ca3-4b33-8943-2598727db8e5",
+        "description": "The UFO API is a REST API that allows you to report and investigate UFO sightings.",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
+        {
+            "name": "Auth",
+            "description": "\nEndpoints for managing authentication.",
+            "item": [
+                {
+                    "name": "Register",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/auth\/register",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/auth\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"cassie.oreilly@example.org\",\"password\":\"oX<sF8zXv`0\\\\Yb)l*mBi\"}"
+                        },
+                        "description": "This endpoint allows you to register a new user.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/auth\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/auth\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"polly.homenick@example.net\",\"password\":\"cjD6Z?Faw]u\"}"
+                        },
+                        "description": "This endpoint allows you to login a user.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Logout",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/auth\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/auth\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "This endpoint allows you to logout a user."
+                    },
+                    "response": []
+                }
+            ]
+        },
         {
             "name": "Dossiers",
             "description": "\nEndpoints for managing dossiers.",
             "item": [
                 {
-                    "name": "Get a list of reports for a dossier.",
+                    "name": "List dossier reports",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -48,7 +141,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "This endpoint allows you to get a list of reports for a dossier.",
+                        "description": "This endpoint allows you to get a list of reports attached to a dossier.",
                         "auth": {
                             "type": "noauth"
                         }
@@ -78,13 +171,13 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"data\":[],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/dossiers\\\/9a74645e-499c-4eb6-aa92-f36f25241954\\\/reports?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/dossiers\\\/9a74645e-499c-4eb6-aa92-f36f25241954\\\/reports?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":null,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/dossiers\\\/9a74645e-499c-4eb6-aa92-f36f25241954\\\/reports?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/dossiers\\\/9a74645e-499c-4eb6-aa92-f36f25241954\\\/reports\",\"per_page\":15,\"to\":null,\"total\":0}}",
+                            "body": "{\"data\":[],\"links\":{\"first\":\"http:\\\/\\\/ufo.test\\\/api\\\/v1\\\/dossiers\\\/9a74645e-499c-4eb6-aa92-f36f25241954\\\/reports?page=1\",\"last\":\"http:\\\/\\\/ufo.test\\\/api\\\/v1\\\/dossiers\\\/9a74645e-499c-4eb6-aa92-f36f25241954\\\/reports?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":null,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/ufo.test\\\/api\\\/v1\\\/dossiers\\\/9a74645e-499c-4eb6-aa92-f36f25241954\\\/reports?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/ufo.test\\\/api\\\/v1\\\/dossiers\\\/9a74645e-499c-4eb6-aa92-f36f25241954\\\/reports\",\"per_page\":15,\"to\":null,\"total\":0}}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "Get a list of dossiers.",
+                    "name": "List dossiers",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -134,13 +227,13 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"data\":[{\"id\":\"9a74645e-499c-4eb6-aa92-f36f25241954\",\"title\":\"Eum porro eos tempora.\",\"description\":\"Fugiat quasi similique ut quos iure illo in. Non ut est quam est quod ipsum inventore. Quia perferendis reprehenderit soluta sapiente quidem mollitia.\",\"reports_count\":0,\"created_at\":\"2023-10-25T15:15:07.000000Z\",\"updated_at\":\"2023-10-25T15:15:07.000000Z\",\"user_id\":\"9a74645e-46d2-4b0c-8664-1592dfa60b7f\",\"user\":{\"id\":\"9a74645e-46d2-4b0c-8664-1592dfa60b7f\",\"username\":\"wintheiser.winfield\",\"created_at\":\"2023-10-25T15:15:07.000000Z\"}}],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/dossiers?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/dossiers?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/dossiers?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/dossiers\",\"per_page\":15,\"to\":1,\"total\":1}}",
+                            "body": "{\"data\":[{\"id\":\"9a74645e-499c-4eb6-aa92-f36f25241954\",\"title\":\"Eum porro eos tempora.\",\"description\":\"Fugiat quasi similique ut quos iure illo in. Non ut est quam est quod ipsum inventore. Quia perferendis reprehenderit soluta sapiente quidem mollitia.\",\"reports_count\":0,\"created_at\":\"2023-10-25T15:15:07.000000Z\",\"updated_at\":\"2023-10-25T15:15:07.000000Z\",\"user_id\":\"9a74645e-46d2-4b0c-8664-1592dfa60b7f\",\"user\":{\"id\":\"9a74645e-46d2-4b0c-8664-1592dfa60b7f\",\"username\":\"wintheiser.winfield\",\"created_at\":\"2023-10-25T15:15:07.000000Z\"}}],\"links\":{\"first\":\"http:\\\/\\\/ufo.test\\\/api\\\/v1\\\/dossiers?page=1\",\"last\":\"http:\\\/\\\/ufo.test\\\/api\\\/v1\\\/dossiers?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/ufo.test\\\/api\\\/v1\\\/dossiers?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/ufo.test\\\/api\\\/v1\\\/dossiers\",\"per_page\":15,\"to\":1,\"total\":1}}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "Get a dossier.",
+                    "name": "Get a dossier",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -204,7 +297,7 @@
                     ]
                 },
                 {
-                    "name": "Create a new dossier.",
+                    "name": "Create a new dossier",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -225,14 +318,14 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"eyzkxirpxchaqyzpuhtofvbuc\",\"description\":\"Vitae est sit enim blanditiis laudantium.\"}"
+                            "raw": "{\"title\":\"uvwdlcszhgqlcf\",\"description\":\"Ex cumque veritatis id vero qui nostrum esse.\"}"
                         },
                         "description": "This endpoint allows you to create a new dossier."
                     },
                     "response": []
                 },
                 {
-                    "name": "Update a dossier.",
+                    "name": "Update a dossier",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -261,14 +354,14 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"gxibhotsgdrebh\",\"description\":\"Praesentium nesciunt labore possimus autem.\"}"
+                            "raw": "{\"title\":\"wmyvd\",\"description\":\"Vel neque sunt officia magni.\"}"
                         },
                         "description": "This endpoint allows you to update a dossier."
                     },
                     "response": []
                 },
                 {
-                    "name": "Delete a dossier.",
+                    "name": "Delete a dossier",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -301,7 +394,7 @@
                     "response": []
                 },
                 {
-                    "name": "Add a report to a dossier.",
+                    "name": "Add a report",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -330,14 +423,14 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"report_id\":\"ad\"}"
+                            "raw": "{\"report_id\":\"iste\"}"
                         },
                         "description": "This endpoint allows you to add a report to a dossier."
                     },
                     "response": []
                 },
                 {
-                    "name": "Remove a report from a dossier.",
+                    "name": "Remove a report",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -378,155 +471,11 @@
             ]
         },
         {
-            "name": "Endpoints",
-            "description": "",
-            "item": [
-                {
-                    "name": "GET api\/user",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/user",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/user"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "POST api\/v1\/auth\/register",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/auth\/register",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/auth\/register"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"email\":\"ischmeler@example.net\",\"password\":\"01$$\\\"cM0dKW{M3q9\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "POST api\/v1\/auth\/login",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/auth\/login",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/auth\/login"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"email\":\"simonis.aurelio@example.net\",\"password\":\"GR;<A?#r=\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "POST api\/v1\/auth\/logout",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/auth\/logout",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/auth\/logout"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                }
-            ]
-        },
-        {
             "name": "Reports",
             "description": "\nEndpoints for managing reports.",
             "item": [
                 {
-                    "name": "Get a list of reports.",
+                    "name": "List reports",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -547,7 +496,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"keywords\":\"wbpevskthra\",\"country\":\"non\",\"state\":\"est\",\"city\":\"unde\",\"dateFrom\":\"2023-10-26T15:23:30\",\"dateTo\":\"2067-07-27\",\"sortBy\":\"date\",\"sortOrder\":\"asc\"}"
+                            "raw": "{\"keywords\":\"wozmzpcynrnyybrzg\",\"country\":\"recusandae\",\"state\":\"at\",\"city\":\"quia\",\"dateFrom\":\"2023-10-27T14:54:57\",\"dateTo\":\"2108-09-20\",\"sortBy\":\"date\",\"sortOrder\":\"asc\"}"
                         },
                         "description": "This endpoint allows you to get a list of reports.",
                         "auth": {
@@ -579,13 +528,13 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"data\":[],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/reports?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/reports?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":null,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/reports?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/reports\",\"per_page\":15,\"to\":null,\"total\":0}}",
+                            "body": "{\"data\":[],\"links\":{\"first\":\"http:\\\/\\\/ufo.test\\\/api\\\/v1\\\/reports?page=1\",\"last\":\"http:\\\/\\\/ufo.test\\\/api\\\/v1\\\/reports?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":null,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/ufo.test\\\/api\\\/v1\\\/reports?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/ufo.test\\\/api\\\/v1\\\/reports\",\"per_page\":15,\"to\":null,\"total\":0}}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "Get a report.",
+                    "name": "Get a report",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -649,7 +598,7 @@
                     ]
                 },
                 {
-                    "name": "Create a new report.",
+                    "name": "Create a new report",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -670,14 +619,14 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"summary\":\"qzs\",\"details\":\"jhre\",\"country\":\"no\",\"state\":\"xpypkoemufbnowksyztrtmwl\",\"city\":\"pvzfqwn\",\"lat\":42109.245268,\"long\":4.657165976,\"date\":\"2023-10-26T15:23:30\",\"duration\":507.9230897,\"number_of_observers\":280095,\"object_shape\":\"xrvbqkaxfikmlesuydmdns\"}"
+                            "raw": "{\"summary\":\"xponvjxkwc\",\"details\":\"pxqznrqakulxeq\",\"country\":\"jadbabldns\",\"state\":\"axidkowftwqsnbehhb\",\"city\":\"eodilhmhxibygj\",\"lat\":602171.44589,\"long\":117765075.2,\"date\":\"2023-10-27T14:54:57\",\"duration\":1927.5562212,\"number_of_observers\":134199.5408,\"object_shape\":\"gislgr\"}"
                         },
                         "description": "This endpoint allows you to create a new report."
                     },
                     "response": []
                 },
                 {
-                    "name": "Update a report.",
+                    "name": "Update a report",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -706,14 +655,14 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"summary\":\"mltr\",\"details\":\"hsbnumvfydbe\",\"country\":\"paovcjbkdqrfesxrqpunaovq\",\"state\":\"subpqbgldwqddggcccppyaq\",\"city\":\"uka\",\"lat\":376.55,\"long\":341.882501,\"date\":\"2023-10-26T15:23:30\",\"duration\":13.578413,\"number_of_observers\":594655594.977871,\"object_shape\":\"rshpzgimqlelzg\"}"
+                            "raw": "{\"summary\":\"udgzzpzfjokdurznfzr\",\"details\":\"oqhbpkhjjto\",\"country\":\"wmxjeaonuhprilxyi\",\"state\":\"oofhtab\",\"city\":\"pfdmjiouxiwxbpyehyczgko\",\"lat\":24.45,\"long\":4377.12,\"date\":\"2023-10-27T14:54:57\",\"duration\":2,\"number_of_observers\":10975.2217376,\"object_shape\":\"z\"}"
                         },
                         "description": "This endpoint allows you to update a report."
                     },
                     "response": []
                 },
                 {
-                    "name": "Delete a report.",
+                    "name": "Delete a report",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -746,7 +695,7 @@
                     "response": []
                 },
                 {
-                    "name": "Get a list of images for a report.",
+                    "name": "List report images",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -774,7 +723,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "This endpoint allows you to get a list of images for a report.",
+                        "description": "This endpoint allows you to get the images of a report.",
                         "auth": {
                             "type": "noauth"
                         }
@@ -802,7 +751,7 @@
                     ]
                 },
                 {
-                    "name": "Upload images for a report.",
+                    "name": "Upload images",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -839,12 +788,12 @@
                                 }
                             ]
                         },
-                        "description": "This endpoint allows you to upload images for a report."
+                        "description": "This endpoint allows you to upload images"
                     },
                     "response": []
                 },
                 {
-                    "name": "Delete an image for a report.",
+                    "name": "Delete an image",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -878,7 +827,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "This endpoint allows you to delete an image for a report."
+                        "description": "This endpoint allows you to delete an image of a report."
                     },
                     "response": []
                 }
@@ -889,7 +838,7 @@
             "description": "\nEndpoints for managing users.",
             "item": [
                 {
-                    "name": "Get a list of reports for a user.",
+                    "name": "List user reports",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -917,7 +866,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "This endpoint allows you to get a list of reports for a user.",
+                        "description": "This endpoint allows you to get a list of reports of a user.",
                         "auth": {
                             "type": "noauth"
                         }
@@ -947,13 +896,13 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"data\":[{\"id\":\"9a746417-6bbc-41f1-8c9b-28404c87d10e\",\"user_id\":\"9a746417-6294-47c7-be09-d382b9dabc26\",\"summary\":\"Quasi quia consectetur hic ad dolorum aperiam molestiae.\",\"country\":\"Jersey\",\"state\":\"Delaware\",\"city\":\"Connertown\",\"lat\":\"-63.65556400\",\"long\":\"-62.09172000\",\"date\":\"1994-04-11 17:57:06\",\"duration\":59,\"object_shape\":\"ex\",\"number_of_observers\":2,\"details\":\"Sit est nisi est. Voluptatem accusamus libero voluptas distinctio soluta. Placeat voluptas assumenda voluptatem quod velit harum quia incidunt. Aut veritatis molestiae quisquam dolore quis a.\"}],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users\\\/9a746417-6294-47c7-be09-d382b9dabc26\\\/reports?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users\\\/9a746417-6294-47c7-be09-d382b9dabc26\\\/reports?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users\\\/9a746417-6294-47c7-be09-d382b9dabc26\\\/reports?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users\\\/9a746417-6294-47c7-be09-d382b9dabc26\\\/reports\",\"per_page\":15,\"to\":1,\"total\":1}}",
+                            "body": "{\"data\":[{\"id\":\"9a746417-6bbc-41f1-8c9b-28404c87d10e\",\"user_id\":\"9a746417-6294-47c7-be09-d382b9dabc26\",\"summary\":\"Quasi quia consectetur hic ad dolorum aperiam molestiae.\",\"country\":\"Jersey\",\"state\":\"Delaware\",\"city\":\"Connertown\",\"lat\":\"-63.65556400\",\"long\":\"-62.09172000\",\"date\":\"1994-04-11 17:57:06\",\"duration\":59,\"object_shape\":\"ex\",\"number_of_observers\":2,\"details\":\"Sit est nisi est. Voluptatem accusamus libero voluptas distinctio soluta. Placeat voluptas assumenda voluptatem quod velit harum quia incidunt. Aut veritatis molestiae quisquam dolore quis a.\"}],\"links\":{\"first\":\"http:\\\/\\\/ufo.test\\\/api\\\/v1\\\/users\\\/9a746417-6294-47c7-be09-d382b9dabc26\\\/reports?page=1\",\"last\":\"http:\\\/\\\/ufo.test\\\/api\\\/v1\\\/users\\\/9a746417-6294-47c7-be09-d382b9dabc26\\\/reports?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/ufo.test\\\/api\\\/v1\\\/users\\\/9a746417-6294-47c7-be09-d382b9dabc26\\\/reports?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/ufo.test\\\/api\\\/v1\\\/users\\\/9a746417-6294-47c7-be09-d382b9dabc26\\\/reports\",\"per_page\":15,\"to\":1,\"total\":1}}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "Get a list of dossiers for a user.",
+                    "name": "List user dossiers",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -981,7 +930,10 @@
                             }
                         ],
                         "body": null,
-                        "description": "This endpoint allows you to get a list of dossiers for a user."
+                        "description": "This endpoint allows you to get a list of dossiers of a user.",
+                        "auth": {
+                            "type": "noauth"
+                        }
                     },
                     "response": [
                         {
@@ -1008,13 +960,13 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"data\":[],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users\\\/9a746417-6294-47c7-be09-d382b9dabc26\\\/dossiers?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users\\\/9a746417-6294-47c7-be09-d382b9dabc26\\\/dossiers?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":null,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users\\\/9a746417-6294-47c7-be09-d382b9dabc26\\\/dossiers?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users\\\/9a746417-6294-47c7-be09-d382b9dabc26\\\/dossiers\",\"per_page\":15,\"to\":null,\"total\":0}}",
+                            "body": "{\"data\":[],\"links\":{\"first\":\"http:\\\/\\\/ufo.test\\\/api\\\/v1\\\/users\\\/9a746417-6294-47c7-be09-d382b9dabc26\\\/dossiers?page=1\",\"last\":\"http:\\\/\\\/ufo.test\\\/api\\\/v1\\\/users\\\/9a746417-6294-47c7-be09-d382b9dabc26\\\/dossiers?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":null,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/ufo.test\\\/api\\\/v1\\\/users\\\/9a746417-6294-47c7-be09-d382b9dabc26\\\/dossiers?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/ufo.test\\\/api\\\/v1\\\/users\\\/9a746417-6294-47c7-be09-d382b9dabc26\\\/dossiers\",\"per_page\":15,\"to\":null,\"total\":0}}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "Get a list of users.",
+                    "name": "List users",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -1064,13 +1016,13 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"data\":[{\"id\":\"9a7633e2-81c2-4e74-a439-3d748c0688b7\",\"username\":\"IByuYsNp\",\"created_at\":\"2023-10-26T12:51:13.000000Z\"},{\"id\":\"9a74645e-46d2-4b0c-8664-1592dfa60b7f\",\"username\":\"wintheiser.winfield\",\"created_at\":\"2023-10-25T15:15:07.000000Z\"},{\"id\":\"9a746417-6294-47c7-be09-d382b9dabc26\",\"username\":\"carlotta.borer\",\"created_at\":\"2023-10-25T15:14:21.000000Z\"}],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users\",\"per_page\":15,\"to\":3,\"total\":3}}",
+                            "body": "{\"data\":[{\"id\":\"9a78426c-af7a-4c3e-810f-2c1dd9f34c01\",\"username\":\"oTdBHu8k\",\"created_at\":\"2023-10-27T13:23:31.000000Z\"},{\"id\":\"9a783dac-d98f-40fb-b6d4-2e40d32b81f1\",\"username\":\"jnjh3HGj\",\"created_at\":\"2023-10-27T13:10:14.000000Z\"},{\"id\":\"9a783c5a-71a2-4a4b-80c1-132838450f45\",\"username\":\"IPwLPhud\",\"created_at\":\"2023-10-27T13:06:33.000000Z\"},{\"id\":\"9a7633e2-81c2-4e74-a439-3d748c0688b7\",\"username\":\"IByuYsNp\",\"created_at\":\"2023-10-26T12:51:13.000000Z\"},{\"id\":\"9a74645e-46d2-4b0c-8664-1592dfa60b7f\",\"username\":\"wintheiser.winfield\",\"created_at\":\"2023-10-25T15:15:07.000000Z\"},{\"id\":\"9a746417-6294-47c7-be09-d382b9dabc26\",\"username\":\"carlotta.borer\",\"created_at\":\"2023-10-25T15:14:21.000000Z\"}],\"links\":{\"first\":\"http:\\\/\\\/ufo.test\\\/api\\\/v1\\\/users?page=1\",\"last\":\"http:\\\/\\\/ufo.test\\\/api\\\/v1\\\/users?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/ufo.test\\\/api\\\/v1\\\/users?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/ufo.test\\\/api\\\/v1\\\/users\",\"per_page\":15,\"to\":6,\"total\":6}}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "Get a user.",
+                    "name": "Get a user",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -1132,6 +1084,42 @@
                             "name": ""
                         }
                     ]
+                },
+                {
+                    "name": "Update a user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "9a746417-6294-47c7-be09-d382b9dabc26",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"makenna.mann@example.net\"}"
+                        },
+                        "description": "This endpoint allows you to update a user."
+                    },
+                    "response": []
                 }
             ]
         }

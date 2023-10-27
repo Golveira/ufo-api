@@ -8,8 +8,18 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * @group Auth
+ *
+ * Endpoints for managing authentication.
+ */
 class LoginController extends Controller
 {
+    /**
+     * Login
+     *
+     * This endpoint allows you to login a user.
+     */
     public function store(LoginRequest $request)
     {
         if (!Auth::attempt($request->only('email', 'password'))) {
@@ -23,6 +33,13 @@ class LoginController extends Controller
         ], Response::HTTP_OK);
     }
 
+    /**
+     * Logout
+     *
+     * This endpoint allows you to logout a user.
+     *
+     * @authenticated
+     */
     public function destroy(Request $request)
     {
         $request->user()->currentAccessToken()->delete();

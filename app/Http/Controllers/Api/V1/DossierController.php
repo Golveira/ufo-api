@@ -9,8 +9,19 @@ use App\Models\Dossier;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Http\Response;
 
+/**
+ * @group Dossiers
+ *
+ * Endpoints for managing dossiers.
+ */
 class DossierController extends Controller
 {
+    /**
+     * List dossiers
+     *
+     * This endpoint allows you to get a list of dossiers.
+     *
+     */
     public function index(): ResourceCollection
     {
         return DossierResource::collection(
@@ -18,6 +29,13 @@ class DossierController extends Controller
         );
     }
 
+    /**
+     * Create a new dossier
+     *
+     * This endpoint allows you to create a new dossier.
+     *
+     * @authenticated
+     */
     public function store(DossierRequest $request): DossierResource
     {
         return new DossierResource(
@@ -25,6 +43,12 @@ class DossierController extends Controller
         );
     }
 
+    /**
+     * Get a dossier
+     *
+     * This endpoint allows you to get a dossier.
+     *
+     */
     public function show(Dossier $dossier): DossierResource
     {
         return new DossierResource(
@@ -32,6 +56,13 @@ class DossierController extends Controller
         );
     }
 
+    /**
+     * Update a dossier
+     *
+     * This endpoint allows you to update a dossier.
+     *
+     * @authenticated
+     */
     public function update(DossierRequest $request, Dossier $dossier): DossierResource
     {
         $this->authorize('update', $dossier);
@@ -41,6 +72,13 @@ class DossierController extends Controller
         return new DossierResource($dossier);
     }
 
+    /**
+     * Delete a dossier
+     *
+     * This endpoint allows you to delete a dossier.
+     *
+     * @authenticated
+     */
     public function destroy(Dossier $dossier): Response
     {
         $this->authorize('delete', $dossier);

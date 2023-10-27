@@ -10,8 +10,19 @@ use App\Http\Resources\ReportResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Http\Response;
 
+/**
+ * @group Dossiers
+ *
+ * Endpoints for managing dossiers.
+ */
 class DossierReportController extends Controller
 {
+    /**
+     * List dossier reports
+     *
+     * This endpoint allows you to get a list of reports attached to a dossier.
+     *
+     */
     public function index(Dossier $dossier): ResourceCollection
     {
         return ReportResource::collection(
@@ -19,6 +30,13 @@ class DossierReportController extends Controller
         );
     }
 
+    /**
+     * Add a report
+     *
+     * This endpoint allows you to add a report to a dossier.
+     *
+     * @authenticated
+     */
     public function store(Request $request, Dossier $dossier): Response
     {
         $this->authorize('addReport', $dossier);
@@ -32,6 +50,13 @@ class DossierReportController extends Controller
         return response()->noContent();
     }
 
+    /**
+     * Remove a report
+     *
+     * This endpoint allows you to remove a report from a dossier.
+     *
+     * @authenticated
+     */
     public function destroy(Dossier $dossier, Report $report): Response
     {
         $this->authorize('removeReport', $dossier);

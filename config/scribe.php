@@ -9,12 +9,12 @@ return [
     /*
      * The HTML <title> for the generated documentation. If this is empty, Scribe will infer it from config('app.name').
      */
-    'title' => null,
+    'title' => 'UFO API Documentation',
 
     /*
      * A short description of your API. Will be included in the docs webpage, Postman collection and OpenAPI spec.
      */
-    'description' => '',
+    'description' => 'The UFO API is a REST API that allows you to report and investigate UFO sightings.',
 
     /*
      * The base URL displayed in the docs. If this is empty, Scribe will use the value of config('app.url') at generation time.
@@ -197,7 +197,7 @@ return [
         /**
          * Fetch a CSRF token before each request, and add it as an X-XSRF-TOKEN header. Needed if you're using Laravel Sanctum.
          */
-        'use_csrf' => false,
+        'use_csrf' => true,
 
         /**
          * The URL to fetch the CSRF token from (if `use_csrf` is true).
@@ -248,7 +248,7 @@ return [
          * Any extra authentication-related info for your users. For instance, you can describe how to find or generate their auth credentials.
          * Markdown and HTML are supported.
          */
-        'extra_info' => 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.',
+        'extra_info' => '',
     ],
 
     /*

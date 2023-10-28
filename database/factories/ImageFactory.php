@@ -18,7 +18,9 @@ class ImageFactory extends Factory
     public function definition(): array
     {
         return [
-            'path' => fake()->imageUrl()
+            'path' => fake()->imageUrl(),
+            'imageable_id' => Report::factory(),
+            'imageable_type' => Report::class,
         ];
     }
 }

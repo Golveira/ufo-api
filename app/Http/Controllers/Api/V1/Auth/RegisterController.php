@@ -16,7 +16,8 @@ class RegisterController extends Controller
     /**
      * Register
      *
-     * This endpoint allows you to register a new user.
+     * Register a new user.
+     * @response 200 { "access_token": "xxxxxxxx" }
      */
     public function store(RegisterRequest $request)
     {

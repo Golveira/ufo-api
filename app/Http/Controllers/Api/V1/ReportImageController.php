@@ -25,7 +25,10 @@ class ReportImageController extends Controller
     /**
      * List report images
      *
-     * This endpoint allows you to get the images of a report.
+     * Get the images of a report.
+     * @urlParam report_id required The ID of the report. No-example
+     * @apiResourceCollection App\Http\Resources\ImageResource
+     * @apiResourceModel App\Models\Image paginate=15
      */
     public function index(Report $report): ResourceCollection
     {
@@ -37,9 +40,12 @@ class ReportImageController extends Controller
     /**
      * Upload images
      *
-     * This endpoint allows you to upload images
+     * Upload images for a report.
      *
      * @authenticated
+     * @urlParam report_id required The ID of the report. No-example
+     * @apiResourceCollection App\Http\Resources\ImageResource
+     * @apiResourceModel App\Models\Image
      */
     public function store(StoreImageRequest $request, Report $report): ResourceCollection
     {
@@ -53,9 +59,11 @@ class ReportImageController extends Controller
     /**
      * Delete an image
      *
-     * This endpoint allows you to delete an image of a report.
+     * Delete an image of a report.
      *
      * @authenticated
+     * @urlParam report_id required The ID of the report. No-example
+     * @response 204
      */
     public function destroy(Report $report, Image $image): Response
     {

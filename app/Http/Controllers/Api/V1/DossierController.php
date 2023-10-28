@@ -19,8 +19,9 @@ class DossierController extends Controller
     /**
      * List dossiers
      *
-     * This endpoint allows you to get a list of dossiers.
-     *
+     * Get a list of dossiers.
+     * @apiResourceCollection App\Http\Resources\DossierResource
+     * @apiResourceModel App\Models\Dossier paginate=15
      */
     public function index(): ResourceCollection
     {
@@ -32,9 +33,11 @@ class DossierController extends Controller
     /**
      * Create a new dossier
      *
-     * This endpoint allows you to create a new dossier.
+     * Create a new dossier.
      *
      * @authenticated
+     * @apiResource App\Http\Resources\DossierResource
+     * @apiResourceModel App\Models\Dossier
      */
     public function store(DossierRequest $request): DossierResource
     {
@@ -46,8 +49,10 @@ class DossierController extends Controller
     /**
      * Get a dossier
      *
-     * This endpoint allows you to get a dossier.
-     *
+     * Get a dossier by id.
+     * @urlParam id required The ID of the dossier. No-example
+     * @apiResource App\Http\Resources\DossierResource
+     * @apiResourceModel App\Models\Dossier
      */
     public function show(Dossier $dossier): DossierResource
     {
@@ -59,9 +64,12 @@ class DossierController extends Controller
     /**
      * Update a dossier
      *
-     * This endpoint allows you to update a dossier.
+     * Update and existing dossier.
      *
      * @authenticated
+     * @urlParam id required The ID of the dossier. No-example
+     * @apiResource App\Http\Resources\DossierResource
+     * @apiResourceModel App\Models\Dossier
      */
     public function update(DossierRequest $request, Dossier $dossier): DossierResource
     {
@@ -75,9 +83,11 @@ class DossierController extends Controller
     /**
      * Delete a dossier
      *
-     * This endpoint allows you to delete a dossier.
+     * Delete an existing dossier.
      *
      * @authenticated
+     * @urlParam id required The ID of the dossier. No-example
+     * @response 204
      */
     public function destroy(Dossier $dossier): Response
     {

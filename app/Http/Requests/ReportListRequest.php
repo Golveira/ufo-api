@@ -38,4 +38,42 @@ class ReportListRequest extends FormRequest
             'dateTo.after' => 'The dateTo must be after the dateFrom'
         ];
     }
+
+    public function queryParameters(): array
+    {
+        return [
+            'keywords' => [
+                'description' => 'Keywords to search for',
+                'example' => 'ufo'
+            ],
+            'country' => [
+                'description' => 'Country to search for',
+                'example' => 'USA'
+            ],
+            'state' => [
+                'description' => 'State to search for',
+                'example' => 'California'
+            ],
+            'city' => [
+                'description' => 'City to search for',
+                'example' => 'Los Angeles'
+            ],
+            'dateFrom' => [
+                'description' => 'Start date to search for',
+                'example' => '2000-01-01'
+            ],
+            'dateTo' => [
+                'description' => 'End date to search for',
+                'example' => '2010-01-01'
+            ],
+            'sortBy' => [
+                'description' => 'Field to sort by',
+                'example' => 'date'
+            ],
+            'sortOrder' => [
+                'description' => 'Sort order',
+                'example' => 'asc'
+            ]
+        ];
+    }
 }

@@ -18,13 +18,15 @@ class UserController extends Controller
     /**
      * List users
      *
-     * This endpoint allows you to get a list of users.
-     *
+     * Get a list of users.
+     * @apiResourceCollection App\Http\Resources\UserResource
+     * @apiResourceModel App\Models\User paginate=15
      */
     public function index(): ResourceCollection
     {
         return UserResource::collection(
             User::query()
+                ->withCount(['reports', 'dossiers'])
                 ->latest()
                 ->paginate()
         );
@@ -33,20 +35,25 @@ class UserController extends Controller
     /**
      * Get a user
      *
-     * This endpoint allows you to get a user.
-     *
+     * Get a user by its ID.
+     * @urlParam id required The ID of the user. No-example
+     * @apiResource App\Http\Resources\UserResource
+     * @apiResourceModel App\Models\User
      */
     public function show(User $user): UserResource
     {
-        return new UserResource($user);
+        return new UserResource($user->loadCount(['reports', 'dossiers']));
     }
 
     /**
      * Update a user
      *
-     * This endpoint allows you to update a user.
+     * Update a user by its ID.
      *
      * @authenticated
+     * @urlParam id required The ID of the user. No-example
+     * @apiResource App\Http\Resources\UserResource
+     * @apiResourceModel App\Models\User
      */
     public function update(UserRequest $request, User $user): UserResource
     {

@@ -15,7 +15,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: Register
-      description: 'This endpoint allows you to register a new user.'
+      description: 'Register a new user.'
       authenticated: false
       custom: []
     headers:
@@ -30,7 +30,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: cassie.oreilly@example.org
+        example: murray66@example.com
         type: string
         enumValues: []
         custom: []
@@ -38,15 +38,21 @@ endpoints:
         name: password
         description: 'Must be at least 8 characters.'
         required: true
-        example: 'oX<sF8zXv`0\Yb)l*mBi'
+        example: 'OL=w?6~wo&.pGB}fR2'
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      email: cassie.oreilly@example.org
-      password: 'oX<sF8zXv`0\Yb)l*mBi'
+      email: murray66@example.com
+      password: 'OL=w?6~wo&.pGB}fR2'
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{ "access_token": "xxxxxxxx" }'
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
     auth: []
     controller: null
@@ -65,7 +71,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: Login
-      description: 'This endpoint allows you to login a user.'
+      description: 'Login a user.'
       authenticated: false
       custom: []
     headers:
@@ -80,7 +86,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: polly.homenick@example.net
+        example: alphonso.feeney@example.org
         type: string
         enumValues: []
         custom: []
@@ -88,15 +94,21 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: 'cjD6Z?Faw]u'
+        example: 'gR#dhUa"3'
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      email: polly.homenick@example.net
-      password: 'cjD6Z?Faw]u'
+      email: alphonso.feeney@example.org
+      password: 'gR#dhUa"3'
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{ "access_token": "xxxxxxxx" }'
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
     auth: []
     controller: null
@@ -115,7 +127,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: Logout
-      description: 'This endpoint allows you to logout a user.'
+      description: 'Logout the current user.'
       authenticated: true
       custom: []
     headers:
@@ -129,12 +141,18 @@ endpoints:
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{ "message": "Token revoked" }'
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1663faPdE4gceha5Zvk8VDb'
+      - 'Bearer bchkefPg5V6vZa8D31E46da'
     controller: null
     method: null
     route: null

@@ -17,8 +17,10 @@ class UserReportController extends Controller
     /**
      * List user reports
      *
-     * This endpoint allows you to get a list of reports of a user.
-     *
+     * Get a list of reports of a user.
+     * @urlParam user_id required The ID of the user. No-example
+     * @apiResourceCollection App\Http\Resources\ReportResource
+     * @apiResourceModel App\Models\Report paginate=15
      */
     public function index(User $user): ResourceCollection
     {

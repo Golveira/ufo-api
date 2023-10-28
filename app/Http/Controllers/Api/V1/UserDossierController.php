@@ -17,8 +17,10 @@ class UserDossierController extends Controller
     /**
      * List user dossiers
      *
-     * This endpoint allows you to get a list of dossiers of a user.
-     *
+     * Get a list of dossiers of a user.
+     * @urlParam user_id required The ID of the user. No-example
+     * @apiResourceCollection App\Http\Resources\DossierResource
+     * @apiResourceModel App\Models\Dossier paginate=15
      */
     public function index(User $user): ResourceCollection
     {

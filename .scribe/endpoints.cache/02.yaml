@@ -17,7 +17,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'List dossier reports'
-      description: 'This endpoint allows you to get a list of reports attached to a dossier.'
+      description: 'Get a list of reports attached to a dossier.'
       authenticated: false
       custom: []
     headers:
@@ -28,12 +28,12 @@ endpoints:
         name: dossier_id
         description: 'The ID of the dossier.'
         required: true
-        example: 9a74645e-499c-4eb6-aa92-f36f25241954
+        example: null
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      dossier_id: 9a74645e-499c-4eb6-aa92-f36f25241954
+      dossier_id: null
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -42,14 +42,9 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[],"links":{"first":"http:\/\/ufo.test\/api\/v1\/dossiers\/9a74645e-499c-4eb6-aa92-f36f25241954\/reports?page=1","last":"http:\/\/ufo.test\/api\/v1\/dossiers\/9a74645e-499c-4eb6-aa92-f36f25241954\/reports?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":null,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/ufo.test\/api\/v1\/dossiers\/9a74645e-499c-4eb6-aa92-f36f25241954\/reports?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/ufo.test\/api\/v1\/dossiers\/9a74645e-499c-4eb6-aa92-f36f25241954\/reports","per_page":15,"to":null,"total":0}}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '56'
-          access-control-allow-origin: '*'
-        description: null
+        content: '{"data":[{"id":"9a7aa651-76b1-4b75-a484-3522cab60e42","user_id":"9a7aa651-75e6-454c-b18c-373be4521c2f","summary":"Quisquam at aut laborum et soluta in tempora odio.","country":"Cameroon","state":"Indiana","city":"Port Sherman","lat":48.121106,"long":-80.208828,"date":{"date":"2009-05-02 07:23:13.000000","timezone_type":3,"timezone":"UTC"},"duration":10,"object_shape":"odio","number_of_observers":9,"details":"Voluptatum dicta voluptas velit cumque repellendus. A illum enim sint perspiciatis. Sit magni aliquam cumque ut qui. Qui non voluptatibus perspiciatis voluptatem fuga magni aut."},{"id":"9a7aa651-78a4-40f9-b697-a75285ee77a8","user_id":"9a7aa651-77f5-487a-a6cc-0059ea235fba","summary":"Dolore eum voluptate consequuntur magni omnis.","country":"Peru","state":"District of Columbia","city":"Port Luciano","lat":-45.648064,"long":-66.500327,"date":{"date":"2007-12-03 08:56:44.000000","timezone_type":3,"timezone":"UTC"},"duration":21,"object_shape":"ex","number_of_observers":5,"details":"Consequatur rerum minima voluptatibus doloremque. Quasi est debitis itaque minima voluptas sint. Nesciunt ad molestiae nihil dolor dolores aut excepturi."}],"links":{"first":"\/?page=1","last":"\/?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"\/?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"\/","per_page":15,"to":2,"total":2}}'
+        headers: []
+        description: ''
         custom: []
     responseFields: []
     auth: []
@@ -69,7 +64,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'List dossiers'
-      description: 'This endpoint allows you to get a list of dossiers.'
+      description: 'Get a list of dossiers.'
       authenticated: false
       custom: []
     headers:
@@ -85,14 +80,9 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"id":"9a74645e-499c-4eb6-aa92-f36f25241954","title":"Eum porro eos tempora.","description":"Fugiat quasi similique ut quos iure illo in. Non ut est quam est quod ipsum inventore. Quia perferendis reprehenderit soluta sapiente quidem mollitia.","reports_count":0,"created_at":"2023-10-25T15:15:07.000000Z","updated_at":"2023-10-25T15:15:07.000000Z","user_id":"9a74645e-46d2-4b0c-8664-1592dfa60b7f","user":{"id":"9a74645e-46d2-4b0c-8664-1592dfa60b7f","username":"wintheiser.winfield","created_at":"2023-10-25T15:15:07.000000Z"}}],"links":{"first":"http:\/\/ufo.test\/api\/v1\/dossiers?page=1","last":"http:\/\/ufo.test\/api\/v1\/dossiers?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/ufo.test\/api\/v1\/dossiers?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/ufo.test\/api\/v1\/dossiers","per_page":15,"to":1,"total":1}}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '55'
-          access-control-allow-origin: '*'
-        description: null
+        content: '{"data":[{"id":"9a7aa651-7cd5-4d85-83b0-ce3866de1dce","title":"Quia consequatur consequuntur suscipit dolores.","description":"Quia autem et officia et autem et esse. Labore non culpa omnis animi atque. Doloremque impedit quia dolorem inventore dolorem. Iusto tenetur rem vel. Animi voluptatem similique iusto sunt.","created_at":"2023-10-28T17:54:30.000000Z","updated_at":"2023-10-28T17:54:30.000000Z","user_id":"9a7aa651-7c16-4fc9-84ac-8054af253ba2"},{"id":"9a7aa651-7ed6-467d-b36a-2c4848fa1d2e","title":"Incidunt tempora voluptatem voluptatem impedit qui perspiciatis.","description":"Veniam autem ea qui ipsa. Quae inventore sunt eum. Eveniet eos ullam beatae pariatur rem cum sed.","created_at":"2023-10-28T17:54:30.000000Z","updated_at":"2023-10-28T17:54:30.000000Z","user_id":"9a7aa651-7e32-4848-9428-0a8306f26ce1"}],"links":{"first":"\/?page=1","last":"\/?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"\/?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"\/","per_page":15,"to":2,"total":2}}'
+        headers: []
+        description: ''
         custom: []
     responseFields: []
     auth: []
@@ -112,7 +102,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Get a dossier'
-      description: 'This endpoint allows you to get a dossier.'
+      description: 'Get a dossier by id.'
       authenticated: false
       custom: []
     headers:
@@ -123,12 +113,12 @@ endpoints:
         name: id
         description: 'The ID of the dossier.'
         required: true
-        example: 9a74645e-499c-4eb6-aa92-f36f25241954
+        example: null
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      id: 9a74645e-499c-4eb6-aa92-f36f25241954
+      id: null
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -137,14 +127,9 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":"9a74645e-499c-4eb6-aa92-f36f25241954","title":"Eum porro eos tempora.","description":"Fugiat quasi similique ut quos iure illo in. Non ut est quam est quod ipsum inventore. Quia perferendis reprehenderit soluta sapiente quidem mollitia.","reports_count":0,"created_at":"2023-10-25T15:15:07.000000Z","updated_at":"2023-10-25T15:15:07.000000Z","user_id":"9a74645e-46d2-4b0c-8664-1592dfa60b7f","user":{"id":"9a74645e-46d2-4b0c-8664-1592dfa60b7f","username":"wintheiser.winfield","created_at":"2023-10-25T15:15:07.000000Z"}}}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '54'
-          access-control-allow-origin: '*'
-        description: null
+        content: '{"data":{"id":"9a7aa651-829c-4d95-b02f-371899388af9","title":"Ea inventore illum qui ab quidem est ut.","description":"Aut et repudiandae eligendi perspiciatis. Unde excepturi nemo accusantium. Tenetur facilis eligendi harum et.","created_at":"2023-10-28T17:54:30.000000Z","updated_at":"2023-10-28T17:54:30.000000Z","user_id":"9a7aa651-81d1-4525-b563-327e31d2306b"}}'
+        headers: []
+        description: ''
         custom: []
     responseFields: []
     auth: []
@@ -164,7 +149,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Create a new dossier'
-      description: 'This endpoint allows you to create a new dossier.'
+      description: 'Create a new dossier.'
       authenticated: true
       custom: []
     headers:
@@ -178,30 +163,36 @@ endpoints:
     bodyParameters:
       title:
         name: title
-        description: 'Must not be greater than 150 characters.'
+        description: 'The title of the dossier. Must not be greater than 150 characters.'
         required: true
-        example: uvwdlcszhgqlcf
+        example: 'Investigation of UFOs in Brazil.'
         type: string
         enumValues: []
         custom: []
       description:
         name: description
-        description: 'Must not be greater than 500 characters.'
+        description: 'The description of the dossier. Must not be greater than 500 characters.'
         required: true
-        example: 'Ex cumque veritatis id vero qui nostrum esse.'
+        example: 'This dossier contains all the information about UFOs in Brazil.'
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      title: uvwdlcszhgqlcf
-      description: 'Ex cumque veritatis id vero qui nostrum esse.'
+      title: 'Investigation of UFOs in Brazil.'
+      description: 'This dossier contains all the information about UFOs in Brazil.'
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"9a7aa651-b7e2-4135-bbda-818fbb1817b7","title":"Est odio laudantium cupiditate aliquid et aut totam.","description":"Doloremque quae et velit aliquam facere eos. Ducimus deleniti harum eum aut perferendis aut sed. Corrupti voluptatem omnis aut omnis repudiandae. Nihil quasi et earum eius. Sed non blanditiis vel.","created_at":"2023-10-28T17:54:30.000000Z","updated_at":"2023-10-28T17:54:30.000000Z","user_id":"9a7aa651-b6fe-4004-87c5-5f6e87b928bb"}}'
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 5b4vad3DE86VPh6cfakZeg1'
+      - 'Bearer DZe1EVkdc636ba4gPvaf58h'
     controller: null
     method: null
     route: null
@@ -219,7 +210,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Update a dossier'
-      description: 'This endpoint allows you to update a dossier.'
+      description: 'Update and existing dossier.'
       authenticated: true
       custom: []
     headers:
@@ -231,41 +222,47 @@ endpoints:
         name: id
         description: 'The ID of the dossier.'
         required: true
-        example: 9a74645e-499c-4eb6-aa92-f36f25241954
+        example: null
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      id: 9a74645e-499c-4eb6-aa92-f36f25241954
+      id: null
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       title:
         name: title
-        description: 'Must not be greater than 150 characters.'
+        description: 'The title of the dossier. Must not be greater than 150 characters.'
         required: true
-        example: wmyvd
+        example: 'Investigation of UFOs in Brazil.'
         type: string
         enumValues: []
         custom: []
       description:
         name: description
-        description: 'Must not be greater than 500 characters.'
+        description: 'The description of the dossier. Must not be greater than 500 characters.'
         required: true
-        example: 'Vel neque sunt officia magni.'
+        example: 'This dossier contains all the information about UFOs in Brazil.'
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      title: wmyvd
-      description: 'Vel neque sunt officia magni.'
+      title: 'Investigation of UFOs in Brazil.'
+      description: 'This dossier contains all the information about UFOs in Brazil.'
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"9a7aa651-bdce-4abb-a8a6-fea071495bc7","title":"Tempora soluta natus nisi labore.","description":"Voluptatum ipsum voluptatem non natus consequatur reiciendis voluptas. Voluptatem dolorem dolore voluptas quia nesciunt et. Repellat et quia temporibus distinctio voluptatem.","created_at":"2023-10-28T17:54:30.000000Z","updated_at":"2023-10-28T17:54:30.000000Z","user_id":"9a7aa651-bb15-4160-b022-4fc8be7354c6"}}'
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 3adhk5cvP816ZbgaVfe64ED'
+      - 'Bearer 14EbVhfv538d6aPcaZek6Dg'
     controller: null
     method: null
     route: null
@@ -282,7 +279,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Delete a dossier'
-      description: 'This endpoint allows you to delete a dossier.'
+      description: 'Delete an existing dossier.'
       authenticated: true
       custom: []
     headers:
@@ -294,23 +291,29 @@ endpoints:
         name: id
         description: 'The ID of the dossier.'
         required: true
-        example: 9a74645e-499c-4eb6-aa92-f36f25241954
+        example: null
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      id: 9a74645e-499c-4eb6-aa92-f36f25241954
+      id: null
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 204
+        content: '{}'
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer vVg8aEPc5b4Zf6ekad1Dh63'
+      - 'Bearer d3PaVfvh16ZEc8a5be64gDk'
     controller: null
     method: null
     route: null
@@ -327,7 +330,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Add a report'
-      description: 'This endpoint allows you to add a report to a dossier.'
+      description: 'Add a report to a dossier.'
       authenticated: true
       custom: []
     headers:
@@ -339,12 +342,12 @@ endpoints:
         name: dossier_id
         description: 'The ID of the dossier.'
         required: true
-        example: 9a74645e-499c-4eb6-aa92-f36f25241954
+        example: null
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      dossier_id: 9a74645e-499c-4eb6-aa92-f36f25241954
+      dossier_id: null
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -352,19 +355,25 @@ endpoints:
         name: report_id
         description: ''
         required: true
-        example: iste
+        example: sit
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      report_id: iste
+      report_id: sit
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 204
+        content: '{}'
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer cae46VEZ5fgk8bavdD61h3P'
+      - 'Bearer 6c4D8VgbhZ36ada5fEkPev1'
     controller: null
     method: null
     route: null
@@ -393,7 +402,7 @@ endpoints:
         name: dossier_id
         description: 'The ID of the dossier.'
         required: true
-        example: 9a74645e-499c-4eb6-aa92-f36f25241954
+        example: null
         type: string
         enumValues: []
         custom: []
@@ -401,24 +410,30 @@ endpoints:
         name: id
         description: 'The ID of the report.'
         required: true
-        example: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+        example: voluptatem
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      dossier_id: 9a74645e-499c-4eb6-aa92-f36f25241954
-      id: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+      dossier_id: null
+      id: voluptatem
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 204
+        content: '{}'
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer f3vZ861Pk6Ea4dhgeVbcDa5'
+      - 'Bearer fkPca665Z8b4h3eDgvaEd1V'
     controller: null
     method: null
     route: null

@@ -15,7 +15,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'List user reports'
-      description: 'This endpoint allows you to get a list of reports of a user.'
+      description: 'Get a list of reports of a user.'
       authenticated: false
       custom: []
     headers:
@@ -26,12 +26,12 @@ endpoints:
         name: user_id
         description: 'The ID of the user.'
         required: true
-        example: 9a746417-6294-47c7-be09-d382b9dabc26
+        example: null
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      user_id: 9a746417-6294-47c7-be09-d382b9dabc26
+      user_id: null
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -40,14 +40,9 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"id":"9a746417-6bbc-41f1-8c9b-28404c87d10e","user_id":"9a746417-6294-47c7-be09-d382b9dabc26","summary":"Quasi quia consectetur hic ad dolorum aperiam molestiae.","country":"Jersey","state":"Delaware","city":"Connertown","lat":"-63.65556400","long":"-62.09172000","date":"1994-04-11 17:57:06","duration":59,"object_shape":"ex","number_of_observers":2,"details":"Sit est nisi est. Voluptatem accusamus libero voluptas distinctio soluta. Placeat voluptas assumenda voluptatem quod velit harum quia incidunt. Aut veritatis molestiae quisquam dolore quis a."}],"links":{"first":"http:\/\/ufo.test\/api\/v1\/users\/9a746417-6294-47c7-be09-d382b9dabc26\/reports?page=1","last":"http:\/\/ufo.test\/api\/v1\/users\/9a746417-6294-47c7-be09-d382b9dabc26\/reports?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/ufo.test\/api\/v1\/users\/9a746417-6294-47c7-be09-d382b9dabc26\/reports?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/ufo.test\/api\/v1\/users\/9a746417-6294-47c7-be09-d382b9dabc26\/reports","per_page":15,"to":1,"total":1}}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '57'
-          access-control-allow-origin: '*'
-        description: null
+        content: '{"data":[{"id":"9a7aa651-6ec3-46a2-bc33-4861ca91c3bb","user_id":"9a7aa651-6db6-4965-a5c9-a9fc2cca0426","summary":"Alias sit autem dolores et non id.","country":"France","state":"Wyoming","city":"North Destinee","lat":56.47191,"long":51.011929,"date":{"date":"1995-02-18 04:17:31.000000","timezone_type":3,"timezone":"UTC"},"duration":47,"object_shape":"ut","number_of_observers":7,"details":"Et iusto laudantium quod dolorem. Libero eum libero nesciunt ea ipsa. Necessitatibus cum vero aut dolorum. At laudantium ad possimus optio placeat."},{"id":"9a7aa651-70df-44e1-98e2-3f3189349759","user_id":"9a7aa651-6ff0-4dbc-aa15-f4f9a897722b","summary":"Eveniet autem velit est tenetur consequatur eaque.","country":"Botswana","state":"Mississippi","city":"Blickville","lat":-34.708886,"long":-91.203492,"date":{"date":"2010-02-06 16:58:01.000000","timezone_type":3,"timezone":"UTC"},"duration":47,"object_shape":"minima","number_of_observers":2,"details":"Eveniet dolorem doloribus est sapiente nulla fugit. Cum delectus voluptatem atque et harum. Voluptates aliquid dolorem voluptas architecto nostrum maxime."}],"links":{"first":"\/?page=1","last":"\/?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"\/?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"\/","per_page":15,"to":2,"total":2}}'
+        headers: []
+        description: ''
         custom: []
     responseFields: []
     auth: []
@@ -67,7 +62,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'List user dossiers'
-      description: 'This endpoint allows you to get a list of dossiers of a user.'
+      description: 'Get a list of dossiers of a user.'
       authenticated: false
       custom: []
     headers:
@@ -78,12 +73,12 @@ endpoints:
         name: user_id
         description: 'The ID of the user.'
         required: true
-        example: 9a746417-6294-47c7-be09-d382b9dabc26
+        example: null
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      user_id: 9a746417-6294-47c7-be09-d382b9dabc26
+      user_id: null
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -92,14 +87,9 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[],"links":{"first":"http:\/\/ufo.test\/api\/v1\/users\/9a746417-6294-47c7-be09-d382b9dabc26\/dossiers?page=1","last":"http:\/\/ufo.test\/api\/v1\/users\/9a746417-6294-47c7-be09-d382b9dabc26\/dossiers?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":null,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/ufo.test\/api\/v1\/users\/9a746417-6294-47c7-be09-d382b9dabc26\/dossiers?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/ufo.test\/api\/v1\/users\/9a746417-6294-47c7-be09-d382b9dabc26\/dossiers","per_page":15,"to":null,"total":0}}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '53'
-          access-control-allow-origin: '*'
-        description: null
+        content: '{"data":[{"id":"9a7aa651-870b-4d83-ac2e-976a0859f51b","title":"Accusantium aut eos sit quis quidem ad ut.","description":"Et qui omnis consequatur ratione. Maiores consequatur est dignissimos. Non sed expedita ullam sed similique et quod.","created_at":"2023-10-28T17:54:30.000000Z","updated_at":"2023-10-28T17:54:30.000000Z","user_id":"9a7aa651-865d-4bd5-841d-00721d093d2d"},{"id":"9a7aa651-88bb-44f7-8205-bfcc7a447066","title":"Reiciendis dolor magnam sed.","description":"Ex tempore dolor et delectus vero culpa tenetur. Numquam neque et qui vel exercitationem eum.","created_at":"2023-10-28T17:54:30.000000Z","updated_at":"2023-10-28T17:54:30.000000Z","user_id":"9a7aa651-87e5-4644-8567-49298649e69a"}],"links":{"first":"\/?page=1","last":"\/?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"\/?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"\/","per_page":15,"to":2,"total":2}}'
+        headers: []
+        description: ''
         custom: []
     responseFields: []
     auth: []
@@ -119,7 +109,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'List users'
-      description: 'This endpoint allows you to get a list of users.'
+      description: 'Get a list of users.'
       authenticated: false
       custom: []
     headers:
@@ -135,14 +125,9 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"id":"9a78426c-af7a-4c3e-810f-2c1dd9f34c01","username":"oTdBHu8k","created_at":"2023-10-27T13:23:31.000000Z"},{"id":"9a783dac-d98f-40fb-b6d4-2e40d32b81f1","username":"jnjh3HGj","created_at":"2023-10-27T13:10:14.000000Z"},{"id":"9a783c5a-71a2-4a4b-80c1-132838450f45","username":"IPwLPhud","created_at":"2023-10-27T13:06:33.000000Z"},{"id":"9a7633e2-81c2-4e74-a439-3d748c0688b7","username":"IByuYsNp","created_at":"2023-10-26T12:51:13.000000Z"},{"id":"9a74645e-46d2-4b0c-8664-1592dfa60b7f","username":"wintheiser.winfield","created_at":"2023-10-25T15:15:07.000000Z"},{"id":"9a746417-6294-47c7-be09-d382b9dabc26","username":"carlotta.borer","created_at":"2023-10-25T15:14:21.000000Z"}],"links":{"first":"http:\/\/ufo.test\/api\/v1\/users?page=1","last":"http:\/\/ufo.test\/api\/v1\/users?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/ufo.test\/api\/v1\/users?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/ufo.test\/api\/v1\/users","per_page":15,"to":6,"total":6}}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '52'
-          access-control-allow-origin: '*'
-        description: null
+        content: '{"data":[{"id":"9a7aa651-8c1d-41b8-a77a-7ee004f35209","username":"martin41","created_at":"2023-10-28T17:54:30.000000Z","updated_at":"2023-10-28T17:54:30.000000Z"},{"id":"9a7aa651-8cfb-4cd3-9794-3c838d0ee05d","username":"treilly","created_at":"2023-10-28T17:54:30.000000Z","updated_at":"2023-10-28T17:54:30.000000Z"}],"links":{"first":"\/?page=1","last":"\/?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"\/?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"\/","per_page":15,"to":2,"total":2}}'
+        headers: []
+        description: ''
         custom: []
     responseFields: []
     auth: []
@@ -162,7 +147,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Get a user'
-      description: 'This endpoint allows you to get a user.'
+      description: 'Get a user by its ID.'
       authenticated: false
       custom: []
     headers:
@@ -173,12 +158,12 @@ endpoints:
         name: id
         description: 'The ID of the user.'
         required: true
-        example: 9a746417-6294-47c7-be09-d382b9dabc26
+        example: null
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      id: 9a746417-6294-47c7-be09-d382b9dabc26
+      id: null
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -187,14 +172,9 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":"9a746417-6294-47c7-be09-d382b9dabc26","username":"carlotta.borer","created_at":"2023-10-25T15:14:21.000000Z"}}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '51'
-          access-control-allow-origin: '*'
-        description: null
+        content: '{"data":{"id":"9a7aa651-8ff0-4347-b1e1-0b36dd4e8795","username":"derick.hartmann","created_at":"2023-10-28T17:54:30.000000Z","updated_at":"2023-10-28T17:54:30.000000Z"}}'
+        headers: []
+        description: ''
         custom: []
     responseFields: []
     auth: []
@@ -215,7 +195,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Update a user'
-      description: 'This endpoint allows you to update a user.'
+      description: 'Update a user by its ID.'
       authenticated: true
       custom: []
     headers:
@@ -227,12 +207,12 @@ endpoints:
         name: id
         description: 'The ID of the user.'
         required: true
-        example: 9a746417-6294-47c7-be09-d382b9dabc26
+        example: null
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      id: 9a746417-6294-47c7-be09-d382b9dabc26
+      id: null
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -240,27 +220,34 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: makenna.mann@example.net
+        example: shaina.kilback@example.net
         type: string
         enumValues: []
         custom: []
       password:
         name: password
-        description: ''
+        description: 'Must be at least 8 characters.'
         required: false
-        example: null
+        example: 'z$O`p[b^,XMC`-_26Q'
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      email: makenna.mann@example.net
+      email: shaina.kilback@example.net
+      password: 'z$O`p[b^,XMC`-_26Q'
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"9a7aa651-c89a-4c13-a033-6eaf7219ce3e","username":"belle34","created_at":"2023-10-28T17:54:30.000000Z","updated_at":"2023-10-28T17:54:30.000000Z"}}'
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer fE3D1hga6vZVkda8Pb645ec'
+      - 'Bearer fk6cah16Z5PE8g34eVbDavd'
     controller: null
     method: null
     route: null

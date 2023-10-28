@@ -17,7 +17,7 @@ class UserRequest extends FormRequest
     {
         return [
             'email' => ['required', 'email', Rule::unique('users')->ignore($this->user)],
-            'password' => ['nullable', Password::defaults()]
+            'password' => ['nullable', 'min:8']
         ];
     }
 }

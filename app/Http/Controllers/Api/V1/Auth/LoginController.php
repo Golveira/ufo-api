@@ -18,7 +18,8 @@ class LoginController extends Controller
     /**
      * Login
      *
-     * This endpoint allows you to login a user.
+     * Login a user.
+     * @response 200 { "access_token": "xxxxxxxx" }
      */
     public function store(LoginRequest $request)
     {
@@ -36,9 +37,10 @@ class LoginController extends Controller
     /**
      * Logout
      *
-     * This endpoint allows you to logout a user.
+     * Logout the current user.
      *
      * @authenticated
+     * @response 200 { "message": "Token revoked" }
      */
     public function destroy(Request $request)
     {

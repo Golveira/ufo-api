@@ -20,8 +20,10 @@ class DossierReportController extends Controller
     /**
      * List dossier reports
      *
-     * This endpoint allows you to get a list of reports attached to a dossier.
-     *
+     * Get a list of reports attached to a dossier.
+     * @urlParam dossier_id required The ID of the dossier. No-example
+     * @apiResourceCollection App\Http\Resources\ReportResource
+     * @apiResourceModel App\Models\Report paginate=15
      */
     public function index(Dossier $dossier): ResourceCollection
     {
@@ -33,9 +35,11 @@ class DossierReportController extends Controller
     /**
      * Add a report
      *
-     * This endpoint allows you to add a report to a dossier.
+     * Add a report to a dossier.
      *
      * @authenticated
+     * @urlParam dossier_id required The ID of the dossier. No-example
+     * @response 204
      */
     public function store(Request $request, Dossier $dossier): Response
     {
@@ -56,6 +60,8 @@ class DossierReportController extends Controller
      * This endpoint allows you to remove a report from a dossier.
      *
      * @authenticated
+     * @urlParam dossier_id required The ID of the dossier. No-example
+     * @response 204
      */
     public function destroy(Dossier $dossier, Report $report): Response
     {

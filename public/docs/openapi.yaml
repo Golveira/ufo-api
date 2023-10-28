@@ -11,9 +11,21 @@ paths:
     post:
       summary: Register
       operationId: register
-      description: 'This endpoint allows you to register a new user.'
+      description: 'Register a new user.'
       parameters: []
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  access_token: xxxxxxxx
+                properties:
+                  access_token:
+                    type: string
+                    example: xxxxxxxx
       tags:
         - Auth
       requestBody:
@@ -26,11 +38,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: cassie.oreilly@example.org
+                  example: murray66@example.com
                 password:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: 'oX<sF8zXv`0\Yb)l*mBi'
+                  example: 'OL=w?6~wo&.pGB}fR2'
               required:
                 - email
                 - password
@@ -39,9 +51,21 @@ paths:
     post:
       summary: Login
       operationId: login
-      description: 'This endpoint allows you to login a user.'
+      description: 'Login a user.'
       parameters: []
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  access_token: xxxxxxxx
+                properties:
+                  access_token:
+                    type: string
+                    example: xxxxxxxx
       tags:
         - Auth
       requestBody:
@@ -54,11 +78,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: polly.homenick@example.net
+                  example: alphonso.feeney@example.org
                 password:
                   type: string
                   description: ''
-                  example: 'cjD6Z?Faw]u'
+                  example: 'gR#dhUa"3'
               required:
                 - email
                 - password
@@ -67,16 +91,7 @@ paths:
     post:
       summary: Logout
       operationId: logout
-      description: 'This endpoint allows you to logout a user.'
-      parameters: []
-      responses: {  }
-      tags:
-        - Auth
-  '/api/v1/dossiers/{dossier_id}/reports':
-    get:
-      summary: 'List dossier reports'
-      operationId: listDossierReports
-      description: 'This endpoint allows you to get a list of reports attached to a dossier.'
+      description: 'Logout the current user.'
       parameters: []
       responses:
         200:
@@ -86,141 +101,18 @@ paths:
               schema:
                 type: object
                 example:
-                  data: []
-                  links:
-                    first: 'http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1'
-                    last: 'http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1'
-                    prev: null
-                    next: null
-                  meta:
-                    current_page: 1
-                    from: null
-                    last_page: 1
-                    links:
-                      -
-                        url: null
-                        label: '&laquo; Previous'
-                        active: false
-                      -
-                        url: 'http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1'
-                        label: '1'
-                        active: true
-                      -
-                        url: null
-                        label: 'Next &raquo;'
-                        active: false
-                    path: 'http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports'
-                    per_page: 15
-                    to: null
-                    total: 0
+                  message: 'Token revoked'
                 properties:
-                  data:
-                    type: array
-                    example: []
-                  links:
-                    type: object
-                    properties:
-                      first:
-                        type: string
-                        example: 'http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1'
-                      last:
-                        type: string
-                        example: 'http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1'
-                      prev:
-                        type: string
-                        example: null
-                      next:
-                        type: string
-                        example: null
-                  meta:
-                    type: object
-                    properties:
-                      current_page:
-                        type: integer
-                        example: 1
-                      from:
-                        type: string
-                        example: null
-                      last_page:
-                        type: integer
-                        example: 1
-                      links:
-                        type: array
-                        example:
-                          -
-                            url: null
-                            label: '&laquo; Previous'
-                            active: false
-                          -
-                            url: 'http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1'
-                            label: '1'
-                            active: true
-                          -
-                            url: null
-                            label: 'Next &raquo;'
-                            active: false
-                        items:
-                          type: object
-                          properties:
-                            url:
-                              type: string
-                              example: null
-                            label:
-                              type: string
-                              example: '&laquo; Previous'
-                            active:
-                              type: boolean
-                              example: false
-                      path:
-                        type: string
-                        example: 'http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports'
-                      per_page:
-                        type: integer
-                        example: 15
-                      to:
-                        type: string
-                        example: null
-                      total:
-                        type: integer
-                        example: 0
+                  message:
+                    type: string
+                    example: 'Token revoked'
       tags:
-        - Dossiers
-      security: []
-    post:
-      summary: 'Add a report'
-      operationId: addAReport
-      description: 'This endpoint allows you to add a report to a dossier.'
-      parameters: []
-      responses: {  }
-      tags:
-        - Dossiers
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                report_id:
-                  type: string
-                  description: ''
-                  example: iste
-              required:
-                - report_id
-    parameters:
-      -
-        in: path
-        name: dossier_id
-        description: 'The ID of the dossier.'
-        example: 9a74645e-499c-4eb6-aa92-f36f25241954
-        required: true
-        schema:
-          type: string
-  /api/v1/dossiers:
+        - Auth
+  '/api/v1/dossiers/{dossier_id}/reports':
     get:
-      summary: 'List dossiers'
-      operationId: listDossiers
-      description: 'This endpoint allows you to get a list of dossiers.'
+      summary: 'List dossier reports'
+      operationId: listDossierReports
+      description: 'Get a list of reports attached to a dossier.'
       parameters: []
       responses:
         200:
@@ -232,20 +124,42 @@ paths:
                 example:
                   data:
                     -
-                      id: 9a74645e-499c-4eb6-aa92-f36f25241954
-                      title: 'Eum porro eos tempora.'
-                      description: 'Fugiat quasi similique ut quos iure illo in. Non ut est quam est quod ipsum inventore. Quia perferendis reprehenderit soluta sapiente quidem mollitia.'
-                      reports_count: 0
-                      created_at: '2023-10-25T15:15:07.000000Z'
-                      updated_at: '2023-10-25T15:15:07.000000Z'
-                      user_id: 9a74645e-46d2-4b0c-8664-1592dfa60b7f
-                      user:
-                        id: 9a74645e-46d2-4b0c-8664-1592dfa60b7f
-                        username: wintheiser.winfield
-                        created_at: '2023-10-25T15:15:07.000000Z'
+                      id: 9a7aa651-76b1-4b75-a484-3522cab60e42
+                      user_id: 9a7aa651-75e6-454c-b18c-373be4521c2f
+                      summary: 'Quisquam at aut laborum et soluta in tempora odio.'
+                      country: Cameroon
+                      state: Indiana
+                      city: 'Port Sherman'
+                      lat: 48.121106
+                      long: -80.208828
+                      date:
+                        date: '2009-05-02 07:23:13.000000'
+                        timezone_type: 3
+                        timezone: UTC
+                      duration: 10
+                      object_shape: odio
+                      number_of_observers: 9
+                      details: 'Voluptatum dicta voluptas velit cumque repellendus. A illum enim sint perspiciatis. Sit magni aliquam cumque ut qui. Qui non voluptatibus perspiciatis voluptatem fuga magni aut.'
+                    -
+                      id: 9a7aa651-78a4-40f9-b697-a75285ee77a8
+                      user_id: 9a7aa651-77f5-487a-a6cc-0059ea235fba
+                      summary: 'Dolore eum voluptate consequuntur magni omnis.'
+                      country: Peru
+                      state: 'District of Columbia'
+                      city: 'Port Luciano'
+                      lat: -45.648064
+                      long: -66.500327
+                      date:
+                        date: '2007-12-03 08:56:44.000000'
+                        timezone_type: 3
+                        timezone: UTC
+                      duration: 21
+                      object_shape: ex
+                      number_of_observers: 5
+                      details: 'Consequatur rerum minima voluptatibus doloremque. Quasi est debitis itaque minima voluptas sint. Nesciunt ad molestiae nihil dolor dolores aut excepturi.'
                   links:
-                    first: 'http://ufo.test/api/v1/dossiers?page=1'
-                    last: 'http://ufo.test/api/v1/dossiers?page=1'
+                    first: '/?page=1'
+                    last: '/?page=1'
                     prev: null
                     next: null
                   meta:
@@ -258,78 +172,115 @@ paths:
                         label: '&laquo; Previous'
                         active: false
                       -
-                        url: 'http://ufo.test/api/v1/dossiers?page=1'
+                        url: '/?page=1'
                         label: '1'
                         active: true
                       -
                         url: null
                         label: 'Next &raquo;'
                         active: false
-                    path: 'http://ufo.test/api/v1/dossiers'
+                    path: /
                     per_page: 15
-                    to: 1
-                    total: 1
+                    to: 2
+                    total: 2
                 properties:
                   data:
                     type: array
                     example:
                       -
-                        id: 9a74645e-499c-4eb6-aa92-f36f25241954
-                        title: 'Eum porro eos tempora.'
-                        description: 'Fugiat quasi similique ut quos iure illo in. Non ut est quam est quod ipsum inventore. Quia perferendis reprehenderit soluta sapiente quidem mollitia.'
-                        reports_count: 0
-                        created_at: '2023-10-25T15:15:07.000000Z'
-                        updated_at: '2023-10-25T15:15:07.000000Z'
-                        user_id: 9a74645e-46d2-4b0c-8664-1592dfa60b7f
-                        user:
-                          id: 9a74645e-46d2-4b0c-8664-1592dfa60b7f
-                          username: wintheiser.winfield
-                          created_at: '2023-10-25T15:15:07.000000Z'
+                        id: 9a7aa651-76b1-4b75-a484-3522cab60e42
+                        user_id: 9a7aa651-75e6-454c-b18c-373be4521c2f
+                        summary: 'Quisquam at aut laborum et soluta in tempora odio.'
+                        country: Cameroon
+                        state: Indiana
+                        city: 'Port Sherman'
+                        lat: 48.121106
+                        long: -80.208828
+                        date:
+                          date: '2009-05-02 07:23:13.000000'
+                          timezone_type: 3
+                          timezone: UTC
+                        duration: 10
+                        object_shape: odio
+                        number_of_observers: 9
+                        details: 'Voluptatum dicta voluptas velit cumque repellendus. A illum enim sint perspiciatis. Sit magni aliquam cumque ut qui. Qui non voluptatibus perspiciatis voluptatem fuga magni aut.'
+                      -
+                        id: 9a7aa651-78a4-40f9-b697-a75285ee77a8
+                        user_id: 9a7aa651-77f5-487a-a6cc-0059ea235fba
+                        summary: 'Dolore eum voluptate consequuntur magni omnis.'
+                        country: Peru
+                        state: 'District of Columbia'
+                        city: 'Port Luciano'
+                        lat: -45.648064
+                        long: -66.500327
+                        date:
+                          date: '2007-12-03 08:56:44.000000'
+                          timezone_type: 3
+                          timezone: UTC
+                        duration: 21
+                        object_shape: ex
+                        number_of_observers: 5
+                        details: 'Consequatur rerum minima voluptatibus doloremque. Quasi est debitis itaque minima voluptas sint. Nesciunt ad molestiae nihil dolor dolores aut excepturi.'
                     items:
                       type: object
                       properties:
                         id:
                           type: string
-                          example: 9a74645e-499c-4eb6-aa92-f36f25241954
-                        title:
-                          type: string
-                          example: 'Eum porro eos tempora.'
-                        description:
-                          type: string
-                          example: 'Fugiat quasi similique ut quos iure illo in. Non ut est quam est quod ipsum inventore. Quia perferendis reprehenderit soluta sapiente quidem mollitia.'
-                        reports_count:
-                          type: integer
-                          example: 0
-                        created_at:
-                          type: string
-                          example: '2023-10-25T15:15:07.000000Z'
-                        updated_at:
-                          type: string
-                          example: '2023-10-25T15:15:07.000000Z'
+                          example: 9a7aa651-76b1-4b75-a484-3522cab60e42
                         user_id:
                           type: string
-                          example: 9a74645e-46d2-4b0c-8664-1592dfa60b7f
-                        user:
+                          example: 9a7aa651-75e6-454c-b18c-373be4521c2f
+                        summary:
+                          type: string
+                          example: 'Quisquam at aut laborum et soluta in tempora odio.'
+                        country:
+                          type: string
+                          example: Cameroon
+                        state:
+                          type: string
+                          example: Indiana
+                        city:
+                          type: string
+                          example: 'Port Sherman'
+                        lat:
+                          type: number
+                          example: 48.121106
+                        long:
+                          type: number
+                          example: -80.208828
+                        date:
                           type: object
                           properties:
-                            id:
+                            date:
                               type: string
-                              example: 9a74645e-46d2-4b0c-8664-1592dfa60b7f
-                            username:
+                              example: '2009-05-02 07:23:13.000000'
+                            timezone_type:
+                              type: integer
+                              example: 3
+                            timezone:
                               type: string
-                              example: wintheiser.winfield
-                            created_at:
-                              type: string
-                              example: '2023-10-25T15:15:07.000000Z'
+                              example: UTC
+                        duration:
+                          type: integer
+                          example: 10
+                        object_shape:
+                          type: string
+                          example: odio
+                        number_of_observers:
+                          type: integer
+                          example: 9
+                        details:
+                          type: string
+                          example: 'Voluptatum dicta voluptas velit cumque repellendus. A illum enim sint perspiciatis. Sit magni aliquam cumque ut qui. Qui non voluptatibus perspiciatis voluptatem fuga magni aut.'
                   links:
                     type: object
                     properties:
                       first:
                         type: string
-                        example: 'http://ufo.test/api/v1/dossiers?page=1'
+                        example: '/?page=1'
                       last:
                         type: string
-                        example: 'http://ufo.test/api/v1/dossiers?page=1'
+                        example: '/?page=1'
                       prev:
                         type: string
                         example: null
@@ -356,7 +307,7 @@ paths:
                             label: '&laquo; Previous'
                             active: false
                           -
-                            url: 'http://ufo.test/api/v1/dossiers?page=1'
+                            url: '/?page=1'
                             label: '1'
                             active: true
                           -
@@ -377,25 +328,27 @@ paths:
                               example: false
                       path:
                         type: string
-                        example: 'http://ufo.test/api/v1/dossiers'
+                        example: /
                       per_page:
                         type: integer
                         example: 15
                       to:
                         type: integer
-                        example: 1
+                        example: 2
                       total:
                         type: integer
-                        example: 1
+                        example: 2
       tags:
         - Dossiers
       security: []
     post:
-      summary: 'Create a new dossier'
-      operationId: createANewDossier
-      description: 'This endpoint allows you to create a new dossier.'
+      summary: 'Add a report'
+      operationId: addAReport
+      description: 'Add a report to a dossier.'
       parameters: []
-      responses: {  }
+      responses:
+        204:
+          description: ''
       tags:
         - Dossiers
       requestBody:
@@ -405,22 +358,26 @@ paths:
             schema:
               type: object
               properties:
-                title:
+                report_id:
                   type: string
-                  description: 'Must not be greater than 150 characters.'
-                  example: uvwdlcszhgqlcf
-                description:
-                  type: string
-                  description: 'Must not be greater than 500 characters.'
-                  example: 'Ex cumque veritatis id vero qui nostrum esse.'
+                  description: ''
+                  example: sit
               required:
-                - title
-                - description
-  '/api/v1/dossiers/{id}':
+                - report_id
+    parameters:
+      -
+        in: path
+        name: dossier_id
+        description: 'The ID of the dossier.'
+        example: null
+        required: true
+        schema:
+          type: string
+  /api/v1/dossiers:
     get:
-      summary: 'Get a dossier'
-      operationId: getADossier
-      description: 'This endpoint allows you to get a dossier.'
+      summary: 'List dossiers'
+      operationId: listDossiers
+      description: 'Get a list of dossiers.'
       parameters: []
       responses:
         200:
@@ -431,63 +388,196 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 9a74645e-499c-4eb6-aa92-f36f25241954
-                    title: 'Eum porro eos tempora.'
-                    description: 'Fugiat quasi similique ut quos iure illo in. Non ut est quam est quod ipsum inventore. Quia perferendis reprehenderit soluta sapiente quidem mollitia.'
-                    reports_count: 0
-                    created_at: '2023-10-25T15:15:07.000000Z'
-                    updated_at: '2023-10-25T15:15:07.000000Z'
-                    user_id: 9a74645e-46d2-4b0c-8664-1592dfa60b7f
-                    user:
-                      id: 9a74645e-46d2-4b0c-8664-1592dfa60b7f
-                      username: wintheiser.winfield
-                      created_at: '2023-10-25T15:15:07.000000Z'
+                    -
+                      id: 9a7aa651-7cd5-4d85-83b0-ce3866de1dce
+                      title: 'Quia consequatur consequuntur suscipit dolores.'
+                      description: 'Quia autem et officia et autem et esse. Labore non culpa omnis animi atque. Doloremque impedit quia dolorem inventore dolorem. Iusto tenetur rem vel. Animi voluptatem similique iusto sunt.'
+                      created_at: '2023-10-28T17:54:30.000000Z'
+                      updated_at: '2023-10-28T17:54:30.000000Z'
+                      user_id: 9a7aa651-7c16-4fc9-84ac-8054af253ba2
+                    -
+                      id: 9a7aa651-7ed6-467d-b36a-2c4848fa1d2e
+                      title: 'Incidunt tempora voluptatem voluptatem impedit qui perspiciatis.'
+                      description: 'Veniam autem ea qui ipsa. Quae inventore sunt eum. Eveniet eos ullam beatae pariatur rem cum sed.'
+                      created_at: '2023-10-28T17:54:30.000000Z'
+                      updated_at: '2023-10-28T17:54:30.000000Z'
+                      user_id: 9a7aa651-7e32-4848-9428-0a8306f26ce1
+                  links:
+                    first: '/?page=1'
+                    last: '/?page=1'
+                    prev: null
+                    next: null
+                  meta:
+                    current_page: 1
+                    from: 1
+                    last_page: 1
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: '/?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    path: /
+                    per_page: 15
+                    to: 2
+                    total: 2
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 9a7aa651-7cd5-4d85-83b0-ce3866de1dce
+                        title: 'Quia consequatur consequuntur suscipit dolores.'
+                        description: 'Quia autem et officia et autem et esse. Labore non culpa omnis animi atque. Doloremque impedit quia dolorem inventore dolorem. Iusto tenetur rem vel. Animi voluptatem similique iusto sunt.'
+                        created_at: '2023-10-28T17:54:30.000000Z'
+                        updated_at: '2023-10-28T17:54:30.000000Z'
+                        user_id: 9a7aa651-7c16-4fc9-84ac-8054af253ba2
+                      -
+                        id: 9a7aa651-7ed6-467d-b36a-2c4848fa1d2e
+                        title: 'Incidunt tempora voluptatem voluptatem impedit qui perspiciatis.'
+                        description: 'Veniam autem ea qui ipsa. Quae inventore sunt eum. Eveniet eos ullam beatae pariatur rem cum sed.'
+                        created_at: '2023-10-28T17:54:30.000000Z'
+                        updated_at: '2023-10-28T17:54:30.000000Z'
+                        user_id: 9a7aa651-7e32-4848-9428-0a8306f26ce1
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 9a7aa651-7cd5-4d85-83b0-ce3866de1dce
+                        title:
+                          type: string
+                          example: 'Quia consequatur consequuntur suscipit dolores.'
+                        description:
+                          type: string
+                          example: 'Quia autem et officia et autem et esse. Labore non culpa omnis animi atque. Doloremque impedit quia dolorem inventore dolorem. Iusto tenetur rem vel. Animi voluptatem similique iusto sunt.'
+                        created_at:
+                          type: string
+                          example: '2023-10-28T17:54:30.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2023-10-28T17:54:30.000000Z'
+                        user_id:
+                          type: string
+                          example: 9a7aa651-7c16-4fc9-84ac-8054af253ba2
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: '/?page=1'
+                      last:
+                        type: string
+                        example: '/?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 1
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: '/?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: /
+                      per_page:
+                        type: integer
+                        example: 15
+                      to:
+                        type: integer
+                        example: 2
+                      total:
+                        type: integer
+                        example: 2
+      tags:
+        - Dossiers
+      security: []
+    post:
+      summary: 'Create a new dossier'
+      operationId: createANewDossier
+      description: 'Create a new dossier.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 9a7aa651-b7e2-4135-bbda-818fbb1817b7
+                    title: 'Est odio laudantium cupiditate aliquid et aut totam.'
+                    description: 'Doloremque quae et velit aliquam facere eos. Ducimus deleniti harum eum aut perferendis aut sed. Corrupti voluptatem omnis aut omnis repudiandae. Nihil quasi et earum eius. Sed non blanditiis vel.'
+                    created_at: '2023-10-28T17:54:30.000000Z'
+                    updated_at: '2023-10-28T17:54:30.000000Z'
+                    user_id: 9a7aa651-b6fe-4004-87c5-5f6e87b928bb
                 properties:
                   data:
                     type: object
                     properties:
                       id:
                         type: string
-                        example: 9a74645e-499c-4eb6-aa92-f36f25241954
+                        example: 9a7aa651-b7e2-4135-bbda-818fbb1817b7
                       title:
                         type: string
-                        example: 'Eum porro eos tempora.'
+                        example: 'Est odio laudantium cupiditate aliquid et aut totam.'
                       description:
                         type: string
-                        example: 'Fugiat quasi similique ut quos iure illo in. Non ut est quam est quod ipsum inventore. Quia perferendis reprehenderit soluta sapiente quidem mollitia.'
-                      reports_count:
-                        type: integer
-                        example: 0
+                        example: 'Doloremque quae et velit aliquam facere eos. Ducimus deleniti harum eum aut perferendis aut sed. Corrupti voluptatem omnis aut omnis repudiandae. Nihil quasi et earum eius. Sed non blanditiis vel.'
                       created_at:
                         type: string
-                        example: '2023-10-25T15:15:07.000000Z'
+                        example: '2023-10-28T17:54:30.000000Z'
                       updated_at:
                         type: string
-                        example: '2023-10-25T15:15:07.000000Z'
+                        example: '2023-10-28T17:54:30.000000Z'
                       user_id:
                         type: string
-                        example: 9a74645e-46d2-4b0c-8664-1592dfa60b7f
-                      user:
-                        type: object
-                        properties:
-                          id:
-                            type: string
-                            example: 9a74645e-46d2-4b0c-8664-1592dfa60b7f
-                          username:
-                            type: string
-                            example: wintheiser.winfield
-                          created_at:
-                            type: string
-                            example: '2023-10-25T15:15:07.000000Z'
-      tags:
-        - Dossiers
-      security: []
-    put:
-      summary: 'Update a dossier'
-      operationId: updateADossier
-      description: 'This endpoint allows you to update a dossier.'
-      parameters: []
-      responses: {  }
+                        example: 9a7aa651-b6fe-4004-87c5-5f6e87b928bb
       tags:
         - Dossiers
       requestBody:
@@ -499,21 +589,131 @@ paths:
               properties:
                 title:
                   type: string
-                  description: 'Must not be greater than 150 characters.'
-                  example: wmyvd
+                  description: 'The title of the dossier. Must not be greater than 150 characters.'
+                  example: 'Investigation of UFOs in Brazil.'
                 description:
                   type: string
-                  description: 'Must not be greater than 500 characters.'
-                  example: 'Vel neque sunt officia magni.'
+                  description: 'The description of the dossier. Must not be greater than 500 characters.'
+                  example: 'This dossier contains all the information about UFOs in Brazil.'
+              required:
+                - title
+                - description
+  '/api/v1/dossiers/{id}':
+    get:
+      summary: 'Get a dossier'
+      operationId: getADossier
+      description: 'Get a dossier by id.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 9a7aa651-829c-4d95-b02f-371899388af9
+                    title: 'Ea inventore illum qui ab quidem est ut.'
+                    description: 'Aut et repudiandae eligendi perspiciatis. Unde excepturi nemo accusantium. Tenetur facilis eligendi harum et.'
+                    created_at: '2023-10-28T17:54:30.000000Z'
+                    updated_at: '2023-10-28T17:54:30.000000Z'
+                    user_id: 9a7aa651-81d1-4525-b563-327e31d2306b
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 9a7aa651-829c-4d95-b02f-371899388af9
+                      title:
+                        type: string
+                        example: 'Ea inventore illum qui ab quidem est ut.'
+                      description:
+                        type: string
+                        example: 'Aut et repudiandae eligendi perspiciatis. Unde excepturi nemo accusantium. Tenetur facilis eligendi harum et.'
+                      created_at:
+                        type: string
+                        example: '2023-10-28T17:54:30.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2023-10-28T17:54:30.000000Z'
+                      user_id:
+                        type: string
+                        example: 9a7aa651-81d1-4525-b563-327e31d2306b
+      tags:
+        - Dossiers
+      security: []
+    put:
+      summary: 'Update a dossier'
+      operationId: updateADossier
+      description: 'Update and existing dossier.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 9a7aa651-bdce-4abb-a8a6-fea071495bc7
+                    title: 'Tempora soluta natus nisi labore.'
+                    description: 'Voluptatum ipsum voluptatem non natus consequatur reiciendis voluptas. Voluptatem dolorem dolore voluptas quia nesciunt et. Repellat et quia temporibus distinctio voluptatem.'
+                    created_at: '2023-10-28T17:54:30.000000Z'
+                    updated_at: '2023-10-28T17:54:30.000000Z'
+                    user_id: 9a7aa651-bb15-4160-b022-4fc8be7354c6
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 9a7aa651-bdce-4abb-a8a6-fea071495bc7
+                      title:
+                        type: string
+                        example: 'Tempora soluta natus nisi labore.'
+                      description:
+                        type: string
+                        example: 'Voluptatum ipsum voluptatem non natus consequatur reiciendis voluptas. Voluptatem dolorem dolore voluptas quia nesciunt et. Repellat et quia temporibus distinctio voluptatem.'
+                      created_at:
+                        type: string
+                        example: '2023-10-28T17:54:30.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2023-10-28T17:54:30.000000Z'
+                      user_id:
+                        type: string
+                        example: 9a7aa651-bb15-4160-b022-4fc8be7354c6
+      tags:
+        - Dossiers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'The title of the dossier. Must not be greater than 150 characters.'
+                  example: 'Investigation of UFOs in Brazil.'
+                description:
+                  type: string
+                  description: 'The description of the dossier. Must not be greater than 500 characters.'
+                  example: 'This dossier contains all the information about UFOs in Brazil.'
               required:
                 - title
                 - description
     delete:
       summary: 'Delete a dossier'
       operationId: deleteADossier
-      description: 'This endpoint allows you to delete a dossier.'
+      description: 'Delete an existing dossier.'
       parameters: []
-      responses: {  }
+      responses:
+        204:
+          description: ''
       tags:
         - Dossiers
     parameters:
@@ -521,7 +721,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the dossier.'
-        example: 9a74645e-499c-4eb6-aa92-f36f25241954
+        example: null
         required: true
         schema:
           type: string
@@ -531,7 +731,9 @@ paths:
       operationId: removeAReport
       description: 'This endpoint allows you to remove a report from a dossier.'
       parameters: []
-      responses: {  }
+      responses:
+        204:
+          description: ''
       tags:
         - Dossiers
     parameters:
@@ -539,7 +741,7 @@ paths:
         in: path
         name: dossier_id
         description: 'The ID of the dossier.'
-        example: 9a74645e-499c-4eb6-aa92-f36f25241954
+        example: null
         required: true
         schema:
           type: string
@@ -547,7 +749,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the report.'
-        example: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+        example: voluptatem
         required: true
         schema:
           type: string
@@ -555,8 +757,93 @@ paths:
     get:
       summary: 'List reports'
       operationId: listReports
-      description: 'This endpoint allows you to get a list of reports.'
-      parameters: []
+      description: 'Get a list of reports.'
+      parameters:
+        -
+          in: query
+          name: keywords
+          description: 'Keywords to search for.'
+          example: ufo
+          required: false
+          schema:
+            type: string
+            description: 'Keywords to search for.'
+            example: ufo
+        -
+          in: query
+          name: country
+          description: 'Country to search for.'
+          example: USA
+          required: false
+          schema:
+            type: string
+            description: 'Country to search for.'
+            example: USA
+        -
+          in: query
+          name: state
+          description: 'State to search for.'
+          example: California
+          required: false
+          schema:
+            type: string
+            description: 'State to search for.'
+            example: California
+        -
+          in: query
+          name: city
+          description: 'City to search for.'
+          example: 'Los Angeles'
+          required: false
+          schema:
+            type: string
+            description: 'City to search for.'
+            example: 'Los Angeles'
+        -
+          in: query
+          name: dateFrom
+          description: 'Start date to search for. Must be a valid date.'
+          example: '2000-01-01'
+          required: false
+          schema:
+            type: string
+            description: 'Start date to search for. Must be a valid date.'
+            example: '2000-01-01'
+        -
+          in: query
+          name: dateTo
+          description: 'End date to search for. Must be a valid date. Must be a date after <code>dateFrom</code>.'
+          example: '2010-01-01'
+          required: false
+          schema:
+            type: string
+            description: 'End date to search for. Must be a valid date. Must be a date after <code>dateFrom</code>.'
+            example: '2010-01-01'
+        -
+          in: query
+          name: sortBy
+          description: 'Field to sort by.'
+          example: date
+          required: false
+          schema:
+            type: string
+            description: 'Field to sort by.'
+            example: date
+            enum:
+              - date
+        -
+          in: query
+          name: sortOrder
+          description: 'Sort order.'
+          example: asc
+          required: false
+          schema:
+            type: string
+            description: 'Sort order.'
+            example: asc
+            enum:
+              - asc
+              - desc
       responses:
         200:
           description: ''
@@ -565,15 +852,49 @@ paths:
               schema:
                 type: object
                 example:
-                  data: []
+                  data:
+                    -
+                      id: 9a7aa651-5b15-4ee4-b4bd-51209ab02161
+                      user_id: 9a7aa651-5560-4c35-9649-e4702ab87728
+                      summary: 'Dolores maxime fugiat repudiandae aspernatur quae necessitatibus.'
+                      country: 'Kyrgyz Republic'
+                      state: Washington
+                      city: Jadynburgh
+                      lat: -59.261813
+                      long: -20.35353
+                      date:
+                        date: '2021-06-23 01:15:39.000000'
+                        timezone_type: 3
+                        timezone: UTC
+                      duration: 51
+                      object_shape: eius
+                      number_of_observers: 6
+                      details: 'Aspernatur iure nesciunt quia ratione. Molestias rerum laudantium harum illum non.'
+                    -
+                      id: 9a7aa651-5dc0-485d-920f-cea88ac78da6
+                      user_id: 9a7aa651-5cd6-4dd8-8eee-bdb097fe3190
+                      summary: 'Ex qui modi numquam rerum harum.'
+                      country: Zambia
+                      state: Texas
+                      city: 'Lake Shaun'
+                      lat: 78.231948
+                      long: 44.433229
+                      date:
+                        date: '2006-06-17 14:59:14.000000'
+                        timezone_type: 3
+                        timezone: UTC
+                      duration: 32
+                      object_shape: alias
+                      number_of_observers: 6
+                      details: 'Ipsum ea vel consequatur eum. Velit ipsa distinctio rerum ducimus tenetur. Incidunt ipsum consequatur nihil mollitia voluptas in et. Nemo ducimus deleniti non tempora facere.'
                   links:
-                    first: 'http://ufo.test/api/v1/reports?page=1'
-                    last: 'http://ufo.test/api/v1/reports?page=1'
+                    first: '/?page=1'
+                    last: '/?page=1'
                     prev: null
                     next: null
                   meta:
                     current_page: 1
-                    from: null
+                    from: 1
                     last_page: 1
                     links:
                       -
@@ -581,30 +902,115 @@ paths:
                         label: '&laquo; Previous'
                         active: false
                       -
-                        url: 'http://ufo.test/api/v1/reports?page=1'
+                        url: '/?page=1'
                         label: '1'
                         active: true
                       -
                         url: null
                         label: 'Next &raquo;'
                         active: false
-                    path: 'http://ufo.test/api/v1/reports'
+                    path: /
                     per_page: 15
-                    to: null
-                    total: 0
+                    to: 2
+                    total: 2
                 properties:
                   data:
                     type: array
-                    example: []
+                    example:
+                      -
+                        id: 9a7aa651-5b15-4ee4-b4bd-51209ab02161
+                        user_id: 9a7aa651-5560-4c35-9649-e4702ab87728
+                        summary: 'Dolores maxime fugiat repudiandae aspernatur quae necessitatibus.'
+                        country: 'Kyrgyz Republic'
+                        state: Washington
+                        city: Jadynburgh
+                        lat: -59.261813
+                        long: -20.35353
+                        date:
+                          date: '2021-06-23 01:15:39.000000'
+                          timezone_type: 3
+                          timezone: UTC
+                        duration: 51
+                        object_shape: eius
+                        number_of_observers: 6
+                        details: 'Aspernatur iure nesciunt quia ratione. Molestias rerum laudantium harum illum non.'
+                      -
+                        id: 9a7aa651-5dc0-485d-920f-cea88ac78da6
+                        user_id: 9a7aa651-5cd6-4dd8-8eee-bdb097fe3190
+                        summary: 'Ex qui modi numquam rerum harum.'
+                        country: Zambia
+                        state: Texas
+                        city: 'Lake Shaun'
+                        lat: 78.231948
+                        long: 44.433229
+                        date:
+                          date: '2006-06-17 14:59:14.000000'
+                          timezone_type: 3
+                          timezone: UTC
+                        duration: 32
+                        object_shape: alias
+                        number_of_observers: 6
+                        details: 'Ipsum ea vel consequatur eum. Velit ipsa distinctio rerum ducimus tenetur. Incidunt ipsum consequatur nihil mollitia voluptas in et. Nemo ducimus deleniti non tempora facere.'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 9a7aa651-5b15-4ee4-b4bd-51209ab02161
+                        user_id:
+                          type: string
+                          example: 9a7aa651-5560-4c35-9649-e4702ab87728
+                        summary:
+                          type: string
+                          example: 'Dolores maxime fugiat repudiandae aspernatur quae necessitatibus.'
+                        country:
+                          type: string
+                          example: 'Kyrgyz Republic'
+                        state:
+                          type: string
+                          example: Washington
+                        city:
+                          type: string
+                          example: Jadynburgh
+                        lat:
+                          type: number
+                          example: -59.261813
+                        long:
+                          type: number
+                          example: -20.35353
+                        date:
+                          type: object
+                          properties:
+                            date:
+                              type: string
+                              example: '2021-06-23 01:15:39.000000'
+                            timezone_type:
+                              type: integer
+                              example: 3
+                            timezone:
+                              type: string
+                              example: UTC
+                        duration:
+                          type: integer
+                          example: 51
+                        object_shape:
+                          type: string
+                          example: eius
+                        number_of_observers:
+                          type: integer
+                          example: 6
+                        details:
+                          type: string
+                          example: 'Aspernatur iure nesciunt quia ratione. Molestias rerum laudantium harum illum non.'
                   links:
                     type: object
                     properties:
                       first:
                         type: string
-                        example: 'http://ufo.test/api/v1/reports?page=1'
+                        example: '/?page=1'
                       last:
                         type: string
-                        example: 'http://ufo.test/api/v1/reports?page=1'
+                        example: '/?page=1'
                       prev:
                         type: string
                         example: null
@@ -618,8 +1024,8 @@ paths:
                         type: integer
                         example: 1
                       from:
-                        type: string
-                        example: null
+                        type: integer
+                        example: 1
                       last_page:
                         type: integer
                         example: 1
@@ -631,7 +1037,7 @@ paths:
                             label: '&laquo; Previous'
                             active: false
                           -
-                            url: 'http://ufo.test/api/v1/reports?page=1'
+                            url: '/?page=1'
                             label: '1'
                             active: true
                           -
@@ -652,69 +1058,101 @@ paths:
                               example: false
                       path:
                         type: string
-                        example: 'http://ufo.test/api/v1/reports'
+                        example: /
                       per_page:
                         type: integer
                         example: 15
                       to:
-                        type: string
-                        example: null
+                        type: integer
+                        example: 2
                       total:
                         type: integer
-                        example: 0
+                        example: 2
       tags:
         - Reports
-      requestBody:
-        required: false
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                keywords:
-                  type: string
-                  description: 'Must be at least 3 characters.'
-                  example: wozmzpcynrnyybrzg
-                country:
-                  type: string
-                  description: ''
-                  example: recusandae
-                state:
-                  type: string
-                  description: ''
-                  example: at
-                city:
-                  type: string
-                  description: ''
-                  example: quia
-                dateFrom:
-                  type: string
-                  description: 'Must be a valid date.'
-                  example: '2023-10-27T14:54:57'
-                dateTo:
-                  type: string
-                  description: 'Must be a valid date. Must be a date after <code>dateFrom</code>.'
-                  example: '2108-09-20'
-                sortBy:
-                  type: string
-                  description: ''
-                  example: date
-                  enum:
-                    - date
-                sortOrder:
-                  type: string
-                  description: ''
-                  example: asc
-                  enum:
-                    - asc
-                    - desc
       security: []
     post:
       summary: 'Create a new report'
       operationId: createANewReport
-      description: 'This endpoint allows you to create a new report.'
+      description: 'Create a new report for the authenticated user.'
       parameters: []
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 9a7aa651-9459-400f-a2ec-8fcea13159c7
+                    user_id: 9a7aa651-93a8-4bcc-b996-90c16e86e516
+                    summary: 'Dolor quo et placeat et qui.'
+                    country: Liechtenstein
+                    state: Arkansas
+                    city: 'West Briastad'
+                    lat: -87.025865
+                    long: 109.954719
+                    date:
+                      date: '2001-10-04 21:55:26.000000'
+                      timezone_type: 3
+                      timezone: UTC
+                    duration: 47
+                    object_shape: sapiente
+                    number_of_observers: 7
+                    details: 'Itaque sit quia incidunt aut. Incidunt recusandae dignissimos voluptatum quidem. Eum quos voluptas quas rerum maiores qui.'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 9a7aa651-9459-400f-a2ec-8fcea13159c7
+                      user_id:
+                        type: string
+                        example: 9a7aa651-93a8-4bcc-b996-90c16e86e516
+                      summary:
+                        type: string
+                        example: 'Dolor quo et placeat et qui.'
+                      country:
+                        type: string
+                        example: Liechtenstein
+                      state:
+                        type: string
+                        example: Arkansas
+                      city:
+                        type: string
+                        example: 'West Briastad'
+                      lat:
+                        type: number
+                        example: -87.025865
+                      long:
+                        type: number
+                        example: 109.954719
+                      date:
+                        type: object
+                        properties:
+                          date:
+                            type: string
+                            example: '2001-10-04 21:55:26.000000'
+                          timezone_type:
+                            type: integer
+                            example: 3
+                          timezone:
+                            type: string
+                            example: UTC
+                      duration:
+                        type: integer
+                        example: 47
+                      object_shape:
+                        type: string
+                        example: sapiente
+                      number_of_observers:
+                        type: integer
+                        example: 7
+                      details:
+                        type: string
+                        example: 'Itaque sit quia incidunt aut. Incidunt recusandae dignissimos voluptatum quidem. Eum quos voluptas quas rerum maiores qui.'
       tags:
         - Reports
       requestBody:
@@ -726,48 +1164,48 @@ paths:
               properties:
                 summary:
                   type: string
-                  description: 'Must not be greater than 150 characters.'
-                  example: xponvjxkwc
+                  description: 'The summary of the report. Must not be greater than 150 characters.'
+                  example: 'I saw a UFO'
                 details:
                   type: string
-                  description: 'Must not be greater than 1500 characters.'
-                  example: pxqznrqakulxeq
+                  description: 'The details of the report. Must not be greater than 1500 characters.'
+                  example: 'I saw a UFO in the sky'
                 country:
                   type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: jadbabldns
+                  description: 'The country of the report. Must not be greater than 255 characters.'
+                  example: US
                 state:
                   type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: axidkowftwqsnbehhb
+                  description: 'The state of the report. Must not be greater than 255 characters.'
+                  example: California
                 city:
                   type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: eodilhmhxibygj
+                  description: 'The city of the report. Must not be greater than 255 characters.'
+                  example: 'Los Angeles'
                 lat:
                   type: number
-                  description: ''
-                  example: 602171.44589
+                  description: 'The latitude of the report.'
+                  example: 34.052235
                 long:
                   type: number
-                  description: ''
-                  example: 117765075.2
+                  description: 'The longitude of the report.'
+                  example: -118.243683
                 date:
                   type: string
-                  description: 'Must be a valid date.'
-                  example: '2023-10-27T14:54:57'
+                  description: 'The date of the report. Must be a valid date.'
+                  example: '2021-01-01'
                 duration:
-                  type: number
-                  description: ''
-                  example: 1927.5562212
+                  type: integer
+                  description: 'The duration of the sighting in seconds.'
+                  example: 60
                 number_of_observers:
                   type: number
-                  description: ''
-                  example: 134199.5408
+                  description: 'The number of observers.'
+                  example: 1.0
                 object_shape:
                   type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: gislgr
+                  description: 'The shape of the object. Must not be greater than 255 characters.'
+                  example: Triangle
               required:
                 - summary
                 - details
@@ -783,7 +1221,7 @@ paths:
     get:
       summary: 'Get a report'
       operationId: getAReport
-      description: 'This endpoint allows you to get a report.'
+      description: 'Get a report by id.'
       parameters: []
       responses:
         200:
@@ -794,75 +1232,159 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 9a746417-6bbc-41f1-8c9b-28404c87d10e
-                    user_id: 9a746417-6294-47c7-be09-d382b9dabc26
-                    summary: 'Quasi quia consectetur hic ad dolorum aperiam molestiae.'
-                    country: Jersey
-                    state: Delaware
-                    city: Connertown
-                    lat: '-63.65556400'
-                    long: '-62.09172000'
-                    date: '1994-04-11 17:57:06'
-                    duration: 59
-                    object_shape: ex
-                    number_of_observers: 2
-                    details: 'Sit est nisi est. Voluptatem accusamus libero voluptas distinctio soluta. Placeat voluptas assumenda voluptatem quod velit harum quia incidunt. Aut veritatis molestiae quisquam dolore quis a.'
-                    images: []
+                    id: 9a7aa651-68d7-4843-98e2-1a981245bcc0
+                    user_id: 9a7aa651-6806-4f84-933c-ae261819fe9c
+                    summary: 'Ratione et corporis aut incidunt.'
+                    country: Turkey
+                    state: Oregon
+                    city: Aufderharville
+                    lat: 10.291408
+                    long: 134.844031
+                    date:
+                      date: '2004-04-06 05:01:40.000000'
+                      timezone_type: 3
+                      timezone: UTC
+                    duration: 19
+                    object_shape: accusantium
+                    number_of_observers: 1
+                    details: 'Qui dolore numquam fugit ut animi voluptas cupiditate dolor. Eum sint sunt sit rerum eos aspernatur aperiam autem. Sed maxime et aut temporibus est.'
                 properties:
                   data:
                     type: object
                     properties:
                       id:
                         type: string
-                        example: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+                        example: 9a7aa651-68d7-4843-98e2-1a981245bcc0
                       user_id:
                         type: string
-                        example: 9a746417-6294-47c7-be09-d382b9dabc26
+                        example: 9a7aa651-6806-4f84-933c-ae261819fe9c
                       summary:
                         type: string
-                        example: 'Quasi quia consectetur hic ad dolorum aperiam molestiae.'
+                        example: 'Ratione et corporis aut incidunt.'
                       country:
                         type: string
-                        example: Jersey
+                        example: Turkey
                       state:
                         type: string
-                        example: Delaware
+                        example: Oregon
                       city:
                         type: string
-                        example: Connertown
+                        example: Aufderharville
                       lat:
-                        type: string
-                        example: '-63.65556400'
+                        type: number
+                        example: 10.291408
                       long:
-                        type: string
-                        example: '-62.09172000'
+                        type: number
+                        example: 134.844031
                       date:
-                        type: string
-                        example: '1994-04-11 17:57:06'
+                        type: object
+                        properties:
+                          date:
+                            type: string
+                            example: '2004-04-06 05:01:40.000000'
+                          timezone_type:
+                            type: integer
+                            example: 3
+                          timezone:
+                            type: string
+                            example: UTC
                       duration:
                         type: integer
-                        example: 59
+                        example: 19
                       object_shape:
                         type: string
-                        example: ex
+                        example: accusantium
                       number_of_observers:
                         type: integer
-                        example: 2
+                        example: 1
                       details:
                         type: string
-                        example: 'Sit est nisi est. Voluptatem accusamus libero voluptas distinctio soluta. Placeat voluptas assumenda voluptatem quod velit harum quia incidunt. Aut veritatis molestiae quisquam dolore quis a.'
-                      images:
-                        type: array
-                        example: []
+                        example: 'Qui dolore numquam fugit ut animi voluptas cupiditate dolor. Eum sint sunt sit rerum eos aspernatur aperiam autem. Sed maxime et aut temporibus est.'
       tags:
         - Reports
       security: []
     put:
       summary: 'Update a report'
       operationId: updateAReport
-      description: 'This endpoint allows you to update a report.'
+      description: 'Update a report for the authenticated user.'
       parameters: []
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 9a7aa651-9965-4304-a1ae-b9c08f2ac630
+                    user_id: 9a7aa651-98c2-4ecf-af2a-4c2d8c8dcc2e
+                    summary: 'Dicta et et hic quis.'
+                    country: 'New Zealand'
+                    state: Virginia
+                    city: 'West Cassandreburgh'
+                    lat: -81.284104
+                    long: -104.119589
+                    date:
+                      date: '2002-04-25 13:23:13.000000'
+                      timezone_type: 3
+                      timezone: UTC
+                    duration: 19
+                    object_shape: qui
+                    number_of_observers: 3
+                    details: 'Odit necessitatibus deleniti minus doloremque corrupti est. Excepturi molestiae itaque maxime sint. Illum ipsum commodi consequatur accusamus repellat. Voluptas provident facilis ipsa aut iste non.'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 9a7aa651-9965-4304-a1ae-b9c08f2ac630
+                      user_id:
+                        type: string
+                        example: 9a7aa651-98c2-4ecf-af2a-4c2d8c8dcc2e
+                      summary:
+                        type: string
+                        example: 'Dicta et et hic quis.'
+                      country:
+                        type: string
+                        example: 'New Zealand'
+                      state:
+                        type: string
+                        example: Virginia
+                      city:
+                        type: string
+                        example: 'West Cassandreburgh'
+                      lat:
+                        type: number
+                        example: -81.284104
+                      long:
+                        type: number
+                        example: -104.119589
+                      date:
+                        type: object
+                        properties:
+                          date:
+                            type: string
+                            example: '2002-04-25 13:23:13.000000'
+                          timezone_type:
+                            type: integer
+                            example: 3
+                          timezone:
+                            type: string
+                            example: UTC
+                      duration:
+                        type: integer
+                        example: 19
+                      object_shape:
+                        type: string
+                        example: qui
+                      number_of_observers:
+                        type: integer
+                        example: 3
+                      details:
+                        type: string
+                        example: 'Odit necessitatibus deleniti minus doloremque corrupti est. Excepturi molestiae itaque maxime sint. Illum ipsum commodi consequatur accusamus repellat. Voluptas provident facilis ipsa aut iste non.'
       tags:
         - Reports
       requestBody:
@@ -874,48 +1396,48 @@ paths:
               properties:
                 summary:
                   type: string
-                  description: 'Must not be greater than 150 characters.'
-                  example: udgzzpzfjokdurznfzr
+                  description: 'The summary of the report. Must not be greater than 150 characters.'
+                  example: 'I saw a UFO'
                 details:
                   type: string
-                  description: 'Must not be greater than 1500 characters.'
-                  example: oqhbpkhjjto
+                  description: 'The details of the report. Must not be greater than 1500 characters.'
+                  example: 'I saw a UFO in the sky'
                 country:
                   type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: wmxjeaonuhprilxyi
+                  description: 'The country of the report. Must not be greater than 255 characters.'
+                  example: US
                 state:
                   type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: oofhtab
+                  description: 'The state of the report. Must not be greater than 255 characters.'
+                  example: California
                 city:
                   type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: pfdmjiouxiwxbpyehyczgko
+                  description: 'The city of the report. Must not be greater than 255 characters.'
+                  example: 'Los Angeles'
                 lat:
                   type: number
-                  description: ''
-                  example: 24.45
+                  description: 'The latitude of the report.'
+                  example: 34.052235
                 long:
                   type: number
-                  description: ''
-                  example: 4377.12
+                  description: 'The longitude of the report.'
+                  example: -118.243683
                 date:
                   type: string
-                  description: 'Must be a valid date.'
-                  example: '2023-10-27T14:54:57'
+                  description: 'The date of the report. Must be a valid date.'
+                  example: '2021-01-01'
                 duration:
-                  type: number
-                  description: ''
-                  example: 2.0
+                  type: integer
+                  description: 'The duration of the sighting in seconds.'
+                  example: 60
                 number_of_observers:
                   type: number
-                  description: ''
-                  example: 10975.2217376
+                  description: 'The number of observers.'
+                  example: 1.0
                 object_shape:
                   type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: z
+                  description: 'The shape of the object. Must not be greater than 255 characters.'
+                  example: Triangle
               required:
                 - summary
                 - details
@@ -930,9 +1452,11 @@ paths:
     delete:
       summary: 'Delete a report'
       operationId: deleteAReport
-      description: 'This endpoint allows you to delete a report.'
+      description: 'Delete a report belonging to the authenticated user.'
       parameters: []
-      responses: {  }
+      responses:
+        204:
+          description: ''
       tags:
         - Reports
     parameters:
@@ -940,7 +1464,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the report.'
-        example: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+        example: null
         required: true
         schema:
           type: string
@@ -948,30 +1472,176 @@ paths:
     get:
       summary: 'List report images'
       operationId: listReportImages
-      description: 'This endpoint allows you to get the images of a report.'
+      description: 'Get the images of a report.'
       parameters: []
       responses:
-        401:
+        200:
           description: ''
           content:
             application/json:
               schema:
                 type: object
                 example:
-                  message: Unauthenticated.
+                  data:
+                    -
+                      id: 145
+                      url: 'http://ufo.test/storage/https://via.placeholder.com/640x480.png/005555?text=quo'
+                    -
+                      id: 146
+                      url: 'http://ufo.test/storage/https://via.placeholder.com/640x480.png/0099aa?text=corporis'
+                  links:
+                    first: '/?page=1'
+                    last: '/?page=1'
+                    prev: null
+                    next: null
+                  meta:
+                    current_page: 1
+                    from: 1
+                    last_page: 1
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: '/?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    path: /
+                    per_page: 15
+                    to: 2
+                    total: 2
                 properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 145
+                        url: 'http://ufo.test/storage/https://via.placeholder.com/640x480.png/005555?text=quo'
+                      -
+                        id: 146
+                        url: 'http://ufo.test/storage/https://via.placeholder.com/640x480.png/0099aa?text=corporis'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 145
+                        url:
+                          type: string
+                          example: 'http://ufo.test/storage/https://via.placeholder.com/640x480.png/005555?text=quo'
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: '/?page=1'
+                      last:
+                        type: string
+                        example: '/?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 1
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: '/?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: /
+                      per_page:
+                        type: integer
+                        example: 15
+                      to:
+                        type: integer
+                        example: 2
+                      total:
+                        type: integer
+                        example: 2
       tags:
         - Reports
       security: []
     post:
       summary: 'Upload images'
       operationId: uploadImages
-      description: 'This endpoint allows you to upload images'
+      description: 'Upload images for a report.'
       parameters: []
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 147
+                      url: 'http://ufo.test/storage/https://via.placeholder.com/640x480.png/001111?text=impedit'
+                    -
+                      id: 148
+                      url: 'http://ufo.test/storage/https://via.placeholder.com/640x480.png/0088aa?text=architecto'
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 147
+                        url: 'http://ufo.test/storage/https://via.placeholder.com/640x480.png/001111?text=impedit'
+                      -
+                        id: 148
+                        url: 'http://ufo.test/storage/https://via.placeholder.com/640x480.png/0088aa?text=architecto'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 147
+                        url:
+                          type: string
+                          example: 'http://ufo.test/storage/https://via.placeholder.com/640x480.png/001111?text=impedit'
       tags:
         - Reports
       requestBody:
@@ -994,7 +1664,7 @@ paths:
         in: path
         name: report_id
         description: 'The ID of the report.'
-        example: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+        example: null
         required: true
         schema:
           type: string
@@ -1002,9 +1672,11 @@ paths:
     delete:
       summary: 'Delete an image'
       operationId: deleteAnImage
-      description: 'This endpoint allows you to delete an image of a report.'
+      description: 'Delete an image of a report.'
       parameters: []
-      responses: {  }
+      responses:
+        204:
+          description: ''
       tags:
         - Reports
     parameters:
@@ -1012,7 +1684,7 @@ paths:
         in: path
         name: report_id
         description: 'The ID of the report.'
-        example: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+        example: null
         required: true
         schema:
           type: string
@@ -1020,7 +1692,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the image.'
-        example: 9
+        example: 2
         required: true
         schema:
           type: integer
@@ -1028,7 +1700,7 @@ paths:
     get:
       summary: 'List user reports'
       operationId: listUserReports
-      description: 'This endpoint allows you to get a list of reports of a user.'
+      description: 'Get a list of reports of a user.'
       parameters: []
       responses:
         200:
@@ -1040,22 +1712,42 @@ paths:
                 example:
                   data:
                     -
-                      id: 9a746417-6bbc-41f1-8c9b-28404c87d10e
-                      user_id: 9a746417-6294-47c7-be09-d382b9dabc26
-                      summary: 'Quasi quia consectetur hic ad dolorum aperiam molestiae.'
-                      country: Jersey
-                      state: Delaware
-                      city: Connertown
-                      lat: '-63.65556400'
-                      long: '-62.09172000'
-                      date: '1994-04-11 17:57:06'
-                      duration: 59
-                      object_shape: ex
+                      id: 9a7aa651-6ec3-46a2-bc33-4861ca91c3bb
+                      user_id: 9a7aa651-6db6-4965-a5c9-a9fc2cca0426
+                      summary: 'Alias sit autem dolores et non id.'
+                      country: France
+                      state: Wyoming
+                      city: 'North Destinee'
+                      lat: 56.47191
+                      long: 51.011929
+                      date:
+                        date: '1995-02-18 04:17:31.000000'
+                        timezone_type: 3
+                        timezone: UTC
+                      duration: 47
+                      object_shape: ut
+                      number_of_observers: 7
+                      details: 'Et iusto laudantium quod dolorem. Libero eum libero nesciunt ea ipsa. Necessitatibus cum vero aut dolorum. At laudantium ad possimus optio placeat.'
+                    -
+                      id: 9a7aa651-70df-44e1-98e2-3f3189349759
+                      user_id: 9a7aa651-6ff0-4dbc-aa15-f4f9a897722b
+                      summary: 'Eveniet autem velit est tenetur consequatur eaque.'
+                      country: Botswana
+                      state: Mississippi
+                      city: Blickville
+                      lat: -34.708886
+                      long: -91.203492
+                      date:
+                        date: '2010-02-06 16:58:01.000000'
+                        timezone_type: 3
+                        timezone: UTC
+                      duration: 47
+                      object_shape: minima
                       number_of_observers: 2
-                      details: 'Sit est nisi est. Voluptatem accusamus libero voluptas distinctio soluta. Placeat voluptas assumenda voluptatem quod velit harum quia incidunt. Aut veritatis molestiae quisquam dolore quis a.'
+                      details: 'Eveniet dolorem doloribus est sapiente nulla fugit. Cum delectus voluptatem atque et harum. Voluptates aliquid dolorem voluptas architecto nostrum maxime.'
                   links:
-                    first: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1'
-                    last: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1'
+                    first: '/?page=1'
+                    last: '/?page=1'
                     prev: null
                     next: null
                   meta:
@@ -1068,86 +1760,115 @@ paths:
                         label: '&laquo; Previous'
                         active: false
                       -
-                        url: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1'
+                        url: '/?page=1'
                         label: '1'
                         active: true
                       -
                         url: null
                         label: 'Next &raquo;'
                         active: false
-                    path: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports'
+                    path: /
                     per_page: 15
-                    to: 1
-                    total: 1
+                    to: 2
+                    total: 2
                 properties:
                   data:
                     type: array
                     example:
                       -
-                        id: 9a746417-6bbc-41f1-8c9b-28404c87d10e
-                        user_id: 9a746417-6294-47c7-be09-d382b9dabc26
-                        summary: 'Quasi quia consectetur hic ad dolorum aperiam molestiae.'
-                        country: Jersey
-                        state: Delaware
-                        city: Connertown
-                        lat: '-63.65556400'
-                        long: '-62.09172000'
-                        date: '1994-04-11 17:57:06'
-                        duration: 59
-                        object_shape: ex
+                        id: 9a7aa651-6ec3-46a2-bc33-4861ca91c3bb
+                        user_id: 9a7aa651-6db6-4965-a5c9-a9fc2cca0426
+                        summary: 'Alias sit autem dolores et non id.'
+                        country: France
+                        state: Wyoming
+                        city: 'North Destinee'
+                        lat: 56.47191
+                        long: 51.011929
+                        date:
+                          date: '1995-02-18 04:17:31.000000'
+                          timezone_type: 3
+                          timezone: UTC
+                        duration: 47
+                        object_shape: ut
+                        number_of_observers: 7
+                        details: 'Et iusto laudantium quod dolorem. Libero eum libero nesciunt ea ipsa. Necessitatibus cum vero aut dolorum. At laudantium ad possimus optio placeat.'
+                      -
+                        id: 9a7aa651-70df-44e1-98e2-3f3189349759
+                        user_id: 9a7aa651-6ff0-4dbc-aa15-f4f9a897722b
+                        summary: 'Eveniet autem velit est tenetur consequatur eaque.'
+                        country: Botswana
+                        state: Mississippi
+                        city: Blickville
+                        lat: -34.708886
+                        long: -91.203492
+                        date:
+                          date: '2010-02-06 16:58:01.000000'
+                          timezone_type: 3
+                          timezone: UTC
+                        duration: 47
+                        object_shape: minima
                         number_of_observers: 2
-                        details: 'Sit est nisi est. Voluptatem accusamus libero voluptas distinctio soluta. Placeat voluptas assumenda voluptatem quod velit harum quia incidunt. Aut veritatis molestiae quisquam dolore quis a.'
+                        details: 'Eveniet dolorem doloribus est sapiente nulla fugit. Cum delectus voluptatem atque et harum. Voluptates aliquid dolorem voluptas architecto nostrum maxime.'
                     items:
                       type: object
                       properties:
                         id:
                           type: string
-                          example: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+                          example: 9a7aa651-6ec3-46a2-bc33-4861ca91c3bb
                         user_id:
                           type: string
-                          example: 9a746417-6294-47c7-be09-d382b9dabc26
+                          example: 9a7aa651-6db6-4965-a5c9-a9fc2cca0426
                         summary:
                           type: string
-                          example: 'Quasi quia consectetur hic ad dolorum aperiam molestiae.'
+                          example: 'Alias sit autem dolores et non id.'
                         country:
                           type: string
-                          example: Jersey
+                          example: France
                         state:
                           type: string
-                          example: Delaware
+                          example: Wyoming
                         city:
                           type: string
-                          example: Connertown
+                          example: 'North Destinee'
                         lat:
-                          type: string
-                          example: '-63.65556400'
+                          type: number
+                          example: 56.47191
                         long:
-                          type: string
-                          example: '-62.09172000'
+                          type: number
+                          example: 51.011929
                         date:
-                          type: string
-                          example: '1994-04-11 17:57:06'
+                          type: object
+                          properties:
+                            date:
+                              type: string
+                              example: '1995-02-18 04:17:31.000000'
+                            timezone_type:
+                              type: integer
+                              example: 3
+                            timezone:
+                              type: string
+                              example: UTC
                         duration:
                           type: integer
-                          example: 59
+                          example: 47
                         object_shape:
                           type: string
-                          example: ex
+                          example: ut
                         number_of_observers:
                           type: integer
-                          example: 2
+                          example: 7
                         details:
                           type: string
-                          example: 'Sit est nisi est. Voluptatem accusamus libero voluptas distinctio soluta. Placeat voluptas assumenda voluptatem quod velit harum quia incidunt. Aut veritatis molestiae quisquam dolore quis a.'
+                          example: 'Et iusto laudantium quod dolorem. Libero eum libero nesciunt ea ipsa. Necessitatibus cum vero aut dolorum. At laudantium ad possimus optio placeat.'
                   links:
                     type: object
                     properties:
                       first:
                         type: string
-                        example: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1'
+                        example: '/?page=1'
                       last:
                         type: string
-                        example: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1'
+                        example: '/?page=1'
                       prev:
                         type: string
                         example: null
@@ -1174,7 +1895,7 @@ paths:
                             label: '&laquo; Previous'
                             active: false
                           -
-                            url: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1'
+                            url: '/?page=1'
                             label: '1'
                             active: true
                           -
@@ -1195,16 +1916,16 @@ paths:
                               example: false
                       path:
                         type: string
-                        example: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports'
+                        example: /
                       per_page:
                         type: integer
                         example: 15
                       to:
                         type: integer
-                        example: 1
+                        example: 2
                       total:
                         type: integer
-                        example: 1
+                        example: 2
       tags:
         - Users
       security: []
@@ -1213,7 +1934,7 @@ paths:
         in: path
         name: user_id
         description: 'The ID of the user.'
-        example: 9a746417-6294-47c7-be09-d382b9dabc26
+        example: null
         required: true
         schema:
           type: string
@@ -1221,130 +1942,7 @@ paths:
     get:
       summary: 'List user dossiers'
       operationId: listUserDossiers
-      description: 'This endpoint allows you to get a list of dossiers of a user.'
-      parameters: []
-      responses:
-        200:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  data: []
-                  links:
-                    first: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1'
-                    last: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1'
-                    prev: null
-                    next: null
-                  meta:
-                    current_page: 1
-                    from: null
-                    last_page: 1
-                    links:
-                      -
-                        url: null
-                        label: '&laquo; Previous'
-                        active: false
-                      -
-                        url: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1'
-                        label: '1'
-                        active: true
-                      -
-                        url: null
-                        label: 'Next &raquo;'
-                        active: false
-                    path: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers'
-                    per_page: 15
-                    to: null
-                    total: 0
-                properties:
-                  data:
-                    type: array
-                    example: []
-                  links:
-                    type: object
-                    properties:
-                      first:
-                        type: string
-                        example: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1'
-                      last:
-                        type: string
-                        example: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1'
-                      prev:
-                        type: string
-                        example: null
-                      next:
-                        type: string
-                        example: null
-                  meta:
-                    type: object
-                    properties:
-                      current_page:
-                        type: integer
-                        example: 1
-                      from:
-                        type: string
-                        example: null
-                      last_page:
-                        type: integer
-                        example: 1
-                      links:
-                        type: array
-                        example:
-                          -
-                            url: null
-                            label: '&laquo; Previous'
-                            active: false
-                          -
-                            url: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1'
-                            label: '1'
-                            active: true
-                          -
-                            url: null
-                            label: 'Next &raquo;'
-                            active: false
-                        items:
-                          type: object
-                          properties:
-                            url:
-                              type: string
-                              example: null
-                            label:
-                              type: string
-                              example: '&laquo; Previous'
-                            active:
-                              type: boolean
-                              example: false
-                      path:
-                        type: string
-                        example: 'http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers'
-                      per_page:
-                        type: integer
-                        example: 15
-                      to:
-                        type: string
-                        example: null
-                      total:
-                        type: integer
-                        example: 0
-      tags:
-        - Users
-      security: []
-    parameters:
-      -
-        in: path
-        name: user_id
-        description: 'The ID of the user.'
-        example: 9a746417-6294-47c7-be09-d382b9dabc26
-        required: true
-        schema:
-          type: string
-  /api/v1/users:
-    get:
-      summary: 'List users'
-      operationId: listUsers
-      description: 'This endpoint allows you to get a list of users.'
+      description: 'Get a list of dossiers of a user.'
       parameters: []
       responses:
         200:
@@ -1356,32 +1954,22 @@ paths:
                 example:
                   data:
                     -
-                      id: 9a78426c-af7a-4c3e-810f-2c1dd9f34c01
-                      username: oTdBHu8k
-                      created_at: '2023-10-27T13:23:31.000000Z'
+                      id: 9a7aa651-870b-4d83-ac2e-976a0859f51b
+                      title: 'Accusantium aut eos sit quis quidem ad ut.'
+                      description: 'Et qui omnis consequatur ratione. Maiores consequatur est dignissimos. Non sed expedita ullam sed similique et quod.'
+                      created_at: '2023-10-28T17:54:30.000000Z'
+                      updated_at: '2023-10-28T17:54:30.000000Z'
+                      user_id: 9a7aa651-865d-4bd5-841d-00721d093d2d
                     -
-                      id: 9a783dac-d98f-40fb-b6d4-2e40d32b81f1
-                      username: jnjh3HGj
-                      created_at: '2023-10-27T13:10:14.000000Z'
-                    -
-                      id: 9a783c5a-71a2-4a4b-80c1-132838450f45
-                      username: IPwLPhud
-                      created_at: '2023-10-27T13:06:33.000000Z'
-                    -
-                      id: 9a7633e2-81c2-4e74-a439-3d748c0688b7
-                      username: IByuYsNp
-                      created_at: '2023-10-26T12:51:13.000000Z'
-                    -
-                      id: 9a74645e-46d2-4b0c-8664-1592dfa60b7f
-                      username: wintheiser.winfield
-                      created_at: '2023-10-25T15:15:07.000000Z'
-                    -
-                      id: 9a746417-6294-47c7-be09-d382b9dabc26
-                      username: carlotta.borer
-                      created_at: '2023-10-25T15:14:21.000000Z'
+                      id: 9a7aa651-88bb-44f7-8205-bfcc7a447066
+                      title: 'Reiciendis dolor magnam sed.'
+                      description: 'Ex tempore dolor et delectus vero culpa tenetur. Numquam neque et qui vel exercitationem eum.'
+                      created_at: '2023-10-28T17:54:30.000000Z'
+                      updated_at: '2023-10-28T17:54:30.000000Z'
+                      user_id: 9a7aa651-87e5-4644-8567-49298649e69a
                   links:
-                    first: 'http://ufo.test/api/v1/users?page=1'
-                    last: 'http://ufo.test/api/v1/users?page=1'
+                    first: '/?page=1'
+                    last: '/?page=1'
                     prev: null
                     next: null
                   meta:
@@ -1394,66 +1982,65 @@ paths:
                         label: '&laquo; Previous'
                         active: false
                       -
-                        url: 'http://ufo.test/api/v1/users?page=1'
+                        url: '/?page=1'
                         label: '1'
                         active: true
                       -
                         url: null
                         label: 'Next &raquo;'
                         active: false
-                    path: 'http://ufo.test/api/v1/users'
+                    path: /
                     per_page: 15
-                    to: 6
-                    total: 6
+                    to: 2
+                    total: 2
                 properties:
                   data:
                     type: array
                     example:
                       -
-                        id: 9a78426c-af7a-4c3e-810f-2c1dd9f34c01
-                        username: oTdBHu8k
-                        created_at: '2023-10-27T13:23:31.000000Z'
+                        id: 9a7aa651-870b-4d83-ac2e-976a0859f51b
+                        title: 'Accusantium aut eos sit quis quidem ad ut.'
+                        description: 'Et qui omnis consequatur ratione. Maiores consequatur est dignissimos. Non sed expedita ullam sed similique et quod.'
+                        created_at: '2023-10-28T17:54:30.000000Z'
+                        updated_at: '2023-10-28T17:54:30.000000Z'
+                        user_id: 9a7aa651-865d-4bd5-841d-00721d093d2d
                       -
-                        id: 9a783dac-d98f-40fb-b6d4-2e40d32b81f1
-                        username: jnjh3HGj
-                        created_at: '2023-10-27T13:10:14.000000Z'
-                      -
-                        id: 9a783c5a-71a2-4a4b-80c1-132838450f45
-                        username: IPwLPhud
-                        created_at: '2023-10-27T13:06:33.000000Z'
-                      -
-                        id: 9a7633e2-81c2-4e74-a439-3d748c0688b7
-                        username: IByuYsNp
-                        created_at: '2023-10-26T12:51:13.000000Z'
-                      -
-                        id: 9a74645e-46d2-4b0c-8664-1592dfa60b7f
-                        username: wintheiser.winfield
-                        created_at: '2023-10-25T15:15:07.000000Z'
-                      -
-                        id: 9a746417-6294-47c7-be09-d382b9dabc26
-                        username: carlotta.borer
-                        created_at: '2023-10-25T15:14:21.000000Z'
+                        id: 9a7aa651-88bb-44f7-8205-bfcc7a447066
+                        title: 'Reiciendis dolor magnam sed.'
+                        description: 'Ex tempore dolor et delectus vero culpa tenetur. Numquam neque et qui vel exercitationem eum.'
+                        created_at: '2023-10-28T17:54:30.000000Z'
+                        updated_at: '2023-10-28T17:54:30.000000Z'
+                        user_id: 9a7aa651-87e5-4644-8567-49298649e69a
                     items:
                       type: object
                       properties:
                         id:
                           type: string
-                          example: 9a78426c-af7a-4c3e-810f-2c1dd9f34c01
-                        username:
+                          example: 9a7aa651-870b-4d83-ac2e-976a0859f51b
+                        title:
                           type: string
-                          example: oTdBHu8k
+                          example: 'Accusantium aut eos sit quis quidem ad ut.'
+                        description:
+                          type: string
+                          example: 'Et qui omnis consequatur ratione. Maiores consequatur est dignissimos. Non sed expedita ullam sed similique et quod.'
                         created_at:
                           type: string
-                          example: '2023-10-27T13:23:31.000000Z'
+                          example: '2023-10-28T17:54:30.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2023-10-28T17:54:30.000000Z'
+                        user_id:
+                          type: string
+                          example: 9a7aa651-865d-4bd5-841d-00721d093d2d
                   links:
                     type: object
                     properties:
                       first:
                         type: string
-                        example: 'http://ufo.test/api/v1/users?page=1'
+                        example: '/?page=1'
                       last:
                         type: string
-                        example: 'http://ufo.test/api/v1/users?page=1'
+                        example: '/?page=1'
                       prev:
                         type: string
                         example: null
@@ -1480,7 +2067,7 @@ paths:
                             label: '&laquo; Previous'
                             active: false
                           -
-                            url: 'http://ufo.test/api/v1/users?page=1'
+                            url: '/?page=1'
                             label: '1'
                             active: true
                           -
@@ -1501,24 +2088,33 @@ paths:
                               example: false
                       path:
                         type: string
-                        example: 'http://ufo.test/api/v1/users'
+                        example: /
                       per_page:
                         type: integer
                         example: 15
                       to:
                         type: integer
-                        example: 6
+                        example: 2
                       total:
                         type: integer
-                        example: 6
+                        example: 2
       tags:
         - Users
       security: []
-  '/api/v1/users/{id}':
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: null
+        required: true
+        schema:
+          type: string
+  /api/v1/users:
     get:
-      summary: 'Get a user'
-      operationId: getAUser
-      description: 'This endpoint allows you to get a user.'
+      summary: 'List users'
+      operationId: listUsers
+      description: 'Get a list of users.'
       parameters: []
       responses:
         200:
@@ -1529,31 +2125,212 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 9a746417-6294-47c7-be09-d382b9dabc26
-                    username: carlotta.borer
-                    created_at: '2023-10-25T15:14:21.000000Z'
+                    -
+                      id: 9a7aa651-8c1d-41b8-a77a-7ee004f35209
+                      username: martin41
+                      created_at: '2023-10-28T17:54:30.000000Z'
+                      updated_at: '2023-10-28T17:54:30.000000Z'
+                    -
+                      id: 9a7aa651-8cfb-4cd3-9794-3c838d0ee05d
+                      username: treilly
+                      created_at: '2023-10-28T17:54:30.000000Z'
+                      updated_at: '2023-10-28T17:54:30.000000Z'
+                  links:
+                    first: '/?page=1'
+                    last: '/?page=1'
+                    prev: null
+                    next: null
+                  meta:
+                    current_page: 1
+                    from: 1
+                    last_page: 1
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: '/?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    path: /
+                    per_page: 15
+                    to: 2
+                    total: 2
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 9a7aa651-8c1d-41b8-a77a-7ee004f35209
+                        username: martin41
+                        created_at: '2023-10-28T17:54:30.000000Z'
+                        updated_at: '2023-10-28T17:54:30.000000Z'
+                      -
+                        id: 9a7aa651-8cfb-4cd3-9794-3c838d0ee05d
+                        username: treilly
+                        created_at: '2023-10-28T17:54:30.000000Z'
+                        updated_at: '2023-10-28T17:54:30.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 9a7aa651-8c1d-41b8-a77a-7ee004f35209
+                        username:
+                          type: string
+                          example: martin41
+                        created_at:
+                          type: string
+                          example: '2023-10-28T17:54:30.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2023-10-28T17:54:30.000000Z'
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: '/?page=1'
+                      last:
+                        type: string
+                        example: '/?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 1
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: '/?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: /
+                      per_page:
+                        type: integer
+                        example: 15
+                      to:
+                        type: integer
+                        example: 2
+                      total:
+                        type: integer
+                        example: 2
+      tags:
+        - Users
+      security: []
+  '/api/v1/users/{id}':
+    get:
+      summary: 'Get a user'
+      operationId: getAUser
+      description: 'Get a user by its ID.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 9a7aa651-8ff0-4347-b1e1-0b36dd4e8795
+                    username: derick.hartmann
+                    created_at: '2023-10-28T17:54:30.000000Z'
+                    updated_at: '2023-10-28T17:54:30.000000Z'
                 properties:
                   data:
                     type: object
                     properties:
                       id:
                         type: string
-                        example: 9a746417-6294-47c7-be09-d382b9dabc26
+                        example: 9a7aa651-8ff0-4347-b1e1-0b36dd4e8795
                       username:
                         type: string
-                        example: carlotta.borer
+                        example: derick.hartmann
                       created_at:
                         type: string
-                        example: '2023-10-25T15:14:21.000000Z'
+                        example: '2023-10-28T17:54:30.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2023-10-28T17:54:30.000000Z'
       tags:
         - Users
       security: []
     put:
       summary: 'Update a user'
       operationId: updateAUser
-      description: 'This endpoint allows you to update a user.'
+      description: 'Update a user by its ID.'
       parameters: []
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 9a7aa651-c89a-4c13-a033-6eaf7219ce3e
+                    username: belle34
+                    created_at: '2023-10-28T17:54:30.000000Z'
+                    updated_at: '2023-10-28T17:54:30.000000Z'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 9a7aa651-c89a-4c13-a033-6eaf7219ce3e
+                      username:
+                        type: string
+                        example: belle34
+                      created_at:
+                        type: string
+                        example: '2023-10-28T17:54:30.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2023-10-28T17:54:30.000000Z'
       tags:
         - Users
       requestBody:
@@ -1566,11 +2343,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: makenna.mann@example.net
+                  example: shaina.kilback@example.net
                 password:
                   type: string
-                  description: ''
-                  example: null
+                  description: 'Must be at least 8 characters.'
+                  example: 'z$O`p[b^,XMC`-_26Q'
               required:
                 - email
     parameters:
@@ -1578,7 +2355,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the user.'
-        example: 9a746417-6294-47c7-be09-d382b9dabc26
+        example: null
         required: true
         schema:
           type: string

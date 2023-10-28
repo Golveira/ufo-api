@@ -25,12 +25,6 @@
                     body .content .javascript-example code { display: none; }
             </style>
 
-    <script>
-        var tryItOutBaseUrl = "http://ufo.test";
-        var useCsrf = Boolean(1);
-        var csrfUrl = "/sanctum/csrf-cookie";
-    </script>
-    <script src="../docs/js/tryitout-4.25.0.js"></script>
 
     <script src="../docs/js/theme-default-4.25.0.js"></script>
 
@@ -175,7 +169,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: October 27, 2023</li>
+        <li>Last updated: October 28, 2023</li>
     </ul>
 </div>
 
@@ -204,7 +198,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>
 </p>
 
-<p>This endpoint allows you to register a new user.</p>
+<p>Register a new user.</p>
 
 <span id="example-requests-POSTapi-v1-auth-register">
 <blockquote>Example request:</blockquote>
@@ -216,8 +210,8 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"cassie.oreilly@example.org\",
-    \"password\": \"oX&lt;sF8zXv`0\\\\Yb)l*mBi\"
+    \"email\": \"murray66@example.com\",
+    \"password\": \"OL=w?6~wo&amp;.pGB}fR2\"
 }"
 </code></pre></div>
 
@@ -233,8 +227,8 @@ const headers = {
 };
 
 let body = {
-    "email": "cassie.oreilly@example.org",
-    "password": "oX&lt;sF8zXv`0\\Yb)l*mBi"
+    "email": "murray66@example.com",
+    "password": "OL=w?6~wo&amp;.pGB}fR2"
 };
 
 fetch(url, {
@@ -246,7 +240,16 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-v1-auth-register">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;access_token&quot;: &quot;xxxxxxxx&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-v1-auth-register" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-v1-auth-register"></span>:
@@ -271,23 +274,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-auth-register', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-auth-register"
-                    onclick="tryItOut('POSTapi-v1-auth-register');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-auth-register"
-                    onclick="cancelTryOut('POSTapi-v1-auth-register');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-auth-register"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
@@ -323,10 +309,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-auth-register"
-               value="cassie.oreilly@example.org"
+               value="murray66@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>cassie.oreilly@example.org</code></p>
+<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>murray66@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -334,10 +320,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v1-auth-register"
-               value="oX<sF8zXv`0\Yb)l*mBi"
+               value="OL=w?6~wo&.pGB}fR2"
                data-component="body">
     <br>
-<p>Must be at least 8 characters. Example: <code>oX&lt;sF8zXv</code>0\Yb)l*mBi`</p>
+<p>Must be at least 8 characters. Example: <code>OL=w?6~wo&amp;.pGB}fR2</code></p>
         </div>
         </form>
 
@@ -346,7 +332,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>
 </p>
 
-<p>This endpoint allows you to login a user.</p>
+<p>Login a user.</p>
 
 <span id="example-requests-POSTapi-v1-auth-login">
 <blockquote>Example request:</blockquote>
@@ -358,8 +344,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"polly.homenick@example.net\",
-    \"password\": \"cjD6Z?Faw]u\"
+    \"email\": \"alphonso.feeney@example.org\",
+    \"password\": \"gR#dhUa\\\"3\"
 }"
 </code></pre></div>
 
@@ -375,8 +361,8 @@ const headers = {
 };
 
 let body = {
-    "email": "polly.homenick@example.net",
-    "password": "cjD6Z?Faw]u"
+    "email": "alphonso.feeney@example.org",
+    "password": "gR#dhUa\"3"
 };
 
 fetch(url, {
@@ -388,7 +374,16 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-v1-auth-login">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;access_token&quot;: &quot;xxxxxxxx&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-v1-auth-login" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-v1-auth-login"></span>:
@@ -413,23 +408,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-auth-login', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-auth-login"
-                    onclick="tryItOut('POSTapi-v1-auth-login');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-auth-login"
-                    onclick="cancelTryOut('POSTapi-v1-auth-login');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-auth-login"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
@@ -465,10 +443,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-auth-login"
-               value="polly.homenick@example.net"
+               value="alphonso.feeney@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>polly.homenick@example.net</code></p>
+<p>Must be a valid email address. Example: <code>alphonso.feeney@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -476,10 +454,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v1-auth-login"
-               value="cjD6Z?Faw]u"
+               value="gR#dhUa"3"
                data-component="body">
     <br>
-<p>Example: <code>cjD6Z?Faw]u</code></p>
+<p>Example: <code>gR#dhUa"3</code></p>
         </div>
         </form>
 
@@ -489,7 +467,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint allows you to logout a user.</p>
+<p>Logout the current user.</p>
 
 <span id="example-requests-POSTapi-v1-auth-logout">
 <blockquote>Example request:</blockquote>
@@ -522,7 +500,16 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-v1-auth-logout">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Token revoked&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-v1-auth-logout" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-v1-auth-logout"></span>:
@@ -547,23 +534,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-auth-logout', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-auth-logout"
-                    onclick="tryItOut('POSTapi-v1-auth-logout');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-auth-logout"
-                    onclick="cancelTryOut('POSTapi-v1-auth-logout');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-auth-logout"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
@@ -614,7 +584,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>
 </p>
 
-<p>This endpoint allows you to get a list of reports attached to a dossier.</p>
+<p>Get a list of reports attached to a dossier.</p>
 
 <span id="example-requests-GETapi-v1-dossiers--dossier_id--reports">
 <blockquote>Example request:</blockquote>
@@ -622,14 +592,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports" \
+    --get "http://ufo.test/api/v1/dossiers//reports" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports"
+    "http://ufo.test/api/v1/dossiers//reports"
 );
 
 const headers = {
@@ -648,28 +618,58 @@ fetch(url, {
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-x-ratelimit-limit: 60
-x-ratelimit-remaining: 56
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: [],
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: &quot;9a7aa651-76b1-4b75-a484-3522cab60e42&quot;,
+            &quot;user_id&quot;: &quot;9a7aa651-75e6-454c-b18c-373be4521c2f&quot;,
+            &quot;summary&quot;: &quot;Quisquam at aut laborum et soluta in tempora odio.&quot;,
+            &quot;country&quot;: &quot;Cameroon&quot;,
+            &quot;state&quot;: &quot;Indiana&quot;,
+            &quot;city&quot;: &quot;Port Sherman&quot;,
+            &quot;lat&quot;: 48.121106,
+            &quot;long&quot;: -80.208828,
+            &quot;date&quot;: {
+                &quot;date&quot;: &quot;2009-05-02 07:23:13.000000&quot;,
+                &quot;timezone_type&quot;: 3,
+                &quot;timezone&quot;: &quot;UTC&quot;
+            },
+            &quot;duration&quot;: 10,
+            &quot;object_shape&quot;: &quot;odio&quot;,
+            &quot;number_of_observers&quot;: 9,
+            &quot;details&quot;: &quot;Voluptatum dicta voluptas velit cumque repellendus. A illum enim sint perspiciatis. Sit magni aliquam cumque ut qui. Qui non voluptatibus perspiciatis voluptatem fuga magni aut.&quot;
+        },
+        {
+            &quot;id&quot;: &quot;9a7aa651-78a4-40f9-b697-a75285ee77a8&quot;,
+            &quot;user_id&quot;: &quot;9a7aa651-77f5-487a-a6cc-0059ea235fba&quot;,
+            &quot;summary&quot;: &quot;Dolore eum voluptate consequuntur magni omnis.&quot;,
+            &quot;country&quot;: &quot;Peru&quot;,
+            &quot;state&quot;: &quot;District of Columbia&quot;,
+            &quot;city&quot;: &quot;Port Luciano&quot;,
+            &quot;lat&quot;: -45.648064,
+            &quot;long&quot;: -66.500327,
+            &quot;date&quot;: {
+                &quot;date&quot;: &quot;2007-12-03 08:56:44.000000&quot;,
+                &quot;timezone_type&quot;: 3,
+                &quot;timezone&quot;: &quot;UTC&quot;
+            },
+            &quot;duration&quot;: 21,
+            &quot;object_shape&quot;: &quot;ex&quot;,
+            &quot;number_of_observers&quot;: 5,
+            &quot;details&quot;: &quot;Consequatur rerum minima voluptatibus doloremque. Quasi est debitis itaque minima voluptas sint. Nesciunt ad molestiae nihil dolor dolores aut excepturi.&quot;
+        }
+    ],
     &quot;links&quot;: {
-        &quot;first&quot;: &quot;http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1&quot;,
-        &quot;last&quot;: &quot;http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1&quot;,
+        &quot;first&quot;: &quot;/?page=1&quot;,
+        &quot;last&quot;: &quot;/?page=1&quot;,
         &quot;prev&quot;: null,
         &quot;next&quot;: null
     },
     &quot;meta&quot;: {
         &quot;current_page&quot;: 1,
-        &quot;from&quot;: null,
+        &quot;from&quot;: 1,
         &quot;last_page&quot;: 1,
         &quot;links&quot;: [
             {
@@ -678,7 +678,7 @@ access-control-allow-origin: *
                 &quot;active&quot;: false
             },
             {
-                &quot;url&quot;: &quot;http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports?page=1&quot;,
+                &quot;url&quot;: &quot;/?page=1&quot;,
                 &quot;label&quot;: &quot;1&quot;,
                 &quot;active&quot;: true
             },
@@ -688,10 +688,10 @@ access-control-allow-origin: *
                 &quot;active&quot;: false
             }
         ],
-        &quot;path&quot;: &quot;http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports&quot;,
+        &quot;path&quot;: &quot;/&quot;,
         &quot;per_page&quot;: 15,
-        &quot;to&quot;: null,
-        &quot;total&quot;: 0
+        &quot;to&quot;: 2,
+        &quot;total&quot;: 2
     }
 }</code>
  </pre>
@@ -720,23 +720,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-dossiers--dossier_id--reports', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-dossiers--dossier_id--reports"
-                    onclick="tryItOut('GETapi-v1-dossiers--dossier_id--reports');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-dossiers--dossier_id--reports"
-                    onclick="cancelTryOut('GETapi-v1-dossiers--dossier_id--reports');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-dossiers--dossier_id--reports"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -772,10 +755,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="dossier_id"                data-endpoint="GETapi-v1-dossiers--dossier_id--reports"
-               value="9a74645e-499c-4eb6-aa92-f36f25241954"
+               value=""
                data-component="url">
     <br>
-<p>The ID of the dossier. Example: <code>9a74645e-499c-4eb6-aa92-f36f25241954</code></p>
+<p>The ID of the dossier.</p>
             </div>
                     </form>
 
@@ -784,7 +767,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>
 </p>
 
-<p>This endpoint allows you to get a list of dossiers.</p>
+<p>Get a list of dossiers.</p>
 
 <span id="example-requests-GETapi-v1-dossiers">
 <blockquote>Example request:</blockquote>
@@ -818,37 +801,30 @@ fetch(url, {
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-x-ratelimit-limit: 60
-x-ratelimit-remaining: 55
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: &quot;9a74645e-499c-4eb6-aa92-f36f25241954&quot;,
-            &quot;title&quot;: &quot;Eum porro eos tempora.&quot;,
-            &quot;description&quot;: &quot;Fugiat quasi similique ut quos iure illo in. Non ut est quam est quod ipsum inventore. Quia perferendis reprehenderit soluta sapiente quidem mollitia.&quot;,
-            &quot;reports_count&quot;: 0,
-            &quot;created_at&quot;: &quot;2023-10-25T15:15:07.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2023-10-25T15:15:07.000000Z&quot;,
-            &quot;user_id&quot;: &quot;9a74645e-46d2-4b0c-8664-1592dfa60b7f&quot;,
-            &quot;user&quot;: {
-                &quot;id&quot;: &quot;9a74645e-46d2-4b0c-8664-1592dfa60b7f&quot;,
-                &quot;username&quot;: &quot;wintheiser.winfield&quot;,
-                &quot;created_at&quot;: &quot;2023-10-25T15:15:07.000000Z&quot;
-            }
+            &quot;id&quot;: &quot;9a7aa651-7cd5-4d85-83b0-ce3866de1dce&quot;,
+            &quot;title&quot;: &quot;Quia consequatur consequuntur suscipit dolores.&quot;,
+            &quot;description&quot;: &quot;Quia autem et officia et autem et esse. Labore non culpa omnis animi atque. Doloremque impedit quia dolorem inventore dolorem. Iusto tenetur rem vel. Animi voluptatem similique iusto sunt.&quot;,
+            &quot;created_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
+            &quot;user_id&quot;: &quot;9a7aa651-7c16-4fc9-84ac-8054af253ba2&quot;
+        },
+        {
+            &quot;id&quot;: &quot;9a7aa651-7ed6-467d-b36a-2c4848fa1d2e&quot;,
+            &quot;title&quot;: &quot;Incidunt tempora voluptatem voluptatem impedit qui perspiciatis.&quot;,
+            &quot;description&quot;: &quot;Veniam autem ea qui ipsa. Quae inventore sunt eum. Eveniet eos ullam beatae pariatur rem cum sed.&quot;,
+            &quot;created_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
+            &quot;user_id&quot;: &quot;9a7aa651-7e32-4848-9428-0a8306f26ce1&quot;
         }
     ],
     &quot;links&quot;: {
-        &quot;first&quot;: &quot;http://ufo.test/api/v1/dossiers?page=1&quot;,
-        &quot;last&quot;: &quot;http://ufo.test/api/v1/dossiers?page=1&quot;,
+        &quot;first&quot;: &quot;/?page=1&quot;,
+        &quot;last&quot;: &quot;/?page=1&quot;,
         &quot;prev&quot;: null,
         &quot;next&quot;: null
     },
@@ -863,7 +839,7 @@ access-control-allow-origin: *
                 &quot;active&quot;: false
             },
             {
-                &quot;url&quot;: &quot;http://ufo.test/api/v1/dossiers?page=1&quot;,
+                &quot;url&quot;: &quot;/?page=1&quot;,
                 &quot;label&quot;: &quot;1&quot;,
                 &quot;active&quot;: true
             },
@@ -873,10 +849,10 @@ access-control-allow-origin: *
                 &quot;active&quot;: false
             }
         ],
-        &quot;path&quot;: &quot;http://ufo.test/api/v1/dossiers&quot;,
+        &quot;path&quot;: &quot;/&quot;,
         &quot;per_page&quot;: 15,
-        &quot;to&quot;: 1,
-        &quot;total&quot;: 1
+        &quot;to&quot;: 2,
+        &quot;total&quot;: 2
     }
 }</code>
  </pre>
@@ -905,23 +881,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-dossiers', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-dossiers"
-                    onclick="tryItOut('GETapi-v1-dossiers');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-dossiers"
-                    onclick="cancelTryOut('GETapi-v1-dossiers');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-dossiers"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -957,7 +916,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>
 </p>
 
-<p>This endpoint allows you to get a dossier.</p>
+<p>Get a dossier by id.</p>
 
 <span id="example-requests-GETapi-v1-dossiers--id-">
 <blockquote>Example request:</blockquote>
@@ -965,14 +924,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954" \
+    --get "http://ufo.test/api/v1/dossiers/" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954"
+    "http://ufo.test/api/v1/dossiers/"
 );
 
 const headers = {
@@ -991,31 +950,16 @@ fetch(url, {
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-x-ratelimit-limit: 60
-x-ratelimit-remaining: 54
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: &quot;9a74645e-499c-4eb6-aa92-f36f25241954&quot;,
-        &quot;title&quot;: &quot;Eum porro eos tempora.&quot;,
-        &quot;description&quot;: &quot;Fugiat quasi similique ut quos iure illo in. Non ut est quam est quod ipsum inventore. Quia perferendis reprehenderit soluta sapiente quidem mollitia.&quot;,
-        &quot;reports_count&quot;: 0,
-        &quot;created_at&quot;: &quot;2023-10-25T15:15:07.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2023-10-25T15:15:07.000000Z&quot;,
-        &quot;user_id&quot;: &quot;9a74645e-46d2-4b0c-8664-1592dfa60b7f&quot;,
-        &quot;user&quot;: {
-            &quot;id&quot;: &quot;9a74645e-46d2-4b0c-8664-1592dfa60b7f&quot;,
-            &quot;username&quot;: &quot;wintheiser.winfield&quot;,
-            &quot;created_at&quot;: &quot;2023-10-25T15:15:07.000000Z&quot;
-        }
+        &quot;id&quot;: &quot;9a7aa651-829c-4d95-b02f-371899388af9&quot;,
+        &quot;title&quot;: &quot;Ea inventore illum qui ab quidem est ut.&quot;,
+        &quot;description&quot;: &quot;Aut et repudiandae eligendi perspiciatis. Unde excepturi nemo accusantium. Tenetur facilis eligendi harum et.&quot;,
+        &quot;created_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
+        &quot;user_id&quot;: &quot;9a7aa651-81d1-4525-b563-327e31d2306b&quot;
     }
 }</code>
  </pre>
@@ -1044,23 +988,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-dossiers--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-dossiers--id-"
-                    onclick="tryItOut('GETapi-v1-dossiers--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-dossiers--id-"
-                    onclick="cancelTryOut('GETapi-v1-dossiers--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-dossiers--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -1096,10 +1023,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-v1-dossiers--id-"
-               value="9a74645e-499c-4eb6-aa92-f36f25241954"
+               value=""
                data-component="url">
     <br>
-<p>The ID of the dossier. Example: <code>9a74645e-499c-4eb6-aa92-f36f25241954</code></p>
+<p>The ID of the dossier.</p>
             </div>
                     </form>
 
@@ -1109,7 +1036,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint allows you to create a new dossier.</p>
+<p>Create a new dossier.</p>
 
 <span id="example-requests-POSTapi-v1-dossiers">
 <blockquote>Example request:</blockquote>
@@ -1122,8 +1049,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"title\": \"uvwdlcszhgqlcf\",
-    \"description\": \"Ex cumque veritatis id vero qui nostrum esse.\"
+    \"title\": \"Investigation of UFOs in Brazil.\",
+    \"description\": \"This dossier contains all the information about UFOs in Brazil.\"
 }"
 </code></pre></div>
 
@@ -1140,8 +1067,8 @@ const headers = {
 };
 
 let body = {
-    "title": "uvwdlcszhgqlcf",
-    "description": "Ex cumque veritatis id vero qui nostrum esse."
+    "title": "Investigation of UFOs in Brazil.",
+    "description": "This dossier contains all the information about UFOs in Brazil."
 };
 
 fetch(url, {
@@ -1153,7 +1080,23 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-v1-dossiers">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: &quot;9a7aa651-b7e2-4135-bbda-818fbb1817b7&quot;,
+        &quot;title&quot;: &quot;Est odio laudantium cupiditate aliquid et aut totam.&quot;,
+        &quot;description&quot;: &quot;Doloremque quae et velit aliquam facere eos. Ducimus deleniti harum eum aut perferendis aut sed. Corrupti voluptatem omnis aut omnis repudiandae. Nihil quasi et earum eius. Sed non blanditiis vel.&quot;,
+        &quot;created_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
+        &quot;user_id&quot;: &quot;9a7aa651-b6fe-4004-87c5-5f6e87b928bb&quot;
+    }
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-v1-dossiers" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-v1-dossiers"></span>:
@@ -1178,23 +1121,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-dossiers', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-dossiers"
-                    onclick="tryItOut('POSTapi-v1-dossiers');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-dossiers"
-                    onclick="cancelTryOut('POSTapi-v1-dossiers');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-dossiers"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
@@ -1241,10 +1167,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="POSTapi-v1-dossiers"
-               value="uvwdlcszhgqlcf"
+               value="Investigation of UFOs in Brazil."
                data-component="body">
     <br>
-<p>Must not be greater than 150 characters. Example: <code>uvwdlcszhgqlcf</code></p>
+<p>The title of the dossier. Must not be greater than 150 characters. Example: <code>Investigation of UFOs in Brazil.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -1252,10 +1178,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="POSTapi-v1-dossiers"
-               value="Ex cumque veritatis id vero qui nostrum esse."
+               value="This dossier contains all the information about UFOs in Brazil."
                data-component="body">
     <br>
-<p>Must not be greater than 500 characters. Example: <code>Ex cumque veritatis id vero qui nostrum esse.</code></p>
+<p>The description of the dossier. Must not be greater than 500 characters. Example: <code>This dossier contains all the information about UFOs in Brazil.</code></p>
         </div>
         </form>
 
@@ -1265,7 +1191,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint allows you to update a dossier.</p>
+<p>Update and existing dossier.</p>
 
 <span id="example-requests-PUTapi-v1-dossiers--id-">
 <blockquote>Example request:</blockquote>
@@ -1273,20 +1199,20 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954" \
+    "http://ufo.test/api/v1/dossiers/" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"title\": \"wmyvd\",
-    \"description\": \"Vel neque sunt officia magni.\"
+    \"title\": \"Investigation of UFOs in Brazil.\",
+    \"description\": \"This dossier contains all the information about UFOs in Brazil.\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954"
+    "http://ufo.test/api/v1/dossiers/"
 );
 
 const headers = {
@@ -1296,8 +1222,8 @@ const headers = {
 };
 
 let body = {
-    "title": "wmyvd",
-    "description": "Vel neque sunt officia magni."
+    "title": "Investigation of UFOs in Brazil.",
+    "description": "This dossier contains all the information about UFOs in Brazil."
 };
 
 fetch(url, {
@@ -1309,7 +1235,23 @@ fetch(url, {
 </span>
 
 <span id="example-responses-PUTapi-v1-dossiers--id-">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: &quot;9a7aa651-bdce-4abb-a8a6-fea071495bc7&quot;,
+        &quot;title&quot;: &quot;Tempora soluta natus nisi labore.&quot;,
+        &quot;description&quot;: &quot;Voluptatum ipsum voluptatem non natus consequatur reiciendis voluptas. Voluptatem dolorem dolore voluptas quia nesciunt et. Repellat et quia temporibus distinctio voluptatem.&quot;,
+        &quot;created_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
+        &quot;user_id&quot;: &quot;9a7aa651-bb15-4160-b022-4fc8be7354c6&quot;
+    }
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-PUTapi-v1-dossiers--id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-PUTapi-v1-dossiers--id-"></span>:
@@ -1334,23 +1276,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-dossiers--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PUTapi-v1-dossiers--id-"
-                    onclick="tryItOut('PUTapi-v1-dossiers--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PUTapi-v1-dossiers--id-"
-                    onclick="cancelTryOut('PUTapi-v1-dossiers--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-v1-dossiers--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-darkblue">PUT</small>
@@ -1401,10 +1326,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="PUTapi-v1-dossiers--id-"
-               value="9a74645e-499c-4eb6-aa92-f36f25241954"
+               value=""
                data-component="url">
     <br>
-<p>The ID of the dossier. Example: <code>9a74645e-499c-4eb6-aa92-f36f25241954</code></p>
+<p>The ID of the dossier.</p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -1413,10 +1338,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="PUTapi-v1-dossiers--id-"
-               value="wmyvd"
+               value="Investigation of UFOs in Brazil."
                data-component="body">
     <br>
-<p>Must not be greater than 150 characters. Example: <code>wmyvd</code></p>
+<p>The title of the dossier. Must not be greater than 150 characters. Example: <code>Investigation of UFOs in Brazil.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -1424,10 +1349,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="PUTapi-v1-dossiers--id-"
-               value="Vel neque sunt officia magni."
+               value="This dossier contains all the information about UFOs in Brazil."
                data-component="body">
     <br>
-<p>Must not be greater than 500 characters. Example: <code>Vel neque sunt officia magni.</code></p>
+<p>The description of the dossier. Must not be greater than 500 characters. Example: <code>This dossier contains all the information about UFOs in Brazil.</code></p>
         </div>
         </form>
 
@@ -1437,7 +1362,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint allows you to delete a dossier.</p>
+<p>Delete an existing dossier.</p>
 
 <span id="example-requests-DELETEapi-v1-dossiers--id-">
 <blockquote>Example request:</blockquote>
@@ -1445,7 +1370,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954" \
+    "http://ufo.test/api/v1/dossiers/" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1453,7 +1378,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954"
+    "http://ufo.test/api/v1/dossiers/"
 );
 
 const headers = {
@@ -1470,7 +1395,13 @@ fetch(url, {
 </span>
 
 <span id="example-responses-DELETEapi-v1-dossiers--id-">
-</span>
+            <blockquote>
+            <p>Example response (204):</p>
+        </blockquote>
+                <pre>
+<code>Empty response</code>
+ </pre>
+    </span>
 <span id="execution-results-DELETEapi-v1-dossiers--id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-DELETEapi-v1-dossiers--id-"></span>:
@@ -1495,23 +1426,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-dossiers--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-v1-dossiers--id-"
-                    onclick="tryItOut('DELETEapi-v1-dossiers--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-v1-dossiers--id-"
-                    onclick="cancelTryOut('DELETEapi-v1-dossiers--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-v1-dossiers--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-red">DELETE</small>
@@ -1558,10 +1472,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="DELETEapi-v1-dossiers--id-"
-               value="9a74645e-499c-4eb6-aa92-f36f25241954"
+               value=""
                data-component="url">
     <br>
-<p>The ID of the dossier. Example: <code>9a74645e-499c-4eb6-aa92-f36f25241954</code></p>
+<p>The ID of the dossier.</p>
             </div>
                     </form>
 
@@ -1571,7 +1485,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint allows you to add a report to a dossier.</p>
+<p>Add a report to a dossier.</p>
 
 <span id="example-requests-POSTapi-v1-dossiers--dossier_id--reports">
 <blockquote>Example request:</blockquote>
@@ -1579,19 +1493,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports" \
+    "http://ufo.test/api/v1/dossiers//reports" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"report_id\": \"iste\"
+    \"report_id\": \"sit\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports"
+    "http://ufo.test/api/v1/dossiers//reports"
 );
 
 const headers = {
@@ -1601,7 +1515,7 @@ const headers = {
 };
 
 let body = {
-    "report_id": "iste"
+    "report_id": "sit"
 };
 
 fetch(url, {
@@ -1613,7 +1527,13 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-v1-dossiers--dossier_id--reports">
-</span>
+            <blockquote>
+            <p>Example response (204):</p>
+        </blockquote>
+                <pre>
+<code>Empty response</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-v1-dossiers--dossier_id--reports" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-v1-dossiers--dossier_id--reports"></span>:
@@ -1638,23 +1558,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-dossiers--dossier_id--reports', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-dossiers--dossier_id--reports"
-                    onclick="tryItOut('POSTapi-v1-dossiers--dossier_id--reports');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-dossiers--dossier_id--reports"
-                    onclick="cancelTryOut('POSTapi-v1-dossiers--dossier_id--reports');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-dossiers--dossier_id--reports"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
@@ -1701,10 +1604,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="dossier_id"                data-endpoint="POSTapi-v1-dossiers--dossier_id--reports"
-               value="9a74645e-499c-4eb6-aa92-f36f25241954"
+               value=""
                data-component="url">
     <br>
-<p>The ID of the dossier. Example: <code>9a74645e-499c-4eb6-aa92-f36f25241954</code></p>
+<p>The ID of the dossier.</p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -1713,10 +1616,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="report_id"                data-endpoint="POSTapi-v1-dossiers--dossier_id--reports"
-               value="iste"
+               value="sit"
                data-component="body">
     <br>
-<p>Example: <code>iste</code></p>
+<p>Example: <code>sit</code></p>
         </div>
         </form>
 
@@ -1734,7 +1637,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports/9a746417-6bbc-41f1-8c9b-28404c87d10e" \
+    "http://ufo.test/api/v1/dossiers//reports/voluptatem" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1742,7 +1645,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://ufo.test/api/v1/dossiers/9a74645e-499c-4eb6-aa92-f36f25241954/reports/9a746417-6bbc-41f1-8c9b-28404c87d10e"
+    "http://ufo.test/api/v1/dossiers//reports/voluptatem"
 );
 
 const headers = {
@@ -1759,7 +1662,13 @@ fetch(url, {
 </span>
 
 <span id="example-responses-DELETEapi-v1-dossiers--dossier_id--reports--id-">
-</span>
+            <blockquote>
+            <p>Example response (204):</p>
+        </blockquote>
+                <pre>
+<code>Empty response</code>
+ </pre>
+    </span>
 <span id="execution-results-DELETEapi-v1-dossiers--dossier_id--reports--id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-DELETEapi-v1-dossiers--dossier_id--reports--id-"></span>:
@@ -1784,23 +1693,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-dossiers--dossier_id--reports--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-v1-dossiers--dossier_id--reports--id-"
-                    onclick="tryItOut('DELETEapi-v1-dossiers--dossier_id--reports--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-v1-dossiers--dossier_id--reports--id-"
-                    onclick="cancelTryOut('DELETEapi-v1-dossiers--dossier_id--reports--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-v1-dossiers--dossier_id--reports--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-red">DELETE</small>
@@ -1847,10 +1739,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="dossier_id"                data-endpoint="DELETEapi-v1-dossiers--dossier_id--reports--id-"
-               value="9a74645e-499c-4eb6-aa92-f36f25241954"
+               value=""
                data-component="url">
     <br>
-<p>The ID of the dossier. Example: <code>9a74645e-499c-4eb6-aa92-f36f25241954</code></p>
+<p>The ID of the dossier.</p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
@@ -1858,10 +1750,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="DELETEapi-v1-dossiers--dossier_id--reports--id-"
-               value="9a746417-6bbc-41f1-8c9b-28404c87d10e"
+               value="voluptatem"
                data-component="url">
     <br>
-<p>The ID of the report. Example: <code>9a746417-6bbc-41f1-8c9b-28404c87d10e</code></p>
+<p>The ID of the report. Example: <code>voluptatem</code></p>
             </div>
                     </form>
 
@@ -1874,7 +1766,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>
 </p>
 
-<p>This endpoint allows you to get a list of reports.</p>
+<p>Get a list of reports.</p>
 
 <span id="example-requests-GETapi-v1-reports">
 <blockquote>Example request:</blockquote>
@@ -1882,20 +1774,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://ufo.test/api/v1/reports" \
+    --get "http://ufo.test/api/v1/reports?keywords=ufo&amp;country=USA&amp;state=California&amp;city=Los+Angeles&amp;dateFrom=2000-01-01&amp;dateTo=2010-01-01&amp;sortBy=date&amp;sortOrder=asc" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"keywords\": \"wozmzpcynrnyybrzg\",
-    \"country\": \"recusandae\",
-    \"state\": \"at\",
-    \"city\": \"quia\",
-    \"dateFrom\": \"2023-10-27T14:54:57\",
-    \"dateTo\": \"2108-09-20\",
-    \"sortBy\": \"date\",
-    \"sortOrder\": \"asc\"
-}"
-</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -1903,26 +1784,27 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "http://ufo.test/api/v1/reports"
 );
 
+const params = {
+    "keywords": "ufo",
+    "country": "USA",
+    "state": "California",
+    "city": "Los Angeles",
+    "dateFrom": "2000-01-01",
+    "dateTo": "2010-01-01",
+    "sortBy": "date",
+    "sortOrder": "asc",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
-let body = {
-    "keywords": "wozmzpcynrnyybrzg",
-    "country": "recusandae",
-    "state": "at",
-    "city": "quia",
-    "dateFrom": "2023-10-27T14:54:57",
-    "dateTo": "2108-09-20",
-    "sortBy": "date",
-    "sortOrder": "asc"
-};
-
 fetch(url, {
     method: "GET",
     headers,
-    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -1931,28 +1813,58 @@ fetch(url, {
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-x-ratelimit-limit: 60
-x-ratelimit-remaining: 59
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: [],
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: &quot;9a7aa651-5b15-4ee4-b4bd-51209ab02161&quot;,
+            &quot;user_id&quot;: &quot;9a7aa651-5560-4c35-9649-e4702ab87728&quot;,
+            &quot;summary&quot;: &quot;Dolores maxime fugiat repudiandae aspernatur quae necessitatibus.&quot;,
+            &quot;country&quot;: &quot;Kyrgyz Republic&quot;,
+            &quot;state&quot;: &quot;Washington&quot;,
+            &quot;city&quot;: &quot;Jadynburgh&quot;,
+            &quot;lat&quot;: -59.261813,
+            &quot;long&quot;: -20.35353,
+            &quot;date&quot;: {
+                &quot;date&quot;: &quot;2021-06-23 01:15:39.000000&quot;,
+                &quot;timezone_type&quot;: 3,
+                &quot;timezone&quot;: &quot;UTC&quot;
+            },
+            &quot;duration&quot;: 51,
+            &quot;object_shape&quot;: &quot;eius&quot;,
+            &quot;number_of_observers&quot;: 6,
+            &quot;details&quot;: &quot;Aspernatur iure nesciunt quia ratione. Molestias rerum laudantium harum illum non.&quot;
+        },
+        {
+            &quot;id&quot;: &quot;9a7aa651-5dc0-485d-920f-cea88ac78da6&quot;,
+            &quot;user_id&quot;: &quot;9a7aa651-5cd6-4dd8-8eee-bdb097fe3190&quot;,
+            &quot;summary&quot;: &quot;Ex qui modi numquam rerum harum.&quot;,
+            &quot;country&quot;: &quot;Zambia&quot;,
+            &quot;state&quot;: &quot;Texas&quot;,
+            &quot;city&quot;: &quot;Lake Shaun&quot;,
+            &quot;lat&quot;: 78.231948,
+            &quot;long&quot;: 44.433229,
+            &quot;date&quot;: {
+                &quot;date&quot;: &quot;2006-06-17 14:59:14.000000&quot;,
+                &quot;timezone_type&quot;: 3,
+                &quot;timezone&quot;: &quot;UTC&quot;
+            },
+            &quot;duration&quot;: 32,
+            &quot;object_shape&quot;: &quot;alias&quot;,
+            &quot;number_of_observers&quot;: 6,
+            &quot;details&quot;: &quot;Ipsum ea vel consequatur eum. Velit ipsa distinctio rerum ducimus tenetur. Incidunt ipsum consequatur nihil mollitia voluptas in et. Nemo ducimus deleniti non tempora facere.&quot;
+        }
+    ],
     &quot;links&quot;: {
-        &quot;first&quot;: &quot;http://ufo.test/api/v1/reports?page=1&quot;,
-        &quot;last&quot;: &quot;http://ufo.test/api/v1/reports?page=1&quot;,
+        &quot;first&quot;: &quot;/?page=1&quot;,
+        &quot;last&quot;: &quot;/?page=1&quot;,
         &quot;prev&quot;: null,
         &quot;next&quot;: null
     },
     &quot;meta&quot;: {
         &quot;current_page&quot;: 1,
-        &quot;from&quot;: null,
+        &quot;from&quot;: 1,
         &quot;last_page&quot;: 1,
         &quot;links&quot;: [
             {
@@ -1961,7 +1873,7 @@ access-control-allow-origin: *
                 &quot;active&quot;: false
             },
             {
-                &quot;url&quot;: &quot;http://ufo.test/api/v1/reports?page=1&quot;,
+                &quot;url&quot;: &quot;/?page=1&quot;,
                 &quot;label&quot;: &quot;1&quot;,
                 &quot;active&quot;: true
             },
@@ -1971,10 +1883,10 @@ access-control-allow-origin: *
                 &quot;active&quot;: false
             }
         ],
-        &quot;path&quot;: &quot;http://ufo.test/api/v1/reports&quot;,
+        &quot;path&quot;: &quot;/&quot;,
         &quot;per_page&quot;: 15,
-        &quot;to&quot;: null,
-        &quot;total&quot;: 0
+        &quot;to&quot;: 2,
+        &quot;total&quot;: 2
     }
 }</code>
  </pre>
@@ -2003,23 +1915,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-reports', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-reports"
-                    onclick="tryItOut('GETapi-v1-reports');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-reports"
-                    onclick="cancelTryOut('GETapi-v1-reports');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-reports"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -2048,107 +1943,107 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>keywords</code></b>&nbsp;&nbsp;
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>keywords</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="keywords"                data-endpoint="GETapi-v1-reports"
-               value="wozmzpcynrnyybrzg"
-               data-component="body">
+               value="ufo"
+               data-component="query">
     <br>
-<p>Must be at least 3 characters. Example: <code>wozmzpcynrnyybrzg</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>country</code></b>&nbsp;&nbsp;
+<p>Keywords to search for. Example: <code>ufo</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>country</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="country"                data-endpoint="GETapi-v1-reports"
-               value="recusandae"
-               data-component="body">
+               value="USA"
+               data-component="query">
     <br>
-<p>Example: <code>recusandae</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>state</code></b>&nbsp;&nbsp;
+<p>Country to search for. Example: <code>USA</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>state</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="state"                data-endpoint="GETapi-v1-reports"
-               value="at"
-               data-component="body">
+               value="California"
+               data-component="query">
     <br>
-<p>Example: <code>at</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>city</code></b>&nbsp;&nbsp;
+<p>State to search for. Example: <code>California</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>city</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="city"                data-endpoint="GETapi-v1-reports"
-               value="quia"
-               data-component="body">
+               value="Los Angeles"
+               data-component="query">
     <br>
-<p>Example: <code>quia</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>dateFrom</code></b>&nbsp;&nbsp;
+<p>City to search for. Example: <code>Los Angeles</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>dateFrom</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="dateFrom"                data-endpoint="GETapi-v1-reports"
-               value="2023-10-27T14:54:57"
-               data-component="body">
+               value="2000-01-01"
+               data-component="query">
     <br>
-<p>Must be a valid date. Example: <code>2023-10-27T14:54:57</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>dateTo</code></b>&nbsp;&nbsp;
+<p>Start date to search for. Must be a valid date. Example: <code>2000-01-01</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>dateTo</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="dateTo"                data-endpoint="GETapi-v1-reports"
-               value="2108-09-20"
-               data-component="body">
+               value="2010-01-01"
+               data-component="query">
     <br>
-<p>Must be a valid date. Must be a date after <code>dateFrom</code>. Example: <code>2108-09-20</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>sortBy</code></b>&nbsp;&nbsp;
+<p>End date to search for. Must be a valid date. Must be a date after <code>dateFrom</code>. Example: <code>2010-01-01</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>sortBy</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="sortBy"                data-endpoint="GETapi-v1-reports"
                value="date"
-               data-component="body">
+               data-component="query">
     <br>
-<p>Example: <code>date</code></p>
+<p>Field to sort by. Example: <code>date</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>date</code></li></ul>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>sortOrder</code></b>&nbsp;&nbsp;
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>sortOrder</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="sortOrder"                data-endpoint="GETapi-v1-reports"
                value="asc"
-               data-component="body">
+               data-component="query">
     <br>
-<p>Example: <code>asc</code></p>
+<p>Sort order. Example: <code>asc</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>asc</code></li> <li><code>desc</code></li></ul>
-        </div>
-        </form>
+            </div>
+                </form>
 
                     <h2 id="reports-GETapi-v1-reports--id-">Get a report</h2>
 
 <p>
 </p>
 
-<p>This endpoint allows you to get a report.</p>
+<p>Get a report by id.</p>
 
 <span id="example-requests-GETapi-v1-reports--id-">
 <blockquote>Example request:</blockquote>
@@ -2156,14 +2051,14 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://ufo.test/api/v1/reports/9a746417-6bbc-41f1-8c9b-28404c87d10e" \
+    --get "http://ufo.test/api/v1/reports/" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://ufo.test/api/v1/reports/9a746417-6bbc-41f1-8c9b-28404c87d10e"
+    "http://ufo.test/api/v1/reports/"
 );
 
 const headers = {
@@ -2182,33 +2077,27 @@ fetch(url, {
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-x-ratelimit-limit: 60
-x-ratelimit-remaining: 58
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: &quot;9a746417-6bbc-41f1-8c9b-28404c87d10e&quot;,
-        &quot;user_id&quot;: &quot;9a746417-6294-47c7-be09-d382b9dabc26&quot;,
-        &quot;summary&quot;: &quot;Quasi quia consectetur hic ad dolorum aperiam molestiae.&quot;,
-        &quot;country&quot;: &quot;Jersey&quot;,
-        &quot;state&quot;: &quot;Delaware&quot;,
-        &quot;city&quot;: &quot;Connertown&quot;,
-        &quot;lat&quot;: &quot;-63.65556400&quot;,
-        &quot;long&quot;: &quot;-62.09172000&quot;,
-        &quot;date&quot;: &quot;1994-04-11 17:57:06&quot;,
-        &quot;duration&quot;: 59,
-        &quot;object_shape&quot;: &quot;ex&quot;,
-        &quot;number_of_observers&quot;: 2,
-        &quot;details&quot;: &quot;Sit est nisi est. Voluptatem accusamus libero voluptas distinctio soluta. Placeat voluptas assumenda voluptatem quod velit harum quia incidunt. Aut veritatis molestiae quisquam dolore quis a.&quot;,
-        &quot;images&quot;: []
+        &quot;id&quot;: &quot;9a7aa651-68d7-4843-98e2-1a981245bcc0&quot;,
+        &quot;user_id&quot;: &quot;9a7aa651-6806-4f84-933c-ae261819fe9c&quot;,
+        &quot;summary&quot;: &quot;Ratione et corporis aut incidunt.&quot;,
+        &quot;country&quot;: &quot;Turkey&quot;,
+        &quot;state&quot;: &quot;Oregon&quot;,
+        &quot;city&quot;: &quot;Aufderharville&quot;,
+        &quot;lat&quot;: 10.291408,
+        &quot;long&quot;: 134.844031,
+        &quot;date&quot;: {
+            &quot;date&quot;: &quot;2004-04-06 05:01:40.000000&quot;,
+            &quot;timezone_type&quot;: 3,
+            &quot;timezone&quot;: &quot;UTC&quot;
+        },
+        &quot;duration&quot;: 19,
+        &quot;object_shape&quot;: &quot;accusantium&quot;,
+        &quot;number_of_observers&quot;: 1,
+        &quot;details&quot;: &quot;Qui dolore numquam fugit ut animi voluptas cupiditate dolor. Eum sint sunt sit rerum eos aspernatur aperiam autem. Sed maxime et aut temporibus est.&quot;
     }
 }</code>
  </pre>
@@ -2237,23 +2126,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-reports--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-reports--id-"
-                    onclick="tryItOut('GETapi-v1-reports--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-reports--id-"
-                    onclick="cancelTryOut('GETapi-v1-reports--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-reports--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -2289,10 +2161,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-v1-reports--id-"
-               value="9a746417-6bbc-41f1-8c9b-28404c87d10e"
+               value=""
                data-component="url">
     <br>
-<p>The ID of the report. Example: <code>9a746417-6bbc-41f1-8c9b-28404c87d10e</code></p>
+<p>The ID of the report.</p>
             </div>
                     </form>
 
@@ -2302,7 +2174,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint allows you to create a new report.</p>
+<p>Create a new report for the authenticated user.</p>
 
 <span id="example-requests-POSTapi-v1-reports">
 <blockquote>Example request:</blockquote>
@@ -2315,17 +2187,17 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"summary\": \"xponvjxkwc\",
-    \"details\": \"pxqznrqakulxeq\",
-    \"country\": \"jadbabldns\",
-    \"state\": \"axidkowftwqsnbehhb\",
-    \"city\": \"eodilhmhxibygj\",
-    \"lat\": 602171.44589,
-    \"long\": 117765075.2,
-    \"date\": \"2023-10-27T14:54:57\",
-    \"duration\": 1927.5562212,
-    \"number_of_observers\": 134199.5408,
-    \"object_shape\": \"gislgr\"
+    \"summary\": \"I saw a UFO\",
+    \"details\": \"I saw a UFO in the sky\",
+    \"country\": \"US\",
+    \"state\": \"California\",
+    \"city\": \"Los Angeles\",
+    \"lat\": 34.052235,
+    \"long\": -118.243683,
+    \"date\": \"2021-01-01\",
+    \"duration\": 60,
+    \"number_of_observers\": 1,
+    \"object_shape\": \"Triangle\"
 }"
 </code></pre></div>
 
@@ -2342,17 +2214,17 @@ const headers = {
 };
 
 let body = {
-    "summary": "xponvjxkwc",
-    "details": "pxqznrqakulxeq",
-    "country": "jadbabldns",
-    "state": "axidkowftwqsnbehhb",
-    "city": "eodilhmhxibygj",
-    "lat": 602171.44589,
-    "long": 117765075.2,
-    "date": "2023-10-27T14:54:57",
-    "duration": 1927.5562212,
-    "number_of_observers": 134199.5408,
-    "object_shape": "gislgr"
+    "summary": "I saw a UFO",
+    "details": "I saw a UFO in the sky",
+    "country": "US",
+    "state": "California",
+    "city": "Los Angeles",
+    "lat": 34.052235,
+    "long": -118.243683,
+    "date": "2021-01-01",
+    "duration": 60,
+    "number_of_observers": 1,
+    "object_shape": "Triangle"
 };
 
 fetch(url, {
@@ -2364,7 +2236,34 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-v1-reports">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: &quot;9a7aa651-9459-400f-a2ec-8fcea13159c7&quot;,
+        &quot;user_id&quot;: &quot;9a7aa651-93a8-4bcc-b996-90c16e86e516&quot;,
+        &quot;summary&quot;: &quot;Dolor quo et placeat et qui.&quot;,
+        &quot;country&quot;: &quot;Liechtenstein&quot;,
+        &quot;state&quot;: &quot;Arkansas&quot;,
+        &quot;city&quot;: &quot;West Briastad&quot;,
+        &quot;lat&quot;: -87.025865,
+        &quot;long&quot;: 109.954719,
+        &quot;date&quot;: {
+            &quot;date&quot;: &quot;2001-10-04 21:55:26.000000&quot;,
+            &quot;timezone_type&quot;: 3,
+            &quot;timezone&quot;: &quot;UTC&quot;
+        },
+        &quot;duration&quot;: 47,
+        &quot;object_shape&quot;: &quot;sapiente&quot;,
+        &quot;number_of_observers&quot;: 7,
+        &quot;details&quot;: &quot;Itaque sit quia incidunt aut. Incidunt recusandae dignissimos voluptatum quidem. Eum quos voluptas quas rerum maiores qui.&quot;
+    }
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-v1-reports" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-v1-reports"></span>:
@@ -2389,23 +2288,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-reports', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-reports"
-                    onclick="tryItOut('POSTapi-v1-reports');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-reports"
-                    onclick="cancelTryOut('POSTapi-v1-reports');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-reports"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
@@ -2452,10 +2334,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="summary"                data-endpoint="POSTapi-v1-reports"
-               value="xponvjxkwc"
+               value="I saw a UFO"
                data-component="body">
     <br>
-<p>Must not be greater than 150 characters. Example: <code>xponvjxkwc</code></p>
+<p>The summary of the report. Must not be greater than 150 characters. Example: <code>I saw a UFO</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>details</code></b>&nbsp;&nbsp;
@@ -2463,10 +2345,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="details"                data-endpoint="POSTapi-v1-reports"
-               value="pxqznrqakulxeq"
+               value="I saw a UFO in the sky"
                data-component="body">
     <br>
-<p>Must not be greater than 1500 characters. Example: <code>pxqznrqakulxeq</code></p>
+<p>The details of the report. Must not be greater than 1500 characters. Example: <code>I saw a UFO in the sky</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>country</code></b>&nbsp;&nbsp;
@@ -2474,10 +2356,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="country"                data-endpoint="POSTapi-v1-reports"
-               value="jadbabldns"
+               value="US"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>jadbabldns</code></p>
+<p>The country of the report. Must not be greater than 255 characters. Example: <code>US</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>state</code></b>&nbsp;&nbsp;
@@ -2485,10 +2367,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="state"                data-endpoint="POSTapi-v1-reports"
-               value="axidkowftwqsnbehhb"
+               value="California"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>axidkowftwqsnbehhb</code></p>
+<p>The state of the report. Must not be greater than 255 characters. Example: <code>California</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>city</code></b>&nbsp;&nbsp;
@@ -2496,10 +2378,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="city"                data-endpoint="POSTapi-v1-reports"
-               value="eodilhmhxibygj"
+               value="Los Angeles"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>eodilhmhxibygj</code></p>
+<p>The city of the report. Must not be greater than 255 characters. Example: <code>Los Angeles</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>lat</code></b>&nbsp;&nbsp;
@@ -2507,10 +2389,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="lat"                data-endpoint="POSTapi-v1-reports"
-               value="602171.44589"
+               value="34.052235"
                data-component="body">
     <br>
-<p>Example: <code>602171.44589</code></p>
+<p>The latitude of the report. Example: <code>34.052235</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>long</code></b>&nbsp;&nbsp;
@@ -2518,10 +2400,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="long"                data-endpoint="POSTapi-v1-reports"
-               value="117765075.2"
+               value="-118.243683"
                data-component="body">
     <br>
-<p>Example: <code>117765075.2</code></p>
+<p>The longitude of the report. Example: <code>-118.243683</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
@@ -2529,21 +2411,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="date"                data-endpoint="POSTapi-v1-reports"
-               value="2023-10-27T14:54:57"
+               value="2021-01-01"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2023-10-27T14:54:57</code></p>
+<p>The date of the report. Must be a valid date. Example: <code>2021-01-01</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>duration</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="duration"                data-endpoint="POSTapi-v1-reports"
-               value="1927.5562212"
+               value="60"
                data-component="body">
     <br>
-<p>Example: <code>1927.5562212</code></p>
+<p>The duration of the sighting in seconds. Example: <code>60</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>number_of_observers</code></b>&nbsp;&nbsp;
@@ -2551,10 +2433,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="number_of_observers"                data-endpoint="POSTapi-v1-reports"
-               value="134199.5408"
+               value="1"
                data-component="body">
     <br>
-<p>Example: <code>134199.5408</code></p>
+<p>The number of observers. Example: <code>1</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>object_shape</code></b>&nbsp;&nbsp;
@@ -2562,10 +2444,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="object_shape"                data-endpoint="POSTapi-v1-reports"
-               value="gislgr"
+               value="Triangle"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>gislgr</code></p>
+<p>The shape of the object. Must not be greater than 255 characters. Example: <code>Triangle</code></p>
         </div>
         </form>
 
@@ -2575,7 +2457,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint allows you to update a report.</p>
+<p>Update a report for the authenticated user.</p>
 
 <span id="example-requests-PUTapi-v1-reports--id-">
 <blockquote>Example request:</blockquote>
@@ -2583,29 +2465,29 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://ufo.test/api/v1/reports/9a746417-6bbc-41f1-8c9b-28404c87d10e" \
+    "http://ufo.test/api/v1/reports/" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"summary\": \"udgzzpzfjokdurznfzr\",
-    \"details\": \"oqhbpkhjjto\",
-    \"country\": \"wmxjeaonuhprilxyi\",
-    \"state\": \"oofhtab\",
-    \"city\": \"pfdmjiouxiwxbpyehyczgko\",
-    \"lat\": 24.45,
-    \"long\": 4377.12,
-    \"date\": \"2023-10-27T14:54:57\",
-    \"duration\": 2,
-    \"number_of_observers\": 10975.2217376,
-    \"object_shape\": \"z\"
+    \"summary\": \"I saw a UFO\",
+    \"details\": \"I saw a UFO in the sky\",
+    \"country\": \"US\",
+    \"state\": \"California\",
+    \"city\": \"Los Angeles\",
+    \"lat\": 34.052235,
+    \"long\": -118.243683,
+    \"date\": \"2021-01-01\",
+    \"duration\": 60,
+    \"number_of_observers\": 1,
+    \"object_shape\": \"Triangle\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://ufo.test/api/v1/reports/9a746417-6bbc-41f1-8c9b-28404c87d10e"
+    "http://ufo.test/api/v1/reports/"
 );
 
 const headers = {
@@ -2615,17 +2497,17 @@ const headers = {
 };
 
 let body = {
-    "summary": "udgzzpzfjokdurznfzr",
-    "details": "oqhbpkhjjto",
-    "country": "wmxjeaonuhprilxyi",
-    "state": "oofhtab",
-    "city": "pfdmjiouxiwxbpyehyczgko",
-    "lat": 24.45,
-    "long": 4377.12,
-    "date": "2023-10-27T14:54:57",
-    "duration": 2,
-    "number_of_observers": 10975.2217376,
-    "object_shape": "z"
+    "summary": "I saw a UFO",
+    "details": "I saw a UFO in the sky",
+    "country": "US",
+    "state": "California",
+    "city": "Los Angeles",
+    "lat": 34.052235,
+    "long": -118.243683,
+    "date": "2021-01-01",
+    "duration": 60,
+    "number_of_observers": 1,
+    "object_shape": "Triangle"
 };
 
 fetch(url, {
@@ -2637,7 +2519,34 @@ fetch(url, {
 </span>
 
 <span id="example-responses-PUTapi-v1-reports--id-">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: &quot;9a7aa651-9965-4304-a1ae-b9c08f2ac630&quot;,
+        &quot;user_id&quot;: &quot;9a7aa651-98c2-4ecf-af2a-4c2d8c8dcc2e&quot;,
+        &quot;summary&quot;: &quot;Dicta et et hic quis.&quot;,
+        &quot;country&quot;: &quot;New Zealand&quot;,
+        &quot;state&quot;: &quot;Virginia&quot;,
+        &quot;city&quot;: &quot;West Cassandreburgh&quot;,
+        &quot;lat&quot;: -81.284104,
+        &quot;long&quot;: -104.119589,
+        &quot;date&quot;: {
+            &quot;date&quot;: &quot;2002-04-25 13:23:13.000000&quot;,
+            &quot;timezone_type&quot;: 3,
+            &quot;timezone&quot;: &quot;UTC&quot;
+        },
+        &quot;duration&quot;: 19,
+        &quot;object_shape&quot;: &quot;qui&quot;,
+        &quot;number_of_observers&quot;: 3,
+        &quot;details&quot;: &quot;Odit necessitatibus deleniti minus doloremque corrupti est. Excepturi molestiae itaque maxime sint. Illum ipsum commodi consequatur accusamus repellat. Voluptas provident facilis ipsa aut iste non.&quot;
+    }
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-PUTapi-v1-reports--id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-PUTapi-v1-reports--id-"></span>:
@@ -2662,23 +2571,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-reports--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PUTapi-v1-reports--id-"
-                    onclick="tryItOut('PUTapi-v1-reports--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PUTapi-v1-reports--id-"
-                    onclick="cancelTryOut('PUTapi-v1-reports--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-v1-reports--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-darkblue">PUT</small>
@@ -2729,10 +2621,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="PUTapi-v1-reports--id-"
-               value="9a746417-6bbc-41f1-8c9b-28404c87d10e"
+               value=""
                data-component="url">
     <br>
-<p>The ID of the report. Example: <code>9a746417-6bbc-41f1-8c9b-28404c87d10e</code></p>
+<p>The ID of the report.</p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2741,10 +2633,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="summary"                data-endpoint="PUTapi-v1-reports--id-"
-               value="udgzzpzfjokdurznfzr"
+               value="I saw a UFO"
                data-component="body">
     <br>
-<p>Must not be greater than 150 characters. Example: <code>udgzzpzfjokdurznfzr</code></p>
+<p>The summary of the report. Must not be greater than 150 characters. Example: <code>I saw a UFO</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>details</code></b>&nbsp;&nbsp;
@@ -2752,10 +2644,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="details"                data-endpoint="PUTapi-v1-reports--id-"
-               value="oqhbpkhjjto"
+               value="I saw a UFO in the sky"
                data-component="body">
     <br>
-<p>Must not be greater than 1500 characters. Example: <code>oqhbpkhjjto</code></p>
+<p>The details of the report. Must not be greater than 1500 characters. Example: <code>I saw a UFO in the sky</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>country</code></b>&nbsp;&nbsp;
@@ -2763,10 +2655,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="country"                data-endpoint="PUTapi-v1-reports--id-"
-               value="wmxjeaonuhprilxyi"
+               value="US"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>wmxjeaonuhprilxyi</code></p>
+<p>The country of the report. Must not be greater than 255 characters. Example: <code>US</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>state</code></b>&nbsp;&nbsp;
@@ -2774,10 +2666,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="state"                data-endpoint="PUTapi-v1-reports--id-"
-               value="oofhtab"
+               value="California"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>oofhtab</code></p>
+<p>The state of the report. Must not be greater than 255 characters. Example: <code>California</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>city</code></b>&nbsp;&nbsp;
@@ -2785,10 +2677,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="city"                data-endpoint="PUTapi-v1-reports--id-"
-               value="pfdmjiouxiwxbpyehyczgko"
+               value="Los Angeles"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>pfdmjiouxiwxbpyehyczgko</code></p>
+<p>The city of the report. Must not be greater than 255 characters. Example: <code>Los Angeles</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>lat</code></b>&nbsp;&nbsp;
@@ -2796,10 +2688,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="lat"                data-endpoint="PUTapi-v1-reports--id-"
-               value="24.45"
+               value="34.052235"
                data-component="body">
     <br>
-<p>Example: <code>24.45</code></p>
+<p>The latitude of the report. Example: <code>34.052235</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>long</code></b>&nbsp;&nbsp;
@@ -2807,10 +2699,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="long"                data-endpoint="PUTapi-v1-reports--id-"
-               value="4377.12"
+               value="-118.243683"
                data-component="body">
     <br>
-<p>Example: <code>4377.12</code></p>
+<p>The longitude of the report. Example: <code>-118.243683</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
@@ -2818,21 +2710,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="date"                data-endpoint="PUTapi-v1-reports--id-"
-               value="2023-10-27T14:54:57"
+               value="2021-01-01"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2023-10-27T14:54:57</code></p>
+<p>The date of the report. Must be a valid date. Example: <code>2021-01-01</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>duration</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="duration"                data-endpoint="PUTapi-v1-reports--id-"
-               value="2"
+               value="60"
                data-component="body">
     <br>
-<p>Example: <code>2</code></p>
+<p>The duration of the sighting in seconds. Example: <code>60</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>number_of_observers</code></b>&nbsp;&nbsp;
@@ -2840,10 +2732,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="number_of_observers"                data-endpoint="PUTapi-v1-reports--id-"
-               value="10975.2217376"
+               value="1"
                data-component="body">
     <br>
-<p>Example: <code>10975.2217376</code></p>
+<p>The number of observers. Example: <code>1</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>object_shape</code></b>&nbsp;&nbsp;
@@ -2851,10 +2743,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="object_shape"                data-endpoint="PUTapi-v1-reports--id-"
-               value="z"
+               value="Triangle"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>z</code></p>
+<p>The shape of the object. Must not be greater than 255 characters. Example: <code>Triangle</code></p>
         </div>
         </form>
 
@@ -2864,7 +2756,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint allows you to delete a report.</p>
+<p>Delete a report belonging to the authenticated user.</p>
 
 <span id="example-requests-DELETEapi-v1-reports--id-">
 <blockquote>Example request:</blockquote>
@@ -2872,7 +2764,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://ufo.test/api/v1/reports/9a746417-6bbc-41f1-8c9b-28404c87d10e" \
+    "http://ufo.test/api/v1/reports/" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2880,7 +2772,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://ufo.test/api/v1/reports/9a746417-6bbc-41f1-8c9b-28404c87d10e"
+    "http://ufo.test/api/v1/reports/"
 );
 
 const headers = {
@@ -2897,7 +2789,13 @@ fetch(url, {
 </span>
 
 <span id="example-responses-DELETEapi-v1-reports--id-">
-</span>
+            <blockquote>
+            <p>Example response (204):</p>
+        </blockquote>
+                <pre>
+<code>Empty response</code>
+ </pre>
+    </span>
 <span id="execution-results-DELETEapi-v1-reports--id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-DELETEapi-v1-reports--id-"></span>:
@@ -2922,23 +2820,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-reports--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-v1-reports--id-"
-                    onclick="tryItOut('DELETEapi-v1-reports--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-v1-reports--id-"
-                    onclick="cancelTryOut('DELETEapi-v1-reports--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-v1-reports--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-red">DELETE</small>
@@ -2985,10 +2866,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="DELETEapi-v1-reports--id-"
-               value="9a746417-6bbc-41f1-8c9b-28404c87d10e"
+               value=""
                data-component="url">
     <br>
-<p>The ID of the report. Example: <code>9a746417-6bbc-41f1-8c9b-28404c87d10e</code></p>
+<p>The ID of the report.</p>
             </div>
                     </form>
 
@@ -2997,7 +2878,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>
 </p>
 
-<p>This endpoint allows you to get the images of a report.</p>
+<p>Get the images of a report.</p>
 
 <span id="example-requests-GETapi-v1-reports--report_id--images">
 <blockquote>Example request:</blockquote>
@@ -3005,14 +2886,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://ufo.test/api/v1/reports/9a746417-6bbc-41f1-8c9b-28404c87d10e/images" \
+    --get "http://ufo.test/api/v1/reports//images" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://ufo.test/api/v1/reports/9a746417-6bbc-41f1-8c9b-28404c87d10e/images"
+    "http://ufo.test/api/v1/reports//images"
 );
 
 const headers = {
@@ -3029,19 +2910,53 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-reports--report_id--images">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 145,
+            &quot;url&quot;: &quot;http://ufo.test/storage/https://via.placeholder.com/640x480.png/005555?text=quo&quot;
+        },
+        {
+            &quot;id&quot;: 146,
+            &quot;url&quot;: &quot;http://ufo.test/storage/https://via.placeholder.com/640x480.png/0099aa?text=corporis&quot;
+        }
+    ],
+    &quot;links&quot;: {
+        &quot;first&quot;: &quot;/?page=1&quot;,
+        &quot;last&quot;: &quot;/?page=1&quot;,
+        &quot;prev&quot;: null,
+        &quot;next&quot;: null
+    },
+    &quot;meta&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;from&quot;: 1,
+        &quot;last_page&quot;: 1,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;/?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;active&quot;: false
+            }
+        ],
+        &quot;path&quot;: &quot;/&quot;,
+        &quot;per_page&quot;: 15,
+        &quot;to&quot;: 2,
+        &quot;total&quot;: 2
+    }
 }</code>
  </pre>
     </span>
@@ -3069,23 +2984,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-reports--report_id--images', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-reports--report_id--images"
-                    onclick="tryItOut('GETapi-v1-reports--report_id--images');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-reports--report_id--images"
-                    onclick="cancelTryOut('GETapi-v1-reports--report_id--images');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-reports--report_id--images"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -3121,10 +3019,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="report_id"                data-endpoint="GETapi-v1-reports--report_id--images"
-               value="9a746417-6bbc-41f1-8c9b-28404c87d10e"
+               value=""
                data-component="url">
     <br>
-<p>The ID of the report. Example: <code>9a746417-6bbc-41f1-8c9b-28404c87d10e</code></p>
+<p>The ID of the report.</p>
             </div>
                     </form>
 
@@ -3134,7 +3032,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint allows you to upload images</p>
+<p>Upload images for a report.</p>
 
 <span id="example-requests-POSTapi-v1-reports--report_id--images">
 <blockquote>Example request:</blockquote>
@@ -3142,16 +3040,16 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://ufo.test/api/v1/reports/9a746417-6bbc-41f1-8c9b-28404c87d10e/images" \
+    "http://ufo.test/api/v1/reports//images" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "images[]=@C:\Users\Gabriel\AppData\Local\Temp\php3BD2.tmp" </code></pre></div>
+    --form "images[]=@C:\Users\Gabriel\AppData\Local\Temp\phpF585.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://ufo.test/api/v1/reports/9a746417-6bbc-41f1-8c9b-28404c87d10e/images"
+    "http://ufo.test/api/v1/reports//images"
 );
 
 const headers = {
@@ -3172,7 +3070,25 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-v1-reports--report_id--images">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 147,
+            &quot;url&quot;: &quot;http://ufo.test/storage/https://via.placeholder.com/640x480.png/001111?text=impedit&quot;
+        },
+        {
+            &quot;id&quot;: 148,
+            &quot;url&quot;: &quot;http://ufo.test/storage/https://via.placeholder.com/640x480.png/0088aa?text=architecto&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-v1-reports--report_id--images" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-v1-reports--report_id--images"></span>:
@@ -3197,23 +3113,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-reports--report_id--images', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-reports--report_id--images"
-                    onclick="tryItOut('POSTapi-v1-reports--report_id--images');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-reports--report_id--images"
-                    onclick="cancelTryOut('POSTapi-v1-reports--report_id--images');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-reports--report_id--images"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
@@ -3260,10 +3159,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="report_id"                data-endpoint="POSTapi-v1-reports--report_id--images"
-               value="9a746417-6bbc-41f1-8c9b-28404c87d10e"
+               value=""
                data-component="url">
     <br>
-<p>The ID of the report. Example: <code>9a746417-6bbc-41f1-8c9b-28404c87d10e</code></p>
+<p>The ID of the report.</p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -3287,7 +3186,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint allows you to delete an image of a report.</p>
+<p>Delete an image of a report.</p>
 
 <span id="example-requests-DELETEapi-v1-reports--report_id--images--id-">
 <blockquote>Example request:</blockquote>
@@ -3295,7 +3194,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://ufo.test/api/v1/reports/9a746417-6bbc-41f1-8c9b-28404c87d10e/images/9" \
+    "http://ufo.test/api/v1/reports//images/2" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3303,7 +3202,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://ufo.test/api/v1/reports/9a746417-6bbc-41f1-8c9b-28404c87d10e/images/9"
+    "http://ufo.test/api/v1/reports//images/2"
 );
 
 const headers = {
@@ -3320,7 +3219,13 @@ fetch(url, {
 </span>
 
 <span id="example-responses-DELETEapi-v1-reports--report_id--images--id-">
-</span>
+            <blockquote>
+            <p>Example response (204):</p>
+        </blockquote>
+                <pre>
+<code>Empty response</code>
+ </pre>
+    </span>
 <span id="execution-results-DELETEapi-v1-reports--report_id--images--id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-DELETEapi-v1-reports--report_id--images--id-"></span>:
@@ -3345,23 +3250,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-reports--report_id--images--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-v1-reports--report_id--images--id-"
-                    onclick="tryItOut('DELETEapi-v1-reports--report_id--images--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-v1-reports--report_id--images--id-"
-                    onclick="cancelTryOut('DELETEapi-v1-reports--report_id--images--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-v1-reports--report_id--images--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-red">DELETE</small>
@@ -3408,10 +3296,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="report_id"                data-endpoint="DELETEapi-v1-reports--report_id--images--id-"
-               value="9a746417-6bbc-41f1-8c9b-28404c87d10e"
+               value=""
                data-component="url">
     <br>
-<p>The ID of the report. Example: <code>9a746417-6bbc-41f1-8c9b-28404c87d10e</code></p>
+<p>The ID of the report.</p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
@@ -3419,10 +3307,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-v1-reports--report_id--images--id-"
-               value="9"
+               value="2"
                data-component="url">
     <br>
-<p>The ID of the image. Example: <code>9</code></p>
+<p>The ID of the image. Example: <code>2</code></p>
             </div>
                     </form>
 
@@ -3435,7 +3323,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>
 </p>
 
-<p>This endpoint allows you to get a list of reports of a user.</p>
+<p>Get a list of reports of a user.</p>
 
 <span id="example-requests-GETapi-v1-users--user_id--reports">
 <blockquote>Example request:</blockquote>
@@ -3443,14 +3331,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports" \
+    --get "http://ufo.test/api/v1/users//reports" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports"
+    "http://ufo.test/api/v1/users//reports"
 );
 
 const headers = {
@@ -3469,38 +3357,52 @@ fetch(url, {
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-x-ratelimit-limit: 60
-x-ratelimit-remaining: 57
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: &quot;9a746417-6bbc-41f1-8c9b-28404c87d10e&quot;,
-            &quot;user_id&quot;: &quot;9a746417-6294-47c7-be09-d382b9dabc26&quot;,
-            &quot;summary&quot;: &quot;Quasi quia consectetur hic ad dolorum aperiam molestiae.&quot;,
-            &quot;country&quot;: &quot;Jersey&quot;,
-            &quot;state&quot;: &quot;Delaware&quot;,
-            &quot;city&quot;: &quot;Connertown&quot;,
-            &quot;lat&quot;: &quot;-63.65556400&quot;,
-            &quot;long&quot;: &quot;-62.09172000&quot;,
-            &quot;date&quot;: &quot;1994-04-11 17:57:06&quot;,
-            &quot;duration&quot;: 59,
-            &quot;object_shape&quot;: &quot;ex&quot;,
+            &quot;id&quot;: &quot;9a7aa651-6ec3-46a2-bc33-4861ca91c3bb&quot;,
+            &quot;user_id&quot;: &quot;9a7aa651-6db6-4965-a5c9-a9fc2cca0426&quot;,
+            &quot;summary&quot;: &quot;Alias sit autem dolores et non id.&quot;,
+            &quot;country&quot;: &quot;France&quot;,
+            &quot;state&quot;: &quot;Wyoming&quot;,
+            &quot;city&quot;: &quot;North Destinee&quot;,
+            &quot;lat&quot;: 56.47191,
+            &quot;long&quot;: 51.011929,
+            &quot;date&quot;: {
+                &quot;date&quot;: &quot;1995-02-18 04:17:31.000000&quot;,
+                &quot;timezone_type&quot;: 3,
+                &quot;timezone&quot;: &quot;UTC&quot;
+            },
+            &quot;duration&quot;: 47,
+            &quot;object_shape&quot;: &quot;ut&quot;,
+            &quot;number_of_observers&quot;: 7,
+            &quot;details&quot;: &quot;Et iusto laudantium quod dolorem. Libero eum libero nesciunt ea ipsa. Necessitatibus cum vero aut dolorum. At laudantium ad possimus optio placeat.&quot;
+        },
+        {
+            &quot;id&quot;: &quot;9a7aa651-70df-44e1-98e2-3f3189349759&quot;,
+            &quot;user_id&quot;: &quot;9a7aa651-6ff0-4dbc-aa15-f4f9a897722b&quot;,
+            &quot;summary&quot;: &quot;Eveniet autem velit est tenetur consequatur eaque.&quot;,
+            &quot;country&quot;: &quot;Botswana&quot;,
+            &quot;state&quot;: &quot;Mississippi&quot;,
+            &quot;city&quot;: &quot;Blickville&quot;,
+            &quot;lat&quot;: -34.708886,
+            &quot;long&quot;: -91.203492,
+            &quot;date&quot;: {
+                &quot;date&quot;: &quot;2010-02-06 16:58:01.000000&quot;,
+                &quot;timezone_type&quot;: 3,
+                &quot;timezone&quot;: &quot;UTC&quot;
+            },
+            &quot;duration&quot;: 47,
+            &quot;object_shape&quot;: &quot;minima&quot;,
             &quot;number_of_observers&quot;: 2,
-            &quot;details&quot;: &quot;Sit est nisi est. Voluptatem accusamus libero voluptas distinctio soluta. Placeat voluptas assumenda voluptatem quod velit harum quia incidunt. Aut veritatis molestiae quisquam dolore quis a.&quot;
+            &quot;details&quot;: &quot;Eveniet dolorem doloribus est sapiente nulla fugit. Cum delectus voluptatem atque et harum. Voluptates aliquid dolorem voluptas architecto nostrum maxime.&quot;
         }
     ],
     &quot;links&quot;: {
-        &quot;first&quot;: &quot;http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1&quot;,
-        &quot;last&quot;: &quot;http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1&quot;,
+        &quot;first&quot;: &quot;/?page=1&quot;,
+        &quot;last&quot;: &quot;/?page=1&quot;,
         &quot;prev&quot;: null,
         &quot;next&quot;: null
     },
@@ -3515,7 +3417,7 @@ access-control-allow-origin: *
                 &quot;active&quot;: false
             },
             {
-                &quot;url&quot;: &quot;http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports?page=1&quot;,
+                &quot;url&quot;: &quot;/?page=1&quot;,
                 &quot;label&quot;: &quot;1&quot;,
                 &quot;active&quot;: true
             },
@@ -3525,10 +3427,10 @@ access-control-allow-origin: *
                 &quot;active&quot;: false
             }
         ],
-        &quot;path&quot;: &quot;http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/reports&quot;,
+        &quot;path&quot;: &quot;/&quot;,
         &quot;per_page&quot;: 15,
-        &quot;to&quot;: 1,
-        &quot;total&quot;: 1
+        &quot;to&quot;: 2,
+        &quot;total&quot;: 2
     }
 }</code>
  </pre>
@@ -3557,23 +3459,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users--user_id--reports', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-users--user_id--reports"
-                    onclick="tryItOut('GETapi-v1-users--user_id--reports');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-users--user_id--reports"
-                    onclick="cancelTryOut('GETapi-v1-users--user_id--reports');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-users--user_id--reports"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -3609,10 +3494,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="user_id"                data-endpoint="GETapi-v1-users--user_id--reports"
-               value="9a746417-6294-47c7-be09-d382b9dabc26"
+               value=""
                data-component="url">
     <br>
-<p>The ID of the user. Example: <code>9a746417-6294-47c7-be09-d382b9dabc26</code></p>
+<p>The ID of the user.</p>
             </div>
                     </form>
 
@@ -3621,7 +3506,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>
 </p>
 
-<p>This endpoint allows you to get a list of dossiers of a user.</p>
+<p>Get a list of dossiers of a user.</p>
 
 <span id="example-requests-GETapi-v1-users--user_id--dossiers">
 <blockquote>Example request:</blockquote>
@@ -3629,14 +3514,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers" \
+    --get "http://ufo.test/api/v1/users//dossiers" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers"
+    "http://ufo.test/api/v1/users//dossiers"
 );
 
 const headers = {
@@ -3655,28 +3540,36 @@ fetch(url, {
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-x-ratelimit-limit: 60
-x-ratelimit-remaining: 53
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: [],
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: &quot;9a7aa651-870b-4d83-ac2e-976a0859f51b&quot;,
+            &quot;title&quot;: &quot;Accusantium aut eos sit quis quidem ad ut.&quot;,
+            &quot;description&quot;: &quot;Et qui omnis consequatur ratione. Maiores consequatur est dignissimos. Non sed expedita ullam sed similique et quod.&quot;,
+            &quot;created_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
+            &quot;user_id&quot;: &quot;9a7aa651-865d-4bd5-841d-00721d093d2d&quot;
+        },
+        {
+            &quot;id&quot;: &quot;9a7aa651-88bb-44f7-8205-bfcc7a447066&quot;,
+            &quot;title&quot;: &quot;Reiciendis dolor magnam sed.&quot;,
+            &quot;description&quot;: &quot;Ex tempore dolor et delectus vero culpa tenetur. Numquam neque et qui vel exercitationem eum.&quot;,
+            &quot;created_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
+            &quot;user_id&quot;: &quot;9a7aa651-87e5-4644-8567-49298649e69a&quot;
+        }
+    ],
     &quot;links&quot;: {
-        &quot;first&quot;: &quot;http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1&quot;,
-        &quot;last&quot;: &quot;http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1&quot;,
+        &quot;first&quot;: &quot;/?page=1&quot;,
+        &quot;last&quot;: &quot;/?page=1&quot;,
         &quot;prev&quot;: null,
         &quot;next&quot;: null
     },
     &quot;meta&quot;: {
         &quot;current_page&quot;: 1,
-        &quot;from&quot;: null,
+        &quot;from&quot;: 1,
         &quot;last_page&quot;: 1,
         &quot;links&quot;: [
             {
@@ -3685,7 +3578,7 @@ access-control-allow-origin: *
                 &quot;active&quot;: false
             },
             {
-                &quot;url&quot;: &quot;http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers?page=1&quot;,
+                &quot;url&quot;: &quot;/?page=1&quot;,
                 &quot;label&quot;: &quot;1&quot;,
                 &quot;active&quot;: true
             },
@@ -3695,10 +3588,10 @@ access-control-allow-origin: *
                 &quot;active&quot;: false
             }
         ],
-        &quot;path&quot;: &quot;http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26/dossiers&quot;,
+        &quot;path&quot;: &quot;/&quot;,
         &quot;per_page&quot;: 15,
-        &quot;to&quot;: null,
-        &quot;total&quot;: 0
+        &quot;to&quot;: 2,
+        &quot;total&quot;: 2
     }
 }</code>
  </pre>
@@ -3727,23 +3620,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users--user_id--dossiers', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-users--user_id--dossiers"
-                    onclick="tryItOut('GETapi-v1-users--user_id--dossiers');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-users--user_id--dossiers"
-                    onclick="cancelTryOut('GETapi-v1-users--user_id--dossiers');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-users--user_id--dossiers"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -3779,10 +3655,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="user_id"                data-endpoint="GETapi-v1-users--user_id--dossiers"
-               value="9a746417-6294-47c7-be09-d382b9dabc26"
+               value=""
                data-component="url">
     <br>
-<p>The ID of the user. Example: <code>9a746417-6294-47c7-be09-d382b9dabc26</code></p>
+<p>The ID of the user.</p>
             </div>
                     </form>
 
@@ -3791,7 +3667,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>
 </p>
 
-<p>This endpoint allows you to get a list of users.</p>
+<p>Get a list of users.</p>
 
 <span id="example-requests-GETapi-v1-users">
 <blockquote>Example request:</blockquote>
@@ -3825,53 +3701,26 @@ fetch(url, {
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-x-ratelimit-limit: 60
-x-ratelimit-remaining: 52
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: &quot;9a78426c-af7a-4c3e-810f-2c1dd9f34c01&quot;,
-            &quot;username&quot;: &quot;oTdBHu8k&quot;,
-            &quot;created_at&quot;: &quot;2023-10-27T13:23:31.000000Z&quot;
+            &quot;id&quot;: &quot;9a7aa651-8c1d-41b8-a77a-7ee004f35209&quot;,
+            &quot;username&quot;: &quot;martin41&quot;,
+            &quot;created_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;
         },
         {
-            &quot;id&quot;: &quot;9a783dac-d98f-40fb-b6d4-2e40d32b81f1&quot;,
-            &quot;username&quot;: &quot;jnjh3HGj&quot;,
-            &quot;created_at&quot;: &quot;2023-10-27T13:10:14.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: &quot;9a783c5a-71a2-4a4b-80c1-132838450f45&quot;,
-            &quot;username&quot;: &quot;IPwLPhud&quot;,
-            &quot;created_at&quot;: &quot;2023-10-27T13:06:33.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: &quot;9a7633e2-81c2-4e74-a439-3d748c0688b7&quot;,
-            &quot;username&quot;: &quot;IByuYsNp&quot;,
-            &quot;created_at&quot;: &quot;2023-10-26T12:51:13.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: &quot;9a74645e-46d2-4b0c-8664-1592dfa60b7f&quot;,
-            &quot;username&quot;: &quot;wintheiser.winfield&quot;,
-            &quot;created_at&quot;: &quot;2023-10-25T15:15:07.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: &quot;9a746417-6294-47c7-be09-d382b9dabc26&quot;,
-            &quot;username&quot;: &quot;carlotta.borer&quot;,
-            &quot;created_at&quot;: &quot;2023-10-25T15:14:21.000000Z&quot;
+            &quot;id&quot;: &quot;9a7aa651-8cfb-4cd3-9794-3c838d0ee05d&quot;,
+            &quot;username&quot;: &quot;treilly&quot;,
+            &quot;created_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;
         }
     ],
     &quot;links&quot;: {
-        &quot;first&quot;: &quot;http://ufo.test/api/v1/users?page=1&quot;,
-        &quot;last&quot;: &quot;http://ufo.test/api/v1/users?page=1&quot;,
+        &quot;first&quot;: &quot;/?page=1&quot;,
+        &quot;last&quot;: &quot;/?page=1&quot;,
         &quot;prev&quot;: null,
         &quot;next&quot;: null
     },
@@ -3886,7 +3735,7 @@ access-control-allow-origin: *
                 &quot;active&quot;: false
             },
             {
-                &quot;url&quot;: &quot;http://ufo.test/api/v1/users?page=1&quot;,
+                &quot;url&quot;: &quot;/?page=1&quot;,
                 &quot;label&quot;: &quot;1&quot;,
                 &quot;active&quot;: true
             },
@@ -3896,10 +3745,10 @@ access-control-allow-origin: *
                 &quot;active&quot;: false
             }
         ],
-        &quot;path&quot;: &quot;http://ufo.test/api/v1/users&quot;,
+        &quot;path&quot;: &quot;/&quot;,
         &quot;per_page&quot;: 15,
-        &quot;to&quot;: 6,
-        &quot;total&quot;: 6
+        &quot;to&quot;: 2,
+        &quot;total&quot;: 2
     }
 }</code>
  </pre>
@@ -3928,23 +3777,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-users"
-                    onclick="tryItOut('GETapi-v1-users');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-users"
-                    onclick="cancelTryOut('GETapi-v1-users');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-users"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -3980,7 +3812,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>
 </p>
 
-<p>This endpoint allows you to get a user.</p>
+<p>Get a user by its ID.</p>
 
 <span id="example-requests-GETapi-v1-users--id-">
 <blockquote>Example request:</blockquote>
@@ -3988,14 +3820,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26" \
+    --get "http://ufo.test/api/v1/users/" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26"
+    "http://ufo.test/api/v1/users/"
 );
 
 const headers = {
@@ -4014,22 +3846,14 @@ fetch(url, {
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-x-ratelimit-limit: 60
-x-ratelimit-remaining: 51
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: &quot;9a746417-6294-47c7-be09-d382b9dabc26&quot;,
-        &quot;username&quot;: &quot;carlotta.borer&quot;,
-        &quot;created_at&quot;: &quot;2023-10-25T15:14:21.000000Z&quot;
+        &quot;id&quot;: &quot;9a7aa651-8ff0-4347-b1e1-0b36dd4e8795&quot;,
+        &quot;username&quot;: &quot;derick.hartmann&quot;,
+        &quot;created_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;
     }
 }</code>
  </pre>
@@ -4058,23 +3882,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-users--id-"
-                    onclick="tryItOut('GETapi-v1-users--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-users--id-"
-                    onclick="cancelTryOut('GETapi-v1-users--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-users--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -4110,10 +3917,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-v1-users--id-"
-               value="9a746417-6294-47c7-be09-d382b9dabc26"
+               value=""
                data-component="url">
     <br>
-<p>The ID of the user. Example: <code>9a746417-6294-47c7-be09-d382b9dabc26</code></p>
+<p>The ID of the user.</p>
             </div>
                     </form>
 
@@ -4123,7 +3930,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint allows you to update a user.</p>
+<p>Update a user by its ID.</p>
 
 <span id="example-requests-PUTapi-v1-users--id-">
 <blockquote>Example request:</blockquote>
@@ -4131,19 +3938,20 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26" \
+    "http://ufo.test/api/v1/users/" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"makenna.mann@example.net\"
+    \"email\": \"shaina.kilback@example.net\",
+    \"password\": \"z$O`p[b^,XMC`-_26Q\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://ufo.test/api/v1/users/9a746417-6294-47c7-be09-d382b9dabc26"
+    "http://ufo.test/api/v1/users/"
 );
 
 const headers = {
@@ -4153,7 +3961,8 @@ const headers = {
 };
 
 let body = {
-    "email": "makenna.mann@example.net"
+    "email": "shaina.kilback@example.net",
+    "password": "z$O`p[b^,XMC`-_26Q"
 };
 
 fetch(url, {
@@ -4165,7 +3974,21 @@ fetch(url, {
 </span>
 
 <span id="example-responses-PUTapi-v1-users--id-">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: &quot;9a7aa651-c89a-4c13-a033-6eaf7219ce3e&quot;,
+        &quot;username&quot;: &quot;belle34&quot;,
+        &quot;created_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;
+    }
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-PUTapi-v1-users--id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-PUTapi-v1-users--id-"></span>:
@@ -4190,23 +4013,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-users--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PUTapi-v1-users--id-"
-                    onclick="tryItOut('PUTapi-v1-users--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PUTapi-v1-users--id-"
-                    onclick="cancelTryOut('PUTapi-v1-users--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-v1-users--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-darkblue">PUT</small>
@@ -4257,10 +4063,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="PUTapi-v1-users--id-"
-               value="9a746417-6294-47c7-be09-d382b9dabc26"
+               value=""
                data-component="url">
     <br>
-<p>The ID of the user. Example: <code>9a746417-6294-47c7-be09-d382b9dabc26</code></p>
+<p>The ID of the user.</p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -4269,10 +4075,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="PUTapi-v1-users--id-"
-               value="makenna.mann@example.net"
+               value="shaina.kilback@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>makenna.mann@example.net</code></p>
+<p>Must be a valid email address. Example: <code>shaina.kilback@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -4280,10 +4086,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="PUTapi-v1-users--id-"
-               value=""
+               value="z$O`p[b^,XMC`-_26Q"
                data-component="body">
     <br>
-
+<p>Must be at least 8 characters. Example: <code>z$O</code>p[b^,XMC<code>-_26Q</code></p>
         </div>
         </form>
 

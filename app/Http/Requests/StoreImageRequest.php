@@ -15,7 +15,7 @@ class StoreImageRequest extends FormRequest
     {
         return [
             'images' => ['required', 'array', 'max:10'],
-            'images.*' => ['image', 'max:2048'],
+            'images.*' => ['required', 'image', 'max:2048'],
         ];
     }
 

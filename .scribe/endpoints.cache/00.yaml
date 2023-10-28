@@ -17,7 +17,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'List reports'
-      description: 'This endpoint allows you to get a list of reports.'
+      description: 'Get a list of reports.'
       authenticated: false
       custom: []
     headers:
@@ -25,60 +25,58 @@ endpoints:
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
+    queryParameters:
       keywords:
         name: keywords
-        description: 'Must be at least 3 characters.'
+        description: 'Keywords to search for.'
         required: false
-        example: wozmzpcynrnyybrzg
+        example: ufo
         type: string
         enumValues: []
         custom: []
       country:
         name: country
-        description: ''
+        description: 'Country to search for.'
         required: false
-        example: recusandae
+        example: USA
         type: string
         enumValues: []
         custom: []
       state:
         name: state
-        description: ''
+        description: 'State to search for.'
         required: false
-        example: at
+        example: California
         type: string
         enumValues: []
         custom: []
       city:
         name: city
-        description: ''
+        description: 'City to search for.'
         required: false
-        example: quia
+        example: 'Los Angeles'
         type: string
         enumValues: []
         custom: []
       dateFrom:
         name: dateFrom
-        description: 'Must be a valid date.'
+        description: 'Start date to search for. Must be a valid date.'
         required: false
-        example: '2023-10-27T14:54:57'
+        example: '2000-01-01'
         type: string
         enumValues: []
         custom: []
       dateTo:
         name: dateTo
-        description: 'Must be a valid date. Must be a date after <code>dateFrom</code>.'
+        description: 'End date to search for. Must be a valid date. Must be a date after <code>dateFrom</code>.'
         required: false
-        example: '2108-09-20'
+        example: '2010-01-01'
         type: string
         enumValues: []
         custom: []
       sortBy:
         name: sortBy
-        description: ''
+        description: 'Field to sort by.'
         required: false
         example: date
         type: string
@@ -87,7 +85,7 @@ endpoints:
         custom: []
       sortOrder:
         name: sortOrder
-        description: ''
+        description: 'Sort order.'
         required: false
         example: asc
         type: string
@@ -95,27 +93,24 @@ endpoints:
           - asc
           - desc
         custom: []
-    cleanBodyParameters:
-      keywords: wozmzpcynrnyybrzg
-      country: recusandae
-      state: at
-      city: quia
-      dateFrom: '2023-10-27T14:54:57'
-      dateTo: '2108-09-20'
+    cleanQueryParameters:
+      keywords: ufo
+      country: USA
+      state: California
+      city: 'Los Angeles'
+      dateFrom: '2000-01-01'
+      dateTo: '2010-01-01'
       sortBy: date
       sortOrder: asc
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"data":[],"links":{"first":"http:\/\/ufo.test\/api\/v1\/reports?page=1","last":"http:\/\/ufo.test\/api\/v1\/reports?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":null,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/ufo.test\/api\/v1\/reports?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/ufo.test\/api\/v1\/reports","per_page":15,"to":null,"total":0}}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
-          access-control-allow-origin: '*'
-        description: null
+        content: '{"data":[{"id":"9a7aa651-5b15-4ee4-b4bd-51209ab02161","user_id":"9a7aa651-5560-4c35-9649-e4702ab87728","summary":"Dolores maxime fugiat repudiandae aspernatur quae necessitatibus.","country":"Kyrgyz Republic","state":"Washington","city":"Jadynburgh","lat":-59.261813,"long":-20.35353,"date":{"date":"2021-06-23 01:15:39.000000","timezone_type":3,"timezone":"UTC"},"duration":51,"object_shape":"eius","number_of_observers":6,"details":"Aspernatur iure nesciunt quia ratione. Molestias rerum laudantium harum illum non."},{"id":"9a7aa651-5dc0-485d-920f-cea88ac78da6","user_id":"9a7aa651-5cd6-4dd8-8eee-bdb097fe3190","summary":"Ex qui modi numquam rerum harum.","country":"Zambia","state":"Texas","city":"Lake Shaun","lat":78.231948,"long":44.433229,"date":{"date":"2006-06-17 14:59:14.000000","timezone_type":3,"timezone":"UTC"},"duration":32,"object_shape":"alias","number_of_observers":6,"details":"Ipsum ea vel consequatur eum. Velit ipsa distinctio rerum ducimus tenetur. Incidunt ipsum consequatur nihil mollitia voluptas in et. Nemo ducimus deleniti non tempora facere."}],"links":{"first":"\/?page=1","last":"\/?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"\/?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"\/","per_page":15,"to":2,"total":2}}'
+        headers: []
+        description: ''
         custom: []
     responseFields: []
     auth: []
@@ -135,7 +130,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Get a report'
-      description: 'This endpoint allows you to get a report.'
+      description: 'Get a report by id.'
       authenticated: false
       custom: []
     headers:
@@ -146,12 +141,12 @@ endpoints:
         name: id
         description: 'The ID of the report.'
         required: true
-        example: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+        example: null
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      id: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+      id: null
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -160,14 +155,9 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":"9a746417-6bbc-41f1-8c9b-28404c87d10e","user_id":"9a746417-6294-47c7-be09-d382b9dabc26","summary":"Quasi quia consectetur hic ad dolorum aperiam molestiae.","country":"Jersey","state":"Delaware","city":"Connertown","lat":"-63.65556400","long":"-62.09172000","date":"1994-04-11 17:57:06","duration":59,"object_shape":"ex","number_of_observers":2,"details":"Sit est nisi est. Voluptatem accusamus libero voluptas distinctio soluta. Placeat voluptas assumenda voluptatem quod velit harum quia incidunt. Aut veritatis molestiae quisquam dolore quis a.","images":[]}}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '58'
-          access-control-allow-origin: '*'
-        description: null
+        content: '{"data":{"id":"9a7aa651-68d7-4843-98e2-1a981245bcc0","user_id":"9a7aa651-6806-4f84-933c-ae261819fe9c","summary":"Ratione et corporis aut incidunt.","country":"Turkey","state":"Oregon","city":"Aufderharville","lat":10.291408,"long":134.844031,"date":{"date":"2004-04-06 05:01:40.000000","timezone_type":3,"timezone":"UTC"},"duration":19,"object_shape":"accusantium","number_of_observers":1,"details":"Qui dolore numquam fugit ut animi voluptas cupiditate dolor. Eum sint sunt sit rerum eos aspernatur aperiam autem. Sed maxime et aut temporibus est."}}'
+        headers: []
+        description: ''
         custom: []
     responseFields: []
     auth: []
@@ -187,7 +177,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Create a new report'
-      description: 'This endpoint allows you to create a new report.'
+      description: 'Create a new report for the authenticated user.'
       authenticated: true
       custom: []
     headers:
@@ -201,111 +191,117 @@ endpoints:
     bodyParameters:
       summary:
         name: summary
-        description: 'Must not be greater than 150 characters.'
+        description: 'The summary of the report. Must not be greater than 150 characters.'
         required: true
-        example: xponvjxkwc
+        example: 'I saw a UFO'
         type: string
         enumValues: []
         custom: []
       details:
         name: details
-        description: 'Must not be greater than 1500 characters.'
+        description: 'The details of the report. Must not be greater than 1500 characters.'
         required: true
-        example: pxqznrqakulxeq
+        example: 'I saw a UFO in the sky'
         type: string
         enumValues: []
         custom: []
       country:
         name: country
-        description: 'Must not be greater than 255 characters.'
+        description: 'The country of the report. Must not be greater than 255 characters.'
         required: true
-        example: jadbabldns
+        example: US
         type: string
         enumValues: []
         custom: []
       state:
         name: state
-        description: 'Must not be greater than 255 characters.'
+        description: 'The state of the report. Must not be greater than 255 characters.'
         required: true
-        example: axidkowftwqsnbehhb
+        example: California
         type: string
         enumValues: []
         custom: []
       city:
         name: city
-        description: 'Must not be greater than 255 characters.'
+        description: 'The city of the report. Must not be greater than 255 characters.'
         required: true
-        example: eodilhmhxibygj
+        example: 'Los Angeles'
         type: string
         enumValues: []
         custom: []
       lat:
         name: lat
-        description: ''
+        description: 'The latitude of the report.'
         required: true
-        example: 602171.44589
+        example: 34.052235
         type: number
         enumValues: []
         custom: []
       long:
         name: long
-        description: ''
+        description: 'The longitude of the report.'
         required: true
-        example: 117765075.2
+        example: -118.243683
         type: number
         enumValues: []
         custom: []
       date:
         name: date
-        description: 'Must be a valid date.'
+        description: 'The date of the report. Must be a valid date.'
         required: true
-        example: '2023-10-27T14:54:57'
+        example: '2021-01-01'
         type: string
         enumValues: []
         custom: []
       duration:
         name: duration
-        description: ''
+        description: 'The duration of the sighting in seconds.'
         required: true
-        example: 1927.5562212
-        type: number
+        example: 60
+        type: integer
         enumValues: []
         custom: []
       number_of_observers:
         name: number_of_observers
-        description: ''
+        description: 'The number of observers.'
         required: true
-        example: 134199.5408
+        example: 1.0
         type: number
         enumValues: []
         custom: []
       object_shape:
         name: object_shape
-        description: 'Must not be greater than 255 characters.'
+        description: 'The shape of the object. Must not be greater than 255 characters.'
         required: false
-        example: gislgr
+        example: Triangle
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      summary: xponvjxkwc
-      details: pxqznrqakulxeq
-      country: jadbabldns
-      state: axidkowftwqsnbehhb
-      city: eodilhmhxibygj
-      lat: 602171.44589
-      long: 117765075.2
-      date: '2023-10-27T14:54:57'
-      duration: 1927.5562212
-      number_of_observers: 134199.5408
-      object_shape: gislgr
+      summary: 'I saw a UFO'
+      details: 'I saw a UFO in the sky'
+      country: US
+      state: California
+      city: 'Los Angeles'
+      lat: 34.052235
+      long: -118.243683
+      date: '2021-01-01'
+      duration: 60
+      number_of_observers: 1.0
+      object_shape: Triangle
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"9a7aa651-9459-400f-a2ec-8fcea13159c7","user_id":"9a7aa651-93a8-4bcc-b996-90c16e86e516","summary":"Dolor quo et placeat et qui.","country":"Liechtenstein","state":"Arkansas","city":"West Briastad","lat":-87.025865,"long":109.954719,"date":{"date":"2001-10-04 21:55:26.000000","timezone_type":3,"timezone":"UTC"},"duration":47,"object_shape":"sapiente","number_of_observers":7,"details":"Itaque sit quia incidunt aut. Incidunt recusandae dignissimos voluptatum quidem. Eum quos voluptas quas rerum maiores qui."}}'
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer EadvZ3cP68aeVh5kgfD41b6'
+      - 'Bearer 5dE3c1f66ZakvbagDV4Phe8'
     controller: null
     method: null
     route: null
@@ -323,7 +319,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Update a report'
-      description: 'This endpoint allows you to update a report.'
+      description: 'Update a report for the authenticated user.'
       authenticated: true
       custom: []
     headers:
@@ -335,122 +331,128 @@ endpoints:
         name: id
         description: 'The ID of the report.'
         required: true
-        example: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+        example: null
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      id: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+      id: null
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       summary:
         name: summary
-        description: 'Must not be greater than 150 characters.'
+        description: 'The summary of the report. Must not be greater than 150 characters.'
         required: true
-        example: udgzzpzfjokdurznfzr
+        example: 'I saw a UFO'
         type: string
         enumValues: []
         custom: []
       details:
         name: details
-        description: 'Must not be greater than 1500 characters.'
+        description: 'The details of the report. Must not be greater than 1500 characters.'
         required: true
-        example: oqhbpkhjjto
+        example: 'I saw a UFO in the sky'
         type: string
         enumValues: []
         custom: []
       country:
         name: country
-        description: 'Must not be greater than 255 characters.'
+        description: 'The country of the report. Must not be greater than 255 characters.'
         required: true
-        example: wmxjeaonuhprilxyi
+        example: US
         type: string
         enumValues: []
         custom: []
       state:
         name: state
-        description: 'Must not be greater than 255 characters.'
+        description: 'The state of the report. Must not be greater than 255 characters.'
         required: true
-        example: oofhtab
+        example: California
         type: string
         enumValues: []
         custom: []
       city:
         name: city
-        description: 'Must not be greater than 255 characters.'
+        description: 'The city of the report. Must not be greater than 255 characters.'
         required: true
-        example: pfdmjiouxiwxbpyehyczgko
+        example: 'Los Angeles'
         type: string
         enumValues: []
         custom: []
       lat:
         name: lat
-        description: ''
+        description: 'The latitude of the report.'
         required: true
-        example: 24.45
+        example: 34.052235
         type: number
         enumValues: []
         custom: []
       long:
         name: long
-        description: ''
+        description: 'The longitude of the report.'
         required: true
-        example: 4377.12
+        example: -118.243683
         type: number
         enumValues: []
         custom: []
       date:
         name: date
-        description: 'Must be a valid date.'
+        description: 'The date of the report. Must be a valid date.'
         required: true
-        example: '2023-10-27T14:54:57'
+        example: '2021-01-01'
         type: string
         enumValues: []
         custom: []
       duration:
         name: duration
-        description: ''
+        description: 'The duration of the sighting in seconds.'
         required: true
-        example: 2.0
-        type: number
+        example: 60
+        type: integer
         enumValues: []
         custom: []
       number_of_observers:
         name: number_of_observers
-        description: ''
+        description: 'The number of observers.'
         required: true
-        example: 10975.2217376
+        example: 1.0
         type: number
         enumValues: []
         custom: []
       object_shape:
         name: object_shape
-        description: 'Must not be greater than 255 characters.'
+        description: 'The shape of the object. Must not be greater than 255 characters.'
         required: false
-        example: z
+        example: Triangle
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      summary: udgzzpzfjokdurznfzr
-      details: oqhbpkhjjto
-      country: wmxjeaonuhprilxyi
-      state: oofhtab
-      city: pfdmjiouxiwxbpyehyczgko
-      lat: 24.45
-      long: 4377.12
-      date: '2023-10-27T14:54:57'
-      duration: 2.0
-      number_of_observers: 10975.2217376
-      object_shape: z
+      summary: 'I saw a UFO'
+      details: 'I saw a UFO in the sky'
+      country: US
+      state: California
+      city: 'Los Angeles'
+      lat: 34.052235
+      long: -118.243683
+      date: '2021-01-01'
+      duration: 60
+      number_of_observers: 1.0
+      object_shape: Triangle
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"9a7aa651-9965-4304-a1ae-b9c08f2ac630","user_id":"9a7aa651-98c2-4ecf-af2a-4c2d8c8dcc2e","summary":"Dicta et et hic quis.","country":"New Zealand","state":"Virginia","city":"West Cassandreburgh","lat":-81.284104,"long":-104.119589,"date":{"date":"2002-04-25 13:23:13.000000","timezone_type":3,"timezone":"UTC"},"duration":19,"object_shape":"qui","number_of_observers":3,"details":"Odit necessitatibus deleniti minus doloremque corrupti est. Excepturi molestiae itaque maxime sint. Illum ipsum commodi consequatur accusamus repellat. Voluptas provident facilis ipsa aut iste non."}}'
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer bk4evcg6E8a3aVd1fZh5DP6'
+      - 'Bearer hk6Ze5D4aV3Evcg1b8af6dP'
     controller: null
     method: null
     route: null
@@ -467,7 +469,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Delete a report'
-      description: 'This endpoint allows you to delete a report.'
+      description: 'Delete a report belonging to the authenticated user.'
       authenticated: true
       custom: []
     headers:
@@ -479,23 +481,29 @@ endpoints:
         name: id
         description: 'The ID of the report.'
         required: true
-        example: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+        example: null
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      id: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+      id: null
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 204
+        content: '{}'
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer fZaPEaV1hcdv8b4gD6ke365'
+      - 'Bearer bPkva6De56fa1E8c4VgZdh3'
     controller: null
     method: null
     route: null
@@ -512,7 +520,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'List report images'
-      description: 'This endpoint allows you to get the images of a report.'
+      description: 'Get the images of a report.'
       authenticated: false
       custom: []
     headers:
@@ -523,12 +531,12 @@ endpoints:
         name: report_id
         description: 'The ID of the report.'
         required: true
-        example: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+        example: null
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      report_id: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+      report_id: null
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -536,13 +544,10 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+        status: 200
+        content: '{"data":[{"id":145,"url":"http:\/\/ufo.test\/storage\/https:\/\/via.placeholder.com\/640x480.png\/005555?text=quo"},{"id":146,"url":"http:\/\/ufo.test\/storage\/https:\/\/via.placeholder.com\/640x480.png\/0099aa?text=corporis"}],"links":{"first":"\/?page=1","last":"\/?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"\/?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"\/","per_page":15,"to":2,"total":2}}'
+        headers: []
+        description: ''
         custom: []
     responseFields: []
     auth: []
@@ -562,7 +567,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Upload images'
-      description: 'This endpoint allows you to upload images'
+      description: 'Upload images for a report.'
       authenticated: true
       custom: []
     headers:
@@ -574,12 +579,12 @@ endpoints:
         name: report_id
         description: 'The ID of the report.'
         required: true
-        example: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+        example: null
         type: string
         enumValues: []
         custom: []
     cleanUrlParameters:
-      report_id: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+      report_id: null
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -596,12 +601,18 @@ endpoints:
     fileParameters:
       images:
         - null
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":147,"url":"http:\/\/ufo.test\/storage\/https:\/\/via.placeholder.com\/640x480.png\/001111?text=impedit"},{"id":148,"url":"http:\/\/ufo.test\/storage\/https:\/\/via.placeholder.com\/640x480.png\/0088aa?text=architecto"}]}'
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer fZ5DgEk41a8hvV6bePad63c'
+      - 'Bearer V6aec5186gDZbEd4f3aPvhk'
     controller: null
     method: null
     route: null
@@ -618,7 +629,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Delete an image'
-      description: 'This endpoint allows you to delete an image of a report.'
+      description: 'Delete an image of a report.'
       authenticated: true
       custom: []
     headers:
@@ -630,7 +641,7 @@ endpoints:
         name: report_id
         description: 'The ID of the report.'
         required: true
-        example: 9a746417-6bbc-41f1-8c9b-28404c87d10e
+        example: null
         type: string
         enumValues: []
         custom: []
@@ -638,24 +649,30 @@ endpoints:
         name: id
         description: 'The ID of the image.'
         required: true
-        example: 9
+        example: 2
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      report_id: 9a746417-6bbc-41f1-8c9b-28404c87d10e
-      id: 9
+      report_id: null
+      id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 204
+        content: '{}'
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer V6ehd4g1a5kEcfZPa86v3Db'
+      - 'Bearer cg1f536Da8P6EedVvZka4bh'
     controller: null
     method: null
     route: null

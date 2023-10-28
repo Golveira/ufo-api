@@ -20,7 +20,9 @@ class ReportController extends Controller
     /**
      * List reports
      *
-     * This endpoint allows you to get a list of reports.
+     * Get a list of reports.
+     * @apiResourceCollection App\Http\Resources\ReportResource
+     * @apiResourceModel App\Models\Report paginate=15
      */
     public function index(ReportListRequest $request): ResourceCollection
     {
@@ -35,9 +37,11 @@ class ReportController extends Controller
     /**
      * Create a new report
      *
-     * This endpoint allows you to create a new report.
+     * Create a new report for the authenticated user.
      *
      * @authenticated
+     * @apiResource App\Http\Resources\ReportResource
+     * @apiResourceModel App\Models\Report
      */
     public function store(ReportRequest $request): ReportResource
     {
@@ -51,7 +55,10 @@ class ReportController extends Controller
     /**
      * Get a report
      *
-     * This endpoint allows you to get a report.
+     * Get a report by id.
+     * @urlParam id required The ID of the report. No-example
+     * @apiResource App\Http\Resources\ReportResource
+     * @apiResourceModel App\Models\Report
      */
     public function show(Report $report): ReportResource
     {
@@ -61,9 +68,12 @@ class ReportController extends Controller
     /**
      * Update a report
      *
-     * This endpoint allows you to update a report.
+     * Update a report for the authenticated user.
      *
      * @authenticated
+     * @urlParam id required The ID of the report. No-example
+     * @apiResource App\Http\Resources\ReportResource
+     * @apiResourceModel App\Models\Report
      */
     public function update(ReportRequest $request, Report $report): ReportResource
     {
@@ -77,9 +87,11 @@ class ReportController extends Controller
     /**
      * Delete a report
      *
-     * This endpoint allows you to delete a report.
+     * Delete a report belonging to the authenticated user.
      *
-     *  @authenticated
+     * @authenticated
+     * @urlParam id required The ID of the report. No-example
+     * @response 204
      */
     public function destroy(Report $report): Response
     {

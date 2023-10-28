@@ -13,6 +13,9 @@ class UserResource extends JsonResource
             'id' => $this->id,
             'username' => $this->username,
             'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'reports_count' => $this->whenCounted('reports'),
+            'dossiers_count' => $this->whenCounted('dossiers'),
         ];
     }
 }

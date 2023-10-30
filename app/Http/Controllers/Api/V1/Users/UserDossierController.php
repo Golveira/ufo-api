@@ -20,6 +20,7 @@ class UserDossierController extends Controller
      * Get a list of dossiers belonging to the authenticated user.
      *
      * @apiResourceCollection App\Http\Resources\DossierResource
+     *
      * @apiResourceModel App\Models\Dossier paginate=15
      */
     public function index(Request $request): ResourceCollection

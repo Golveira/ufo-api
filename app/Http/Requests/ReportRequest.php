@@ -23,7 +23,7 @@ class ReportRequest extends FormRequest
             'long' => ['required', 'numeric'],
             'date' => ['required', 'date'],
             'duration' => ['required', 'integer'],
-            'number_of_observers'  => ['required', 'numeric'],
+            'number_of_observers' => ['required', 'numeric'],
             'object_shape' => ['nullable', 'string', 'max:255'],
         ];
     }
@@ -33,47 +33,47 @@ class ReportRequest extends FormRequest
         return [
             'summary' => [
                 'description' => 'The summary of the report',
-                'example' => 'I saw a UFO'
+                'example' => 'I saw a UFO',
             ],
             'details' => [
                 'description' => 'The details of the report',
-                'example' => 'I saw a UFO in the sky'
+                'example' => 'I saw a UFO in the sky',
             ],
             'country' => [
                 'description' => 'The country of the report',
-                'example' => 'US'
+                'example' => 'US',
             ],
             'state' => [
                 'description' => 'The state of the report',
-                'example' => 'California'
+                'example' => 'California',
             ],
             'city' => [
                 'description' => 'The city of the report',
-                'example' => 'Los Angeles'
+                'example' => 'Los Angeles',
             ],
             'lat' => [
                 'description' => 'The latitude of the report',
-                'example' => '34.052235'
+                'example' => '34.052235',
             ],
             'long' => [
                 'description' => 'The longitude of the report',
-                'example' => '-118.243683'
+                'example' => '-118.243683',
             ],
             'date' => [
                 'description' => 'The date of the report',
-                'example' => '2021-01-01'
+                'example' => '2021-01-01',
             ],
             'duration' => [
                 'description' => 'The duration of the sighting in seconds',
-                'example' => '60'
+                'example' => '60',
             ],
             'number_of_observers' => [
                 'description' => 'The number of observers',
-                'example' => '1'
+                'example' => '1',
             ],
             'object_shape' => [
                 'description' => 'The shape of the object',
-                'example' => 'Triangle'
+                'example' => 'Triangle',
             ],
         ];
     }

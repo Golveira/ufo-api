@@ -11,7 +11,7 @@ class RegisterTest extends TestCase
         $response = $this->postJson('/api/v1/auth/register', [
             'email' => 'user@user.com',
             'password' => 'password',
-            'password_confirmation' => 'password'
+            'password_confirmation' => 'password',
         ]);
 
         $response
@@ -24,7 +24,7 @@ class RegisterTest extends TestCase
         $response = $this->postJson('/api/v1/auth/register', [
             'email' => 'user@user.com',
             'password' => 'password',
-            'password_confirmation' => 'wrongpassword'
+            'password_confirmation' => 'wrongpassword',
         ]);
 
         $response->assertUnprocessable();

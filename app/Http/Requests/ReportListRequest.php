@@ -22,7 +22,7 @@ class ReportListRequest extends FormRequest
             'dateFrom' => ['date'],
             'dateTo' => ['date', 'after:dateFrom'],
             'sortBy' => ['string', Rule::in(['date'])],
-            'sortOrder' => ['string', Rule::in(['asc', 'desc'])]
+            'sortOrder' => ['string', Rule::in(['asc', 'desc'])],
         ];
     }
 
@@ -35,7 +35,7 @@ class ReportListRequest extends FormRequest
             'city.string' => 'The city cannot be empty',
             'dateFrom.date' => 'The dateFrom must be a valid date',
             'dateTo.date' => 'The dateTo must be a valid date',
-            'dateTo.after' => 'The dateTo must be after the dateFrom'
+            'dateTo.after' => 'The dateTo must be after the dateFrom',
         ];
     }
 
@@ -44,36 +44,36 @@ class ReportListRequest extends FormRequest
         return [
             'keywords' => [
                 'description' => 'Keywords to search for',
-                'example' => 'ufo'
+                'example' => 'ufo',
             ],
             'country' => [
                 'description' => 'Country to search for',
-                'example' => 'USA'
+                'example' => 'USA',
             ],
             'state' => [
                 'description' => 'State to search for',
-                'example' => 'California'
+                'example' => 'California',
             ],
             'city' => [
                 'description' => 'City to search for',
-                'example' => 'Los Angeles'
+                'example' => 'Los Angeles',
             ],
             'dateFrom' => [
                 'description' => 'Start date to search for',
-                'example' => '2000-01-01'
+                'example' => '2000-01-01',
             ],
             'dateTo' => [
                 'description' => 'End date to search for',
-                'example' => '2010-01-01'
+                'example' => '2010-01-01',
             ],
             'sortBy' => [
                 'description' => 'Field to sort by',
-                'example' => 'date'
+                'example' => 'date',
             ],
             'sortOrder' => [
                 'description' => 'Sort order',
-                'example' => 'asc'
-            ]
+                'example' => 'asc',
+            ],
         ];
     }
 }

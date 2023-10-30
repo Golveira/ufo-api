@@ -13,7 +13,7 @@ class UserTest extends TestCase
     {
         User::factory()->count(16)->create();
 
-        $this->get("api/v1/users")
+        $this->get('api/v1/users')
             ->assertOk()
             ->assertJsonCount(15, 'data')
             ->assertJsonPath('meta.last_page', 2);
@@ -30,7 +30,7 @@ class UserTest extends TestCase
 
     public function test_non_existing_user_is_not_shown(): void
     {
-        $this->get("api/v1/users/1")
+        $this->get('api/v1/users/1')
             ->assertNotFound();
     }
 
@@ -38,14 +38,14 @@ class UserTest extends TestCase
     {
         $user = User::factory()->create([
             'email' => 'email@old.com',
-            'password' => 'oldpassword'
+            'password' => 'oldpassword',
         ]);
 
         Sanctum::actingAs($user);
 
-        $this->putJson("api/v1/user", [
+        $this->putJson('api/v1/user', [
             'email' => 'email@new.com',
-            'password' => 'newpassword'
+            'password' => 'newpassword',
         ])
             ->assertOk()
             ->assertJsonFragment(['id' => $user->id]);
@@ -56,7 +56,7 @@ class UserTest extends TestCase
         $this->assertDatabaseHas('users', [
             'id' => $user->id,
             'username' => $user->username,
-            'email' => 'email@new.com'
+            'email' => 'email@new.com',
         ]);
     }
 }

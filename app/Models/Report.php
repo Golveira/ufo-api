@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
-use App\Models\Dossier;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Report extends Model
 {
@@ -26,7 +25,7 @@ class Report extends Model
         'duration',
         'object_shape',
         'number_of_observers',
-        'details'
+        'details',
     ];
 
     public function user(): BelongsTo
@@ -49,8 +48,8 @@ class Report extends Model
         return $query
             ->when($filters['keywords'] ?? false, function ($query) use ($filters) {
                 return $query->where(function ($query) use ($filters) {
-                    $query->where('summary', 'like', '%' . $filters['keywords'] . '%')
-                        ->orWhere('details', 'like', '%' . $filters['keywords'] . '%');
+                    $query->where('summary', 'like', '%'.$filters['keywords'].'%')
+                        ->orWhere('details', 'like', '%'.$filters['keywords'].'%');
                 });
             })
             ->when($filters['country'] ?? false, function ($query) use ($filters) {

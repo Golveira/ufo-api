@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Api\V1\Auth;
 
-use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\RegisterRequest;
+use App\Models\User;
+use Illuminate\Http\JsonResponse;
 
 /**
  * @group Auth
@@ -17,9 +18,10 @@ class RegisterController extends Controller
      * Register
      *
      * Register a new user.
+     *
      * @response 200 { "access_token": "xxxxxxxx" }
      */
-    public function store(RegisterRequest $request)
+    public function store(RegisterRequest $request): JsonResponse
     {
         $user = User::create([
             'username' => User::generateUsername(),

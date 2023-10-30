@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api\V1\Reports;
 
-use App\Models\Report;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ReportResource;
 use App\Http\Requests\ReportListRequest;
 use App\Http\Requests\ReportRequest;
+use App\Http\Resources\ReportResource;
+use App\Models\Report;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Http\Response;
 
@@ -21,7 +21,9 @@ class ReportController extends Controller
      * List reports
      *
      * Get a list of reports.
+     *
      * @apiResourceCollection App\Http\Resources\ReportResource
+     *
      * @apiResourceModel App\Models\Report paginate=15
      */
     public function index(ReportListRequest $request): ResourceCollection
@@ -40,7 +42,9 @@ class ReportController extends Controller
      * Create a report on behalf of the authenticated user.
      *
      * @authenticated
+     *
      * @apiResource App\Http\Resources\ReportResource
+     *
      * @apiResourceModel App\Models\Report
      */
     public function store(ReportRequest $request): ReportResource
@@ -58,7 +62,9 @@ class ReportController extends Controller
      * Returns a single report specified by the ID.
      *
      * @urlParam id string required The ID of the report. No-example
+     *
      * @apiResource App\Http\Resources\ReportResource
+     *
      * @apiResourceModel App\Models\Report with=images
      */
     public function show(Report $report): ReportResource
@@ -72,8 +78,11 @@ class ReportController extends Controller
      * Allows an authenticated user to update a report.
      *
      * @authenticated
+     *
      * @urlParam id string required The ID of the report. No-example
+     *
      * @apiResource App\Http\Resources\ReportResource
+     *
      * @apiResourceModel App\Models\Report
      */
     public function update(ReportRequest $request, Report $report): ReportResource
@@ -91,7 +100,9 @@ class ReportController extends Controller
      * Allows an authenticated user to delete a report.
      *
      * @authenticated
+     *
      * @urlParam id string required The ID of the report. No-example
+     *
      * @response 204
      */
     public function destroy(Report $report): Response

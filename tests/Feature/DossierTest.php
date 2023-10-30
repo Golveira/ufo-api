@@ -14,7 +14,7 @@ class DossierTest extends TestCase
     {
         Dossier::factory(16)->has(Report::factory(3))->create();
 
-        $this->get("api/v1/dossiers")
+        $this->get('api/v1/dossiers')
             ->assertOk()
             ->assertJsonCount(15, 'data')
             ->assertJsonPath('meta.last_page', 2);
@@ -27,7 +27,7 @@ class DossierTest extends TestCase
 
         Sanctum::actingAs($user);
 
-        $this->get("api/v1/user/dossiers")
+        $this->get('api/v1/user/dossiers')
             ->assertOk()
             ->assertJsonCount(1, 'data')
             ->assertJsonPath('meta.last_page', 1)
@@ -47,13 +47,13 @@ class DossierTest extends TestCase
     {
         Dossier::factory()->create();
 
-        $this->get("api/v1/dossiers/123456789")
+        $this->get('api/v1/dossiers/123456789')
             ->assertNotFound();
     }
 
     public function test_unauthenticated_user_cannot_create_dossier(): void
     {
-        $this->postJson("api/v1/dossiers")
+        $this->postJson('api/v1/dossiers')
             ->assertUnauthorized();
     }
 
@@ -64,7 +64,7 @@ class DossierTest extends TestCase
 
         Sanctum::actingAs($user);
 
-        $this->postJson("api/v1/dossiers", $dossierData)
+        $this->postJson('api/v1/dossiers', $dossierData)
             ->assertCreated()
             ->assertJsonFragment($dossierData);
     }
@@ -75,7 +75,7 @@ class DossierTest extends TestCase
 
         Sanctum::actingAs($user);
 
-        $this->postJson("api/v1/dossiers", [])
+        $this->postJson('api/v1/dossiers', [])
             ->assertUnprocessable();
     }
 
@@ -164,7 +164,7 @@ class DossierTest extends TestCase
         Sanctum::actingAs($user);
 
         $this->postJson("api/v1/dossiers/$dossier->id/reports", [
-            'report_id' => $report->id
+            'report_id' => $report->id,
         ])
             ->assertNoContent();
 
@@ -182,7 +182,7 @@ class DossierTest extends TestCase
         Sanctum::actingAs($user);
 
         $this->postJson("api/v1/dossiers/$dossier->id/reports", [
-            'report_id' => $report->id
+            'report_id' => $report->id,
         ])
             ->assertForbidden();
     }
@@ -219,7 +219,7 @@ class DossierTest extends TestCase
     {
         return [
             'title' => 'dossier title',
-            'description' => 'dossier description'
+            'description' => 'dossier description',
         ];
     }
 }

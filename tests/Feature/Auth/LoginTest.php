@@ -2,8 +2,8 @@
 
 namespace Tests\Feature\Auth;
 
-use Tests\TestCase;
 use App\Models\User;
+use Tests\TestCase;
 
 class LoginTest extends TestCase
 {
@@ -13,9 +13,9 @@ class LoginTest extends TestCase
             'email' => 'user@user.com',
         ]);
 
-        $response =  $this->postJson('/api/v1/auth/login', [
+        $response = $this->postJson('/api/v1/auth/login', [
             'email' => 'user@user.com',
-            'password' => 'password'
+            'password' => 'password',
         ]);
 
         $response
@@ -29,9 +29,9 @@ class LoginTest extends TestCase
             'email' => 'user@user.com',
         ]);
 
-        $response =  $this->postJson('/api/v1/auth/login', [
+        $response = $this->postJson('/api/v1/auth/login', [
             'email' => 'user@user.com',
-            'password' => 'wrongpassword'
+            'password' => 'wrongpassword',
         ]);
 
         $response

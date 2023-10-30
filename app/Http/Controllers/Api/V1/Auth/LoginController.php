@@ -19,13 +19,14 @@ class LoginController extends Controller
      * Login
      *
      * Login a user.
+     *
      * @response 200 { "access_token": "xxxxxxxx" }
      */
     public function store(LoginRequest $request): JsonResponse
     {
-        if (!Auth::attempt($request->only('email', 'password'))) {
+        if (! Auth::attempt($request->only('email', 'password'))) {
             return response()->json([
-                'message' => 'Invalid credentials'
+                'message' => 'Invalid credentials',
             ], Response::HTTP_UNAUTHORIZED);
         }
 

@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Dossier;
-use App\Models\User;
 use App\Models\Image;
 use App\Models\Report;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder

@@ -2,14 +2,14 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
-use App\Models\User;
+use App\Exceptions\MaxImagesUploadException;
 use App\Models\Image;
 use App\Models\Report;
-use Laravel\Sanctum\Sanctum;
+use App\Models\User;
 use Illuminate\Http\UploadedFile;
-use App\Exceptions\MaxImagesUploadException;
 use Illuminate\Support\Facades\Storage;
+use Laravel\Sanctum\Sanctum;
+use Tests\TestCase;
 
 class ReportImageTest extends TestCase
 {
@@ -20,7 +20,7 @@ class ReportImageTest extends TestCase
         $report = Report::factory()->create();
 
         $this->postJson("api/v1/reports/$report->id/images", [
-            "images" => [UploadedFile::fake('ufo.jpg')]
+            'images' => [UploadedFile::fake('ufo.jpg')],
         ])
             ->assertUnauthorized();
     }
@@ -36,7 +36,7 @@ class ReportImageTest extends TestCase
         Sanctum::actingAs($user);
 
         $this->postJson("api/v1/reports/$report->id/images", [
-            "images" => [UploadedFile::fake()->image('ufo.jpg')]
+            'images' => [UploadedFile::fake()->image('ufo.jpg')],
         ])
             ->assertForbidden();
     }
@@ -57,10 +57,10 @@ class ReportImageTest extends TestCase
         $this->expectException(MaxImagesUploadException::class);
 
         $this->postJson("api/v1/reports/$report->id/images", [
-            "images" => [
+            'images' => [
                 UploadedFile::fake()->image('ufo1.jpg'),
                 UploadedFile::fake()->image('ufo2.jpg'),
-            ]
+            ],
         ]);
     }
 
@@ -74,10 +74,10 @@ class ReportImageTest extends TestCase
         Sanctum::actingAs($user);
 
         $this->postJson("api/v1/reports/$report->id/images", [
-            "images" => [
+            'images' => [
                 UploadedFile::fake()->image('ufo1.jpg'),
                 UploadedFile::fake()->image('ufo2.jpg'),
-            ]
+            ],
         ]);
 
         $this->assertCount(2, $report->images);

@@ -20,6 +20,7 @@ class UserReportController extends Controller
      * Get a list of reports belonging to the authenticated user.
      *
      * @apiResourceCollection App\Http\Resources\ReportResource
+     *
      * @apiResourceModel App\Models\Report paginate=15
      */
     public function index(Request $request): ResourceCollection

@@ -22,6 +22,7 @@ class DossierController extends Controller
      * Get a list of dossiers.
      *
      * @apiResourceCollection App\Http\Resources\DossierResource
+     *
      * @apiResourceModel App\Models\Dossier with=user paginate=15
      */
     public function index(): ResourceCollection
@@ -40,7 +41,9 @@ class DossierController extends Controller
      * Create a new dossier on behalf of the authenticated user.
      *
      * @authenticated
+     *
      * @apiResource App\Http\Resources\DossierResource
+     *
      * @apiResourceModel App\Models\Dossier
      */
     public function store(DossierRequest $request): DossierResource
@@ -58,7 +61,9 @@ class DossierController extends Controller
      * Returns a single dossier specified by the ID.
      *
      * @urlParam id required The ID of the dossier. No-example
+     *
      * @apiResource App\Http\Resources\DossierResource
+     *
      * @apiResourceModel App\Models\Dossier with=user
      */
     public function show(Dossier $dossier): DossierResource
@@ -74,8 +79,11 @@ class DossierController extends Controller
      * Allows an authenticated user to update a dossier.
      *
      * @authenticated
+     *
      * @urlParam id required The ID of the dossier. No-example
+     *
      * @apiResource App\Http\Resources\DossierResource
+     *
      * @apiResourceModel App\Models\Dossier
      */
     public function update(DossierRequest $request, Dossier $dossier): DossierResource
@@ -93,7 +101,9 @@ class DossierController extends Controller
      * Allows an authenticated user to delete a dossier.
      *
      * @authenticated
+     *
      * @urlParam id required The ID of the dossier. No-example
+     *
      * @response 204
      */
     public function destroy(Dossier $dossier): Response

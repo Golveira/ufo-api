@@ -2,11 +2,11 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
-use App\Models\User;
-use App\Models\Report;
 use App\Models\Dossier;
+use App\Models\Report;
+use App\Models\User;
 use Laravel\Sanctum\Sanctum;
+use Tests\TestCase;
 
 class ReportTest extends TestCase
 {
@@ -14,7 +14,7 @@ class ReportTest extends TestCase
     {
         Report::factory()->count(16)->create();
 
-        $this->get("/api/v1/reports")
+        $this->get('/api/v1/reports')
             ->assertOk()
             ->assertJsonCount(15, 'data')
             ->assertJsonPath('meta.last_page', 2);
@@ -27,7 +27,7 @@ class ReportTest extends TestCase
 
         Sanctum::actingAs($user);
 
-        $this->get("api/v1/user/reports")
+        $this->get('api/v1/user/reports')
             ->assertOk()
             ->assertJsonCount(1, 'data')
             ->assertJsonPath('meta.last_page', 1)
@@ -57,14 +57,14 @@ class ReportTest extends TestCase
     {
         Report::factory()->create();
 
-        $this->get("api/v1/reports/123456789")
+        $this->get('api/v1/reports/123456789')
             ->assertNotFound()
             ->assertJson(['message' => 'Resource not found']);
     }
 
     public function test_unauthenticated_user_cannot_create_report(): void
     {
-        $this->postJson("api/v1/reports")
+        $this->postJson('api/v1/reports')
             ->assertUnauthorized();
     }
 
@@ -75,7 +75,7 @@ class ReportTest extends TestCase
 
         Sanctum::actingAs($user);
 
-        $this->postJson("api/v1/reports", $reportData)
+        $this->postJson('api/v1/reports', $reportData)
             ->assertCreated()
             ->assertJsonFragment($reportData);
 
@@ -88,7 +88,7 @@ class ReportTest extends TestCase
 
         Sanctum::actingAs($user);
 
-        $this->postJson("api/v1/reports", [])
+        $this->postJson('api/v1/reports', [])
             ->assertUnprocessable();
     }
 

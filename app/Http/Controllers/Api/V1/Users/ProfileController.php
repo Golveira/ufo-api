@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Api\V1\Users;
 
-use Illuminate\Http\Request;
-use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserRequest;
 use App\Http\Resources\UserResource;
+use Illuminate\Http\Request;
 
 /**
  * @group Users
@@ -20,6 +20,7 @@ class ProfileController extends Controller
      * Returns the authenticated user.
      *
      * @apiResource App\Http\Resources\UserResource
+     *
      * @apiResourceModel App\Models\User
      */
     public function show(Request $request): UserResource
@@ -35,7 +36,9 @@ class ProfileController extends Controller
      * Update the email and password of the authenticated user.
      *
      * @authenticated
+     *
      * @apiResource App\Http\Resources\UserResource
+     *
      * @apiResourceModel App\Models\User
      */
     public function update(UserRequest $request): UserResource

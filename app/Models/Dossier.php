@@ -3,9 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Dossier extends Model
@@ -30,7 +30,7 @@ class Dossier extends Model
 
     public function addReport(string $reportId): void
     {
-        if (!$this->hasReport($reportId)) {
+        if (! $this->hasReport($reportId)) {
             $this->reports()->attach($reportId);
         }
     }

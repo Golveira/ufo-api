@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api\V1\Dossiers;
 
-use App\Models\Report;
-use App\Models\Dossier;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AddReportRequest;
 use App\Http\Resources\ReportResource;
+use App\Models\Dossier;
+use App\Models\Report;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Http\Response;
 
@@ -23,7 +23,9 @@ class DossierReportController extends Controller
      * Get a list of reports added to a dossier.
      *
      * @urlParam dossier_id required The ID of the dossier. No-example
+     *
      * @apiResourceCollection App\Http\Resources\ReportResource
+     *
      * @apiResourceModel App\Models\Report paginate=15
      */
     public function index(Dossier $dossier): ResourceCollection
@@ -42,7 +44,9 @@ class DossierReportController extends Controller
      * Add the specified report to a dossier.
      *
      * @authenticated
+     *
      * @urlParam dossier_id required The ID of the dossier. No-example
+     *
      * @response 204
      */
     public function store(AddReportRequest $request, Dossier $dossier): Response
@@ -60,7 +64,9 @@ class DossierReportController extends Controller
      * Remove the specified report from a dossier.
      *
      * @authenticated
+     *
      * @urlParam dossier_id required The ID of the dossier. No-example
+     *
      * @response 204
      */
     public function destroy(Dossier $dossier, Report $report): Response

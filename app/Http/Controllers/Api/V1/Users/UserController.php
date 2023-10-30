@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api\V1\Users;
 
-use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
+use App\Models\User;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 /**
@@ -20,6 +20,7 @@ class UserController extends Controller
      * Get a list of users.
      *
      * @apiResourceCollection App\Http\Resources\UserResource
+     *
      * @apiResourceModel App\Models\User paginate=15
      */
     public function index(): ResourceCollection
@@ -37,7 +38,9 @@ class UserController extends Controller
      * Returns a single user specified by the ID.
      *
      * @urlParam id string required The ID of the user. No-example
+     *
      * @apiResource App\Http\Resources\UserResource
+     *
      * @apiResourceModel App\Models\User
      */
     public function show(User $user): UserResource

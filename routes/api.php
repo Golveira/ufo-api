@@ -6,10 +6,10 @@ use App\Http\Controllers\Api\V1\Dossiers\DossierController;
 use App\Http\Controllers\Api\V1\Dossiers\DossierReportController;
 use App\Http\Controllers\Api\V1\Reports\ReportController;
 use App\Http\Controllers\Api\V1\Reports\ReportImageController;
-use App\Http\Controllers\Api\V1\User\ProfileController;
-use App\Http\Controllers\Api\V1\User\UserDossierController;
-use App\Http\Controllers\Api\V1\User\UserReportController;
-use App\Http\Controllers\Api\V1\UserController;
+use App\Http\Controllers\Api\V1\Users\ProfileController;
+use App\Http\Controllers\Api\V1\Users\UserDossierController;
+use App\Http\Controllers\Api\V1\Users\UserReportController;
+use App\Http\Controllers\Api\V1\Users\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function () {

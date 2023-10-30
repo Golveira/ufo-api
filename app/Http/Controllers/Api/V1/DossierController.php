@@ -20,20 +20,24 @@ class DossierController extends Controller
      * List dossiers
      *
      * Get a list of dossiers.
+     *
      * @apiResourceCollection App\Http\Resources\DossierResource
-     * @apiResourceModel App\Models\Dossier paginate=15
+     * @apiResourceModel App\Models\Dossier with=user paginate=15
      */
     public function index(): ResourceCollection
     {
         return DossierResource::collection(
-            Dossier::with('user')->withCount('reports')->latest()->paginate()
+            Dossier::with('user')
+                ->withCount('reports')
+                ->latest()
+                ->paginate()
         );
     }
 
     /**
      * Create a new dossier
      *
-     * Create a new dossier.
+     * Create a new dossier on behalf of the authenticated user.
      *
      * @authenticated
      * @apiResource App\Http\Resources\DossierResource
@@ -42,17 +46,20 @@ class DossierController extends Controller
     public function store(DossierRequest $request): DossierResource
     {
         return new DossierResource(
-            $request->user()->dossiers()->create($request->validated())
+            $request->user()
+                ->dossiers()
+                ->create($request->validated())
         );
     }
 
     /**
      * Get a dossier
      *
-     * Get a dossier by id.
+     * Returns a single dossier specified by the ID.
+     *
      * @urlParam id required The ID of the dossier. No-example
      * @apiResource App\Http\Resources\DossierResource
-     * @apiResourceModel App\Models\Dossier
+     * @apiResourceModel App\Models\Dossier with=user
      */
     public function show(Dossier $dossier): DossierResource
     {
@@ -64,7 +71,7 @@ class DossierController extends Controller
     /**
      * Update a dossier
      *
-     * Update and existing dossier.
+     * Allows an authenticated user to update a dossier.
      *
      * @authenticated
      * @urlParam id required The ID of the dossier. No-example
@@ -83,7 +90,7 @@ class DossierController extends Controller
     /**
      * Delete a dossier
      *
-     * Delete an existing dossier.
+     * Allows an authenticated user to delete a dossier.
      *
      * @authenticated
      * @urlParam id required The ID of the dossier. No-example

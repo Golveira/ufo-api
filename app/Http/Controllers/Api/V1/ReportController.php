@@ -37,7 +37,7 @@ class ReportController extends Controller
     /**
      * Create a new report
      *
-     * Create a new report for the authenticated user.
+     * Create a report on behalf of the authenticated user.
      *
      * @authenticated
      * @apiResource App\Http\Resources\ReportResource
@@ -55,10 +55,11 @@ class ReportController extends Controller
     /**
      * Get a report
      *
-     * Get a report by id.
-     * @urlParam id required The ID of the report. No-example
+     * Returns a single report specified by the ID.
+     *
+     * @urlParam id string required The ID of the report. No-example
      * @apiResource App\Http\Resources\ReportResource
-     * @apiResourceModel App\Models\Report
+     * @apiResourceModel App\Models\Report with=images
      */
     public function show(Report $report): ReportResource
     {
@@ -68,10 +69,10 @@ class ReportController extends Controller
     /**
      * Update a report
      *
-     * Update a report for the authenticated user.
+     * Allows an authenticated user to update a report.
      *
      * @authenticated
-     * @urlParam id required The ID of the report. No-example
+     * @urlParam id string required The ID of the report. No-example
      * @apiResource App\Http\Resources\ReportResource
      * @apiResourceModel App\Models\Report
      */
@@ -81,16 +82,16 @@ class ReportController extends Controller
 
         $report->update($request->validated());
 
-        return new ReportResource($report->load('images'));
+        return new ReportResource($report);
     }
 
     /**
      * Delete a report
      *
-     * Delete a report belonging to the authenticated user.
+     * Allows an authenticated user to delete a report.
      *
      * @authenticated
-     * @urlParam id required The ID of the report. No-example
+     * @urlParam id string required The ID of the report. No-example
      * @response 204
      */
     public function destroy(Report $report): Response

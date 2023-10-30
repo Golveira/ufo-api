@@ -23,27 +23,12 @@ class ReportImageController extends Controller
     }
 
     /**
-     * List report images
-     *
-     * Get the images of a report.
-     * @urlParam report_id required The ID of the report. No-example
-     * @apiResourceCollection App\Http\Resources\ImageResource
-     * @apiResourceModel App\Models\Image paginate=15
-     */
-    public function index(Report $report): ResourceCollection
-    {
-        $images = $report->images()->latest()->get();
-
-        return ImageResource::collection($images);
-    }
-
-    /**
      * Upload images
      *
      * Upload images for a report.
      *
      * @authenticated
-     * @urlParam report_id required The ID of the report. No-example
+     * @urlParam report_id string required The ID of the report. No-example
      * @apiResourceCollection App\Http\Resources\ImageResource
      * @apiResourceModel App\Models\Image
      */
@@ -62,7 +47,7 @@ class ReportImageController extends Controller
      * Delete an image of a report.
      *
      * @authenticated
-     * @urlParam report_id required The ID of the report. No-example
+     * @urlParam report_id string required The ID of the report. No-example
      * @response 204
      */
     public function destroy(Report $report, Image $image): Response

@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Report;
 use App\Models\Dossier;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AddReportRequest;
 use App\Http\Resources\ReportResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Http\Response;
@@ -20,7 +20,8 @@ class DossierReportController extends Controller
     /**
      * List dossier reports
      *
-     * Get a list of reports attached to a dossier.
+     * Get a list of reports added to a dossier.
+     *
      * @urlParam dossier_id required The ID of the dossier. No-example
      * @apiResourceCollection App\Http\Resources\ReportResource
      * @apiResourceModel App\Models\Report paginate=15
@@ -33,21 +34,17 @@ class DossierReportController extends Controller
     }
 
     /**
-     * Add a report
+     * Add a report to a dossier
      *
-     * Add a report to a dossier.
+     * Add the specified report to a dossier.
      *
      * @authenticated
      * @urlParam dossier_id required The ID of the dossier. No-example
      * @response 204
      */
-    public function store(Request $request, Dossier $dossier): Response
+    public function store(AddReportRequest $request, Dossier $dossier): Response
     {
         $this->authorize('addReport', $dossier);
-
-        $request->validate([
-            'report_id' => ['required', 'exists:reports,id',],
-        ]);
 
         $dossier->addReport($request->report_id);
 
@@ -55,9 +52,9 @@ class DossierReportController extends Controller
     }
 
     /**
-     * Remove a report
+     * Remove a report from a dossier
      *
-     * This endpoint allows you to remove a report from a dossier.
+     * Remove the specified report from a dossier.
      *
      * @authenticated
      * @urlParam dossier_id required The ID of the dossier. No-example

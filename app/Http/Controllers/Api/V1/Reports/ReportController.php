@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1;
+namespace App\Http\Controllers\Api\V1\Reports;
 
 use App\Models\Report;
 use App\Http\Controllers\Controller;

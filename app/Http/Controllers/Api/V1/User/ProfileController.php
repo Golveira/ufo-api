@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1;
+namespace App\Http\Controllers\Api\V1\User;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
@@ -12,7 +12,7 @@ use App\Http\Resources\UserResource;
  *
  * Endpoints for managing user.
  */
-class AuthenticatedUserController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Get the authenticated user.

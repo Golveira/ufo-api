@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1;
+namespace App\Http\Controllers\Api\V1\User;
 
-use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ReportResource;
 use Illuminate\Http\Request;
@@ -13,7 +12,7 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
  *
  * Endpoints for managing reports.
  */
-class AuthenticatedUserReportController extends Controller
+class UserReportController extends Controller
 {
     /**
      * List reports for the authenticated user.

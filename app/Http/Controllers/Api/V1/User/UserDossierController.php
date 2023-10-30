@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1;
+namespace App\Http\Controllers\Api\V1\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\DossierResource;
@@ -12,7 +12,7 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
  *
  * Endpoints for managing dossiers.
  */
-class AuthenticatedUserDossierController extends Controller
+class UserDossierController extends Controller
 {
     /**
      * List dossiers for the authenticated user.

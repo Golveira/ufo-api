@@ -38,27 +38,4 @@ class LoginTest extends TestCase
             ->assertUnauthorized()
             ->assertJsonStructure(['message']);
     }
-
-    public function test_authenticated_user_can_logout(): void
-    {
-        $user = User::factory()->create();
-        $token = $user->createToken('auth_token')->plainTextToken;
-
-        $response = $this
-            ->withHeader('Authorization', 'Bearer ' . $token)
-            ->postJson('/api/v1/auth/logout');
-
-        $response
-            ->assertOk()
-            ->assertJsonStructure(['message']);
-
-        $this->assertEmpty($user->tokens);
-    }
-
-    public function test_unauthenticated_user_cannot_logout(): void
-    {
-        $response = $this->postJson('/api/v1/auth/logout');
-
-        $response->assertUnauthorized();
-    }
 }

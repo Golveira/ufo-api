@@ -43,9 +43,5 @@ Route::prefix('v1')->group(function () {
     Route::prefix('auth')->group(function () {
         Route::post('/register', [RegisterController::class, 'store'])->name('register');
         Route::post('/login', [LoginController::class, 'store'])->name('login');
-
-        Route::middleware('auth:sanctum')->group(function () {
-            Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
-        });
     });
 });

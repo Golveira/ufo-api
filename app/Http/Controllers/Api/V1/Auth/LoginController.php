@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\V1\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
-use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,7 +21,7 @@ class LoginController extends Controller
      * Login a user.
      * @response 200 { "access_token": "xxxxxxxx" }
      */
-    public function store(LoginRequest $request)
+    public function store(LoginRequest $request): JsonResponse
     {
         if (!Auth::attempt($request->only('email', 'password'))) {
             return response()->json([
@@ -29,25 +29,10 @@ class LoginController extends Controller
             ], Response::HTTP_UNAUTHORIZED);
         }
 
-        return response()->json([
-            'access_token' => $request->user()->createToken('auth_token')->plainTextToken
-        ], Response::HTTP_OK);
-    }
+        $token = $request->user()
+            ->createToken('auth_token')
+            ->plainTextToken;
 
-    /**
-     * Logout
-     *
-     * Logout the current user.
-     *
-     * @authenticated
-     * @response 200 { "message": "Token revoked" }
-     */
-    public function destroy(Request $request)
-    {
-        $request->user()->currentAccessToken()->delete();
-
-        return response()->json([
-            'message' => 'Token revoked'
-        ], Response::HTTP_OK);
+        return response()->json(['access_token' => $token], Response::HTTP_OK);
     }
 }

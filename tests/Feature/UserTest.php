@@ -9,7 +9,7 @@ use Tests\TestCase;
 
 class UserTest extends TestCase
 {
-    public function test_users_are_listed_with_pagination(): void
+    public function test_users_are_listed(): void
     {
         User::factory()->count(16)->create();
 
@@ -19,7 +19,7 @@ class UserTest extends TestCase
             ->assertJsonPath('meta.last_page', 2);
     }
 
-    public function test_user_is_showed_with_valid_id(): void
+    public function test_existing_user_is_shown(): void
     {
         $user = User::factory()->create();
 
@@ -28,15 +28,13 @@ class UserTest extends TestCase
             ->assertJsonFragment(['id' => $user->id]);
     }
 
-    public function test_unauthenticated_user_cannot_update_user(): void
+    public function test_non_existing_user_is_not_shown(): void
     {
-        $user = User::factory()->create();
-
-        $this->putJson("api/v1/users/$user->id", [])
-            ->assertUnauthorized();
+        $this->get("api/v1/users/1")
+            ->assertNotFound();
     }
 
-    public function test_user_can_update_own_data(): void
+    public function test_authenticated_user_can_update_own_data(): void
     {
         $user = User::factory()->create([
             'email' => 'email@old.com',
@@ -45,7 +43,7 @@ class UserTest extends TestCase
 
         Sanctum::actingAs($user);
 
-        $this->putJson("api/v1/users/$user->id", [
+        $this->putJson("api/v1/user", [
             'email' => 'email@new.com',
             'password' => 'newpassword'
         ])
@@ -60,19 +58,5 @@ class UserTest extends TestCase
             'username' => $user->username,
             'email' => 'email@new.com'
         ]);
-    }
-
-    public function test_user_cannot_update_data_from_another_user(): void
-    {
-        $user = User::factory()->create();
-        $anotherUser =  User::factory()->create();
-
-        Sanctum::actingAs($user);
-
-        $this->putJson("api/v1/users/$anotherUser->id", [
-            'email' => 'test@email.com',
-            'password' => '12345678'
-        ])
-            ->assertForbidden();
     }
 }

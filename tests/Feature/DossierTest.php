@@ -10,7 +10,7 @@ use Tests\TestCase;
 
 class DossierTest extends TestCase
 {
-    public function test_dossiers_are_listed_with_pagination(): void
+    public function test_dossiers_are_listed(): void
     {
         Dossier::factory(16)->has(Report::factory(3))->create();
 
@@ -20,14 +20,35 @@ class DossierTest extends TestCase
             ->assertJsonPath('meta.last_page', 2);
     }
 
-    public function test_user_dossiers_are_listed_with_pagination(): void
+    public function test_authenticated_user_dossiers_are_listed(): void
     {
-        $user = User::factory()->has(Dossier::factory(16))->create();
+        $user = User::factory()->create();
+        $dossier = Dossier::factory()->create(['user_id' => $user->id]);
 
-        $this->get("api/v1/users/$user->id/dossiers")
+        Sanctum::actingAs($user);
+
+        $this->get("api/v1/user/dossiers")
             ->assertOk()
-            ->assertJsonCount(15, 'data')
-            ->assertJsonPath('meta.last_page', 2);
+            ->assertJsonCount(1, 'data')
+            ->assertJsonPath('meta.last_page', 1)
+            ->assertJsonFragment(['id' => $dossier->id]);
+    }
+
+    public function test_existing_dossier_is_shown(): void
+    {
+        $dossier = Dossier::factory()->create();
+
+        $this->get("api/v1/dossiers/$dossier->id")
+            ->assertOk()
+            ->assertJsonFragment(['id' => $dossier->id]);
+    }
+
+    public function test_non_existing_dossier_is_not_shown(): void
+    {
+        Dossier::factory()->create();
+
+        $this->get("api/v1/dossiers/123456789")
+            ->assertNotFound();
     }
 
     public function test_unauthenticated_user_cannot_create_dossier(): void

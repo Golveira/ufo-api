@@ -4,11 +4,9 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use App\Models\User;
-use App\Models\Image;
 use App\Models\Report;
 use App\Models\Dossier;
 use Laravel\Sanctum\Sanctum;
-use Illuminate\Support\Facades\Storage;
 
 class ReportTest extends TestCase
 {
@@ -22,12 +20,14 @@ class ReportTest extends TestCase
             ->assertJsonPath('meta.last_page', 2);
     }
 
-    public function test_user_reports_are_listed(): void
+    public function test_authenticated_user_reports_are_listed(): void
     {
         $user = User::factory()->create();
         $report = Report::factory()->create(['user_id' => $user->id]);
 
-        $this->get("api/v1/users/$user->id/reports")
+        Sanctum::actingAs($user);
+
+        $this->get("api/v1/user/reports")
             ->assertOk()
             ->assertJsonCount(1, 'data')
             ->assertJsonPath('meta.last_page', 1)
@@ -44,7 +44,7 @@ class ReportTest extends TestCase
             ->assertJsonPath('meta.last_page', 1);
     }
 
-    public function test_report_with_valid_id_is_showed(): void
+    public function test_existing_report_is_shown(): void
     {
         $report = Report::factory()->create();
 
@@ -53,7 +53,7 @@ class ReportTest extends TestCase
             ->assertJsonFragment(['id' => $report->id]);
     }
 
-    public function test_report_with_invalid_id_is_not_showed(): void
+    public function test_non_existing_report_is_not_shown(): void
     {
         Report::factory()->create();
 

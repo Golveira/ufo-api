@@ -108,7 +108,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"id":"9a7aa651-5b15-4ee4-b4bd-51209ab02161","user_id":"9a7aa651-5560-4c35-9649-e4702ab87728","summary":"Dolores maxime fugiat repudiandae aspernatur quae necessitatibus.","country":"Kyrgyz Republic","state":"Washington","city":"Jadynburgh","lat":-59.261813,"long":-20.35353,"date":{"date":"2021-06-23 01:15:39.000000","timezone_type":3,"timezone":"UTC"},"duration":51,"object_shape":"eius","number_of_observers":6,"details":"Aspernatur iure nesciunt quia ratione. Molestias rerum laudantium harum illum non."},{"id":"9a7aa651-5dc0-485d-920f-cea88ac78da6","user_id":"9a7aa651-5cd6-4dd8-8eee-bdb097fe3190","summary":"Ex qui modi numquam rerum harum.","country":"Zambia","state":"Texas","city":"Lake Shaun","lat":78.231948,"long":44.433229,"date":{"date":"2006-06-17 14:59:14.000000","timezone_type":3,"timezone":"UTC"},"duration":32,"object_shape":"alias","number_of_observers":6,"details":"Ipsum ea vel consequatur eum. Velit ipsa distinctio rerum ducimus tenetur. Incidunt ipsum consequatur nihil mollitia voluptas in et. Nemo ducimus deleniti non tempora facere."}],"links":{"first":"\/?page=1","last":"\/?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"\/?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"\/","per_page":15,"to":2,"total":2}}'
+        content: '{"data":[{"id":"9a7f0558-666a-4a99-82f1-5f255510450c","user_id":"9a7f0558-5d1e-42d9-8cde-6304064ca8de","summary":"Quidem quos voluptatibus et minima.","country":"Bangladesh","state":"Utah","city":"Lake Woodrowville","lat":-55.025124,"long":-98.595585,"date":{"date":"2022-09-14 04:52:58.000000","timezone_type":3,"timezone":"UTC"},"duration":32,"object_shape":"rerum","number_of_observers":2,"details":"Earum dolores ad ducimus molestiae. Quia provident veritatis nulla. Iusto ducimus repellat dolor reiciendis veniam est distinctio. Accusantium autem atque pariatur."},{"id":"9a7f0558-6ba1-451c-8e6f-6c6bd5d4d6fe","user_id":"9a7f0558-6a41-462c-bab1-2b1a9fd9ed28","summary":"Et voluptatem doloribus consequatur sapiente beatae quos qui.","country":"Swaziland","state":"Washington","city":"Jerrodbury","lat":46.421788,"long":161.792766,"date":{"date":"2018-09-10 06:06:46.000000","timezone_type":3,"timezone":"UTC"},"duration":18,"object_shape":"dicta","number_of_observers":10,"details":"Doloremque voluptates velit accusamus quas vel. Accusamus dolor aut voluptates eaque voluptatibus suscipit ea. Sapiente reiciendis quo sed vel. Illo hic officiis quam vero nesciunt est debitis."}],"links":{"first":"\/?page=1","last":"\/?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"\/?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"\/","per_page":15,"to":2,"total":2}}'
         headers: []
         description: ''
         custom: []
@@ -130,7 +130,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Get a report'
-      description: 'Get a report by id.'
+      description: 'Returns a single report specified by the ID.'
       authenticated: false
       custom: []
     headers:
@@ -155,7 +155,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":"9a7aa651-68d7-4843-98e2-1a981245bcc0","user_id":"9a7aa651-6806-4f84-933c-ae261819fe9c","summary":"Ratione et corporis aut incidunt.","country":"Turkey","state":"Oregon","city":"Aufderharville","lat":10.291408,"long":134.844031,"date":{"date":"2004-04-06 05:01:40.000000","timezone_type":3,"timezone":"UTC"},"duration":19,"object_shape":"accusantium","number_of_observers":1,"details":"Qui dolore numquam fugit ut animi voluptas cupiditate dolor. Eum sint sunt sit rerum eos aspernatur aperiam autem. Sed maxime et aut temporibus est."}}'
+        content: '{"data":{"id":"9a7f0558-7ea8-4bbe-b372-a08782ea4427","user_id":"9a7f0558-7db1-401b-9f53-79f6cc44703b","summary":"Numquam dolorem a possimus.","country":"Syrian Arab Republic","state":"Hawaii","city":"South Wilmerside","lat":24.815656,"long":119.388275,"date":{"date":"2007-08-10 03:55:43.000000","timezone_type":3,"timezone":"UTC"},"duration":53,"object_shape":"quia","number_of_observers":5,"details":"Et sunt magni delectus voluptatem eos pariatur. Accusamus nihil et quibusdam debitis. Inventore dolorum aut ut labore commodi quis ut. Commodi aperiam dolor inventore velit placeat omnis similique.","images":[{"id":127,"url":"http:\/\/ufo.test\/storage\/https:\/\/via.placeholder.com\/640x480.png\/00bb00?text=omnis"}]}}'
         headers: []
         description: ''
         custom: []
@@ -177,7 +177,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Create a new report'
-      description: 'Create a new report for the authenticated user.'
+      description: 'Create a report on behalf of the authenticated user.'
       authenticated: true
       custom: []
     headers:
@@ -293,7 +293,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":"9a7aa651-9459-400f-a2ec-8fcea13159c7","user_id":"9a7aa651-93a8-4bcc-b996-90c16e86e516","summary":"Dolor quo et placeat et qui.","country":"Liechtenstein","state":"Arkansas","city":"West Briastad","lat":-87.025865,"long":109.954719,"date":{"date":"2001-10-04 21:55:26.000000","timezone_type":3,"timezone":"UTC"},"duration":47,"object_shape":"sapiente","number_of_observers":7,"details":"Itaque sit quia incidunt aut. Incidunt recusandae dignissimos voluptatum quidem. Eum quos voluptas quas rerum maiores qui."}}'
+        content: '{"data":{"id":"9a7f0558-acd6-42e9-985b-7e1be0409cc7","user_id":"9a7f0558-abe8-4bed-90c7-a42bb4134960","summary":"Ipsam voluptas debitis occaecati qui dolorem magnam.","country":"Bangladesh","state":"Vermont","city":"West Linda","lat":60.883197,"long":-53.125465,"date":{"date":"2015-09-15 15:33:55.000000","timezone_type":3,"timezone":"UTC"},"duration":41,"object_shape":"sit","number_of_observers":7,"details":"Vitae et dolor fuga sed. Quaerat aliquid sint ex nesciunt rerum commodi dignissimos. Quia culpa optio animi unde repellat atque."}}'
         headers: []
         description: ''
         custom: []
@@ -301,7 +301,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 5dE3c1f66ZakvbagDV4Phe8'
+      - 'Bearer dVEDc4k6361fhZgab5vP8ea'
     controller: null
     method: null
     route: null
@@ -319,7 +319,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Update a report'
-      description: 'Update a report for the authenticated user.'
+      description: 'Allows an authenticated user to update a report.'
       authenticated: true
       custom: []
     headers:
@@ -444,7 +444,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":"9a7aa651-9965-4304-a1ae-b9c08f2ac630","user_id":"9a7aa651-98c2-4ecf-af2a-4c2d8c8dcc2e","summary":"Dicta et et hic quis.","country":"New Zealand","state":"Virginia","city":"West Cassandreburgh","lat":-81.284104,"long":-104.119589,"date":{"date":"2002-04-25 13:23:13.000000","timezone_type":3,"timezone":"UTC"},"duration":19,"object_shape":"qui","number_of_observers":3,"details":"Odit necessitatibus deleniti minus doloremque corrupti est. Excepturi molestiae itaque maxime sint. Illum ipsum commodi consequatur accusamus repellat. Voluptas provident facilis ipsa aut iste non."}}'
+        content: '{"data":{"id":"9a7f0558-b370-43c6-ae71-d7e63e78e955","user_id":"9a7f0558-b18a-489b-a3e8-bf9c3aa7efd0","summary":"Exercitationem aut deleniti voluptatem natus accusantium.","country":"Maldives","state":"Idaho","city":"Nettieville","lat":-10.395544,"long":99.713828,"date":{"date":"2004-09-07 01:45:16.000000","timezone_type":3,"timezone":"UTC"},"duration":39,"object_shape":"voluptatibus","number_of_observers":8,"details":"Iste beatae eveniet deleniti aperiam. Earum repudiandae cupiditate ut doloribus quasi. Esse ut maiores suscipit sint temporibus velit."}}'
         headers: []
         description: ''
         custom: []
@@ -452,7 +452,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer hk6Ze5D4aV3Evcg1b8af6dP'
+      - 'Bearer 45d6V3kcEZe8b6hD1gafPva'
     controller: null
     method: null
     route: null
@@ -469,7 +469,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Delete a report'
-      description: 'Delete a report belonging to the authenticated user.'
+      description: 'Allows an authenticated user to delete a report.'
       authenticated: true
       custom: []
     headers:
@@ -503,54 +503,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer bPkva6De56fa1E8c4VgZdh3'
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/v1/reports/{report_id}/images'
-    metadata:
-      groupName: Reports
-      groupDescription: |-
-
-        Endpoints for managing reports.
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'List report images'
-      description: 'Get the images of a report.'
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      report_id:
-        name: report_id
-        description: 'The ID of the report.'
-        required: true
-        example: null
-        type: string
-        enumValues: []
-        custom: []
-    cleanUrlParameters:
-      report_id: null
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"data":[{"id":145,"url":"http:\/\/ufo.test\/storage\/https:\/\/via.placeholder.com\/640x480.png\/005555?text=quo"},{"id":146,"url":"http:\/\/ufo.test\/storage\/https:\/\/via.placeholder.com\/640x480.png\/0099aa?text=corporis"}],"links":{"first":"\/?page=1","last":"\/?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"\/?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"\/","per_page":15,"to":2,"total":2}}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
+      - 'Bearer d5kPa8f1veE6gbaZ3VDch46'
     controller: null
     method: null
     route: null
@@ -604,7 +557,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"id":147,"url":"http:\/\/ufo.test\/storage\/https:\/\/via.placeholder.com\/640x480.png\/001111?text=impedit"},{"id":148,"url":"http:\/\/ufo.test\/storage\/https:\/\/via.placeholder.com\/640x480.png\/0088aa?text=architecto"}]}'
+        content: '{"data":[{"id":128,"url":"http:\/\/ufo.test\/storage\/https:\/\/via.placeholder.com\/640x480.png\/003300?text=voluptatum"},{"id":129,"url":"http:\/\/ufo.test\/storage\/https:\/\/via.placeholder.com\/640x480.png\/0044ee?text=ut"}]}'
         headers: []
         description: ''
         custom: []
@@ -612,7 +565,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer V6aec5186gDZbEd4f3aPvhk'
+      - 'Bearer 1e5vkhd6a64bfVcDEg83PaZ'
     controller: null
     method: null
     route: null
@@ -649,13 +602,13 @@ endpoints:
         name: id
         description: 'The ID of the image.'
         required: true
-        example: 2
+        example: 1
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
       report_id: null
-      id: 2
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -672,7 +625,45 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer cg1f536Da8P6EedVvZka4bh'
+      - 'Bearer ga63hZa8eED1f6cVk4Pbvd5'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/user/reports
+    metadata:
+      groupName: Reports
+      groupDescription: |-
+
+        Endpoints for managing reports.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List reports for the authenticated user.'
+      description: 'Get a list of reports belonging to the authenticated user.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":"9a7f0558-ed70-47e3-b75e-3bd352d124ea","user_id":"9a7f0558-eca7-4751-82b3-6035071ace46","summary":"Quisquam omnis ut ut aliquid qui natus est.","country":"Guinea-Bissau","state":"Pennsylvania","city":"Baileyside","lat":53.641885,"long":72.956004,"date":{"date":"1999-09-08 01:14:25.000000","timezone_type":3,"timezone":"UTC"},"duration":5,"object_shape":"aut","number_of_observers":5,"details":"Quis tempore enim voluptas qui voluptas quis. Asperiores nam explicabo explicabo omnis. Mollitia sit nihil sunt reprehenderit."},{"id":"9a7f0558-ef09-4156-8326-7f8041f40709","user_id":"9a7f0558-ee57-48a3-84c3-31afbec43585","summary":"Distinctio tenetur facere dolor maxime.","country":"Somalia","state":"Louisiana","city":"Paucekside","lat":-49.25626,"long":43.455365,"date":{"date":"1998-01-12 04:27:20.000000","timezone_type":3,"timezone":"UTC"},"duration":47,"object_shape":"ab","number_of_observers":8,"details":"Alias nostrum quas qui. Pariatur perferendis occaecati sit eveniet quo tenetur vitae sed. Sunt vero repellat delectus ea natus."}],"links":{"first":"\/?page=1","last":"\/?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"\/?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"\/","per_page":15,"to":2,"total":2}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
     controller: null
     method: null
     route: null

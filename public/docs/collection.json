@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "UFO API Documentation",
-        "_postman_id": "caf590ae-54ed-47ab-9452-33b4421c7104",
+        "_postman_id": "ff970150-1c90-410c-970d-939c5c693a60",
         "description": "The UFO API is a REST API that allows you to report and investigate UFO sightings.",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"murray66@example.com\",\"password\":\"OL=w?6~wo&.pGB}fR2\"}"
+                            "raw": "{\"email\":\"tyreek.moen@example.com\",\"password\":\"s\\\\J(=WT!)k,(%Xj3\"}"
                         },
                         "description": "Register a new user.",
                         "auth": {
@@ -79,7 +79,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"alphonso.feeney@example.org\",\"password\":\"gR#dhUa\\\"3\"}"
+                            "raw": "{\"email\":\"daren.hansen@example.org\",\"password\":\"oW)<TP\"}"
                         },
                         "description": "Login a user.",
                         "auth": {
@@ -91,38 +91,6 @@
                             "header": [],
                             "code": 200,
                             "body": "{ \"access_token\": \"xxxxxxxx\" }",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Logout",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/auth\/logout",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/auth\/logout"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "Logout the current user."
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{ \"message\": \"Token revoked\" }",
                             "name": ""
                         }
                     ]
@@ -162,7 +130,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "Get a list of reports attached to a dossier.",
+                        "description": "Get a list of reports added to a dossier.",
                         "auth": {
                             "type": "noauth"
                         }
@@ -171,7 +139,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":[{\"id\":\"9a7aa651-76b1-4b75-a484-3522cab60e42\",\"user_id\":\"9a7aa651-75e6-454c-b18c-373be4521c2f\",\"summary\":\"Quisquam at aut laborum et soluta in tempora odio.\",\"country\":\"Cameroon\",\"state\":\"Indiana\",\"city\":\"Port Sherman\",\"lat\":48.121106,\"long\":-80.208828,\"date\":{\"date\":\"2009-05-02 07:23:13.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"duration\":10,\"object_shape\":\"odio\",\"number_of_observers\":9,\"details\":\"Voluptatum dicta voluptas velit cumque repellendus. A illum enim sint perspiciatis. Sit magni aliquam cumque ut qui. Qui non voluptatibus perspiciatis voluptatem fuga magni aut.\"},{\"id\":\"9a7aa651-78a4-40f9-b697-a75285ee77a8\",\"user_id\":\"9a7aa651-77f5-487a-a6cc-0059ea235fba\",\"summary\":\"Dolore eum voluptate consequuntur magni omnis.\",\"country\":\"Peru\",\"state\":\"District of Columbia\",\"city\":\"Port Luciano\",\"lat\":-45.648064,\"long\":-66.500327,\"date\":{\"date\":\"2007-12-03 08:56:44.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"duration\":21,\"object_shape\":\"ex\",\"number_of_observers\":5,\"details\":\"Consequatur rerum minima voluptatibus doloremque. Quasi est debitis itaque minima voluptas sint. Nesciunt ad molestiae nihil dolor dolores aut excepturi.\"}],\"links\":{\"first\":\"\\\/?page=1\",\"last\":\"\\\/?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"\\\/?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"\\\/\",\"per_page\":15,\"to\":2,\"total\":2}}",
+                            "body": "{\"data\":[{\"id\":\"9a7f0558-8ca4-45a1-b801-007f70fa55af\",\"user_id\":\"9a7f0558-8bb2-4e81-9a78-6ac4639d2f7c\",\"summary\":\"Quia sunt est necessitatibus deleniti illum quisquam.\",\"country\":\"New Zealand\",\"state\":\"Pennsylvania\",\"city\":\"Doyleview\",\"lat\":-9.247536,\"long\":-77.065558,\"date\":{\"date\":\"2021-07-15 15:24:44.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"duration\":36,\"object_shape\":\"sed\",\"number_of_observers\":6,\"details\":\"Et animi itaque natus a. Rerum magnam voluptatem neque maxime omnis vel rerum. Illo nam quasi atque est molestiae.\"},{\"id\":\"9a7f0558-8e81-4371-b00e-f38fa260f254\",\"user_id\":\"9a7f0558-8dbe-4cb3-9351-cb6348647043\",\"summary\":\"Consequatur ad et nostrum doloribus non inventore veniam.\",\"country\":\"United Kingdom\",\"state\":\"District of Columbia\",\"city\":\"New Francesco\",\"lat\":-85.82237,\"long\":4.523991,\"date\":{\"date\":\"2009-11-20 21:18:54.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"duration\":16,\"object_shape\":\"voluptas\",\"number_of_observers\":1,\"details\":\"Iure commodi officia neque sunt. Sed voluptatum facilis quod odio commodi. Laboriosam et molestiae fuga et illum. Veniam non illum aut vero corporis.\"}],\"links\":{\"first\":\"\\\/?page=1\",\"last\":\"\\\/?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"\\\/?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"\\\/\",\"per_page\":15,\"to\":2,\"total\":2}}",
                             "name": ""
                         }
                     ]
@@ -206,7 +174,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":[{\"id\":\"9a7aa651-7cd5-4d85-83b0-ce3866de1dce\",\"title\":\"Quia consequatur consequuntur suscipit dolores.\",\"description\":\"Quia autem et officia et autem et esse. Labore non culpa omnis animi atque. Doloremque impedit quia dolorem inventore dolorem. Iusto tenetur rem vel. Animi voluptatem similique iusto sunt.\",\"created_at\":\"2023-10-28T17:54:30.000000Z\",\"updated_at\":\"2023-10-28T17:54:30.000000Z\",\"user_id\":\"9a7aa651-7c16-4fc9-84ac-8054af253ba2\"},{\"id\":\"9a7aa651-7ed6-467d-b36a-2c4848fa1d2e\",\"title\":\"Incidunt tempora voluptatem voluptatem impedit qui perspiciatis.\",\"description\":\"Veniam autem ea qui ipsa. Quae inventore sunt eum. Eveniet eos ullam beatae pariatur rem cum sed.\",\"created_at\":\"2023-10-28T17:54:30.000000Z\",\"updated_at\":\"2023-10-28T17:54:30.000000Z\",\"user_id\":\"9a7aa651-7e32-4848-9428-0a8306f26ce1\"}],\"links\":{\"first\":\"\\\/?page=1\",\"last\":\"\\\/?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"\\\/?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"\\\/\",\"per_page\":15,\"to\":2,\"total\":2}}",
+                            "body": "{\"data\":[{\"id\":\"9a7f0558-94d0-4d9f-94d6-20d492f45a41\",\"title\":\"Est odit dolor nihil perspiciatis corrupti.\",\"description\":\"Eos molestias velit sed vel deserunt at. Nesciunt odio et eos illo sint nemo tempore. Voluptatem sit nobis qui asperiores eius aut nam.\",\"created_at\":\"2023-10-30T22:03:32.000000Z\",\"updated_at\":\"2023-10-30T22:03:32.000000Z\",\"owner\":{\"id\":\"9a7f0558-93f8-4fbd-a233-639f20917848\",\"username\":\"ayla.hirthe\",\"created_at\":\"2023-10-30T22:03:32.000000Z\",\"updated_at\":\"2023-10-30T22:03:32.000000Z\"}},{\"id\":\"9a7f0558-97ac-4026-ab0f-9adb28c397a0\",\"title\":\"Similique qui quo delectus sint incidunt dolorem in.\",\"description\":\"Quis recusandae veritatis cupiditate sed cupiditate magnam. Error officiis esse exercitationem debitis delectus amet aut et. Repudiandae odio aut quo itaque accusamus officia ut.\",\"created_at\":\"2023-10-30T22:03:32.000000Z\",\"updated_at\":\"2023-10-30T22:03:32.000000Z\",\"owner\":{\"id\":\"9a7f0558-96ef-4335-a1dd-83724b55b119\",\"username\":\"mnienow\",\"created_at\":\"2023-10-30T22:03:32.000000Z\",\"updated_at\":\"2023-10-30T22:03:32.000000Z\"}}],\"links\":{\"first\":\"\\\/?page=1\",\"last\":\"\\\/?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"\\\/?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"\\\/\",\"per_page\":15,\"to\":2,\"total\":2}}",
                             "name": ""
                         }
                     ]
@@ -240,7 +208,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "Get a dossier by id.",
+                        "description": "Returns a single dossier specified by the ID.",
                         "auth": {
                             "type": "noauth"
                         }
@@ -249,7 +217,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":\"9a7aa651-829c-4d95-b02f-371899388af9\",\"title\":\"Ea inventore illum qui ab quidem est ut.\",\"description\":\"Aut et repudiandae eligendi perspiciatis. Unde excepturi nemo accusantium. Tenetur facilis eligendi harum et.\",\"created_at\":\"2023-10-28T17:54:30.000000Z\",\"updated_at\":\"2023-10-28T17:54:30.000000Z\",\"user_id\":\"9a7aa651-81d1-4525-b563-327e31d2306b\"}}",
+                            "body": "{\"data\":{\"id\":\"9a7f0558-9f3d-40a6-ba5b-5d662a645ece\",\"title\":\"Alias nobis explicabo et occaecati itaque.\",\"description\":\"Eveniet cumque aperiam non ad consequatur commodi ut cupiditate. Molestias ullam dolor sunt similique voluptas saepe deleniti. Tenetur quo eum enim facilis impedit.\",\"created_at\":\"2023-10-30T22:03:32.000000Z\",\"updated_at\":\"2023-10-30T22:03:32.000000Z\",\"owner\":{\"id\":\"9a7f0558-9e57-4b00-ae12-e7d93bf8f255\",\"username\":\"esipes\",\"created_at\":\"2023-10-30T22:03:32.000000Z\",\"updated_at\":\"2023-10-30T22:03:32.000000Z\"}}}",
                             "name": ""
                         }
                     ]
@@ -278,13 +246,13 @@
                             "mode": "raw",
                             "raw": "{\"title\":\"Investigation of UFOs in Brazil.\",\"description\":\"This dossier contains all the information about UFOs in Brazil.\"}"
                         },
-                        "description": "Create a new dossier."
+                        "description": "Create a new dossier on behalf of the authenticated user."
                     },
                     "response": [
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":\"9a7aa651-b7e2-4135-bbda-818fbb1817b7\",\"title\":\"Est odio laudantium cupiditate aliquid et aut totam.\",\"description\":\"Doloremque quae et velit aliquam facere eos. Ducimus deleniti harum eum aut perferendis aut sed. Corrupti voluptatem omnis aut omnis repudiandae. Nihil quasi et earum eius. Sed non blanditiis vel.\",\"created_at\":\"2023-10-28T17:54:30.000000Z\",\"updated_at\":\"2023-10-28T17:54:30.000000Z\",\"user_id\":\"9a7aa651-b6fe-4004-87c5-5f6e87b928bb\"}}",
+                            "body": "{\"data\":{\"id\":\"9a7f0558-d662-488e-98dd-91b77c1ad8ca\",\"title\":\"Et et molestias iure asperiores temporibus.\",\"description\":\"Dolorem vel laudantium fugiat ducimus quam. At porro voluptas suscipit nam.\",\"created_at\":\"2023-10-30T22:03:32.000000Z\",\"updated_at\":\"2023-10-30T22:03:32.000000Z\"}}",
                             "name": ""
                         }
                     ]
@@ -321,13 +289,13 @@
                             "mode": "raw",
                             "raw": "{\"title\":\"Investigation of UFOs in Brazil.\",\"description\":\"This dossier contains all the information about UFOs in Brazil.\"}"
                         },
-                        "description": "Update and existing dossier."
+                        "description": "Allows an authenticated user to update a dossier."
                     },
                     "response": [
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":\"9a7aa651-bdce-4abb-a8a6-fea071495bc7\",\"title\":\"Tempora soluta natus nisi labore.\",\"description\":\"Voluptatum ipsum voluptatem non natus consequatur reiciendis voluptas. Voluptatem dolorem dolore voluptas quia nesciunt et. Repellat et quia temporibus distinctio voluptatem.\",\"created_at\":\"2023-10-28T17:54:30.000000Z\",\"updated_at\":\"2023-10-28T17:54:30.000000Z\",\"user_id\":\"9a7aa651-bb15-4160-b022-4fc8be7354c6\"}}",
+                            "body": "{\"data\":{\"id\":\"9a7f0558-db0d-465c-b35d-2d09e8bd85e1\",\"title\":\"Hic quia nobis similique ut.\",\"description\":\"Recusandae eius neque ipsum et voluptate ut. Numquam deleniti laboriosam repellat nam. Qui aut unde libero culpa omnis. Officia illum tempore est.\",\"created_at\":\"2023-10-30T22:03:32.000000Z\",\"updated_at\":\"2023-10-30T22:03:32.000000Z\"}}",
                             "name": ""
                         }
                     ]
@@ -361,7 +329,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "Delete an existing dossier."
+                        "description": "Allows an authenticated user to delete a dossier."
                     },
                     "response": [
                         {
@@ -373,7 +341,7 @@
                     ]
                 },
                 {
-                    "name": "Add a report",
+                    "name": "Add a report to a dossier",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -402,9 +370,9 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"report_id\":\"sit\"}"
+                            "raw": "{\"report_id\":\"et\"}"
                         },
-                        "description": "Add a report to a dossier."
+                        "description": "Add the specified report to a dossier."
                     },
                     "response": [
                         {
@@ -416,7 +384,7 @@
                     ]
                 },
                 {
-                    "name": "Remove a report",
+                    "name": "Remove a report from a dossier",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -433,7 +401,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "voluptatem",
+                                    "value": "9a7ee0f8-308b-48da-8117-f129ccdf2de9",
                                     "description": "The ID of the report."
                                 }
                             ]
@@ -450,13 +418,48 @@
                             }
                         ],
                         "body": null,
-                        "description": "This endpoint allows you to remove a report from a dossier."
+                        "description": "Remove the specified report from a dossier."
                     },
                     "response": [
                         {
                             "header": [],
                             "code": 204,
                             "body": "{}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "List dossiers for the authenticated user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/user\/dossiers",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/user\/dossiers"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Get a list of dossiers belonging to the authenticated user.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":\"9a7f0558-f2cc-4642-badd-4e4aa6faabe2\",\"title\":\"Autem vel et ut nihil.\",\"description\":\"Et possimus quia nobis quia voluptates magnam. Architecto sunt eius consectetur mollitia. Aut assumenda sed minus eos non. Natus quisquam quidem officia repellat voluptatem dolorem magni.\",\"created_at\":\"2023-10-30T22:03:32.000000Z\",\"updated_at\":\"2023-10-30T22:03:32.000000Z\"},{\"id\":\"9a7f0558-f4a9-425b-96f4-ddde2fe84cd5\",\"title\":\"Unde ut ipsam natus sapiente quaerat autem.\",\"description\":\"Placeat recusandae hic ut aut qui. Molestiae quibusdam ea soluta fugit impedit minima aliquid et. Optio voluptatibus sint illo voluptas eum sit officia.\",\"created_at\":\"2023-10-30T22:03:32.000000Z\",\"updated_at\":\"2023-10-30T22:03:32.000000Z\"}],\"links\":{\"first\":\"\\\/?page=1\",\"last\":\"\\\/?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"\\\/?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"\\\/\",\"per_page\":15,\"to\":2,\"total\":2}}",
                             "name": ""
                         }
                     ]
@@ -546,7 +549,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":[{\"id\":\"9a7aa651-5b15-4ee4-b4bd-51209ab02161\",\"user_id\":\"9a7aa651-5560-4c35-9649-e4702ab87728\",\"summary\":\"Dolores maxime fugiat repudiandae aspernatur quae necessitatibus.\",\"country\":\"Kyrgyz Republic\",\"state\":\"Washington\",\"city\":\"Jadynburgh\",\"lat\":-59.261813,\"long\":-20.35353,\"date\":{\"date\":\"2021-06-23 01:15:39.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"duration\":51,\"object_shape\":\"eius\",\"number_of_observers\":6,\"details\":\"Aspernatur iure nesciunt quia ratione. Molestias rerum laudantium harum illum non.\"},{\"id\":\"9a7aa651-5dc0-485d-920f-cea88ac78da6\",\"user_id\":\"9a7aa651-5cd6-4dd8-8eee-bdb097fe3190\",\"summary\":\"Ex qui modi numquam rerum harum.\",\"country\":\"Zambia\",\"state\":\"Texas\",\"city\":\"Lake Shaun\",\"lat\":78.231948,\"long\":44.433229,\"date\":{\"date\":\"2006-06-17 14:59:14.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"duration\":32,\"object_shape\":\"alias\",\"number_of_observers\":6,\"details\":\"Ipsum ea vel consequatur eum. Velit ipsa distinctio rerum ducimus tenetur. Incidunt ipsum consequatur nihil mollitia voluptas in et. Nemo ducimus deleniti non tempora facere.\"}],\"links\":{\"first\":\"\\\/?page=1\",\"last\":\"\\\/?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"\\\/?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"\\\/\",\"per_page\":15,\"to\":2,\"total\":2}}",
+                            "body": "{\"data\":[{\"id\":\"9a7f0558-666a-4a99-82f1-5f255510450c\",\"user_id\":\"9a7f0558-5d1e-42d9-8cde-6304064ca8de\",\"summary\":\"Quidem quos voluptatibus et minima.\",\"country\":\"Bangladesh\",\"state\":\"Utah\",\"city\":\"Lake Woodrowville\",\"lat\":-55.025124,\"long\":-98.595585,\"date\":{\"date\":\"2022-09-14 04:52:58.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"duration\":32,\"object_shape\":\"rerum\",\"number_of_observers\":2,\"details\":\"Earum dolores ad ducimus molestiae. Quia provident veritatis nulla. Iusto ducimus repellat dolor reiciendis veniam est distinctio. Accusantium autem atque pariatur.\"},{\"id\":\"9a7f0558-6ba1-451c-8e6f-6c6bd5d4d6fe\",\"user_id\":\"9a7f0558-6a41-462c-bab1-2b1a9fd9ed28\",\"summary\":\"Et voluptatem doloribus consequatur sapiente beatae quos qui.\",\"country\":\"Swaziland\",\"state\":\"Washington\",\"city\":\"Jerrodbury\",\"lat\":46.421788,\"long\":161.792766,\"date\":{\"date\":\"2018-09-10 06:06:46.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"duration\":18,\"object_shape\":\"dicta\",\"number_of_observers\":10,\"details\":\"Doloremque voluptates velit accusamus quas vel. Accusamus dolor aut voluptates eaque voluptatibus suscipit ea. Sapiente reiciendis quo sed vel. Illo hic officiis quam vero nesciunt est debitis.\"}],\"links\":{\"first\":\"\\\/?page=1\",\"last\":\"\\\/?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"\\\/?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"\\\/\",\"per_page\":15,\"to\":2,\"total\":2}}",
                             "name": ""
                         }
                     ]
@@ -580,7 +583,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "Get a report by id.",
+                        "description": "Returns a single report specified by the ID.",
                         "auth": {
                             "type": "noauth"
                         }
@@ -589,7 +592,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":\"9a7aa651-68d7-4843-98e2-1a981245bcc0\",\"user_id\":\"9a7aa651-6806-4f84-933c-ae261819fe9c\",\"summary\":\"Ratione et corporis aut incidunt.\",\"country\":\"Turkey\",\"state\":\"Oregon\",\"city\":\"Aufderharville\",\"lat\":10.291408,\"long\":134.844031,\"date\":{\"date\":\"2004-04-06 05:01:40.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"duration\":19,\"object_shape\":\"accusantium\",\"number_of_observers\":1,\"details\":\"Qui dolore numquam fugit ut animi voluptas cupiditate dolor. Eum sint sunt sit rerum eos aspernatur aperiam autem. Sed maxime et aut temporibus est.\"}}",
+                            "body": "{\"data\":{\"id\":\"9a7f0558-7ea8-4bbe-b372-a08782ea4427\",\"user_id\":\"9a7f0558-7db1-401b-9f53-79f6cc44703b\",\"summary\":\"Numquam dolorem a possimus.\",\"country\":\"Syrian Arab Republic\",\"state\":\"Hawaii\",\"city\":\"South Wilmerside\",\"lat\":24.815656,\"long\":119.388275,\"date\":{\"date\":\"2007-08-10 03:55:43.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"duration\":53,\"object_shape\":\"quia\",\"number_of_observers\":5,\"details\":\"Et sunt magni delectus voluptatem eos pariatur. Accusamus nihil et quibusdam debitis. Inventore dolorum aut ut labore commodi quis ut. Commodi aperiam dolor inventore velit placeat omnis similique.\",\"images\":[{\"id\":127,\"url\":\"http:\\\/\\\/ufo.test\\\/storage\\\/https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00bb00?text=omnis\"}]}}",
                             "name": ""
                         }
                     ]
@@ -618,13 +621,13 @@
                             "mode": "raw",
                             "raw": "{\"summary\":\"I saw a UFO\",\"details\":\"I saw a UFO in the sky\",\"country\":\"US\",\"state\":\"California\",\"city\":\"Los Angeles\",\"lat\":34.052235,\"long\":-118.243683,\"date\":\"2021-01-01\",\"duration\":60,\"number_of_observers\":1,\"object_shape\":\"Triangle\"}"
                         },
-                        "description": "Create a new report for the authenticated user."
+                        "description": "Create a report on behalf of the authenticated user."
                     },
                     "response": [
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":\"9a7aa651-9459-400f-a2ec-8fcea13159c7\",\"user_id\":\"9a7aa651-93a8-4bcc-b996-90c16e86e516\",\"summary\":\"Dolor quo et placeat et qui.\",\"country\":\"Liechtenstein\",\"state\":\"Arkansas\",\"city\":\"West Briastad\",\"lat\":-87.025865,\"long\":109.954719,\"date\":{\"date\":\"2001-10-04 21:55:26.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"duration\":47,\"object_shape\":\"sapiente\",\"number_of_observers\":7,\"details\":\"Itaque sit quia incidunt aut. Incidunt recusandae dignissimos voluptatum quidem. Eum quos voluptas quas rerum maiores qui.\"}}",
+                            "body": "{\"data\":{\"id\":\"9a7f0558-acd6-42e9-985b-7e1be0409cc7\",\"user_id\":\"9a7f0558-abe8-4bed-90c7-a42bb4134960\",\"summary\":\"Ipsam voluptas debitis occaecati qui dolorem magnam.\",\"country\":\"Bangladesh\",\"state\":\"Vermont\",\"city\":\"West Linda\",\"lat\":60.883197,\"long\":-53.125465,\"date\":{\"date\":\"2015-09-15 15:33:55.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"duration\":41,\"object_shape\":\"sit\",\"number_of_observers\":7,\"details\":\"Vitae et dolor fuga sed. Quaerat aliquid sint ex nesciunt rerum commodi dignissimos. Quia culpa optio animi unde repellat atque.\"}}",
                             "name": ""
                         }
                     ]
@@ -661,13 +664,13 @@
                             "mode": "raw",
                             "raw": "{\"summary\":\"I saw a UFO\",\"details\":\"I saw a UFO in the sky\",\"country\":\"US\",\"state\":\"California\",\"city\":\"Los Angeles\",\"lat\":34.052235,\"long\":-118.243683,\"date\":\"2021-01-01\",\"duration\":60,\"number_of_observers\":1,\"object_shape\":\"Triangle\"}"
                         },
-                        "description": "Update a report for the authenticated user."
+                        "description": "Allows an authenticated user to update a report."
                     },
                     "response": [
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":\"9a7aa651-9965-4304-a1ae-b9c08f2ac630\",\"user_id\":\"9a7aa651-98c2-4ecf-af2a-4c2d8c8dcc2e\",\"summary\":\"Dicta et et hic quis.\",\"country\":\"New Zealand\",\"state\":\"Virginia\",\"city\":\"West Cassandreburgh\",\"lat\":-81.284104,\"long\":-104.119589,\"date\":{\"date\":\"2002-04-25 13:23:13.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"duration\":19,\"object_shape\":\"qui\",\"number_of_observers\":3,\"details\":\"Odit necessitatibus deleniti minus doloremque corrupti est. Excepturi molestiae itaque maxime sint. Illum ipsum commodi consequatur accusamus repellat. Voluptas provident facilis ipsa aut iste non.\"}}",
+                            "body": "{\"data\":{\"id\":\"9a7f0558-b370-43c6-ae71-d7e63e78e955\",\"user_id\":\"9a7f0558-b18a-489b-a3e8-bf9c3aa7efd0\",\"summary\":\"Exercitationem aut deleniti voluptatem natus accusantium.\",\"country\":\"Maldives\",\"state\":\"Idaho\",\"city\":\"Nettieville\",\"lat\":-10.395544,\"long\":99.713828,\"date\":{\"date\":\"2004-09-07 01:45:16.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"duration\":39,\"object_shape\":\"voluptatibus\",\"number_of_observers\":8,\"details\":\"Iste beatae eveniet deleniti aperiam. Earum repudiandae cupiditate ut doloribus quasi. Esse ut maiores suscipit sint temporibus velit.\"}}",
                             "name": ""
                         }
                     ]
@@ -701,56 +704,13 @@
                             }
                         ],
                         "body": null,
-                        "description": "Delete a report belonging to the authenticated user."
+                        "description": "Allows an authenticated user to delete a report."
                     },
                     "response": [
                         {
                             "header": [],
                             "code": 204,
                             "body": "{}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "List report images",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/reports\/:report_id\/images",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/reports\/:report_id\/images",
-                            "variable": [
-                                {
-                                    "id": "report_id",
-                                    "key": "report_id",
-                                    "value": "",
-                                    "description": "The ID of the report."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "Get the images of a report.",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\"data\":[{\"id\":145,\"url\":\"http:\\\/\\\/ufo.test\\\/storage\\\/https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/005555?text=quo\"},{\"id\":146,\"url\":\"http:\\\/\\\/ufo.test\\\/storage\\\/https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0099aa?text=corporis\"}],\"links\":{\"first\":\"\\\/?page=1\",\"last\":\"\\\/?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"\\\/?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"\\\/\",\"per_page\":15,\"to\":2,\"total\":2}}",
                             "name": ""
                         }
                     ]
@@ -799,7 +759,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":[{\"id\":147,\"url\":\"http:\\\/\\\/ufo.test\\\/storage\\\/https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/001111?text=impedit\"},{\"id\":148,\"url\":\"http:\\\/\\\/ufo.test\\\/storage\\\/https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0088aa?text=architecto\"}]}",
+                            "body": "{\"data\":[{\"id\":128,\"url\":\"http:\\\/\\\/ufo.test\\\/storage\\\/https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/003300?text=voluptatum\"},{\"id\":129,\"url\":\"http:\\\/\\\/ufo.test\\\/storage\\\/https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0044ee?text=ut\"}]}",
                             "name": ""
                         }
                     ]
@@ -822,7 +782,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "2",
+                                    "value": "1",
                                     "description": "The ID of the image."
                                 }
                             ]
@@ -849,99 +809,48 @@
                             "name": ""
                         }
                     ]
+                },
+                {
+                    "name": "List reports for the authenticated user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/user\/reports",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/user\/reports"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Get a list of reports belonging to the authenticated user.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":\"9a7f0558-ed70-47e3-b75e-3bd352d124ea\",\"user_id\":\"9a7f0558-eca7-4751-82b3-6035071ace46\",\"summary\":\"Quisquam omnis ut ut aliquid qui natus est.\",\"country\":\"Guinea-Bissau\",\"state\":\"Pennsylvania\",\"city\":\"Baileyside\",\"lat\":53.641885,\"long\":72.956004,\"date\":{\"date\":\"1999-09-08 01:14:25.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"duration\":5,\"object_shape\":\"aut\",\"number_of_observers\":5,\"details\":\"Quis tempore enim voluptas qui voluptas quis. Asperiores nam explicabo explicabo omnis. Mollitia sit nihil sunt reprehenderit.\"},{\"id\":\"9a7f0558-ef09-4156-8326-7f8041f40709\",\"user_id\":\"9a7f0558-ee57-48a3-84c3-31afbec43585\",\"summary\":\"Distinctio tenetur facere dolor maxime.\",\"country\":\"Somalia\",\"state\":\"Louisiana\",\"city\":\"Paucekside\",\"lat\":-49.25626,\"long\":43.455365,\"date\":{\"date\":\"1998-01-12 04:27:20.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"duration\":47,\"object_shape\":\"ab\",\"number_of_observers\":8,\"details\":\"Alias nostrum quas qui. Pariatur perferendis occaecati sit eveniet quo tenetur vitae sed. Sunt vero repellat delectus ea natus.\"}],\"links\":{\"first\":\"\\\/?page=1\",\"last\":\"\\\/?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"\\\/?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"\\\/\",\"per_page\":15,\"to\":2,\"total\":2}}",
+                            "name": ""
+                        }
+                    ]
                 }
             ]
         },
         {
             "name": "Users",
-            "description": "\nEndpoints for managing users.",
+            "description": "\nEndpoints for managing user.",
             "item": [
-                {
-                    "name": "List user reports",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/users\/:user_id\/reports",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/users\/:user_id\/reports",
-                            "variable": [
-                                {
-                                    "id": "user_id",
-                                    "key": "user_id",
-                                    "value": "",
-                                    "description": "The ID of the user."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "Get a list of reports of a user.",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\"data\":[{\"id\":\"9a7aa651-6ec3-46a2-bc33-4861ca91c3bb\",\"user_id\":\"9a7aa651-6db6-4965-a5c9-a9fc2cca0426\",\"summary\":\"Alias sit autem dolores et non id.\",\"country\":\"France\",\"state\":\"Wyoming\",\"city\":\"North Destinee\",\"lat\":56.47191,\"long\":51.011929,\"date\":{\"date\":\"1995-02-18 04:17:31.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"duration\":47,\"object_shape\":\"ut\",\"number_of_observers\":7,\"details\":\"Et iusto laudantium quod dolorem. Libero eum libero nesciunt ea ipsa. Necessitatibus cum vero aut dolorum. At laudantium ad possimus optio placeat.\"},{\"id\":\"9a7aa651-70df-44e1-98e2-3f3189349759\",\"user_id\":\"9a7aa651-6ff0-4dbc-aa15-f4f9a897722b\",\"summary\":\"Eveniet autem velit est tenetur consequatur eaque.\",\"country\":\"Botswana\",\"state\":\"Mississippi\",\"city\":\"Blickville\",\"lat\":-34.708886,\"long\":-91.203492,\"date\":{\"date\":\"2010-02-06 16:58:01.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"duration\":47,\"object_shape\":\"minima\",\"number_of_observers\":2,\"details\":\"Eveniet dolorem doloribus est sapiente nulla fugit. Cum delectus voluptatem atque et harum. Voluptates aliquid dolorem voluptas architecto nostrum maxime.\"}],\"links\":{\"first\":\"\\\/?page=1\",\"last\":\"\\\/?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"\\\/?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"\\\/\",\"per_page\":15,\"to\":2,\"total\":2}}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "List user dossiers",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/users\/:user_id\/dossiers",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/users\/:user_id\/dossiers",
-                            "variable": [
-                                {
-                                    "id": "user_id",
-                                    "key": "user_id",
-                                    "value": "",
-                                    "description": "The ID of the user."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "Get a list of dossiers of a user.",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\"data\":[{\"id\":\"9a7aa651-870b-4d83-ac2e-976a0859f51b\",\"title\":\"Accusantium aut eos sit quis quidem ad ut.\",\"description\":\"Et qui omnis consequatur ratione. Maiores consequatur est dignissimos. Non sed expedita ullam sed similique et quod.\",\"created_at\":\"2023-10-28T17:54:30.000000Z\",\"updated_at\":\"2023-10-28T17:54:30.000000Z\",\"user_id\":\"9a7aa651-865d-4bd5-841d-00721d093d2d\"},{\"id\":\"9a7aa651-88bb-44f7-8205-bfcc7a447066\",\"title\":\"Reiciendis dolor magnam sed.\",\"description\":\"Ex tempore dolor et delectus vero culpa tenetur. Numquam neque et qui vel exercitationem eum.\",\"created_at\":\"2023-10-28T17:54:30.000000Z\",\"updated_at\":\"2023-10-28T17:54:30.000000Z\",\"user_id\":\"9a7aa651-87e5-4644-8567-49298649e69a\"}],\"links\":{\"first\":\"\\\/?page=1\",\"last\":\"\\\/?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"\\\/?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"\\\/\",\"per_page\":15,\"to\":2,\"total\":2}}",
-                            "name": ""
-                        }
-                    ]
-                },
                 {
                     "name": "List users",
                     "request": {
@@ -972,7 +881,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":[{\"id\":\"9a7aa651-8c1d-41b8-a77a-7ee004f35209\",\"username\":\"martin41\",\"created_at\":\"2023-10-28T17:54:30.000000Z\",\"updated_at\":\"2023-10-28T17:54:30.000000Z\"},{\"id\":\"9a7aa651-8cfb-4cd3-9794-3c838d0ee05d\",\"username\":\"treilly\",\"created_at\":\"2023-10-28T17:54:30.000000Z\",\"updated_at\":\"2023-10-28T17:54:30.000000Z\"}],\"links\":{\"first\":\"\\\/?page=1\",\"last\":\"\\\/?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"\\\/?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"\\\/\",\"per_page\":15,\"to\":2,\"total\":2}}",
+                            "body": "{\"data\":[{\"id\":\"9a7f0558-a34c-4c17-b911-2e3d9a703568\",\"username\":\"axel65\",\"created_at\":\"2023-10-30T22:03:32.000000Z\",\"updated_at\":\"2023-10-30T22:03:32.000000Z\"},{\"id\":\"9a7f0558-a45e-4d89-810f-95728a65359e\",\"username\":\"imarvin\",\"created_at\":\"2023-10-30T22:03:32.000000Z\",\"updated_at\":\"2023-10-30T22:03:32.000000Z\"}],\"links\":{\"first\":\"\\\/?page=1\",\"last\":\"\\\/?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"\\\/?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"\\\/\",\"per_page\":15,\"to\":2,\"total\":2}}",
                             "name": ""
                         }
                     ]
@@ -1006,7 +915,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "Get a user by its ID.",
+                        "description": "Returns a single user specified by the ID.",
                         "auth": {
                             "type": "noauth"
                         }
@@ -1015,27 +924,54 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":\"9a7aa651-8ff0-4347-b1e1-0b36dd4e8795\",\"username\":\"derick.hartmann\",\"created_at\":\"2023-10-28T17:54:30.000000Z\",\"updated_at\":\"2023-10-28T17:54:30.000000Z\"}}",
+                            "body": "{\"data\":{\"id\":\"9a7f0558-a7c7-4ab9-9347-f4fbb15e8368\",\"username\":\"webster.schiller\",\"created_at\":\"2023-10-30T22:03:32.000000Z\",\"updated_at\":\"2023-10-30T22:03:32.000000Z\"}}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "Update a user",
+                    "name": "Get the authenticated user.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/v1\/users\/:id",
+                            "path": "api\/v1\/user",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/users\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "",
-                                    "description": "The ID of the user."
-                                }
-                            ]
+                            "raw": "{{baseUrl}}\/api\/v1\/user"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Returns the authenticated user.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":\"9a7f0558-e5d9-4735-9fea-28e4ffda7947\",\"username\":\"effie52\",\"created_at\":\"2023-10-30T22:03:32.000000Z\",\"updated_at\":\"2023-10-30T22:03:32.000000Z\"}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update the authenticated user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/user",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/user"
                         },
                         "method": "PUT",
                         "header": [
@@ -1050,15 +986,15 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"shaina.kilback@example.net\",\"password\":\"z$O`p[b^,XMC`-_26Q\"}"
+                            "raw": "{\"email\":\"frederik.mohr@example.net\",\"password\":\"Ct*yiE7+qfeo%3d\"}"
                         },
-                        "description": "Update a user by its ID."
+                        "description": "Update the email and password of the authenticated user."
                     },
                     "response": [
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":\"9a7aa651-c89a-4c13-a033-6eaf7219ce3e\",\"username\":\"belle34\",\"created_at\":\"2023-10-28T17:54:30.000000Z\",\"updated_at\":\"2023-10-28T17:54:30.000000Z\"}}",
+                            "body": "{\"data\":{\"id\":\"9a7f0558-e95a-429f-915b-cfc6047724c1\",\"username\":\"khaag\",\"created_at\":\"2023-10-30T22:03:32.000000Z\",\"updated_at\":\"2023-10-30T22:03:32.000000Z\"}}",
                             "name": ""
                         }
                     ]

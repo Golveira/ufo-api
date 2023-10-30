@@ -30,7 +30,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: murray66@example.com
+        example: tyreek.moen@example.com
         type: string
         enumValues: []
         custom: []
@@ -38,13 +38,13 @@ endpoints:
         name: password
         description: 'Must be at least 8 characters.'
         required: true
-        example: 'OL=w?6~wo&.pGB}fR2'
+        example: 's\J(=WT!)k,(%Xj3'
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      email: murray66@example.com
-      password: 'OL=w?6~wo&.pGB}fR2'
+      email: tyreek.moen@example.com
+      password: 's\J(=WT!)k,(%Xj3'
     fileParameters: []
     responses:
       -
@@ -86,7 +86,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: alphonso.feeney@example.org
+        example: daren.hansen@example.org
         type: string
         enumValues: []
         custom: []
@@ -94,13 +94,13 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: 'gR#dhUa"3'
+        example: oW)<TP
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      email: alphonso.feeney@example.org
-      password: 'gR#dhUa"3'
+      email: daren.hansen@example.org
+      password: oW)<TP
     fileParameters: []
     responses:
       -
@@ -111,48 +111,6 @@ endpoints:
         custom: []
     responseFields: []
     auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/v1/auth/logout
-    metadata:
-      groupName: Auth
-      groupDescription: |-
-
-        Endpoints for managing authentication.
-      subgroup: ''
-      subgroupDescription: ''
-      title: Logout
-      description: 'Logout the current user.'
-      authenticated: true
-      custom: []
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{ "message": "Token revoked" }'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer bchkefPg5V6vZa8D31E46da'
     controller: null
     method: null
     route: null

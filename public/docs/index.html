@@ -71,9 +71,6 @@
                                                                                 <li class="tocify-item level-2" data-unique="auth-POSTapi-v1-auth-login">
                                 <a href="#auth-POSTapi-v1-auth-login">Login</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="auth-POSTapi-v1-auth-logout">
-                                <a href="#auth-POSTapi-v1-auth-logout">Logout</a>
-                            </li>
                                                                         </ul>
                             </ul>
                     <ul id="tocify-header-dossiers" class="tocify-header">
@@ -100,10 +97,13 @@
                                 <a href="#dossiers-DELETEapi-v1-dossiers--id-">Delete a dossier</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="dossiers-POSTapi-v1-dossiers--dossier_id--reports">
-                                <a href="#dossiers-POSTapi-v1-dossiers--dossier_id--reports">Add a report</a>
+                                <a href="#dossiers-POSTapi-v1-dossiers--dossier_id--reports">Add a report to a dossier</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="dossiers-DELETEapi-v1-dossiers--dossier_id--reports--id-">
-                                <a href="#dossiers-DELETEapi-v1-dossiers--dossier_id--reports--id-">Remove a report</a>
+                                <a href="#dossiers-DELETEapi-v1-dossiers--dossier_id--reports--id-">Remove a report from a dossier</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="dossiers-GETapi-v1-user-dossiers">
+                                <a href="#dossiers-GETapi-v1-user-dossiers">List dossiers for the authenticated user.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -127,14 +127,14 @@
                                                                                 <li class="tocify-item level-2" data-unique="reports-DELETEapi-v1-reports--id-">
                                 <a href="#reports-DELETEapi-v1-reports--id-">Delete a report</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="reports-GETapi-v1-reports--report_id--images">
-                                <a href="#reports-GETapi-v1-reports--report_id--images">List report images</a>
-                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="reports-POSTapi-v1-reports--report_id--images">
                                 <a href="#reports-POSTapi-v1-reports--report_id--images">Upload images</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="reports-DELETEapi-v1-reports--report_id--images--id-">
                                 <a href="#reports-DELETEapi-v1-reports--report_id--images--id-">Delete an image</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="reports-GETapi-v1-user-reports">
+                                <a href="#reports-GETapi-v1-user-reports">List reports for the authenticated user.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -143,20 +143,17 @@
                     <a href="#users">Users</a>
                 </li>
                                     <ul id="tocify-subheader-users" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="users-GETapi-v1-users--user_id--reports">
-                                <a href="#users-GETapi-v1-users--user_id--reports">List user reports</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="users-GETapi-v1-users--user_id--dossiers">
-                                <a href="#users-GETapi-v1-users--user_id--dossiers">List user dossiers</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="users-GETapi-v1-users">
+                                                    <li class="tocify-item level-2" data-unique="users-GETapi-v1-users">
                                 <a href="#users-GETapi-v1-users">List users</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="users-GETapi-v1-users--id-">
                                 <a href="#users-GETapi-v1-users--id-">Get a user</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="users-PUTapi-v1-users--id-">
-                                <a href="#users-PUTapi-v1-users--id-">Update a user</a>
+                                                                                <li class="tocify-item level-2" data-unique="users-GETapi-v1-user">
+                                <a href="#users-GETapi-v1-user">Get the authenticated user.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="users-PUTapi-v1-user">
+                                <a href="#users-PUTapi-v1-user">Update the authenticated user.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -169,7 +166,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: October 28, 2023</li>
+        <li>Last updated: October 30, 2023</li>
     </ul>
 </div>
 
@@ -181,9 +178,6 @@
 <aside>
     <strong>Base URL</strong>: <code>http://ufo.test</code>
 </aside>
-<p>This documentation aims to provide all the information you need to work with our API.</p>
-<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
-You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
 <p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
@@ -210,8 +204,8 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"murray66@example.com\",
-    \"password\": \"OL=w?6~wo&amp;.pGB}fR2\"
+    \"email\": \"tyreek.moen@example.com\",
+    \"password\": \"s\\\\J(=WT!)k,(%Xj3\"
 }"
 </code></pre></div>
 
@@ -227,8 +221,8 @@ const headers = {
 };
 
 let body = {
-    "email": "murray66@example.com",
-    "password": "OL=w?6~wo&amp;.pGB}fR2"
+    "email": "tyreek.moen@example.com",
+    "password": "s\\J(=WT!)k,(%Xj3"
 };
 
 fetch(url, {
@@ -309,10 +303,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-auth-register"
-               value="murray66@example.com"
+               value="tyreek.moen@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>murray66@example.com</code></p>
+<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>tyreek.moen@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -320,10 +314,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v1-auth-register"
-               value="OL=w?6~wo&.pGB}fR2"
+               value="s\J(=WT!)k,(%Xj3"
                data-component="body">
     <br>
-<p>Must be at least 8 characters. Example: <code>OL=w?6~wo&amp;.pGB}fR2</code></p>
+<p>Must be at least 8 characters. Example: <code>s\J(=WT!)k,(%Xj3</code></p>
         </div>
         </form>
 
@@ -344,8 +338,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"alphonso.feeney@example.org\",
-    \"password\": \"gR#dhUa\\\"3\"
+    \"email\": \"daren.hansen@example.org\",
+    \"password\": \"oW)&lt;TP\"
 }"
 </code></pre></div>
 
@@ -361,8 +355,8 @@ const headers = {
 };
 
 let body = {
-    "email": "alphonso.feeney@example.org",
-    "password": "gR#dhUa\"3"
+    "email": "daren.hansen@example.org",
+    "password": "oW)&lt;TP"
 };
 
 fetch(url, {
@@ -443,10 +437,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-auth-login"
-               value="alphonso.feeney@example.org"
+               value="daren.hansen@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>alphonso.feeney@example.org</code></p>
+<p>Must be a valid email address. Example: <code>daren.hansen@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -454,126 +448,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v1-auth-login"
-               value="gR#dhUa"3"
+               value="oW)<TP"
                data-component="body">
     <br>
-<p>Example: <code>gR#dhUa"3</code></p>
+<p>Example: <code>oW)&lt;TP</code></p>
         </div>
         </form>
-
-                    <h2 id="auth-POSTapi-v1-auth-logout">Logout</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-<p>Logout the current user.</p>
-
-<span id="example-requests-POSTapi-v1-auth-logout">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://ufo.test/api/v1/auth/logout" \
-    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://ufo.test/api/v1/auth/logout"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-v1-auth-logout">
-            <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Token revoked&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-POSTapi-v1-auth-logout" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-auth-logout"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-auth-logout"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-v1-auth-logout" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-auth-logout">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-v1-auth-logout" data-method="POST"
-      data-path="api/v1/auth/logout"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-auth-logout', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/v1/auth/logout</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-auth-logout"
-               value="Bearer {YOUR_AUTH_KEY}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-v1-auth-logout"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-v1-auth-logout"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
 
                 <h1 id="dossiers">Dossiers</h1>
 
@@ -584,7 +464,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>
 </p>
 
-<p>Get a list of reports attached to a dossier.</p>
+<p>Get a list of reports added to a dossier.</p>
 
 <span id="example-requests-GETapi-v1-dossiers--dossier_id--reports">
 <blockquote>Example request:</blockquote>
@@ -623,42 +503,42 @@ fetch(url, {
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: &quot;9a7aa651-76b1-4b75-a484-3522cab60e42&quot;,
-            &quot;user_id&quot;: &quot;9a7aa651-75e6-454c-b18c-373be4521c2f&quot;,
-            &quot;summary&quot;: &quot;Quisquam at aut laborum et soluta in tempora odio.&quot;,
-            &quot;country&quot;: &quot;Cameroon&quot;,
-            &quot;state&quot;: &quot;Indiana&quot;,
-            &quot;city&quot;: &quot;Port Sherman&quot;,
-            &quot;lat&quot;: 48.121106,
-            &quot;long&quot;: -80.208828,
+            &quot;id&quot;: &quot;9a7f0558-8ca4-45a1-b801-007f70fa55af&quot;,
+            &quot;user_id&quot;: &quot;9a7f0558-8bb2-4e81-9a78-6ac4639d2f7c&quot;,
+            &quot;summary&quot;: &quot;Quia sunt est necessitatibus deleniti illum quisquam.&quot;,
+            &quot;country&quot;: &quot;New Zealand&quot;,
+            &quot;state&quot;: &quot;Pennsylvania&quot;,
+            &quot;city&quot;: &quot;Doyleview&quot;,
+            &quot;lat&quot;: -9.247536,
+            &quot;long&quot;: -77.065558,
             &quot;date&quot;: {
-                &quot;date&quot;: &quot;2009-05-02 07:23:13.000000&quot;,
+                &quot;date&quot;: &quot;2021-07-15 15:24:44.000000&quot;,
                 &quot;timezone_type&quot;: 3,
                 &quot;timezone&quot;: &quot;UTC&quot;
             },
-            &quot;duration&quot;: 10,
-            &quot;object_shape&quot;: &quot;odio&quot;,
-            &quot;number_of_observers&quot;: 9,
-            &quot;details&quot;: &quot;Voluptatum dicta voluptas velit cumque repellendus. A illum enim sint perspiciatis. Sit magni aliquam cumque ut qui. Qui non voluptatibus perspiciatis voluptatem fuga magni aut.&quot;
+            &quot;duration&quot;: 36,
+            &quot;object_shape&quot;: &quot;sed&quot;,
+            &quot;number_of_observers&quot;: 6,
+            &quot;details&quot;: &quot;Et animi itaque natus a. Rerum magnam voluptatem neque maxime omnis vel rerum. Illo nam quasi atque est molestiae.&quot;
         },
         {
-            &quot;id&quot;: &quot;9a7aa651-78a4-40f9-b697-a75285ee77a8&quot;,
-            &quot;user_id&quot;: &quot;9a7aa651-77f5-487a-a6cc-0059ea235fba&quot;,
-            &quot;summary&quot;: &quot;Dolore eum voluptate consequuntur magni omnis.&quot;,
-            &quot;country&quot;: &quot;Peru&quot;,
+            &quot;id&quot;: &quot;9a7f0558-8e81-4371-b00e-f38fa260f254&quot;,
+            &quot;user_id&quot;: &quot;9a7f0558-8dbe-4cb3-9351-cb6348647043&quot;,
+            &quot;summary&quot;: &quot;Consequatur ad et nostrum doloribus non inventore veniam.&quot;,
+            &quot;country&quot;: &quot;United Kingdom&quot;,
             &quot;state&quot;: &quot;District of Columbia&quot;,
-            &quot;city&quot;: &quot;Port Luciano&quot;,
-            &quot;lat&quot;: -45.648064,
-            &quot;long&quot;: -66.500327,
+            &quot;city&quot;: &quot;New Francesco&quot;,
+            &quot;lat&quot;: -85.82237,
+            &quot;long&quot;: 4.523991,
             &quot;date&quot;: {
-                &quot;date&quot;: &quot;2007-12-03 08:56:44.000000&quot;,
+                &quot;date&quot;: &quot;2009-11-20 21:18:54.000000&quot;,
                 &quot;timezone_type&quot;: 3,
                 &quot;timezone&quot;: &quot;UTC&quot;
             },
-            &quot;duration&quot;: 21,
-            &quot;object_shape&quot;: &quot;ex&quot;,
-            &quot;number_of_observers&quot;: 5,
-            &quot;details&quot;: &quot;Consequatur rerum minima voluptatibus doloremque. Quasi est debitis itaque minima voluptas sint. Nesciunt ad molestiae nihil dolor dolores aut excepturi.&quot;
+            &quot;duration&quot;: 16,
+            &quot;object_shape&quot;: &quot;voluptas&quot;,
+            &quot;number_of_observers&quot;: 1,
+            &quot;details&quot;: &quot;Iure commodi officia neque sunt. Sed voluptatum facilis quod odio commodi. Laboriosam et molestiae fuga et illum. Veniam non illum aut vero corporis.&quot;
         }
     ],
     &quot;links&quot;: {
@@ -806,20 +686,30 @@ fetch(url, {
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: &quot;9a7aa651-7cd5-4d85-83b0-ce3866de1dce&quot;,
-            &quot;title&quot;: &quot;Quia consequatur consequuntur suscipit dolores.&quot;,
-            &quot;description&quot;: &quot;Quia autem et officia et autem et esse. Labore non culpa omnis animi atque. Doloremque impedit quia dolorem inventore dolorem. Iusto tenetur rem vel. Animi voluptatem similique iusto sunt.&quot;,
-            &quot;created_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
-            &quot;user_id&quot;: &quot;9a7aa651-7c16-4fc9-84ac-8054af253ba2&quot;
+            &quot;id&quot;: &quot;9a7f0558-94d0-4d9f-94d6-20d492f45a41&quot;,
+            &quot;title&quot;: &quot;Est odit dolor nihil perspiciatis corrupti.&quot;,
+            &quot;description&quot;: &quot;Eos molestias velit sed vel deserunt at. Nesciunt odio et eos illo sint nemo tempore. Voluptatem sit nobis qui asperiores eius aut nam.&quot;,
+            &quot;created_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;,
+            &quot;owner&quot;: {
+                &quot;id&quot;: &quot;9a7f0558-93f8-4fbd-a233-639f20917848&quot;,
+                &quot;username&quot;: &quot;ayla.hirthe&quot;,
+                &quot;created_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;
+            }
         },
         {
-            &quot;id&quot;: &quot;9a7aa651-7ed6-467d-b36a-2c4848fa1d2e&quot;,
-            &quot;title&quot;: &quot;Incidunt tempora voluptatem voluptatem impedit qui perspiciatis.&quot;,
-            &quot;description&quot;: &quot;Veniam autem ea qui ipsa. Quae inventore sunt eum. Eveniet eos ullam beatae pariatur rem cum sed.&quot;,
-            &quot;created_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
-            &quot;user_id&quot;: &quot;9a7aa651-7e32-4848-9428-0a8306f26ce1&quot;
+            &quot;id&quot;: &quot;9a7f0558-97ac-4026-ab0f-9adb28c397a0&quot;,
+            &quot;title&quot;: &quot;Similique qui quo delectus sint incidunt dolorem in.&quot;,
+            &quot;description&quot;: &quot;Quis recusandae veritatis cupiditate sed cupiditate magnam. Error officiis esse exercitationem debitis delectus amet aut et. Repudiandae odio aut quo itaque accusamus officia ut.&quot;,
+            &quot;created_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;,
+            &quot;owner&quot;: {
+                &quot;id&quot;: &quot;9a7f0558-96ef-4335-a1dd-83724b55b119&quot;,
+                &quot;username&quot;: &quot;mnienow&quot;,
+                &quot;created_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;
+            }
         }
     ],
     &quot;links&quot;: {
@@ -916,7 +806,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>
 </p>
 
-<p>Get a dossier by id.</p>
+<p>Returns a single dossier specified by the ID.</p>
 
 <span id="example-requests-GETapi-v1-dossiers--id-">
 <blockquote>Example request:</blockquote>
@@ -954,12 +844,17 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: &quot;9a7aa651-829c-4d95-b02f-371899388af9&quot;,
-        &quot;title&quot;: &quot;Ea inventore illum qui ab quidem est ut.&quot;,
-        &quot;description&quot;: &quot;Aut et repudiandae eligendi perspiciatis. Unde excepturi nemo accusantium. Tenetur facilis eligendi harum et.&quot;,
-        &quot;created_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
-        &quot;user_id&quot;: &quot;9a7aa651-81d1-4525-b563-327e31d2306b&quot;
+        &quot;id&quot;: &quot;9a7f0558-9f3d-40a6-ba5b-5d662a645ece&quot;,
+        &quot;title&quot;: &quot;Alias nobis explicabo et occaecati itaque.&quot;,
+        &quot;description&quot;: &quot;Eveniet cumque aperiam non ad consequatur commodi ut cupiditate. Molestias ullam dolor sunt similique voluptas saepe deleniti. Tenetur quo eum enim facilis impedit.&quot;,
+        &quot;created_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;,
+        &quot;owner&quot;: {
+            &quot;id&quot;: &quot;9a7f0558-9e57-4b00-ae12-e7d93bf8f255&quot;,
+            &quot;username&quot;: &quot;esipes&quot;,
+            &quot;created_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;
+        }
     }
 }</code>
  </pre>
@@ -1036,7 +931,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>Create a new dossier.</p>
+<p>Create a new dossier on behalf of the authenticated user.</p>
 
 <span id="example-requests-POSTapi-v1-dossiers">
 <blockquote>Example request:</blockquote>
@@ -1087,12 +982,11 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: &quot;9a7aa651-b7e2-4135-bbda-818fbb1817b7&quot;,
-        &quot;title&quot;: &quot;Est odio laudantium cupiditate aliquid et aut totam.&quot;,
-        &quot;description&quot;: &quot;Doloremque quae et velit aliquam facere eos. Ducimus deleniti harum eum aut perferendis aut sed. Corrupti voluptatem omnis aut omnis repudiandae. Nihil quasi et earum eius. Sed non blanditiis vel.&quot;,
-        &quot;created_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
-        &quot;user_id&quot;: &quot;9a7aa651-b6fe-4004-87c5-5f6e87b928bb&quot;
+        &quot;id&quot;: &quot;9a7f0558-d662-488e-98dd-91b77c1ad8ca&quot;,
+        &quot;title&quot;: &quot;Et et molestias iure asperiores temporibus.&quot;,
+        &quot;description&quot;: &quot;Dolorem vel laudantium fugiat ducimus quam. At porro voluptas suscipit nam.&quot;,
+        &quot;created_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;
     }
 }</code>
  </pre>
@@ -1191,7 +1085,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>Update and existing dossier.</p>
+<p>Allows an authenticated user to update a dossier.</p>
 
 <span id="example-requests-PUTapi-v1-dossiers--id-">
 <blockquote>Example request:</blockquote>
@@ -1242,12 +1136,11 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: &quot;9a7aa651-bdce-4abb-a8a6-fea071495bc7&quot;,
-        &quot;title&quot;: &quot;Tempora soluta natus nisi labore.&quot;,
-        &quot;description&quot;: &quot;Voluptatum ipsum voluptatem non natus consequatur reiciendis voluptas. Voluptatem dolorem dolore voluptas quia nesciunt et. Repellat et quia temporibus distinctio voluptatem.&quot;,
-        &quot;created_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
-        &quot;user_id&quot;: &quot;9a7aa651-bb15-4160-b022-4fc8be7354c6&quot;
+        &quot;id&quot;: &quot;9a7f0558-db0d-465c-b35d-2d09e8bd85e1&quot;,
+        &quot;title&quot;: &quot;Hic quia nobis similique ut.&quot;,
+        &quot;description&quot;: &quot;Recusandae eius neque ipsum et voluptate ut. Numquam deleniti laboriosam repellat nam. Qui aut unde libero culpa omnis. Officia illum tempore est.&quot;,
+        &quot;created_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;
     }
 }</code>
  </pre>
@@ -1362,7 +1255,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>Delete an existing dossier.</p>
+<p>Allows an authenticated user to delete a dossier.</p>
 
 <span id="example-requests-DELETEapi-v1-dossiers--id-">
 <blockquote>Example request:</blockquote>
@@ -1479,13 +1372,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="dossiers-POSTapi-v1-dossiers--dossier_id--reports">Add a report</h2>
+                    <h2 id="dossiers-POSTapi-v1-dossiers--dossier_id--reports">Add a report to a dossier</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>Add a report to a dossier.</p>
+<p>Add the specified report to a dossier.</p>
 
 <span id="example-requests-POSTapi-v1-dossiers--dossier_id--reports">
 <blockquote>Example request:</blockquote>
@@ -1498,7 +1391,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"report_id\": \"sit\"
+    \"report_id\": \"et\"
 }"
 </code></pre></div>
 
@@ -1515,7 +1408,7 @@ const headers = {
 };
 
 let body = {
-    "report_id": "sit"
+    "report_id": "et"
 };
 
 fetch(url, {
@@ -1616,20 +1509,20 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="report_id"                data-endpoint="POSTapi-v1-dossiers--dossier_id--reports"
-               value="sit"
+               value="et"
                data-component="body">
     <br>
-<p>Example: <code>sit</code></p>
+<p>Example: <code>et</code></p>
         </div>
         </form>
 
-                    <h2 id="dossiers-DELETEapi-v1-dossiers--dossier_id--reports--id-">Remove a report</h2>
+                    <h2 id="dossiers-DELETEapi-v1-dossiers--dossier_id--reports--id-">Remove a report from a dossier</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>This endpoint allows you to remove a report from a dossier.</p>
+<p>Remove the specified report from a dossier.</p>
 
 <span id="example-requests-DELETEapi-v1-dossiers--dossier_id--reports--id-">
 <blockquote>Example request:</blockquote>
@@ -1637,7 +1530,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://ufo.test/api/v1/dossiers//reports/voluptatem" \
+    "http://ufo.test/api/v1/dossiers//reports/9a7ee0f8-308b-48da-8117-f129ccdf2de9" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1645,7 +1538,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://ufo.test/api/v1/dossiers//reports/voluptatem"
+    "http://ufo.test/api/v1/dossiers//reports/9a7ee0f8-308b-48da-8117-f129ccdf2de9"
 );
 
 const headers = {
@@ -1750,12 +1643,159 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="DELETEapi-v1-dossiers--dossier_id--reports--id-"
-               value="voluptatem"
+               value="9a7ee0f8-308b-48da-8117-f129ccdf2de9"
                data-component="url">
     <br>
-<p>The ID of the report. Example: <code>voluptatem</code></p>
+<p>The ID of the report. Example: <code>9a7ee0f8-308b-48da-8117-f129ccdf2de9</code></p>
             </div>
                     </form>
+
+                    <h2 id="dossiers-GETapi-v1-user-dossiers">List dossiers for the authenticated user.</h2>
+
+<p>
+</p>
+
+<p>Get a list of dossiers belonging to the authenticated user.</p>
+
+<span id="example-requests-GETapi-v1-user-dossiers">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://ufo.test/api/v1/user/dossiers" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://ufo.test/api/v1/user/dossiers"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-user-dossiers">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: &quot;9a7f0558-f2cc-4642-badd-4e4aa6faabe2&quot;,
+            &quot;title&quot;: &quot;Autem vel et ut nihil.&quot;,
+            &quot;description&quot;: &quot;Et possimus quia nobis quia voluptates magnam. Architecto sunt eius consectetur mollitia. Aut assumenda sed minus eos non. Natus quisquam quidem officia repellat voluptatem dolorem magni.&quot;,
+            &quot;created_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: &quot;9a7f0558-f4a9-425b-96f4-ddde2fe84cd5&quot;,
+            &quot;title&quot;: &quot;Unde ut ipsam natus sapiente quaerat autem.&quot;,
+            &quot;description&quot;: &quot;Placeat recusandae hic ut aut qui. Molestiae quibusdam ea soluta fugit impedit minima aliquid et. Optio voluptatibus sint illo voluptas eum sit officia.&quot;,
+            &quot;created_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;
+        }
+    ],
+    &quot;links&quot;: {
+        &quot;first&quot;: &quot;/?page=1&quot;,
+        &quot;last&quot;: &quot;/?page=1&quot;,
+        &quot;prev&quot;: null,
+        &quot;next&quot;: null
+    },
+    &quot;meta&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;from&quot;: 1,
+        &quot;last_page&quot;: 1,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;/?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;active&quot;: false
+            }
+        ],
+        &quot;path&quot;: &quot;/&quot;,
+        &quot;per_page&quot;: 15,
+        &quot;to&quot;: 2,
+        &quot;total&quot;: 2
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-user-dossiers" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-user-dossiers"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user-dossiers"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-user-dossiers" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-user-dossiers">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-user-dossiers" data-method="GET"
+      data-path="api/v1/user/dossiers"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-dossiers', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/user/dossiers</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-user-dossiers"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-user-dossiers"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
 
                 <h1 id="reports">Reports</h1>
 
@@ -1818,42 +1858,42 @@ fetch(url, {
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: &quot;9a7aa651-5b15-4ee4-b4bd-51209ab02161&quot;,
-            &quot;user_id&quot;: &quot;9a7aa651-5560-4c35-9649-e4702ab87728&quot;,
-            &quot;summary&quot;: &quot;Dolores maxime fugiat repudiandae aspernatur quae necessitatibus.&quot;,
-            &quot;country&quot;: &quot;Kyrgyz Republic&quot;,
-            &quot;state&quot;: &quot;Washington&quot;,
-            &quot;city&quot;: &quot;Jadynburgh&quot;,
-            &quot;lat&quot;: -59.261813,
-            &quot;long&quot;: -20.35353,
+            &quot;id&quot;: &quot;9a7f0558-666a-4a99-82f1-5f255510450c&quot;,
+            &quot;user_id&quot;: &quot;9a7f0558-5d1e-42d9-8cde-6304064ca8de&quot;,
+            &quot;summary&quot;: &quot;Quidem quos voluptatibus et minima.&quot;,
+            &quot;country&quot;: &quot;Bangladesh&quot;,
+            &quot;state&quot;: &quot;Utah&quot;,
+            &quot;city&quot;: &quot;Lake Woodrowville&quot;,
+            &quot;lat&quot;: -55.025124,
+            &quot;long&quot;: -98.595585,
             &quot;date&quot;: {
-                &quot;date&quot;: &quot;2021-06-23 01:15:39.000000&quot;,
-                &quot;timezone_type&quot;: 3,
-                &quot;timezone&quot;: &quot;UTC&quot;
-            },
-            &quot;duration&quot;: 51,
-            &quot;object_shape&quot;: &quot;eius&quot;,
-            &quot;number_of_observers&quot;: 6,
-            &quot;details&quot;: &quot;Aspernatur iure nesciunt quia ratione. Molestias rerum laudantium harum illum non.&quot;
-        },
-        {
-            &quot;id&quot;: &quot;9a7aa651-5dc0-485d-920f-cea88ac78da6&quot;,
-            &quot;user_id&quot;: &quot;9a7aa651-5cd6-4dd8-8eee-bdb097fe3190&quot;,
-            &quot;summary&quot;: &quot;Ex qui modi numquam rerum harum.&quot;,
-            &quot;country&quot;: &quot;Zambia&quot;,
-            &quot;state&quot;: &quot;Texas&quot;,
-            &quot;city&quot;: &quot;Lake Shaun&quot;,
-            &quot;lat&quot;: 78.231948,
-            &quot;long&quot;: 44.433229,
-            &quot;date&quot;: {
-                &quot;date&quot;: &quot;2006-06-17 14:59:14.000000&quot;,
+                &quot;date&quot;: &quot;2022-09-14 04:52:58.000000&quot;,
                 &quot;timezone_type&quot;: 3,
                 &quot;timezone&quot;: &quot;UTC&quot;
             },
             &quot;duration&quot;: 32,
-            &quot;object_shape&quot;: &quot;alias&quot;,
-            &quot;number_of_observers&quot;: 6,
-            &quot;details&quot;: &quot;Ipsum ea vel consequatur eum. Velit ipsa distinctio rerum ducimus tenetur. Incidunt ipsum consequatur nihil mollitia voluptas in et. Nemo ducimus deleniti non tempora facere.&quot;
+            &quot;object_shape&quot;: &quot;rerum&quot;,
+            &quot;number_of_observers&quot;: 2,
+            &quot;details&quot;: &quot;Earum dolores ad ducimus molestiae. Quia provident veritatis nulla. Iusto ducimus repellat dolor reiciendis veniam est distinctio. Accusantium autem atque pariatur.&quot;
+        },
+        {
+            &quot;id&quot;: &quot;9a7f0558-6ba1-451c-8e6f-6c6bd5d4d6fe&quot;,
+            &quot;user_id&quot;: &quot;9a7f0558-6a41-462c-bab1-2b1a9fd9ed28&quot;,
+            &quot;summary&quot;: &quot;Et voluptatem doloribus consequatur sapiente beatae quos qui.&quot;,
+            &quot;country&quot;: &quot;Swaziland&quot;,
+            &quot;state&quot;: &quot;Washington&quot;,
+            &quot;city&quot;: &quot;Jerrodbury&quot;,
+            &quot;lat&quot;: 46.421788,
+            &quot;long&quot;: 161.792766,
+            &quot;date&quot;: {
+                &quot;date&quot;: &quot;2018-09-10 06:06:46.000000&quot;,
+                &quot;timezone_type&quot;: 3,
+                &quot;timezone&quot;: &quot;UTC&quot;
+            },
+            &quot;duration&quot;: 18,
+            &quot;object_shape&quot;: &quot;dicta&quot;,
+            &quot;number_of_observers&quot;: 10,
+            &quot;details&quot;: &quot;Doloremque voluptates velit accusamus quas vel. Accusamus dolor aut voluptates eaque voluptatibus suscipit ea. Sapiente reiciendis quo sed vel. Illo hic officiis quam vero nesciunt est debitis.&quot;
         }
     ],
     &quot;links&quot;: {
@@ -2043,7 +2083,7 @@ Must be one of:
 <p>
 </p>
 
-<p>Get a report by id.</p>
+<p>Returns a single report specified by the ID.</p>
 
 <span id="example-requests-GETapi-v1-reports--id-">
 <blockquote>Example request:</blockquote>
@@ -2081,23 +2121,29 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: &quot;9a7aa651-68d7-4843-98e2-1a981245bcc0&quot;,
-        &quot;user_id&quot;: &quot;9a7aa651-6806-4f84-933c-ae261819fe9c&quot;,
-        &quot;summary&quot;: &quot;Ratione et corporis aut incidunt.&quot;,
-        &quot;country&quot;: &quot;Turkey&quot;,
-        &quot;state&quot;: &quot;Oregon&quot;,
-        &quot;city&quot;: &quot;Aufderharville&quot;,
-        &quot;lat&quot;: 10.291408,
-        &quot;long&quot;: 134.844031,
+        &quot;id&quot;: &quot;9a7f0558-7ea8-4bbe-b372-a08782ea4427&quot;,
+        &quot;user_id&quot;: &quot;9a7f0558-7db1-401b-9f53-79f6cc44703b&quot;,
+        &quot;summary&quot;: &quot;Numquam dolorem a possimus.&quot;,
+        &quot;country&quot;: &quot;Syrian Arab Republic&quot;,
+        &quot;state&quot;: &quot;Hawaii&quot;,
+        &quot;city&quot;: &quot;South Wilmerside&quot;,
+        &quot;lat&quot;: 24.815656,
+        &quot;long&quot;: 119.388275,
         &quot;date&quot;: {
-            &quot;date&quot;: &quot;2004-04-06 05:01:40.000000&quot;,
+            &quot;date&quot;: &quot;2007-08-10 03:55:43.000000&quot;,
             &quot;timezone_type&quot;: 3,
             &quot;timezone&quot;: &quot;UTC&quot;
         },
-        &quot;duration&quot;: 19,
-        &quot;object_shape&quot;: &quot;accusantium&quot;,
-        &quot;number_of_observers&quot;: 1,
-        &quot;details&quot;: &quot;Qui dolore numquam fugit ut animi voluptas cupiditate dolor. Eum sint sunt sit rerum eos aspernatur aperiam autem. Sed maxime et aut temporibus est.&quot;
+        &quot;duration&quot;: 53,
+        &quot;object_shape&quot;: &quot;quia&quot;,
+        &quot;number_of_observers&quot;: 5,
+        &quot;details&quot;: &quot;Et sunt magni delectus voluptatem eos pariatur. Accusamus nihil et quibusdam debitis. Inventore dolorum aut ut labore commodi quis ut. Commodi aperiam dolor inventore velit placeat omnis similique.&quot;,
+        &quot;images&quot;: [
+            {
+                &quot;id&quot;: 127,
+                &quot;url&quot;: &quot;http://ufo.test/storage/https://via.placeholder.com/640x480.png/00bb00?text=omnis&quot;
+            }
+        ]
     }
 }</code>
  </pre>
@@ -2174,7 +2220,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>Create a new report for the authenticated user.</p>
+<p>Create a report on behalf of the authenticated user.</p>
 
 <span id="example-requests-POSTapi-v1-reports">
 <blockquote>Example request:</blockquote>
@@ -2243,23 +2289,23 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: &quot;9a7aa651-9459-400f-a2ec-8fcea13159c7&quot;,
-        &quot;user_id&quot;: &quot;9a7aa651-93a8-4bcc-b996-90c16e86e516&quot;,
-        &quot;summary&quot;: &quot;Dolor quo et placeat et qui.&quot;,
-        &quot;country&quot;: &quot;Liechtenstein&quot;,
-        &quot;state&quot;: &quot;Arkansas&quot;,
-        &quot;city&quot;: &quot;West Briastad&quot;,
-        &quot;lat&quot;: -87.025865,
-        &quot;long&quot;: 109.954719,
+        &quot;id&quot;: &quot;9a7f0558-acd6-42e9-985b-7e1be0409cc7&quot;,
+        &quot;user_id&quot;: &quot;9a7f0558-abe8-4bed-90c7-a42bb4134960&quot;,
+        &quot;summary&quot;: &quot;Ipsam voluptas debitis occaecati qui dolorem magnam.&quot;,
+        &quot;country&quot;: &quot;Bangladesh&quot;,
+        &quot;state&quot;: &quot;Vermont&quot;,
+        &quot;city&quot;: &quot;West Linda&quot;,
+        &quot;lat&quot;: 60.883197,
+        &quot;long&quot;: -53.125465,
         &quot;date&quot;: {
-            &quot;date&quot;: &quot;2001-10-04 21:55:26.000000&quot;,
+            &quot;date&quot;: &quot;2015-09-15 15:33:55.000000&quot;,
             &quot;timezone_type&quot;: 3,
             &quot;timezone&quot;: &quot;UTC&quot;
         },
-        &quot;duration&quot;: 47,
-        &quot;object_shape&quot;: &quot;sapiente&quot;,
+        &quot;duration&quot;: 41,
+        &quot;object_shape&quot;: &quot;sit&quot;,
         &quot;number_of_observers&quot;: 7,
-        &quot;details&quot;: &quot;Itaque sit quia incidunt aut. Incidunt recusandae dignissimos voluptatum quidem. Eum quos voluptas quas rerum maiores qui.&quot;
+        &quot;details&quot;: &quot;Vitae et dolor fuga sed. Quaerat aliquid sint ex nesciunt rerum commodi dignissimos. Quia culpa optio animi unde repellat atque.&quot;
     }
 }</code>
  </pre>
@@ -2457,7 +2503,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>Update a report for the authenticated user.</p>
+<p>Allows an authenticated user to update a report.</p>
 
 <span id="example-requests-PUTapi-v1-reports--id-">
 <blockquote>Example request:</blockquote>
@@ -2526,23 +2572,23 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: &quot;9a7aa651-9965-4304-a1ae-b9c08f2ac630&quot;,
-        &quot;user_id&quot;: &quot;9a7aa651-98c2-4ecf-af2a-4c2d8c8dcc2e&quot;,
-        &quot;summary&quot;: &quot;Dicta et et hic quis.&quot;,
-        &quot;country&quot;: &quot;New Zealand&quot;,
-        &quot;state&quot;: &quot;Virginia&quot;,
-        &quot;city&quot;: &quot;West Cassandreburgh&quot;,
-        &quot;lat&quot;: -81.284104,
-        &quot;long&quot;: -104.119589,
+        &quot;id&quot;: &quot;9a7f0558-b370-43c6-ae71-d7e63e78e955&quot;,
+        &quot;user_id&quot;: &quot;9a7f0558-b18a-489b-a3e8-bf9c3aa7efd0&quot;,
+        &quot;summary&quot;: &quot;Exercitationem aut deleniti voluptatem natus accusantium.&quot;,
+        &quot;country&quot;: &quot;Maldives&quot;,
+        &quot;state&quot;: &quot;Idaho&quot;,
+        &quot;city&quot;: &quot;Nettieville&quot;,
+        &quot;lat&quot;: -10.395544,
+        &quot;long&quot;: 99.713828,
         &quot;date&quot;: {
-            &quot;date&quot;: &quot;2002-04-25 13:23:13.000000&quot;,
+            &quot;date&quot;: &quot;2004-09-07 01:45:16.000000&quot;,
             &quot;timezone_type&quot;: 3,
             &quot;timezone&quot;: &quot;UTC&quot;
         },
-        &quot;duration&quot;: 19,
-        &quot;object_shape&quot;: &quot;qui&quot;,
-        &quot;number_of_observers&quot;: 3,
-        &quot;details&quot;: &quot;Odit necessitatibus deleniti minus doloremque corrupti est. Excepturi molestiae itaque maxime sint. Illum ipsum commodi consequatur accusamus repellat. Voluptas provident facilis ipsa aut iste non.&quot;
+        &quot;duration&quot;: 39,
+        &quot;object_shape&quot;: &quot;voluptatibus&quot;,
+        &quot;number_of_observers&quot;: 8,
+        &quot;details&quot;: &quot;Iste beatae eveniet deleniti aperiam. Earum repudiandae cupiditate ut doloribus quasi. Esse ut maiores suscipit sint temporibus velit.&quot;
     }
 }</code>
  </pre>
@@ -2756,7 +2802,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>Delete a report belonging to the authenticated user.</p>
+<p>Allows an authenticated user to delete a report.</p>
 
 <span id="example-requests-DELETEapi-v1-reports--id-">
 <blockquote>Example request:</blockquote>
@@ -2873,159 +2919,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="reports-GETapi-v1-reports--report_id--images">List report images</h2>
-
-<p>
-</p>
-
-<p>Get the images of a report.</p>
-
-<span id="example-requests-GETapi-v1-reports--report_id--images">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://ufo.test/api/v1/reports//images" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://ufo.test/api/v1/reports//images"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-v1-reports--report_id--images">
-            <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: [
-        {
-            &quot;id&quot;: 145,
-            &quot;url&quot;: &quot;http://ufo.test/storage/https://via.placeholder.com/640x480.png/005555?text=quo&quot;
-        },
-        {
-            &quot;id&quot;: 146,
-            &quot;url&quot;: &quot;http://ufo.test/storage/https://via.placeholder.com/640x480.png/0099aa?text=corporis&quot;
-        }
-    ],
-    &quot;links&quot;: {
-        &quot;first&quot;: &quot;/?page=1&quot;,
-        &quot;last&quot;: &quot;/?page=1&quot;,
-        &quot;prev&quot;: null,
-        &quot;next&quot;: null
-    },
-    &quot;meta&quot;: {
-        &quot;current_page&quot;: 1,
-        &quot;from&quot;: 1,
-        &quot;last_page&quot;: 1,
-        &quot;links&quot;: [
-            {
-                &quot;url&quot;: null,
-                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
-                &quot;active&quot;: false
-            },
-            {
-                &quot;url&quot;: &quot;/?page=1&quot;,
-                &quot;label&quot;: &quot;1&quot;,
-                &quot;active&quot;: true
-            },
-            {
-                &quot;url&quot;: null,
-                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
-                &quot;active&quot;: false
-            }
-        ],
-        &quot;path&quot;: &quot;/&quot;,
-        &quot;per_page&quot;: 15,
-        &quot;to&quot;: 2,
-        &quot;total&quot;: 2
-    }
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-v1-reports--report_id--images" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-reports--report_id--images"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-reports--report_id--images"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-v1-reports--report_id--images" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-reports--report_id--images">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-v1-reports--report_id--images" data-method="GET"
-      data-path="api/v1/reports/{report_id}/images"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-reports--report_id--images', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/v1/reports/{report_id}/images</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-v1-reports--report_id--images"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-v1-reports--report_id--images"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>report_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="report_id"                data-endpoint="GETapi-v1-reports--report_id--images"
-               value=""
-               data-component="url">
-    <br>
-<p>The ID of the report.</p>
-            </div>
-                    </form>
-
                     <h2 id="reports-POSTapi-v1-reports--report_id--images">Upload images</h2>
 
 <p>
@@ -3044,7 +2937,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "images[]=@C:\Users\Gabriel\AppData\Local\Temp\phpF585.tmp" </code></pre></div>
+    --form "images[]=@C:\Users\Gabriel\AppData\Local\Temp\php9EAB.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -3078,12 +2971,12 @@ fetch(url, {
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 147,
-            &quot;url&quot;: &quot;http://ufo.test/storage/https://via.placeholder.com/640x480.png/001111?text=impedit&quot;
+            &quot;id&quot;: 128,
+            &quot;url&quot;: &quot;http://ufo.test/storage/https://via.placeholder.com/640x480.png/003300?text=voluptatum&quot;
         },
         {
-            &quot;id&quot;: 148,
-            &quot;url&quot;: &quot;http://ufo.test/storage/https://via.placeholder.com/640x480.png/0088aa?text=architecto&quot;
+            &quot;id&quot;: 129,
+            &quot;url&quot;: &quot;http://ufo.test/storage/https://via.placeholder.com/640x480.png/0044ee?text=ut&quot;
         }
     ]
 }</code>
@@ -3194,7 +3087,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://ufo.test/api/v1/reports//images/2" \
+    "http://ufo.test/api/v1/reports//images/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3202,7 +3095,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://ufo.test/api/v1/reports//images/2"
+    "http://ufo.test/api/v1/reports//images/1"
 );
 
 const headers = {
@@ -3307,362 +3200,189 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-v1-reports--report_id--images--id-"
-               value="2"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the image. Example: <code>2</code></p>
+<p>The ID of the image. Example: <code>1</code></p>
             </div>
                     </form>
+
+                    <h2 id="reports-GETapi-v1-user-reports">List reports for the authenticated user.</h2>
+
+<p>
+</p>
+
+<p>Get a list of reports belonging to the authenticated user.</p>
+
+<span id="example-requests-GETapi-v1-user-reports">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://ufo.test/api/v1/user/reports" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://ufo.test/api/v1/user/reports"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-user-reports">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: &quot;9a7f0558-ed70-47e3-b75e-3bd352d124ea&quot;,
+            &quot;user_id&quot;: &quot;9a7f0558-eca7-4751-82b3-6035071ace46&quot;,
+            &quot;summary&quot;: &quot;Quisquam omnis ut ut aliquid qui natus est.&quot;,
+            &quot;country&quot;: &quot;Guinea-Bissau&quot;,
+            &quot;state&quot;: &quot;Pennsylvania&quot;,
+            &quot;city&quot;: &quot;Baileyside&quot;,
+            &quot;lat&quot;: 53.641885,
+            &quot;long&quot;: 72.956004,
+            &quot;date&quot;: {
+                &quot;date&quot;: &quot;1999-09-08 01:14:25.000000&quot;,
+                &quot;timezone_type&quot;: 3,
+                &quot;timezone&quot;: &quot;UTC&quot;
+            },
+            &quot;duration&quot;: 5,
+            &quot;object_shape&quot;: &quot;aut&quot;,
+            &quot;number_of_observers&quot;: 5,
+            &quot;details&quot;: &quot;Quis tempore enim voluptas qui voluptas quis. Asperiores nam explicabo explicabo omnis. Mollitia sit nihil sunt reprehenderit.&quot;
+        },
+        {
+            &quot;id&quot;: &quot;9a7f0558-ef09-4156-8326-7f8041f40709&quot;,
+            &quot;user_id&quot;: &quot;9a7f0558-ee57-48a3-84c3-31afbec43585&quot;,
+            &quot;summary&quot;: &quot;Distinctio tenetur facere dolor maxime.&quot;,
+            &quot;country&quot;: &quot;Somalia&quot;,
+            &quot;state&quot;: &quot;Louisiana&quot;,
+            &quot;city&quot;: &quot;Paucekside&quot;,
+            &quot;lat&quot;: -49.25626,
+            &quot;long&quot;: 43.455365,
+            &quot;date&quot;: {
+                &quot;date&quot;: &quot;1998-01-12 04:27:20.000000&quot;,
+                &quot;timezone_type&quot;: 3,
+                &quot;timezone&quot;: &quot;UTC&quot;
+            },
+            &quot;duration&quot;: 47,
+            &quot;object_shape&quot;: &quot;ab&quot;,
+            &quot;number_of_observers&quot;: 8,
+            &quot;details&quot;: &quot;Alias nostrum quas qui. Pariatur perferendis occaecati sit eveniet quo tenetur vitae sed. Sunt vero repellat delectus ea natus.&quot;
+        }
+    ],
+    &quot;links&quot;: {
+        &quot;first&quot;: &quot;/?page=1&quot;,
+        &quot;last&quot;: &quot;/?page=1&quot;,
+        &quot;prev&quot;: null,
+        &quot;next&quot;: null
+    },
+    &quot;meta&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;from&quot;: 1,
+        &quot;last_page&quot;: 1,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;/?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;active&quot;: false
+            }
+        ],
+        &quot;path&quot;: &quot;/&quot;,
+        &quot;per_page&quot;: 15,
+        &quot;to&quot;: 2,
+        &quot;total&quot;: 2
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-user-reports" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-user-reports"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user-reports"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-user-reports" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-user-reports">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-user-reports" data-method="GET"
+      data-path="api/v1/user/reports"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-reports', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/user/reports</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-user-reports"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-user-reports"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
 
                 <h1 id="users">Users</h1>
 
-    <p>Endpoints for managing users.</p>
+    <p>Endpoints for managing user.</p>
 
-                                <h2 id="users-GETapi-v1-users--user_id--reports">List user reports</h2>
-
-<p>
-</p>
-
-<p>Get a list of reports of a user.</p>
-
-<span id="example-requests-GETapi-v1-users--user_id--reports">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://ufo.test/api/v1/users//reports" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://ufo.test/api/v1/users//reports"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-v1-users--user_id--reports">
-            <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: [
-        {
-            &quot;id&quot;: &quot;9a7aa651-6ec3-46a2-bc33-4861ca91c3bb&quot;,
-            &quot;user_id&quot;: &quot;9a7aa651-6db6-4965-a5c9-a9fc2cca0426&quot;,
-            &quot;summary&quot;: &quot;Alias sit autem dolores et non id.&quot;,
-            &quot;country&quot;: &quot;France&quot;,
-            &quot;state&quot;: &quot;Wyoming&quot;,
-            &quot;city&quot;: &quot;North Destinee&quot;,
-            &quot;lat&quot;: 56.47191,
-            &quot;long&quot;: 51.011929,
-            &quot;date&quot;: {
-                &quot;date&quot;: &quot;1995-02-18 04:17:31.000000&quot;,
-                &quot;timezone_type&quot;: 3,
-                &quot;timezone&quot;: &quot;UTC&quot;
-            },
-            &quot;duration&quot;: 47,
-            &quot;object_shape&quot;: &quot;ut&quot;,
-            &quot;number_of_observers&quot;: 7,
-            &quot;details&quot;: &quot;Et iusto laudantium quod dolorem. Libero eum libero nesciunt ea ipsa. Necessitatibus cum vero aut dolorum. At laudantium ad possimus optio placeat.&quot;
-        },
-        {
-            &quot;id&quot;: &quot;9a7aa651-70df-44e1-98e2-3f3189349759&quot;,
-            &quot;user_id&quot;: &quot;9a7aa651-6ff0-4dbc-aa15-f4f9a897722b&quot;,
-            &quot;summary&quot;: &quot;Eveniet autem velit est tenetur consequatur eaque.&quot;,
-            &quot;country&quot;: &quot;Botswana&quot;,
-            &quot;state&quot;: &quot;Mississippi&quot;,
-            &quot;city&quot;: &quot;Blickville&quot;,
-            &quot;lat&quot;: -34.708886,
-            &quot;long&quot;: -91.203492,
-            &quot;date&quot;: {
-                &quot;date&quot;: &quot;2010-02-06 16:58:01.000000&quot;,
-                &quot;timezone_type&quot;: 3,
-                &quot;timezone&quot;: &quot;UTC&quot;
-            },
-            &quot;duration&quot;: 47,
-            &quot;object_shape&quot;: &quot;minima&quot;,
-            &quot;number_of_observers&quot;: 2,
-            &quot;details&quot;: &quot;Eveniet dolorem doloribus est sapiente nulla fugit. Cum delectus voluptatem atque et harum. Voluptates aliquid dolorem voluptas architecto nostrum maxime.&quot;
-        }
-    ],
-    &quot;links&quot;: {
-        &quot;first&quot;: &quot;/?page=1&quot;,
-        &quot;last&quot;: &quot;/?page=1&quot;,
-        &quot;prev&quot;: null,
-        &quot;next&quot;: null
-    },
-    &quot;meta&quot;: {
-        &quot;current_page&quot;: 1,
-        &quot;from&quot;: 1,
-        &quot;last_page&quot;: 1,
-        &quot;links&quot;: [
-            {
-                &quot;url&quot;: null,
-                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
-                &quot;active&quot;: false
-            },
-            {
-                &quot;url&quot;: &quot;/?page=1&quot;,
-                &quot;label&quot;: &quot;1&quot;,
-                &quot;active&quot;: true
-            },
-            {
-                &quot;url&quot;: null,
-                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
-                &quot;active&quot;: false
-            }
-        ],
-        &quot;path&quot;: &quot;/&quot;,
-        &quot;per_page&quot;: 15,
-        &quot;to&quot;: 2,
-        &quot;total&quot;: 2
-    }
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-v1-users--user_id--reports" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-users--user_id--reports"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-users--user_id--reports"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-v1-users--user_id--reports" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-users--user_id--reports">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-v1-users--user_id--reports" data-method="GET"
-      data-path="api/v1/users/{user_id}/reports"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users--user_id--reports', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/v1/users/{user_id}/reports</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-v1-users--user_id--reports"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-v1-users--user_id--reports"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="user_id"                data-endpoint="GETapi-v1-users--user_id--reports"
-               value=""
-               data-component="url">
-    <br>
-<p>The ID of the user.</p>
-            </div>
-                    </form>
-
-                    <h2 id="users-GETapi-v1-users--user_id--dossiers">List user dossiers</h2>
-
-<p>
-</p>
-
-<p>Get a list of dossiers of a user.</p>
-
-<span id="example-requests-GETapi-v1-users--user_id--dossiers">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://ufo.test/api/v1/users//dossiers" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://ufo.test/api/v1/users//dossiers"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-v1-users--user_id--dossiers">
-            <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: [
-        {
-            &quot;id&quot;: &quot;9a7aa651-870b-4d83-ac2e-976a0859f51b&quot;,
-            &quot;title&quot;: &quot;Accusantium aut eos sit quis quidem ad ut.&quot;,
-            &quot;description&quot;: &quot;Et qui omnis consequatur ratione. Maiores consequatur est dignissimos. Non sed expedita ullam sed similique et quod.&quot;,
-            &quot;created_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
-            &quot;user_id&quot;: &quot;9a7aa651-865d-4bd5-841d-00721d093d2d&quot;
-        },
-        {
-            &quot;id&quot;: &quot;9a7aa651-88bb-44f7-8205-bfcc7a447066&quot;,
-            &quot;title&quot;: &quot;Reiciendis dolor magnam sed.&quot;,
-            &quot;description&quot;: &quot;Ex tempore dolor et delectus vero culpa tenetur. Numquam neque et qui vel exercitationem eum.&quot;,
-            &quot;created_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
-            &quot;user_id&quot;: &quot;9a7aa651-87e5-4644-8567-49298649e69a&quot;
-        }
-    ],
-    &quot;links&quot;: {
-        &quot;first&quot;: &quot;/?page=1&quot;,
-        &quot;last&quot;: &quot;/?page=1&quot;,
-        &quot;prev&quot;: null,
-        &quot;next&quot;: null
-    },
-    &quot;meta&quot;: {
-        &quot;current_page&quot;: 1,
-        &quot;from&quot;: 1,
-        &quot;last_page&quot;: 1,
-        &quot;links&quot;: [
-            {
-                &quot;url&quot;: null,
-                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
-                &quot;active&quot;: false
-            },
-            {
-                &quot;url&quot;: &quot;/?page=1&quot;,
-                &quot;label&quot;: &quot;1&quot;,
-                &quot;active&quot;: true
-            },
-            {
-                &quot;url&quot;: null,
-                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
-                &quot;active&quot;: false
-            }
-        ],
-        &quot;path&quot;: &quot;/&quot;,
-        &quot;per_page&quot;: 15,
-        &quot;to&quot;: 2,
-        &quot;total&quot;: 2
-    }
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-v1-users--user_id--dossiers" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-users--user_id--dossiers"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-users--user_id--dossiers"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-v1-users--user_id--dossiers" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-users--user_id--dossiers">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-v1-users--user_id--dossiers" data-method="GET"
-      data-path="api/v1/users/{user_id}/dossiers"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users--user_id--dossiers', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/v1/users/{user_id}/dossiers</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-v1-users--user_id--dossiers"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-v1-users--user_id--dossiers"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="user_id"                data-endpoint="GETapi-v1-users--user_id--dossiers"
-               value=""
-               data-component="url">
-    <br>
-<p>The ID of the user.</p>
-            </div>
-                    </form>
-
-                    <h2 id="users-GETapi-v1-users">List users</h2>
+                                <h2 id="users-GETapi-v1-users">List users</h2>
 
 <p>
 </p>
@@ -3706,16 +3426,16 @@ fetch(url, {
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: &quot;9a7aa651-8c1d-41b8-a77a-7ee004f35209&quot;,
-            &quot;username&quot;: &quot;martin41&quot;,
-            &quot;created_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;
+            &quot;id&quot;: &quot;9a7f0558-a34c-4c17-b911-2e3d9a703568&quot;,
+            &quot;username&quot;: &quot;axel65&quot;,
+            &quot;created_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;
         },
         {
-            &quot;id&quot;: &quot;9a7aa651-8cfb-4cd3-9794-3c838d0ee05d&quot;,
-            &quot;username&quot;: &quot;treilly&quot;,
-            &quot;created_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;
+            &quot;id&quot;: &quot;9a7f0558-a45e-4d89-810f-95728a65359e&quot;,
+            &quot;username&quot;: &quot;imarvin&quot;,
+            &quot;created_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;
         }
     ],
     &quot;links&quot;: {
@@ -3812,7 +3532,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>
 </p>
 
-<p>Get a user by its ID.</p>
+<p>Returns a single user specified by the ID.</p>
 
 <span id="example-requests-GETapi-v1-users--id-">
 <blockquote>Example request:</blockquote>
@@ -3850,10 +3570,10 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: &quot;9a7aa651-8ff0-4347-b1e1-0b36dd4e8795&quot;,
-        &quot;username&quot;: &quot;derick.hartmann&quot;,
-        &quot;created_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;
+        &quot;id&quot;: &quot;9a7f0558-a7c7-4ab9-9347-f4fbb15e8368&quot;,
+        &quot;username&quot;: &quot;webster.schiller&quot;,
+        &quot;created_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;
     }
 }</code>
  </pre>
@@ -3924,56 +3644,42 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="users-PUTapi-v1-users--id-">Update a user</h2>
+                    <h2 id="users-GETapi-v1-user">Get the authenticated user.</h2>
 
 <p>
-<small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>Update a user by its ID.</p>
+<p>Returns the authenticated user.</p>
 
-<span id="example-requests-PUTapi-v1-users--id-">
+<span id="example-requests-GETapi-v1-user">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
-    <pre><code class="language-bash">curl --request PUT \
-    "http://ufo.test/api/v1/users/" \
-    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://ufo.test/api/v1/user" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"email\": \"shaina.kilback@example.net\",
-    \"password\": \"z$O`p[b^,XMC`-_26Q\"
-}"
-</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://ufo.test/api/v1/users/"
+    "http://ufo.test/api/v1/user"
 );
 
 const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
-let body = {
-    "email": "shaina.kilback@example.net",
-    "password": "z$O`p[b^,XMC`-_26Q"
-};
-
 fetch(url, {
-    method: "PUT",
+    method: "GET",
     headers,
-    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
 
-<span id="example-responses-PUTapi-v1-users--id-">
+<span id="example-responses-GETapi-v1-user">
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
@@ -3981,65 +3687,50 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: &quot;9a7aa651-c89a-4c13-a033-6eaf7219ce3e&quot;,
-        &quot;username&quot;: &quot;belle34&quot;,
-        &quot;created_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2023-10-28T17:54:30.000000Z&quot;
+        &quot;id&quot;: &quot;9a7f0558-e5d9-4735-9fea-28e4ffda7947&quot;,
+        &quot;username&quot;: &quot;effie52&quot;,
+        &quot;created_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;
     }
 }</code>
  </pre>
     </span>
-<span id="execution-results-PUTapi-v1-users--id-" hidden>
+<span id="execution-results-GETapi-v1-user" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-PUTapi-v1-users--id-"></span>:
+                id="execution-response-status-GETapi-v1-user"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-PUTapi-v1-users--id-"
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-PUTapi-v1-users--id-" hidden>
+<span id="execution-error-GETapi-v1-user" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-PUTapi-v1-users--id-">
+    <pre><code id="execution-error-message-GETapi-v1-user">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-PUTapi-v1-users--id-" data-method="PUT"
-      data-path="api/v1/users/{id}"
-      data-authed="1"
+<form id="form-GETapi-v1-user" data-method="GET"
+      data-path="api/v1/user"
+      data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-users--id-', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
             </h3>
             <p>
-            <small class="badge badge-darkblue">PUT</small>
-            <b><code>api/v1/users/{id}</code></b>
-        </p>
-            <p>
-            <small class="badge badge-purple">PATCH</small>
-            <b><code>api/v1/users/{id}</code></b>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/user</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-users--id-"
-               value="Bearer {YOUR_AUTH_KEY}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
-            </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="PUTapi-v1-users--id-"
+                              name="Content-Type"                data-endpoint="GETapi-v1-user"
                value="application/json"
                data-component="header">
     <br>
@@ -4050,46 +3741,164 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="PUTapi-v1-users--id-"
+                              name="Accept"                data-endpoint="GETapi-v1-user"
                value="application/json"
                data-component="header">
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+                        </form>
+
+                    <h2 id="users-PUTapi-v1-user">Update the authenticated user.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Update the email and password of the authenticated user.</p>
+
+<span id="example-requests-PUTapi-v1-user">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://ufo.test/api/v1/user" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"frederik.mohr@example.net\",
+    \"password\": \"Ct*yiE7+qfeo%3d\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://ufo.test/api/v1/user"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "frederik.mohr@example.net",
+    "password": "Ct*yiE7+qfeo%3d"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-v1-user">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: &quot;9a7f0558-e95a-429f-915b-cfc6047724c1&quot;,
+        &quot;username&quot;: &quot;khaag&quot;,
+        &quot;created_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-10-30T22:03:32.000000Z&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-v1-user" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-v1-user"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-v1-user"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-v1-user" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-v1-user">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-v1-user" data-method="PUT"
+      data-path="api/v1/user"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-user', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/v1/user</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="id"                data-endpoint="PUTapi-v1-users--id-"
-               value=""
-               data-component="url">
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-user"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
     <br>
-<p>The ID of the user.</p>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
             </div>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-v1-user"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-v1-user"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="email"                data-endpoint="PUTapi-v1-users--id-"
-               value="shaina.kilback@example.net"
+                              name="email"                data-endpoint="PUTapi-v1-user"
+               value="frederik.mohr@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>shaina.kilback@example.net</code></p>
+<p>Must be a valid email address. Example: <code>frederik.mohr@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="password"                data-endpoint="PUTapi-v1-users--id-"
-               value="z$O`p[b^,XMC`-_26Q"
+                              name="password"                data-endpoint="PUTapi-v1-user"
+               value="Ct*yiE7+qfeo%3d"
                data-component="body">
     <br>
-<p>Must be at least 8 characters. Example: <code>z$O</code>p[b^,XMC<code>-_26Q</code></p>
+<p>Must be at least 8 characters. Example: <code>Ct*yiE7+qfeo%3d</code></p>
         </div>
         </form>
 

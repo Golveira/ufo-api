@@ -2,29 +2,23 @@
 
 use App\Http\Controllers\Api\V1\Auth\LoginController;
 use App\Http\Controllers\Api\V1\Auth\RegisterController;
+use App\Http\Controllers\Api\V1\AuthenticatedUserController;
+use App\Http\Controllers\Api\V1\AuthenticatedUserDossierController;
+use App\Http\Controllers\Api\V1\AuthenticatedUserReportController;
 use App\Http\Controllers\Api\V1\DossierController;
 use App\Http\Controllers\Api\V1\DossierReportController;
 use App\Http\Controllers\Api\V1\ReportController;
 use App\Http\Controllers\Api\V1\ReportImageController;
 use App\Http\Controllers\Api\V1\UserController;
-use App\Http\Controllers\Api\V1\UserDossierController;
-use App\Http\Controllers\Api\V1\UserReportController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
 Route::prefix('v1')->group(function () {
     // Reports
     Route::apiResource('reports', ReportController::class)->only(['index', 'show']);
-    Route::apiResource('users.reports', UserReportController::class)->only('index');
     Route::apiResource('dossiers.reports', DossierReportController::class)->only('index');
 
     // Dossiers
     Route::apiResource('dossiers', DossierController::class)->only(['index', 'show']);
-    Route::apiResource('users.dossiers', UserDossierController::class)->only('index');
 
     // Users
     Route::apiResource('users', UserController::class)->only(['index', 'show']);
@@ -32,14 +26,17 @@ Route::prefix('v1')->group(function () {
     Route::middleware('auth:sanctum')->group(function () {
         // Reports
         Route::apiResource('reports', ReportController::class)->only(['store', 'update', 'destroy']);
-        Route::apiResource('reports.images', ReportImageController::class)->only(['index', 'store', 'destroy']);
+        Route::apiResource('reports.images', ReportImageController::class)->only(['store', 'destroy']);
 
         // Dossiers
         Route::apiResource('dossiers', DossierController::class)->only(['store', 'update', 'destroy']);
         Route::apiResource('dossiers.reports', DossierReportController::class)->only(['store', 'destroy']);
 
-        // Users
-        Route::apiResource('users', UserController::class)->only(['update', 'delete']);
+        // User
+        Route::get('/user', [AuthenticatedUserController::class, 'show'])->name('user.show');
+        Route::put('/user', [AuthenticatedUserController::class, 'update'])->name('user.update');
+        Route::get('/user/reports', [AuthenticatedUserReportController::class, 'index'])->name('user.reports.index');
+        Route::get('/user/dossiers', [AuthenticatedUserDossierController::class, 'index'])->name('user.dossiers.index');
     });
 
     // Auth routes

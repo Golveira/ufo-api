@@ -12,6 +12,7 @@ class UserResource extends JsonResource
         return [
             'id' => $this->id,
             'username' => $this->username,
+            'email' => $this->when($request->user(), $this->email),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'reports_count' => $this->whenCounted('reports'),

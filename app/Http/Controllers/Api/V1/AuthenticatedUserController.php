@@ -24,7 +24,9 @@ class AuthenticatedUserController extends Controller
      */
     public function show(Request $request): UserResource
     {
-        return new UserResource($request->user());
+        return new UserResource(
+            $request->user()->loadCount(['reports', 'dossiers'])
+        );
     }
 
     /**

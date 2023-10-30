@@ -28,6 +28,7 @@ class AuthenticatedUserReportController extends Controller
         return ReportResource::collection(
             $request->user()
                 ->reports()
+                ->withCount('images')
                 ->latest()
                 ->paginate()
         );

@@ -29,7 +29,10 @@ class DossierReportController extends Controller
     public function index(Dossier $dossier): ResourceCollection
     {
         return ReportResource::collection(
-            $dossier->reports()->latest()->paginate()
+            $dossier->reports()
+                ->withCount('images')
+                ->latest()
+                ->paginate()
         );
     }
 

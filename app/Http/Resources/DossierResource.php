@@ -15,9 +15,8 @@ class DossierResource extends JsonResource
             'description' => $this->description,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'user_id' => $this->user_id,
             'reports_count' => $this->whenCounted('reports'),
-            'owner' => new UserResource($this->whenLoaded('user')),
+            'owner' => new UserResource($this->whenLoaded('user'))
         ];
     }
 }
